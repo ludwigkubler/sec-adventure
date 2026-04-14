@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Pendolo di ottone</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="30" y="6" width="4" height="22" fill="#c08850" stroke="#1a0e05" stroke-width="1.5"/><circle cx="32" cy="6" r="3" fill="#5a3820"/><path d="M32 28 L48 50 L40 58 L24 58 L16 50 Z" fill="#d4a060" stroke="#1a0e05" stroke-width="2"/><circle cx="32" cy="42" r="6" fill="#c08850" opacity="0.6"/>
+</svg>

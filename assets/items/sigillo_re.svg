@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Sigillo del Re</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="14" y="20" width="36" height="36" fill="#1a1208" stroke="#1a0e05" stroke-width="2"/><circle cx="32" cy="38" r="14" fill="#c08850" stroke="#1a0e05" stroke-width="1.5"/><polygon points="32,28 36,36 44,36 38,42 40,50 32,46 24,50 26,42 20,36 28,36" fill="#1a0e05"/><rect x="22" y="6" width="20" height="14" fill="#5a3820" stroke="#1a0e05" stroke-width="1.5"/>
+</svg>

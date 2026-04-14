@@ -1,0 +1,3125 @@
+{
+  "intro": "La tempesta ti ha tradito.\n\nPer tre giorni il mare ti ha sbattuto come un giocattolo rotto, strappandoti\ntutto ciò che avevi: la barca, le provviste, i ricordi di una vita normale.\n\nQuando finalmente le onde ti hanno sputato sulla riva, eri più morto che vivo.\n\nOra ti risvegli. La sabbia è calda sotto le tue dita. Il sole ti brucia la\npelle. Il rumore del mare riempie il silenzio.\n\nSei vivo. Ma sei solo.\n\nE quest'isola... non è su nessuna mappa.",
+  "finale": "Il momento in cui la gemma si incastra, tutto cambia.\n\nIl meccanismo si risveglia con un ruggito di ingranaggi. Gli specchi ruotano,\nil cristallo vulcanico si accende di una luce ambrata impossibile, la gemma\npulsa come un cuore che torna a battere dopo millenni di silenzio.\n\nUn raggio di luce pura esplode dalla cima del faro — taglia il cielo del\ntramonto come una spada d'oro, visibile per miglia e miglia sull'oceano.\n\nCorri fuori. Il fascio di luce ruota lentamente, spazzando l'orizzonte.\n\nE poi... la vedi.\n\nUna nave. Una piccola nave da carico, a forse dieci miglia dalla costa.\nIl suo percorso si curva — sta cambiando rotta. Viene verso di te.\n\nScendi di corsa verso il villaggio. Kaia è sulla soglia della sua capanna,\ncon le lacrime che le rigano il viso. Marco è in ginocchio sulla spiaggia,\nche ride e piange insieme. Tiko salta e urla di gioia dal molo.\n\nLuna appare dal margine della foresta, silenziosa come sempre. Ti guarda\ne annuisce — un piccolo sorriso sulle labbra.\n\nLa nave getta l'ancora al largo della baia. Una scialuppa si avvicina.\n\nÈ finita. Ce l'hai fatta.\n\nMentre sali sulla scialuppa, ti volti un'ultima volta. L'isola è\nbellissima — verde, selvaggia, misteriosa. Il faro brilla sulla\npunta delle scogliere come una stella terrestre.\n\nKaia alza la mano in un saluto. Marco è già sulla scialuppa con te,\nche si asciuga gli occhi con il dorso della mano. Tiko resta — questa\nè la sua casa.\n\nLuna è scomparsa. Ma tra le tue cose trovi un sacchetto di erbe\nche non c'era prima, con un biglietto: \"Per il viaggio.\"\n\nL'isola si allontana lentamente.\n\nNon la dimenticherai mai.",
+  "rooms": {
+    "spiaggia": {
+      "nome": "Spiaggia del Naufragio",
+      "descrizione": "Ti trovi su una spiaggia di sabbia dorata macchiata dai resti del naufragio. Tavole di legno spezzate, brandelli di vela e corde aggrovigliate giacciono sparsi come le ossa di un animale marino. Le onde si infrangono pigramente sulla riva, portando con sé l'odore pungente del sale e delle alghe.\n\nIl relitto della tua imbarcazione è arenato poco più in là, inclinato su un fianco come un gigante ferito. A nord, una fitta vegetazione tropicale segna l'inizio di una foresta. Verso est, le rocce si incurvano a formare una piccola caletta.",
+      "descrizione_breve": "La spiaggia del naufragio. Relitti sparsi sulla sabbia dorata. La foresta è a nord, una caletta rocciosa a est.",
+      "uscite": {
+        "nord": "foresta",
+        "est": "caletta"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "legna",
+        "corda"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "relitto": "Il relitto della tua barca è irrecuperabile. Lo scafo è squarciato in più punti, l'albero maestro spezzato. Tra i rottami riesci a distinguere qualche tavola ancora utilizzabile e dei pezzi di corda.",
+        "mare": "Il mare si estende infinito fino all'orizzonte. Nessuna vela, nessuna terra in vista. Solo acqua blu e cielo azzurro che si confondono in lontananza.",
+        "sabbia": "Sabbia fine e dorata, punteggiata di conchiglie e detriti. Le tue impronte sono le uniche visibili."
+      }
+    },
+    "caletta": {
+      "nome": "Caletta Rocciosa",
+      "descrizione": "Una piccola insenatura protetta da pareti di roccia scura, levigate dall'erosione di millenni. Pozze di marea brulicano di vita — piccoli granchi, anemoni dai colori vivaci, stelle marine aggrappate alle rocce.\n\nLe pareti della caletta sono coperte di muschio e licheni. A ovest torni alla spiaggia. A nord un sentiero risale verso l'interno dell'isola. Verso est, un'apertura scura nella roccia sembra condurre a delle grotte marine.",
+      "descrizione_breve": "La caletta rocciosa con le sue pozze di marea. Spiaggia a ovest, sentiero a nord, grotte a est.",
+      "uscite": {
+        "ovest": "spiaggia",
+        "nord": "radura"
+      },
+      "uscite_bloccate": {
+        "est": {
+          "condizione": "oggetto:torcia",
+          "messaggio": "L'apertura nella roccia conduce nell'oscurità più totale. Senza una fonte di luce, sarebbe follia avventurarsi là dentro."
+        }
+      },
+      "oggetti": [
+        "pietra_focaia",
+        "conchiglia"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "pozze": "Le pozze di marea sono piccoli mondi in miniatura. Granchi minuscoli fuggono tra le alghe, e un polipetto ti osserva con occhi intelligenti prima di cambiare colore e sparire.",
+        "rocce": "Le pareti rocciose sono di basalto scuro, vulcanico. Quest'isola deve essere nata da un vulcano, forse millenni fa."
+      }
+    },
+    "grotte": {
+      "nome": "Grotte Marine",
+      "descrizione": "La luce della torcia danza sulle pareti umide delle grotte, rivelando formazioni di stalattiti che pendono dal soffitto come dita di pietra. Il suono dell'acqua che gocciola crea un ritmo ipnotico, amplificato dall'eco delle caverne.\n\nMacchie di muschio bioluminescente punteggiano le pareti di un verde spettrale. L'aria è fresca e sa di minerale. Sul fondo della grotta, l'acqua si fa più profonda e scura — sembra che la caverna continui giù, sott'acqua.\n\nL'uscita verso la caletta è a ovest.",
+      "descrizione_breve": "Le grotte marine, illuminate dal muschio bioluminescente. Un passaggio sommerso conduce giù, l'uscita è a ovest.",
+      "uscite": {
+        "ovest": "caletta"
+      },
+      "uscite_bloccate": {
+        "giù": {
+          "condizione": "oggetto:attrezzatura_sub",
+          "messaggio": "L'acqua è troppo profonda e scura. Senza attrezzatura subacquea, immergersi sarebbe un suicidio. Chissà cosa si nasconde là sotto..."
+        }
+      },
+      "oggetti": [
+        "lama_antica",
+        "artefatto_sacro"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "stalattiti": "Formazioni calcaree millenarie. Alcune hanno forme bizzarre, quasi antropomorfe, come sentinelle di pietra.",
+        "muschio": "Il muschio bioluminescente emana una luce verde tenue ma costante. È una forma di vita affascinante, che prospera nell'oscurità totale di queste grotte.",
+        "acqua": "L'acqua è cristallina in superficie ma diventa nera come l'inchiostro pochi metri più in basso. Sembra molto profonda. Intravedi delle strutture regolari sul fondo... artificiali?"
+      }
+    },
+    "tempio_sommerso": {
+      "nome": "Tempio Sommerso",
+      "descrizione": "Emergi in una camera d'aria all'interno di un tempio sottomarino. Le pareti sono coperte di coralli e incrostazioni marine, ma sotto di esse si intravedono bassorilievi di straordinaria fattura — figure umane in processione, creature marine mitologiche, simboli di un linguaggio dimenticato.\n\nUn altare di pietra nera domina il centro della sala, circondato da colonne spezzate. L'acqua lambisce il pavimento a mosaico, e la luce filtra dall'alto attraverso un'apertura naturale nel corallo, creando riflessi danzanti.\n\nL'unica via è tornare su attraverso il passaggio sommerso.",
+      "descrizione_breve": "Il tempio sommerso. Un altare di pietra nera, colonne spezzate, bassorilievi antichi. Risali su per uscire.",
+      "uscite": {
+        "su": "grotte"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "sigillo_antico",
+        "tridente",
+        "corona_corallo"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "altare": "L'altare è scolpito da un unico blocco di ossidiana. Sulla superficie sono incisi cerchi concentrici e simboli che sembrano rappresentare le fasi lunari. Al centro, un'incavatura circolare — come se mancasse qualcosa.",
+        "bassorilievi": "I bassorilievi mostrano una civiltà marina avanzata. Persone che vivevano sia sulla terra che sott'acqua. L'ultima scena mostra un grande cataclisma — un vulcano che erutta, onde gigantesche, e la civiltà che scompare sotto le acque.",
+        "colonne": "Colonne di marmo bianco, ora ricoperte di coralli colorati. Dovevano essere magnifiche, un tempo."
+      }
+    },
+    "foresta": {
+      "nome": "Foresta Costiera",
+      "descrizione": "La spiaggia cede il passo a una foresta tropicale rigogliosa. Palme altissime si intrecciano con alberi dalle radici contorte, creando una volta di foglie che filtra la luce del sole in raggi dorati. Il terreno è morbido, coperto di foglie cadute e muschio.\n\nIl canto degli uccelli tropicali riempie l'aria, accompagnato dal ronzio degli insetti e dal fruscio di creature nascoste tra la vegetazione. L'aria è umida e profumata di fiori e terra.\n\nA sud si torna alla spiaggia. A nord il sentiero prosegue verso quello che sembra un insediamento. A est una radura si apre tra gli alberi. A ovest le scogliere meridionali.",
+      "descrizione_breve": "La foresta costiera, rigogliosa e piena di vita. Spiaggia a sud, insediamento a nord, radura a est, scogliere a ovest.",
+      "uscite": {
+        "sud": "spiaggia",
+        "nord": "villaggio",
+        "est": "radura",
+        "ovest": "scogliere_sud"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "ramo_robusto",
+        "bacche"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "alberi": "Alberi tropicali di specie sconosciute. Alcuni hanno tronchi lisci e bianchi, altri sono coperti di liane. Uno particolarmente grande ha delle tacche sul tronco, come se qualcuno lo avesse usato come punto di riferimento.",
+        "uccelli": "Pappagalli dai colori sgargianti volano tra i rami. Un tucano ti osserva con la testa inclinata, come se ti stesse valutando."
+      }
+    },
+    "radura": {
+      "nome": "Radura della Fonte",
+      "descrizione": "Una radura circolare si apre nel cuore della foresta, illuminata dal sole come un piccolo anfiteatro naturale. Al centro, una sorgente d'acqua dolce zampilla tra le rocce, formando un ruscello che serpeggia tra i fiori selvatici prima di perdersi nella vegetazione.\n\nFarfalle dai colori impossibili danzano nell'aria calda. Il posto ha una pace quasi sacra.\n\nLa foresta è a ovest. Un sentiero scende a sud verso la caletta. A nord, la vegetazione diventa incredibilmente fitta — una giungla impenetrabile.",
+      "descrizione_breve": "La radura soleggiata con la sorgente d'acqua. Foresta a ovest, caletta a sud, giungla impenetrabile a nord.",
+      "uscite": {
+        "ovest": "foresta",
+        "sud": "caletta"
+      },
+      "uscite_bloccate": {
+        "nord": {
+          "condizione": "flag:sentiero_giungla",
+          "messaggio": "La vegetazione a nord è un muro impenetrabile di liane, rovi e rami intrecciati. Servirebbe qualcosa di affilato per aprirsi un varco."
+        }
+      },
+      "oggetti": [],
+      "npcs": [],
+      "esaminabili": {
+        "fonte": "L'acqua è fresca e cristallina. Bevi a grandi sorsate — è la cosa più buona che tu abbia mai assaggiato. Ti senti subito più forte e lucido.",
+        "farfalle": "Farfalle di un blu elettrico, grandi come la tua mano. Non ne hai mai viste di simili. Quest'isola è un mondo a parte."
+      }
+    },
+    "scogliere_sud": {
+      "nome": "Scogliere Meridionali",
+      "descrizione": "Le scogliere meridionali si affacciano sul mare aperto con pareti verticali di roccia nera. Il vento soffia forte quassù, portando spruzzi di acqua salata fin sulla cima. In basso, le onde si schiantano con violenza contro le rocce.\n\nTra le fessure della roccia crescono ciuffi d'erba ostinata. Resti di una vecchia costruzione — forse un molo o una torre di avvistamento — sono visibili lungo il bordo.\n\nL'unica via sicura è tornare a est verso la foresta.",
+      "descrizione_breve": "Le scogliere battute dal vento. Resti di una vecchia costruzione. La foresta è a est.",
+      "uscite": {
+        "est": "foresta",
+        "sud": "cimitero_marino"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "chiodi_arrugginiti",
+        "messaggio_bottiglia"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "costruzione": "I resti di quella che sembra una torre di avvistamento, costruita con la stessa pietra delle scogliere. È crollata da molto tempo. Tra i detriti trovi dei chiodi arrugginiti ma ancora robusti.",
+        "mare": "Da quassù il mare è uno spettacolo terrificante e magnifico. Le onde si infrangono sulle rocce con una forza primordiale. Molto lontano, verso sud-ovest, ti sembra di vedere... una sagoma? Una nave? No, deve essere un'illusione ottica.",
+        "calata_sud": "Una scala stretta, scolpita nella roccia, scende verso una cala remota. Da quassù non si vede il fondo, ma puoi sentire il vento che porta su un odore di legno fradicio e ruggine."
+      }
+    },
+    "villaggio": {
+      "nome": "Villaggio dei Pescatori",
+      "descrizione": "Un piccolo villaggio si nasconde tra le palme, protetto dal vento. Una dozzina di capanne di legno e foglie di palma si affacciano su una piazzetta di terra battuta. Al centro, un fuoco da campo — ora spento — è circondato da tronchi usati come sedili.\n\nIl villaggio ha un'aria vissuta ma accogliente. Reti da pesca sono stese ad asciugare, pentole di terracotta si allineano lungo le pareti delle capanne, e un odore di pesce affumicato aleggia nell'aria.\n\nLa foresta è a sud. Le scogliere del nord sono a nord. Il molo è a ovest. ",
+      "descrizione_breve": "Il villaggio dei pescatori. Capanne, fuoco da campo, reti da pesca. Foresta a sud, scogliere a nord, molo a ovest.",
+      "uscite": {
+        "sud": "foresta",
+        "nord": "scogliere",
+        "ovest": "molo"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [],
+      "npcs": [
+        "kaia",
+        "marco"
+      ],
+      "esaminabili": {
+        "capanne": "Le capanne sono costruite con abilità — legno intrecciato, tetti di foglie di palma impermeabilizzati con resina. Chi vive qui sa come sopravvivere.",
+        "fuoco": "Il cerchio di pietre del focolare è annerito dall'uso. La cenere è fredda ma recente. Qualcuno ha acceso questo fuoco non molto tempo fa.",
+        "reti": "Reti da pesca artigianali, fatte con fibre vegetali intrecciate con pazienza. Alcune hanno bisogno di riparazioni."
+      }
+    },
+    "molo": {
+      "nome": "Molo del Villaggio",
+      "descrizione": "Un molo di legno si protende nel mare calmo di una baia naturale. Le assi scricchiolano sotto i piedi, alcune sono marce e pericolanti. All'estremità del molo, una barca da pesca è ormeggiata — ma è in pessime condizioni, con lo scafo danneggiato e le assi sconnesse.\n\nLa baia è protetta dai venti e le acque sono calme e turchesi. Si vedono pesci guizzare sotto la superficie.\n\nIl villaggio è a est.",
+      "descrizione_breve": "Il molo con la barca danneggiata. Villaggio a est.",
+      "uscite": {
+        "est": "villaggio"
+      },
+      "uscite_bloccate": {
+        "barca": {
+          "condizione": "flag:barca_riparata",
+          "messaggio": "La barca è troppo danneggiata per navigare. Lo scafo ha delle falle evidenti. Bisognerebbe ripararla..."
+        }
+      },
+      "oggetti": [],
+      "npcs": [
+        "tiko"
+      ],
+      "esaminabili": {
+        "barca": "Una barca da pesca tradizionale, lunga circa quattro metri. Lo scafo ha due grosse falle e le giunture si sono allentate. Con i materiali giusti — della resina per sigillare e dei chiodi per rinforzare — potrebbe tornare a navigare.",
+        "baia": "Le acque della baia sono incredibilmente limpide. Si vede il fondale di sabbia bianca e i banchi di pesci colorati. Oltre la baia, verso ovest, si intravede una laguna nascosta tra le mangrovie."
+      }
+    },
+    "giungla": {
+      "nome": "Giungla Interna",
+      "descrizione": "La giungla ti avvolge come una creatura vivente. Alberi enormi si elevano verso il cielo, le loro chiome intrecciate a formare un tetto verde che blocca quasi tutta la luce. Liane spesse come braccia pendono ovunque, e il terreno è un groviglio di radici, muschio e foglie in decomposizione.\n\nL'aria è densa e umida, quasi solida. Il ronzio degli insetti è assordante, interrotto dal verso occasionale di qualche creatura nascosta. Gocce di condensa cadono dalle foglie come una pioggia perpetua.\n\nLa radura è a sud. La giungla si fa ancora più fitta a nord. A est, intravedi delle strutture in pietra tra la vegetazione.",
+      "descrizione_breve": "La giungla interna, densa e umida. Radura a sud, giungla profonda a nord, rovine a est.",
+      "uscite": {
+        "sud": "radura",
+        "nord": "giungla_profonda"
+      },
+      "uscite_bloccate": {
+        "est": {
+          "condizione": "oggetto:medaglione",
+          "messaggio": "Tra la vegetazione intravedi le sagome di antiche rovine in pietra. Ma l'ingresso è bloccato da un portale di pietra con un'incavatura circolare al centro. Sembra richiedere qualche tipo di chiave o medaglione."
+        }
+      },
+      "oggetti": [
+        "olio_vegetale",
+        "resina"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "liane": "Liane robuste e flessibili. Alcune sono spesse come un polso. Potrebbero reggere il peso di una persona.",
+        "alberi": "Alberi giganteschi, alti trenta metri o più. Alcuni hanno tronchi che trasudano una resina ambrata e profumata.",
+        "insetti": "Uno scarabeo grande come un pugno ti cammina vicino, indifferente alla tua presenza. Le sue elitre brillano di un verde metallico."
+      }
+    },
+    "giungla_profonda": {
+      "nome": "Giungla Profonda",
+      "descrizione": "Sei nel cuore pulsante della giungla. Qui la vegetazione è così densa che la luce del sole è solo un ricordo lontano. Funghi fosforescenti crescono sui tronchi marci, emanando una luce verdastra e inquietante.\n\nIl terreno è paludoso in alcuni punti. Radici aeree scendono dagli alberi come tentacoli. Il verso di un animale grande — forse una scimmia, forse qualcosa di più antico — risuona tra le fronde.\n\nLa giungla più aperta è a sud. A est un sentiero porta a una capanna. A nord, un dirupo scende verso un sentiero di montagna.",
+      "descrizione_breve": "La giungla profonda e oscura. Giungla a sud, capanna a est, dirupo a nord.",
+      "uscite": {
+        "sud": "giungla",
+        "est": "capanna_luna",
+        "sudest": "bivio_giungla"
+      },
+      "uscite_bloccate": {
+        "nord": {
+          "condizione": "flag:corda_montagna",
+          "messaggio": "Un dirupo si apre davanti a te — il sentiero della montagna è visibile in basso, ma il salto è di diversi metri. Avresti bisogno di una corda per scendere in sicurezza."
+        }
+      },
+      "oggetti": [
+        "pianta_rara"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "funghi": "Funghi bioluminescenti di diverse specie — alcuni a forma di coppa, altri come piccoli ombrelli. La loro luce verde crea un'atmosfera irreale, come se fossi in un altro mondo.",
+        "dirupo": "Il dirupo è profondo una decina di metri. Il sentiero della montagna è visibile in basso. Con una corda legata a uno di questi alberi robusti, potresti scendere senza problemi.",
+        "sentiero_sudest": "Verso sud-est, un sentiero stretto si addentra fra i tronchi più alti. Si intuisce un'apertura — forse un crocevia."
+      }
+    },
+    "capanna_luna": {
+      "nome": "Capanna di Luna",
+      "descrizione": "Una capanna sorprendentemente accogliente si nasconde in una piccola radura della giungla profonda. Le pareti sono di bambù intrecciato, il tetto di foglie di palma. Mazzi di erbe sono appesi ad asciugare ovunque — dai travicelli del soffitto, lungo le pareti, persino sulla porta d'ingresso.\n\nL'aria è satura di profumi — salvia, menta, qualcosa di dolce e speziato che non riconosci. Un mortaio di pietra è posato su un tavolo improvvisato, accanto a file di vasetti di terracotta pieni di polveri e unguenti.\n\nLa giungla è a ovest.",
+      "descrizione_breve": "La capanna di Luna, piena di erbe e profumi. La giungla è a ovest.",
+      "uscite": {
+        "ovest": "giungla_profonda"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [],
+      "npcs": [
+        "luna"
+      ],
+      "esaminabili": {
+        "erbe": "Decine di specie diverse: alcune le riconosci — rosmarino, salvia, timo — ma altre sono completamente sconosciute, con foglie di forme e colori bizzarri.",
+        "mortaio": "Un mortaio di pietra lavica, liscio dall'uso. Dentro ci sono residui di una polvere verde brillante.",
+        "vasetti": "Vasetti etichettati con simboli che non comprendi. Ogni vasetto contiene una polvere o un unguento di colore diverso. Luna sa cosa farne."
+      }
+    },
+    "sentiero_montagna": {
+      "nome": "Sentiero della Montagna",
+      "descrizione": "Un sentiero ripido e tortuoso risale il fianco del vulcano dormiente. La vegetazione si fa più rada man mano che sali — la giungla cede il passo a cespugli resistenti e licheni aggrappati alla roccia vulcanica.\n\nL'aria è più fresca qui, e il panorama si apre progressivamente. Si cominciano a vedere scorci dell'isola: la foresta verde, la linea bianca della spiaggia, il blu infinito del mare.\n\nIl sentiero prosegue in su verso la cima. Il dirupo verso la giungla è a sud.",
+      "descrizione_breve": "Il sentiero della montagna. La cima è in su, la giungla a sud.",
+      "uscite": {
+        "su": "cima_vulcano",
+        "sud": "giungla_profonda"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "piccone"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "roccia": "Roccia vulcanica, scura e porosa. In alcuni punti sono visibili cristalli incastonati nella pietra — quarzo, ossidiana, e qualcosa che luccica di un colore ambrato.",
+        "panorama": "Da qui si vede già buona parte dell'isola. La foresta copre la maggior parte del territorio. A nord-ovest intravedi le scogliere e... è quello un faro?"
+      }
+    },
+    "cima_vulcano": {
+      "nome": "Cima del Vulcano",
+      "descrizione": "Sei sulla cima del vulcano dormiente. Il cratere si apre sotto di te — una conca immensa piena di vapori sulfurei e pozze di fango gorgogliante. Il calore è intenso, e l'odore di zolfo ti brucia le narici.\n\nMa il panorama... il panorama toglie il fiato. L'intera isola si stende ai tuoi piedi come una mappa vivente. La spiaggia dorata a sud, la giungla verde al centro, le scogliere nere a nord con il vecchio faro, la laguna nascosta a ovest. E tutto intorno, l'oceano infinito.\n\nSul bordo del cratere, un affioramento di cristalli vulcanici luccica alla luce del sole.\n\nL'unica via è tornare giù per il sentiero.",
+      "descrizione_breve": "La cima del vulcano. Panorama mozzafiato e cristalli vulcanici. Torna giù per il sentiero.",
+      "uscite": {
+        "giù": "sentiero_montagna"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "cristallo_vulcanico"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "cratere": "Il cratere è largo un centinaio di metri. Il fondo è nascosto dai vapori, ma si sentono gorgoglii e sibili. Il vulcano dorme, ma non è morto.",
+        "panorama": "Da quassù vedi chiaramente:\n• A sud: la spiaggia del naufragio e le scogliere meridionali\n• Al centro: la foresta, la radura, il villaggio\n• A nord-ovest: le scogliere del nord con un vecchio faro\n• A ovest: una laguna nascosta tra le mangrovie\n• A est: delle rovine antiche, semi-nascoste dalla giungla\n• Il mare si estende infinito in ogni direzione",
+        "cristalli": "Cristalli vulcanici di una bellezza rara — ambrati, semi-trasparenti, con riflessi di fuoco al loro interno. Sembrano contenere l'energia stessa del vulcano."
+      }
+    },
+    "scogliere": {
+      "nome": "Scogliere del Nord",
+      "descrizione": "Le scogliere settentrionali sono le più alte dell'isola. Pareti a strapiombo di basalto nero si tuffano nel mare sessanta metri più in basso. Il vento è fortissimo quassù, e gli spruzzi delle onde arrivano fin sulla cima.\n\nAquile marine nidificano nelle fessure della roccia, e le loro grida acute si mescolano al ruggito del mare. A ovest, un vecchio faro si erge solitario sulla punta estrema delle scogliere.\n\nIl villaggio è a sud.",
+      "descrizione_breve": "Le scogliere del nord. Il faro è a ovest, il villaggio a sud.",
+      "uscite": {
+        "sud": "villaggio"
+      },
+      "uscite_bloccate": {
+        "ovest": {
+          "condizione": "oggetto:chiave_faro",
+          "messaggio": "Il faro è circondato da una recinzione di ferro arrugginito. Il cancello è chiuso con un lucchetto massiccio. Serve una chiave."
+        }
+      },
+      "oggetti": [
+        "frammento_mappa"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "faro": "Il faro si erge a un centinaio di metri di distanza. È una torre di pietra alta una ventina di metri, con la lanterna in cima. Sembra abbandonato da molto tempo, ma la struttura è ancora solida. Chi l'ha costruito?",
+        "nido": "Un nido d'aquila marina, costruito con rami e alghe. Contiene due uova macchiate. Meglio non disturbare — la madre ti sta osservando dall'alto con occhi gialli e affilati."
+      }
+    },
+    "faro": {
+      "nome": "Faro Abbandonato",
+      "descrizione": "L'interno del faro è una torre circolare di pietra. Una scala a chiocciola arrugginita sale fino alla lanterna in cima. Il pavimento è coperto di detriti — vetri rotti, foglie portate dal vento, escrementi di uccelli.\n\nAl centro del piano terra c'è il meccanismo di segnalazione — un complesso apparato di specchi, lenti e ingranaggi, tutto coperto di ruggine e polvere. Vicino al meccanismo, un tavolo con un vecchio diario.\n\nIn cima, la grande lente del faro è ancora intatta — opaca ma completa. Se il meccanismo funzionasse, la luce sarebbe visibile per miglia.\n\nL'uscita è a est.",
+      "descrizione_breve": "Il faro abbandonato. Il meccanismo di segnalazione è arrugginito. L'uscita è a est.",
+      "uscite": {
+        "est": "scogliere"
+      },
+      "uscite_bloccate": {
+        "giu": {
+          "condizione": "flag:faro_acceso",
+          "messaggio": "Il pavimento del faro è solido. Non ti aspetteresti di poter scendere oltre."
+        }
+      },
+      "oggetti": [
+        "diario_guardiano"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "meccanismo": "Il meccanismo di segnalazione è un capolavoro di ingegneria antica. Specchi parabolici, lenti convergenti, e un sistema di ingranaggi che doveva far ruotare la luce. Per farlo funzionare servirebbe:\n• Dell'olio per lubrificare gli ingranaggi\n• Un cristallo come fonte di luce\n• Una gemma di potere come fonte di energia\nTre elementi. Tre chiavi per accendere la speranza.",
+        "scala": "La scala a chiocciola è arrugginita ma ancora solida. Sale per una ventina di metri fino alla piattaforma della lanterna.",
+        "lente": "La grande lente del faro, fatta di un cristallo straordinariamente puro. Anche opaca com'è, i raggi del sole che la attraversano creano arcobaleni.",
+        "pavimento_faro": "Quando il faro è acceso, il pavimento di pietra si apre come un fiore di metallo. Sotto, un pozzo verticale scende nelle profondità."
+      }
+    },
+    "rovine": {
+      "nome": "Rovine Antiche",
+      "descrizione": "Le rovine di una civiltà dimenticata emergono dalla giungla come ossa di pietra. Colonne spezzate, muri crollati, archi ancora miracolosamente in piedi — tutto coperto di muschio, radici e vegetazione che si è ripresa ciò che le era stato tolto.\n\nLe pietre sono coperte di iscrizioni in un linguaggio sconosciuto — gli stessi simboli che hai visto nel tempio sommerso, se ci sei stato. Al centro delle rovine, un portale ancora intatto conduce dentro a quella che sembra una sala cerimoniale.\n\nLa giungla è a ovest.",
+      "descrizione_breve": "Le rovine antiche nella giungla. Un portale conduce dentro, la giungla è a ovest.",
+      "uscite": {
+        "ovest": "giungla",
+        "dentro": "sala_guardiano"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [],
+      "npcs": [],
+      "esaminabili": {
+        "iscrizioni": "I simboli sono eleganti e complessi. Non riesci a leggerli, ma alcune immagini sono chiare: il vulcano, il mare, persone in preghiera. E un faro — un faro che emette luce. Queste rovine e il faro sono collegati.",
+        "colonne": "Le colonne sono di un marmo verde venato di bianco. Lavoro di altissima qualità — questa civiltà era avanzata. Cosa ne ha causato la scomparsa?",
+        "portale": "Il portale è un arco di pietra scura decorato con spirali e occhi stilizzati. Il medaglione al tuo collo vibra leggermente in sua presenza."
+      }
+    },
+    "sala_guardiano": {
+      "nome": "Sala del Guardiano",
+      "descrizione": "Una sala vasta e solenne, miracolosamente intatta. Il soffitto a volta è decorato con un mosaico di stelle — e nel buio della sala, il mosaico sembra davvero brillare, come un cielo notturno in miniatura.\n\nAl centro della sala, un altare di ossidiana è circondato da un cerchio di simboli incisi nel pavimento. E sopra l'altare, una figura luminosa fluttua nell'aria — una forma umanoide fatta di luce azzurra, con occhi antichi e saggi.\n\nÈ il Guardiano delle Rovine.\n\nUn passaggio conduce fuori alle rovine. Gradini di pietra scendono giù verso una cripta.",
+      "descrizione_breve": "La sala del Guardiano luminoso. Un altare di ossidiana al centro. Fuori verso le rovine, giù verso la cripta.",
+      "uscite": {
+        "fuori": "rovine"
+      },
+      "uscite_bloccate": {
+        "giù": {
+          "condizione": "oggetto:chiave_antica",
+          "messaggio": "I gradini scendono verso una pesante porta di pietra sigillata. Al centro della porta c'è una serratura elaborata. Serve una chiave antica."
+        }
+      },
+      "oggetti": [],
+      "npcs": [
+        "guardiano"
+      ],
+      "esaminabili": {
+        "altare": "L'altare di ossidiana è identico a quello del tempio sommerso. Lo stesso materiale, gli stessi simboli concentrici. Sono parti dello stesso complesso sacro.",
+        "mosaico": "Il mosaico del soffitto rappresenta le costellazioni — ma non quelle che conosci. Sono diverse. Più antiche? O forse il cielo era diverso quando questa sala è stata costruita, migliaia di anni fa.",
+        "simboli": "I simboli sul pavimento formano un cerchio di protezione o di invocazione. La luce del Guardiano sembra generarsi proprio da questo cerchio."
+      }
+    },
+    "cripta": {
+      "nome": "Cripta Sotterranea",
+      "descrizione": "La cripta si estende sotto le rovine come un mondo sotterraneo. L'aria è fredda e immobile, carica di una tensione quasi elettrica. Sarcofagi di pietra scura sono allineati lungo le pareti, coperti di iscrizioni e bassorilievi.\n\nAl fondo della cripta, su un piedistallo di marmo, una gemma pulsa di una luce propria — un bagliore caldo e ambrato che illumina l'intera stanza con un ritmo lento, come un battito cardiaco di pietra.\n\nUna tavoletta di pietra è appoggiata al piedistallo.\n\nI gradini per tornare su sono alle tue spalle.",
+      "descrizione_breve": "La cripta sotterranea. Sarcofagi e una gemma pulsante. Gradini in su per tornare alla sala.",
+      "uscite": {
+        "su": "sala_guardiano"
+      },
+      "uscite_bloccate": {
+        "nord": {
+          "condizione": "flag:cunicolo_aperto",
+          "messaggio": "Una parete di pietra blocca il passaggio verso nord. La superficie è screpolata."
+        }
+      },
+      "oggetti": [
+        "gemma_potere",
+        "tavoletta_antica"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "sarcofagi": "I sarcofagi contengono i resti degli antichi. I bassorilievi sui coperchi mostrano volti sereni — sacerdoti, guerrieri, sapienti. Una civiltà intera, addormentata per l'eternità.",
+        "piedistallo": "Il piedistallo è intagliato con il simbolo di un faro che emette raggi di luce. La gemma posata sopra sembra essere la fonte di energia del faro stesso. È stata custodita qui per generazioni, in attesa di qualcuno che la reclamasse.",
+        "muro_screpolato": "Una crepa irregolare attraversa la parete nord. Pietre allentate sembrano nascondere un cunicolo dietro di sé. Servirebbe qualcosa di robusto per romperla."
+      }
+    },
+    "laguna": {
+      "nome": "Laguna Nascosta",
+      "descrizione": "La barca ti ha portato in una laguna nascosta, protetta da un semicerchio di mangrovie dai tronchi contorti. L'acqua è di un turchese così intenso da sembrare irreale, trasparente fino al fondale di sabbia bianca.\n\nPesci tropicali di ogni colore nuotano pigramente tra i coralli. Sulla riva opposta, i resti di quella che sembra una vecchia stazione di immersione — un capanno di legno con dell'attrezzatura ancora appesa alle pareti.\n\nPuoi tornare al molo con la barca.",
+      "descrizione_breve": "La laguna nascosta dalle acque cristalline. Torna al molo con la barca.",
+      "uscite": {
+        "barca": "molo"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "attrezzatura_sub",
+        "perla_nera"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "capanno": "Il capanno è vecchio ma ancora in piedi. All'interno trovi dell'attrezzatura subacquea — maschera, pinne, e una bombola d'ossigeno che sembra ancora funzionante. Qualcuno si immergeva qui regolarmente.",
+        "coralli": "I coralli della laguna sono di una bellezza straordinaria — rosa, viola, arancione, con forme ramificate e a ventaglio. Un ecosistema intatto e fragile.",
+        "mangrovie": "Le mangrovie formano una barriera naturale che nasconde la laguna dal mare aperto. Le loro radici aeree creano un labirinto acquatico dove i pesci trovano rifugio."
+      }
+    },
+    "pozzo_faro": {
+      "nome": "Il Pozzo del Faro",
+      "descrizione": "Quando la fiamma del faro si è alzata al cielo, qualcosa si è mosso sotto i tuoi piedi. Il pavimento di pietra del faro si è aperto come un fiore di metallo, rivelando un pozzo verticale di pietra nera. Una scala a chiocciola scende nell'oscurità, illuminata da una luce verde-azzurra che pulsa dal basso come un battito cardiaco lento.\n\nL'aria che sale dal pozzo è fredda e profuma di pietra umida e di qualcosa di più antico — un odore di metallo lavorato e di tempo dimenticato.",
+      "descrizione_breve": "Pozzo verticale del faro. Una scala a chiocciola scende.",
+      "uscite": {
+        "su": "faro",
+        "giu": "cripta_meccanica"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "spore_lumino"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "pavimento": "Lastre di pietra ad incastro perfetto, con motivi geometrici a spirale. Non sono stati posati, sono stati cresciuti — come se la pietra stessa fosse stata coltivata.",
+        "scala": "Una scala a chiocciola di pietra basaltica. I gradini sono consumati al centro: migliaia di passi prima dei tuoi.",
+        "luce_verde": "La luce viene da molto in basso. Non è fuoco — è qualcosa di vivente. Pulsa lentamente, come un respiro."
+      }
+    },
+    "cripta_meccanica": {
+      "nome": "Cripta Meccanica",
+      "descrizione": "La scala finisce in una sala bassa con il soffitto a volta sostenuto da pilastri di ferro nero. Lungo le pareti, scaffali di bronzo ospitano file di piccoli ingranaggi di ogni dimensione, alcuni ancora coperti di olio fresco — come se qualcuno li avesse lubrificati ieri.\n\nAl centro della sala, un piedistallo cilindrico ruota lentamente su sé stesso con un ronzio appena percettibile. A nord, un corridoio si addentra nella roccia. A est, un'apertura più stretta lascia uscire un sibilo di vapore.",
+      "descrizione_breve": "Anticamera della città-macchina. Scaffali di ingranaggi, piedistallo rotante.",
+      "uscite": {
+        "su": "pozzo_faro",
+        "nord": "sala_ingranaggi",
+        "ovest": "corridoio_perduto"
+      },
+      "uscite_bloccate": {
+        "est": {
+          "condizione": "flag:valvola_installata",
+          "messaggio": "Il sibilo di vapore è troppo intenso. Senza una valvola che regoli la pressione, il corridoio è una camera di morte."
+        }
+      },
+      "oggetti": [
+        "ingranaggio",
+        "ruota_dentata"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "piedistallo": "Una colonna di ottone ruota su sé stessa con un movimento perfetto, come se nulla l'avesse mai fermata. Sopra, l'incisione di un occhio aperto.",
+        "scaffali": "Ingranaggi di ogni misura, ordinati per diametro. Olio fresco sulle dita: qualcuno se ne prende ancora cura.",
+        "iscrizione": "Un'iscrizione sulla parete in caratteri sconosciuti. Riconosci solo un simbolo: tre cerchi concentrici, come una mira.",
+        "ombra_ovest": "Sulla parete ovest, un'ombra anomala. Avvicinandoti vedi che è in realtà l'imboccatura di un corridoio basso e dimenticato. Una sola lastra di metallo barriera, ma è caduta da tempo."
+      }
+    },
+    "sala_ingranaggi": {
+      "nome": "Sala degli Ingranaggi",
+      "descrizione": "Resti senza fiato. La sala è grande come una cattedrale, e ogni superficie — pareti, soffitto, pavimento — è coperta di ingranaggi che ruotano lentamente, incastrati gli uni negli altri in un balletto matematico di metallo. Il rumore è quello di un orologio gigantesco che batte un tempo sconosciuto.\n\nAl centro, una piattaforma circolare di ferro è ferma. Una manovella ne sporge sul lato, ma manca il pomello. A ovest si apre l'archivio, a est l'osservatorio. A nord, una porta di bronzo massiccio attende — chiusa.\n\nSu un banco di lavoro laterale, fra strumenti vari, riconosci una valvola di rame e ferro per regolare il vapore.",
+      "descrizione_breve": "Cattedrale di ingranaggi rotanti. Piattaforma centrale, manovella senza pomello, banco con valvola.",
+      "uscite": {
+        "sud": "cripta_meccanica",
+        "ovest": "archivio",
+        "est": "osservatorio"
+      },
+      "uscite_bloccate": {
+        "nord": {
+          "condizione": "flag:cuore_riattivato",
+          "messaggio": "La porta di bronzo è inerte. Non c'è serratura, non c'è maniglia. Aspetta qualcosa che la richiami in vita."
+        }
+      },
+      "oggetti": [
+        "binario_ferro",
+        "martello_rame",
+        "valvola_vapore"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "piattaforma": "Una piattaforma circolare di ferro nero. Non si muove. La manovella laterale gira a vuoto: dovrebbe terminare con un pomello che manca.",
+        "manovella": "L'asta è di ottone lucido. Sulla cima, una flangia esagonale dove evidentemente si avvitava qualcosa.",
+        "ingranaggi_grandi": "Gli ingranaggi più grandi sono alti come case. Ruotano senza fretta, come se avessero tutto il tempo del mondo."
+      }
+    },
+    "corridoio_vapore": {
+      "nome": "Corridoio del Vapore",
+      "descrizione": "Il corridoio è stretto e umido, attraversato da grossi tubi di rame che sibilano sotto pressione. La valvola che hai installato regola il flusso, ma l'aria è ancora densa e calda, e il pavimento è coperto da uno strato di condensa che riflette la luce verde-azzurra.\n\nAll'estremità del corridoio, una porta bassa porta a quella che doveva essere la forgia degli antichi.",
+      "descrizione_breve": "Corridoio di tubi di rame sibilanti. Conduce alla forgia.",
+      "uscite": {
+        "ovest": "cripta_meccanica",
+        "est": "forgia_antica"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [],
+      "npcs": [],
+      "esaminabili": {
+        "tubi": "Tubi di rame del diametro di un braccio, percorsi da vapore caldo. Le giunture sono lavorate a mano.",
+        "condensa": "L'acqua sul pavimento riflette la luce in pozze instabili. Stilla anche dal soffitto.",
+        "valvola": "La valvola che hai installato gira ritmicamente, dosando il vapore in respiri controllati."
+      }
+    },
+    "forgia_antica": {
+      "nome": "Forgia Antica",
+      "descrizione": "La sala è dominata da una grande fornace ottagonale ancora accesa. Dentro, il fuoco non è di legno: è qualcosa di liquido e arancione che scorre e si raffredda in disegni mai uguali. Davanti alla fornace, due automi di rame alti come uomini si muovono al rallentatore, battendo con martelli infiniti una lama che non si finisce mai di forgiare.\n\nSu un tavolo laterale, strumenti abbandonati. In un angolo, un piccolo altare con un calice di pietra al centro — vuoto.",
+      "descrizione_breve": "Forgia ancora attiva con automi di rame. Altare con calice vuoto.",
+      "uscite": {
+        "ovest": "corridoio_vapore"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "pendolo_ottone",
+        "ampolla"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "fornace": "Il fuoco non è fuoco. È un metallo liquido che brucia di vita propria. Guardarlo a lungo fa male agli occhi.",
+        "automi": "Due figure di rame alte come te. I loro volti sono maschere lisce. Battono il martello con perfetta cadenza, ignorandoti.",
+        "tavolo": "Strumenti da fabbro: pinze, tenaglie, lime. Una fila di chiavi inglesi di tutte le misure. La polvere è uno strato sottile e uniforme: lavoro fermo da poco.",
+        "altare": "Un altare di basalto con un calice di pietra al centro. Il calice ha una scanalatura interna come per ricevere un liquido sacro."
+      }
+    },
+    "archivio": {
+      "nome": "L'Archivio Senza Fine",
+      "descrizione": "Una sala circolare a sette piani, con scaffali che salgono fino a perdersi nel buio. Una scala a spirale corre lungo le pareti. I libri non sono di carta — sono lastre di metallo sottile, incise. Migliaia. Centomila.\n\nAl centro, su un piedistallo, fluttua una figura traslucida: un volto di donna fatto di luce, gli occhi chiusi. Le mani conserte. Non si muove, ma stai respirando troppo forte, e improvvisamente apre gli occhi.",
+      "descrizione_breve": "Biblioteca circolare a sette piani. L'Archivista fluttua al centro.",
+      "uscite": {
+        "est": "sala_ingranaggi"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "funi_metalliche",
+        "tavoletta_runica"
+      ],
+      "npcs": [
+        "archivista"
+      ],
+      "esaminabili": {
+        "scaffali": "Lastre di metallo sottile, ognuna incisa con migliaia di simboli minutissimi. Un'intera civiltà conservata.",
+        "scala_spirale": "Sale fino al settimo piano, dove l'oscurità inghiotte la luce. I gradini sono fatti per piedi più piccoli dei tuoi.",
+        "lastre_metallo": "Provi a sollevare una lastra: pesa come una pagina. È metallo, ma flessibile come carta. Tecnologia che non comprendi."
+      }
+    },
+    "osservatorio": {
+      "nome": "Osservatorio Sotterraneo",
+      "descrizione": "Una sala emisferica con un soffitto a cupola che — incredibile — proietta sopra di te il cielo notturno. Ma non è il cielo che vedevi sull'isola: queste sono stelle che non hai mai visto, costellazioni di un mondo prima del tuo.\n\nAl centro, un grande astrolabio di ottone con leve, pulsanti e una lente vuota in cima dove evidentemente si incastrava qualcosa. Sul muro, un mosaico di tre stelle in fila che pulsa ritmicamente.",
+      "descrizione_breve": "Osservatorio col cielo proiettato. Astrolabio con lente mancante.",
+      "uscite": {
+        "ovest": "sala_ingranaggi"
+      },
+      "uscite_bloccate": {
+        "dentro": {
+          "condizione": "flag:stelle_allineate",
+          "messaggio": "Le stelle del soffitto si muovono in una danza che non sai leggere. Devi prima allinearle."
+        }
+      },
+      "oggetti": [
+        "frammento_stella"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "soffitto": "Stelle proiettate da un meccanismo nascosto. Riconosci alcune costellazioni distorte; altre sono completamente nuove.",
+        "astrolabio": "Un meraviglioso astrolabio di ottone. La lente in cima manca: una scanalatura circolare ne aspetta una nuova, di colore verde.",
+        "mosaico": "Tre stelle in fila — la cintura di una costellazione antica? Pulsano in sincronia."
+      }
+    },
+    "cuore_macchina": {
+      "nome": "Il Cuore della Macchina",
+      "descrizione": "Una sala cubica, vuota al centro tranne per un immenso pendolo dorato che scende dal soffitto e oscilla lentamente, lentamente, su un perno solitario. Sopra il pendolo, sospeso a mezz'aria, fluttua un cuore di cristallo — il Cuore della Macchina — spento, scuro, in attesa.\n\nLe pareti sono coperte da un mosaico di simboli che cambia mentre ti muovi: il pendolo te le riflette addosso, e tu sei ora parte del meccanismo.",
+      "descrizione_breve": "Sala del pendolo gigante. Cuore di cristallo spento sospeso sopra.",
+      "uscite": {
+        "sud": "sala_ingranaggi"
+      },
+      "uscite_bloccate": {
+        "nord": {
+          "condizione": "flag:cuore_riattivato",
+          "messaggio": "Una porta di pietra. Non si apre. Il Cuore sopra di te è spento."
+        }
+      },
+      "oggetti": [],
+      "npcs": [],
+      "esaminabili": {
+        "pendolo": "Pendolo dorato, oscilla in un arco perfetto. Il perno è ben oliato. Manca qualcosa che lo trattenga: un fermo, un pomello.",
+        "cuore": "Il Cuore della Macchina. Cristallo nero opaco. Aspetta di essere risvegliato — ma da cosa?",
+        "mosaico_pareti": "Simboli che si ricompongono mentre cammini. Sembrano riflettere il tuo movimento, come se la sala stessa fosse cosciente."
+      }
+    },
+    "agora_perduta": {
+      "nome": "Agorà Perduta",
+      "descrizione": "Sbuchi in un'enorme caverna che si apre all'improvviso, e ti rendi conto di essere dentro la città. Una piazza ottagonale circondata da edifici scolpiti nella pietra viva, alti come palazzi. Statue colossali di figure incoronate ti guardano dall'alto, immobili, eterne.\n\nAl centro della piazza, su un trono di basalto, siede un automa di metallo patinato — gigantesco — la testa china in attesa. Quando ti avvicini, alza lentamente lo sguardo. È vivo. Ti aspettava.\n\nAi piedi del trono, mezzo nascosto, intravedi uno scrigno antico chiuso da un lucchetto a quattro rotelle.",
+      "descrizione_breve": "Piazza della città sotto la montagna. Re-Automa attende sul trono. Uno scrigno chiuso ai suoi piedi.",
+      "uscite": {
+        "sud": "cuore_macchina",
+        "est": "via_titani"
+      },
+      "uscite_bloccate": {
+        "nord": {
+          "condizione": "flag:ponte_riparato",
+          "messaggio": "Un ponte sospeso si srotola sull'abisso, ma le funi sono spezzate. Andare avanti sarebbe morte."
+        }
+      },
+      "oggetti": [],
+      "npcs": [
+        "re_automa"
+      ],
+      "esaminabili": {
+        "statue": "Otto statue colossali, ognuna con una corona diversa. Re ed regine di un'era prima delle ere.",
+        "trono": "Trono di basalto. Il Re-Automa siede composto, in attesa. Non è una statua: respira, lentamente.",
+        "edifici": "Edifici scolpiti nella roccia viva. Finestre vuote. Era una città, una vera città. Quanti vi abitarono? Dove sono andati?",
+        "scrigno": "Uno scrigno di metallo nero chiuso da un lucchetto a quattro rotelle. Sopra ogni rotella, simboli misteriosi: pianeti, geometrie, numeri romani. La combinazione giusta lo apre."
+      }
+    },
+    "via_titani": {
+      "nome": "Via dei Titani",
+      "descrizione": "Un viale lungo come una via romana, fiancheggiato da statue di pietra alte venti metri. I Titani — antichi guardiani — siedono o stanno in piedi, ognuno con un'arma diversa: una lancia, un martello, un libro, un sigillo. Sotto i piedi, lastre lisce di ossidiana, ognuna con un simbolo intarsiato.\n\nAll'estremità del viale, un portale circolare di pietra. Chiuso. Sopra, tre incavi: uno triangolare, uno quadrato, uno pentagonale.",
+      "descrizione_breve": "Viale di statue colossali. Portale circolare con tre incavi.",
+      "uscite": {
+        "ovest": "agora_perduta"
+      },
+      "uscite_bloccate": {
+        "dentro": {
+          "condizione": "flag:portale_aperto",
+          "messaggio": "Il portale è chiuso. I tre incavi sopra di esso aspettano qualcosa."
+        }
+      },
+      "oggetti": [
+        "occhio_titano"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "titani": "Otto statue, otto Titani. Ognuno regge un oggetto-simbolo. Forse dicono qualcosa, insieme.",
+        "ossidiana": "Lastre di ossidiana levigata, ognuna con un simbolo: stelle, occhi, mani, semi. Calpestate da migliaia di pellegrini.",
+        "portale": "Portale circolare di pietra dolomite. Non si apre. Sopra, tre incavi geometrici: triangolo, quadrato, pentagono.",
+        "incavi": "Triangolo, quadrato, pentagono. Tre forme. Tre oggetti che probabilmente le riempiono."
+      }
+    },
+    "abisso": {
+      "nome": "L'Abisso",
+      "descrizione": "Una crepa enorme nel mondo. Sotto di te, l'abisso scende oltre lo sguardo, respira un vento freddo che sa di pietra antica. Un ponte sospeso di assi e funi attraversa il vuoto verso una piattaforma sull'altro lato — ma le funi principali sono spezzate, due assi mancano, e il ponte oscilla pericolosamente ad ogni alito.\n\nSotto di te, lontano lontano, intravedi un puntino di luce viva — qualcosa lo abita. La Radice del Mondo, forse.",
+      "descrizione_breve": "Voragine attraversata da un ponte rotto. Sotto, un puntino di luce.",
+      "uscite": {
+        "ovest": "agora_perduta"
+      },
+      "uscite_bloccate": {
+        "est": {
+          "condizione": "flag:ponte_riparato",
+          "messaggio": "Il ponte è troppo danneggiato per essere attraversato. Cadresti nel vuoto."
+        }
+      },
+      "oggetti": [
+        "muschio_blu",
+        "cristallo_radice"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "ponte": "Ponte sospeso. Le funi maestre sono spezzate; due assi del piano mancano. Servirebbero funi metalliche e un'asse di ferro per ripararlo.",
+        "vuoto": "Lo guardi e ti gira la testa. Sotto, un puntino di luce viva. Qualcosa di vivo si muove laggiù.",
+        "vento": "Il vento sale dall'abisso e profuma di pietra calda. Non è solo aria: è il respiro di qualcosa."
+      }
+    },
+    "cimitero_marino": {
+      "nome": "Cimitero Marino",
+      "descrizione": "Una cala remota dove il mare ha radunato i resti di un secolo di naufragi. Decine di scafi spezzati arrugginiscono sulla sabbia nera, alcuni col nome ancora leggibile sulla prua. Le onde sussurrano fra le ossa di legno, e ogni tanto un metallo cigola, come se qualcosa si svegliasse sotto.\n\nNon c'è nulla da raccogliere qui. Solo da ascoltare. Solo da ricordare che non sei il primo a essere arrivato — solo il primo a essere ancora vivo.",
+      "descrizione_breve": "Cala remota piena di relitti antichi. Solo silenzio e ruggine.",
+      "uscite": {
+        "nord": "scogliere_sud"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [],
+      "npcs": [],
+      "esaminabili": {
+        "relitti": "Decine di scafi spezzati. Su uno: 'AURIGA - 1873'. Su un altro: 'PALINURO - 1924'. Una nave moderna: 'Capricho II - 2019'. Tutti finiti qui. Nessuno è mai ripartito.",
+        "ossa_legno": "Ossa di legno. Le navi sono creature, e queste sono le loro carcasse. La marea le sposta lentamente, come per pietà.",
+        "metallo_cigolante": "Da uno dei relitti più grandi, un cigolio ritmico. Non vento, non onda. Qualcosa di più lento. Qualcosa di paziente.",
+        "sabbia_nera": "Sabbia di basalto, fine come polvere. Sulle dune si formano disegni geometrici quando il vento gira. Le tue impronte si cancellano in pochi secondi."
+      }
+    },
+    "bivio_giungla": {
+      "nome": "Bivio degli Antichi",
+      "descrizione": "Un crocevia naturale nella giungla profonda, dove tre sentieri si incontrano attorno a un totem di pietra alto due metri, scolpito con figure di animali che non riconosci: un uccello dal becco a gancio, un pesce con quattro occhi, una creatura che è metà uomo e metà polipo.\n\nNon puoi proseguire da qui — i sentieri secondari portano solo a vicoli ciechi fitti di rovi. Ma questo posto ha qualcosa. Una presenza.",
+      "descrizione_breve": "Crocevia di sentieri attorno a un totem antico.",
+      "uscite": {
+        "nordovest": "giungla_profonda"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [],
+      "npcs": [],
+      "esaminabili": {
+        "totem": "Pietra di basalto scolpita con maestria che non hai mai visto. Le tre figure si guardano in cerchio, come se aspettassero che qualcuno completasse il quartetto.",
+        "uccello_becco": "L'uccello ha un becco a gancio e occhi profondi. Sotto la sua figura, un'iscrizione: «chi vola vede tutto, ma non torna».",
+        "pesce_quattro_occhi": "Un pesce con quattro occhi disposti in cerchio. Iscrizione: «chi nuota nel buio non ne ha paura».",
+        "uomo_polipo": "La figura più inquietante: metà uomo, metà polipo. Iscrizione: «chi unisce due mondi non appartiene a nessuno».",
+        "sentieri_morti": "Tre sentieri secondari si addentrano nella vegetazione, ma dopo pochi metri sono inghiottiti da rovi. Servirebbe il machete e mezza giornata. Non vale la pena."
+      }
+    },
+    "corridoio_perduto": {
+      "nome": "Corridoio Perduto",
+      "descrizione": "Un corridoio basso e dimenticato, scoperto per caso fra le ombre della cripta meccanica. Il soffitto gocciola di una condensa che brilla appena, e le pareti sono coperte di nomi — migliaia di nomi — incisi nel metallo da mani diverse, in epoche diverse.\n\nSono i nomi di tutti i Costruttori che sono scesi prima di te. Quelli che non sono mai più risaliti. Il corridoio finisce in un muro liscio: nessuna porta, solo un'iscrizione finale, in alto, troppo in alto per leggerla bene.",
+      "descrizione_breve": "Corridoio dimenticato pieno di nomi incisi.",
+      "uscite": {
+        "sud": "cripta_meccanica"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [],
+      "npcs": [],
+      "esaminabili": {
+        "nomi": "Migliaia di nomi. Alcuni in caratteri che riconosci, altri in alfabeti che non hai mai visto. Tutti incisi con cura, alcuni con tremore. Una è una bambina: 'Mira, sette anni, scesa con la mamma.'",
+        "iscrizione_alta": "L'iscrizione in cima al muro: 'NOI ABBIAMO SCELTO. VOI CHE LEGGETE: ANCHE VOI POTETE.' Sotto, in piccolo: 'Non per forza. Mai per forza.'",
+        "condensa_brillante": "Le gocce dal soffitto brillano debolmente. Cadono lentamente, sempre nello stesso ritmo, come se contassero qualcosa.",
+        "pareti": "Metallo nero lavorato a freddo. Levigato da migliaia di mani che lo hanno toccato per leggere i nomi nel buio."
+      }
+    },
+    "cunicolo_nascosto": {
+      "nome": "Cunicolo Nascosto",
+      "descrizione": "Hai abbattuto la parete della cripta col piccone, e quello che si è aperto è un cunicolo basso, asciutto, perfettamente intatto. Polvere antichissima posata su un altarino di pietra. Sopra l'altare, sotto una cupola di vetro intatto, una piccola lampada di rame brilla ancora di luce calda — accesa da chissà quando, alimentata da chissà cosa.\n\nL'aria odora di mirra. Sul retro dell'altarino, un'incisione: «alla luce che non conosce alba né tramonto».",
+      "descrizione_breve": "Cunicolo segreto con un'antica lampada eterna.",
+      "uscite": {
+        "sud": "cripta"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "lampada_eterna"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "altare": "Un altarino in calcare bianco. La superficie superiore è levigata da secoli di offerte invisibili.",
+        "cupola_vetro": "Una cupoletta di vetro soffiato, vecchia di millenni, ancora perfettamente trasparente. Tecnologia che non sai spiegare.",
+        "lampada": "La lampada di rame brilla con una fiamma piccola e perfettamente ferma. Non consuma olio, non emette fumo. Brilla da prima che tu nascessi.",
+        "polvere": "Polvere finissima, posata uniformemente. Le tue impronte sono le prime in millenni."
+      }
+    },
+    "radice_mondo": {
+      "nome": "La Radice del Mondo",
+      "descrizione": "Hai disceso, hai attraversato, hai aperto. Ora sei al centro.\n\nUna sala sferica, perfetta, di cristallo nero. Al centro, sospeso a mezz'aria senza supporto, c'è un albero di luce — non un albero vero, ma una struttura ramificata di pura luce verde-azzurra, le radici che scendono e i rami che salgono, infiniti in entrambe le direzioni. È il cuore dell'isola, la sorgente di ogni mistero che hai incontrato.\n\nDavanti all'albero, un piedistallo di pietra. Sopra, una corona di metallo annerito: la Corona Titanica. Vuota. In attesa di essere completata.",
+      "descrizione_breve": "Sala sferica con l'Albero di Luce. Corona Titanica sul piedistallo.",
+      "uscite": {
+        "ovest": "abisso",
+        "su": "via_titani"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "radice_madre",
+        "corona_titanica"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "albero": "Un albero fatto di pura luce. Non emette calore, ma sentirla cantare nelle ossa. È vivo. È stato vivo da prima dell'isola, da prima di tutto.",
+        "piedistallo": "Pietra grezza con un avvallamento per ricevere la corona. Sotto, un'iscrizione: 'CHI INDOSSA, NON RITORNA QUALE ERA.'",
+        "corona_vuota": "Una corona di metallo nero. Otto punte vuote. Ogni punta sembra fatta per ricevere un cristallo o una stella."
+      }
+    }
+  },
+  "items": {
+    "legna": {
+      "nome": "legna",
+      "nome_completo": "Legna spiaggiata",
+      "descrizione": "Tavole di legno recuperate dal relitto. Sono secche e solide — ottime per costruire qualcosa o accendere un fuoco.",
+      "descrizione_terra": "Pezzi di legna spiaggiata dal naufragio giacciono sulla sabbia.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "legno",
+        "tavole",
+        "assi"
+      ]
+    },
+    "corda": {
+      "nome": "corda",
+      "nome_completo": "Corda robusta",
+      "descrizione": "Una corda di canapa ancora in buone condizioni, recuperata dal sartiame della barca. Lunga circa dieci metri.",
+      "descrizione_terra": "Una corda di canapa è aggrovigliata tra i rottami.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "fune"
+      ]
+    },
+    "bottiglia": {
+      "nome": "bottiglia",
+      "nome_completo": "Bottiglia di vetro",
+      "descrizione": "Una bottiglia di vetro verde, ancora intatta nonostante il naufragio. Potrebbe essere utile per trasportare liquidi.",
+      "descrizione_terra": "Una bottiglia di vetro verde spunta dalla sabbia.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "vetro",
+        "fiasca"
+      ]
+    },
+    "pietra_focaia": {
+      "nome": "pietra focaia",
+      "nome_completo": "Pietra focaia",
+      "descrizione": "Una pietra scura e tagliente che produce scintille quando viene strofinata. Perfetta per accendere un fuoco.",
+      "descrizione_terra": "Una pietra scura e lucida è incastrata tra le rocce della caletta.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "focaia",
+        "pietra",
+        "selce"
+      ]
+    },
+    "conchiglia": {
+      "nome": "conchiglia",
+      "nome_completo": "Conchiglia iridescente",
+      "descrizione": "Una grande conchiglia a spirale, iridescente come madreperla. Quando la avvicini all'orecchio, il suono del mare è stranamente nitido — come se contenesse un oceano in miniatura.",
+      "descrizione_terra": "Una grande conchiglia iridescente giace tra le pozze di marea.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "guscio"
+      ]
+    },
+    "lama_antica": {
+      "nome": "lama antica",
+      "nome_completo": "Lama di ossidiana",
+      "descrizione": "Una lama di ossidiana nera, affilata come un rasoio nonostante l'età. È decorata con incisioni spiraliformi — un artefatto dell'antica civiltà che abitava l'isola. Potrebbe diventare parte di un'arma più grande.",
+      "descrizione_terra": "Una lama nera luccica su una sporgenza rocciosa, come se qualcuno l'avesse posata lì con cura.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "lama",
+        "ossidiana",
+        "lama nera"
+      ]
+    },
+    "artefatto_sacro": {
+      "nome": "artefatto sacro",
+      "nome_completo": "Artefatto sacro del villaggio",
+      "descrizione": "Una statuetta di giada verde che rappresenta una figura marina — metà umana, metà pesce. Gli occhi sono piccoli rubini. Emana un calore innaturale, come se fosse viva. Il villaggio la considera sacra.",
+      "descrizione_terra": "Una statuetta di giada verde riposa in una nicchia naturale della roccia, come un'offerta dimenticata.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "artefatto",
+        "statuetta",
+        "giada",
+        "idolo"
+      ]
+    },
+    "ramo_robusto": {
+      "nome": "ramo robusto",
+      "nome_completo": "Ramo robusto",
+      "descrizione": "Un ramo dritto e solido, lungo circa un metro. Il legno è duro e pesante — perfetto come manico per un attrezzo.",
+      "descrizione_terra": "Un ramo particolarmente dritto e robusto è caduto ai piedi di un albero.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "ramo",
+        "bastone"
+      ]
+    },
+    "bacche": {
+      "nome": "bacche",
+      "nome_completo": "Bacche selvatiche",
+      "descrizione": "Bacche rosse e succose, simili a mirtilli ma più grandi. Un uccellino ne sta mangiando, quindi dovrebbero essere commestibili. Hanno un sapore dolce e leggermente aspro.",
+      "descrizione_terra": "Un cespuglio è carico di bacche rosse e succose.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "frutti",
+        "mirtilli"
+      ]
+    },
+    "fiori": {
+      "nome": "fiori",
+      "nome_completo": "Fiori selvatici",
+      "descrizione": "Un mazzo di fiori tropicali dai colori vivaci — viola, arancione, rosso fuoco. Il profumo è intenso e inebriante.",
+      "descrizione_terra": "Fiori selvatici dai colori vivaci crescono intorno alla fonte.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "fiore",
+        "mazzo"
+      ]
+    },
+    "chiodi_arrugginiti": {
+      "nome": "chiodi arrugginiti",
+      "nome_completo": "Chiodi arrugginiti",
+      "descrizione": "Una manciata di chiodi di ferro, arrugginiti ma ancora robusti. Recuperati dai resti della vecchia torre. Potrebbero servire per riparare qualcosa.",
+      "descrizione_terra": "Dei chiodi arrugginiti spuntano tra le pietre della vecchia costruzione.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "chiodi",
+        "chiodo"
+      ]
+    },
+    "messaggio_bottiglia": {
+      "nome": "messaggio in bottiglia",
+      "nome_completo": "Messaggio in una bottiglia",
+      "descrizione": "Un foglio di carta arrotolato, protetto all'interno di una bottiglia sigillata. Il messaggio, scritto con grafia tremante:\n\n\"Il faro è la chiave. Tre doni del'isola lo risveglieranno: il fuoco della terra, la luce della profondità, e il cuore degli antichi. Io non ce l'ho fatta. Forse tu sì.\"",
+      "descrizione_terra": "",
+      "portatile": true,
+      "nascosto": true,
+      "alias": [
+        "messaggio",
+        "nota"
+      ]
+    },
+    "rete_pesca": {
+      "nome": "rete da pesca",
+      "nome_completo": "Rete da pesca",
+      "descrizione": "Una rete da pesca artigianale, fatta con fibre vegetali intrecciate. È in buone condizioni.",
+      "descrizione_terra": "Una rete da pesca è stesa lungo il molo ad asciugare.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "rete"
+      ]
+    },
+    "olio_vegetale": {
+      "nome": "olio vegetale",
+      "nome_completo": "Olio vegetale denso",
+      "descrizione": "Un olio denso e ambrato, raccolto dalle noci di un albero tropicale. È viscoso e resistente — perfetto come lubrificante per ingranaggi.",
+      "descrizione_terra": "Noci oleose giacciono ai piedi di un albero. Premendole, ne esce un olio denso e ambrato.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "olio",
+        "noci"
+      ]
+    },
+    "resina": {
+      "nome": "resina",
+      "nome_completo": "Resina d'albero",
+      "descrizione": "Resina ambrata e profumata, densa e appiccicosa. Ottima come collante e sigillante naturale.",
+      "descrizione_terra": "Gocce di resina ambrata colano lungo il tronco di un albero.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "resina ambrata"
+      ]
+    },
+    "pianta_rara": {
+      "nome": "pianta rara",
+      "nome_completo": "Orchidea lunare",
+      "descrizione": "Un'orchidea rara dai petali argentati che brillano al buio come piccole lune. Luna la cerca da tempo — è un ingrediente essenziale per le sue medicine più potenti.",
+      "descrizione_terra": "Un'orchidea dai petali argentati brilla debolmente nell'oscurità della giungla profonda.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "orchidea",
+        "pianta",
+        "orchidea lunare",
+        "fiore raro"
+      ]
+    },
+    "erbe_secche": {
+      "nome": "erbe secche",
+      "nome_completo": "Erbe medicinali secche",
+      "descrizione": "Un fascio di erbe medicinali essiccate con cura. Luna ne ha in abbondanza — questo fascio sembra preparato apposta per i viaggiatori.",
+      "descrizione_terra": "Un fascio di erbe secche è posato accanto al mortaio.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "erbe"
+      ]
+    },
+    "piccone": {
+      "nome": "piccone",
+      "nome_completo": "Piccone antico",
+      "descrizione": "Un piccone con la testa di pietra e il manico di legno fossile. Antico ma ancora funzionale. Chi lo ha abbandonato qui, e perché?",
+      "descrizione_terra": "Un vecchio piccone è conficcato nella roccia vulcanica.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "picozza"
+      ]
+    },
+    "cristallo_vulcanico": {
+      "nome": "cristallo vulcanico",
+      "nome_completo": "Cristallo vulcanico",
+      "descrizione": "Un cristallo grande come un pugno, ambrato e semi-trasparente. Al suo interno, venature di fuoco sembrano muoversi lentamente. È caldo al tatto e pulsa di un'energia primordiale. Il fuoco della terra, racchiuso in una gemma.",
+      "descrizione_terra": "Un cristallo ambrato spicca tra le rocce vulcaniche, pulsando di una luce calda.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "cristallo",
+        "gemma vulcanica"
+      ]
+    },
+    "frammento_mappa": {
+      "nome": "frammento di mappa",
+      "nome_completo": "Frammento di mappa antica",
+      "descrizione": "Un pezzo di pergamena resistente al tempo. Mostra una porzione di mappa dell'isola con annotazioni in un linguaggio sconosciuto. Ma il disegno è chiaro: la laguna a ovest del molo, e una 'X' segnata nella laguna stessa. Roba da pirati? O qualcosa di più?",
+      "descrizione_terra": "Un pezzo di pergamena è incastrato in una fessura della roccia.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "mappa",
+        "pergamena",
+        "frammento"
+      ]
+    },
+    "diario_guardiano": {
+      "nome": "diario del guardiano",
+      "nome_completo": "Diario del guardiano del faro",
+      "descrizione": "Un diario rilegato in pelle, ingiallito dal tempo. Le ultime pagine sono scritte in italiano antico:\n\n\"Il faro ha bisogno di tre elementi per brillare:\n1. L'olio della giungla per gli ingranaggi\n2. Il cristallo del vulcano per la luce\n3. La gemma di potere della cripta per l'energia\n\nHo nascosto la gemma sotto le rovine, protetta dal Guardiano. Solo chi è degno potrà trovarla. Il faro è l'unica speranza per chi è intrappolato su quest'isola. È la nostra luce nel buio.\"\n\nLe pagine successive sono illeggibili.",
+      "descrizione_terra": "Un vecchio diario rilegato in pelle è posato sul tavolo polveroso.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "diario",
+        "libro"
+      ]
+    },
+    "gemma_potere": {
+      "nome": "gemma di potere",
+      "nome_completo": "Gemma di potere",
+      "descrizione": "Una gemma sferica delle dimensioni di un'arancia, fatta di un materiale sconosciuto. Pulsa di una luce ambrata con un ritmo lento e costante, come un cuore che batte. È calda al tatto e vibra leggermente. Il cuore degli antichi.",
+      "descrizione_terra": "La gemma di potere pulsa sul piedistallo, illuminando la cripta con il suo bagliore ambrato.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "gemma",
+        "sfera"
+      ]
+    },
+    "tavoletta_antica": {
+      "nome": "tavoletta antica",
+      "nome_completo": "Tavoletta di pietra incisa",
+      "descrizione": "Una tavoletta di pietra coperta di iscrizioni. Riesci a interpretare alcune immagini: un faro che brilla, una nave in arrivo, persone che festeggiano. È la profezia del salvataggio — qualcuno, migliaia di anni fa, sapeva che un giorno qualcuno avrebbe avuto bisogno di quel faro.",
+      "descrizione_terra": "Una tavoletta di pietra incisa è appoggiata al piedistallo.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "tavoletta",
+        "pietra incisa"
+      ]
+    },
+    "attrezzatura_sub": {
+      "nome": "attrezzatura subacquea",
+      "nome_completo": "Attrezzatura subacquea",
+      "descrizione": "Maschera da sub, pinne e una bombola d'ossigeno ancora funzionante. L'attrezzatura è vecchia ma in buone condizioni. Con questa potresti esplorare le profondità marine.",
+      "descrizione_terra": "Attrezzatura subacquea è appesa alle pareti del vecchio capanno — maschera, pinne, bombola.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "attrezzatura",
+        "maschera",
+        "bombola"
+      ]
+    },
+    "perla_nera": {
+      "nome": "perla nera",
+      "nome_completo": "Perla nera",
+      "descrizione": "Una perla nera perfettamente sferica, grande come una biglia. La sua superficie è liscia come seta e riflette la luce in modo ipnotico. Un tesoro raro.",
+      "descrizione_terra": "Una perla nera giace sul fondale sabbioso della laguna, visibile attraverso l'acqua cristallina.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "perla"
+      ]
+    },
+    "sigillo_antico": {
+      "nome": "sigillo antico",
+      "nome_completo": "Sigillo dell'antica civiltà",
+      "descrizione": "Un disco di metallo sconosciuto, pesante e caldo. Su un lato è inciso il simbolo del faro; sull'altro, quello del vulcano. È il sigillo dell'antica civiltà che costruì il faro e il tempio.",
+      "descrizione_terra": "Un sigillo di metallo scuro è posato sull'altare del tempio.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "sigillo",
+        "disco"
+      ]
+    },
+    "tridente": {
+      "nome": "tridente",
+      "nome_completo": "Tridente cerimoniale",
+      "descrizione": "Un tridente di bronzo verde, decorato con motivi marini. È pesante e imponente — più un oggetto cerimoniale che un'arma, ma le punte sono ancora affilate.",
+      "descrizione_terra": "Un tridente di bronzo è conficcato nel pavimento a mosaico del tempio, come una sentinella.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "forcone"
+      ]
+    },
+    "corona_corallo": {
+      "nome": "corona di corallo",
+      "nome_completo": "Corona di corallo",
+      "descrizione": "Una corona intrecciata con rami di corallo rosso e bianco. È delicata ma sorprendentemente robusta. Un oggetto di grande valore e bellezza.",
+      "descrizione_terra": "Una corona di corallo rosso e bianco è posata su un piedistallo di pietra.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "corona"
+      ]
+    },
+    "torcia": {
+      "nome": "torcia",
+      "nome_completo": "Torcia artigianale",
+      "descrizione": "Una torcia fatta con legna spiaggiata e accesa con la pietra focaia. La fiamma è viva e calda, perfetta per illuminare luoghi bui.",
+      "descrizione_terra": "",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "fiaccola"
+      ]
+    },
+    "machete": {
+      "nome": "machete",
+      "nome_completo": "Machete di ossidiana",
+      "descrizione": "La lama di ossidiana incastrata nel ramo robusto forma un machete primitivo ma terribilmente efficace. La lama è affilata come un bisturi.",
+      "descrizione_terra": "",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "coltellaccio"
+      ]
+    },
+    "medaglione": {
+      "nome": "medaglione",
+      "nome_completo": "Medaglione degli Antichi",
+      "descrizione": "Un medaglione circolare di metallo verde scuro, con il simbolo di un occhio stilizzato al centro. Kaia dice che è la chiave per le rovine antiche. Vibra leggermente quando ti avvicini a costruzioni dell'antica civiltà.",
+      "descrizione_terra": "",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "amuleto",
+        "ciondolo"
+      ]
+    },
+    "chiave_faro": {
+      "nome": "chiave del faro",
+      "nome_completo": "Chiave del faro",
+      "descrizione": "Una chiave di ferro battuto, pesante e elaborata. Il pomo ha la forma di un faro stilizzato. Il Guardiano te l'ha affidata per una ragione.",
+      "descrizione_terra": "",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "chiave"
+      ]
+    },
+    "chiave_antica": {
+      "nome": "chiave antica",
+      "nome_completo": "Chiave della cripta",
+      "descrizione": "Una chiave di un metallo sconosciuto, che non si è corroso nonostante i millenni. I denti della chiave formano il simbolo dell'antica civiltà.",
+      "descrizione_terra": "",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "chiave cripta"
+      ]
+    },
+    "antidoto": {
+      "nome": "antidoto",
+      "nome_completo": "Antidoto di Luna",
+      "descrizione": "Una fiala di liquido verde brillante preparata da Luna con l'orchidea lunare. Cura qualsiasi veleno conosciuto.",
+      "descrizione_terra": "",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "fiala",
+        "pozione"
+      ]
+    },
+    "spore_lumino": {
+      "nome": "spore",
+      "nome_completo": "Spore luminescenti",
+      "descrizione": "Spore raccolte vicino al pozzo. Brillano di luce verde fredda, perfette per illuminare passaggi bui.",
+      "descrizione_terra": "Trovi spore luminescenti qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "spore",
+        "luce_spore"
+      ]
+    },
+    "ingranaggio": {
+      "nome": "ingranaggio",
+      "nome_completo": "Ingranaggio di rame",
+      "descrizione": "Un ingranaggio dentato di rame ben lavorato. Pesa nella mano. Sembra parte di un meccanismo più grande.",
+      "descrizione_terra": "Trovi ingranaggio di rame qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "ingranaggio",
+        "ruota_rame"
+      ]
+    },
+    "ruota_dentata": {
+      "nome": "ruota_dentata",
+      "nome_completo": "Ruota dentata di ferro",
+      "descrizione": "Una grande ruota dentata di ferro nero, più larga del palmo della tua mano. Si incastra perfettamente con altri ingranaggi.",
+      "descrizione_terra": "Trovi ruota dentata di ferro qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "ruota",
+        "dentata"
+      ]
+    },
+    "binario_ferro": {
+      "nome": "binario",
+      "nome_completo": "Binario di ferro",
+      "descrizione": "Un'asse di ferro lunga come il tuo braccio, con cremagliera su un lato. Buona per riparare strutture o creare meccanismi.",
+      "descrizione_terra": "Trovi binario di ferro qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "binario",
+        "asse_ferro"
+      ]
+    },
+    "martello_rame": {
+      "nome": "martello",
+      "nome_completo": "Martello di rame",
+      "descrizione": "Un martello con la testa di rame patinato, manico in legno scuro. Pesante, equilibrato, fatto per chi sa lavorare il metallo.",
+      "descrizione_terra": "Trovi martello di rame qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "martello",
+        "maglio"
+      ]
+    },
+    "pendolo_ottone": {
+      "nome": "pendolo",
+      "nome_completo": "Pendolo di ottone",
+      "descrizione": "Un pendolo dorato con un peso a forma di goccia rovesciata. Sulla cima, una flangia esagonale per fissarlo a un meccanismo.",
+      "descrizione_terra": "Trovi pendolo di ottone qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "pendolo",
+        "ottone"
+      ]
+    },
+    "valvola_vapore": {
+      "nome": "valvola",
+      "nome_completo": "Valvola del vapore",
+      "descrizione": "Una valvola industriale di rame e ferro, con manopola circolare. Regola il flusso di vapore ad alta pressione.",
+      "descrizione_terra": "Trovi valvola del vapore qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "valvola",
+        "rubinetto"
+      ]
+    },
+    "ampolla": {
+      "nome": "ampolla",
+      "nome_completo": "Ampolla di cristallo",
+      "descrizione": "Un'ampolla di cristallo soffiato a mano. Stretta in cima, larga in fondo. Vuota, ma evidentemente concepita per contenere qualcosa di prezioso.",
+      "descrizione_terra": "Trovi ampolla di cristallo qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "ampolla",
+        "fiala"
+      ]
+    },
+    "catena_oro": {
+      "nome": "catena",
+      "nome_completo": "Catena d'oro corta",
+      "descrizione": "Una catena di anelli d'oro pesanti. Più gioiello che strumento, ma forte abbastanza per portare un peso considerevole.",
+      "descrizione_terra": "Trovi catena d'oro corta qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "catena",
+        "filiera"
+      ]
+    },
+    "tavoletta_runica": {
+      "nome": "tavoletta",
+      "nome_completo": "Tavoletta runica",
+      "descrizione": "Una tavoletta di metallo sottile incisa con simboli che cambiano lentamente quando la guardi. L'Archivista la decifrerebbe.",
+      "descrizione_terra": "Trovi tavoletta runica qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "tavoletta",
+        "lastra"
+      ]
+    },
+    "funi_metalliche": {
+      "nome": "funi",
+      "nome_completo": "Funi di metallo intrecciato",
+      "descrizione": "Funi di filamenti metallici intrecciati. Forti, flessibili, perfette per riparare un ponte sospeso.",
+      "descrizione_terra": "Trovi funi di metallo intrecciato qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "funi",
+        "fune"
+      ]
+    },
+    "frammento_stella": {
+      "nome": "frammento_stella",
+      "nome_completo": "Frammento di stella",
+      "descrizione": "Un frammento minuscolo di un metallo che brilla di luce propria. È freddo, ma se lo guardi a lungo ti scalda dentro.",
+      "descrizione_terra": "Trovi frammento di stella qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "stella",
+        "frammento"
+      ]
+    },
+    "occhio_titano": {
+      "nome": "occhio_titano",
+      "nome_completo": "Occhio del Titano",
+      "descrizione": "Un occhio di pietra dura, forse zaffiro, della dimensione del tuo pugno. Quando lo tieni in mano, hai la sensazione che qualcosa ti stia osservando.",
+      "descrizione_terra": "Trovi occhio del titano qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "occhio",
+        "titano"
+      ]
+    },
+    "sigillo_re": {
+      "nome": "sigillo_re",
+      "nome_completo": "Sigillo del Re",
+      "descrizione": "Un sigillo a tampone di pietra nera, con il simbolo di una corona ottagonale. Autorità antica, scolpita in pietra.",
+      "descrizione_terra": "Trovi sigillo del re qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "sigillo",
+        "regio"
+      ]
+    },
+    "muschio_blu": {
+      "nome": "muschio",
+      "nome_completo": "Muschio bioluminescente",
+      "descrizione": "Un muschio fluorescente che cresce nelle profondità. Emette una luce blu-verdognola che non scalda.",
+      "descrizione_terra": "Trovi muschio bioluminescente qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "muschio",
+        "muschio_blu"
+      ]
+    },
+    "cristallo_radice": {
+      "nome": "cristallo_radice",
+      "nome_completo": "Cristallo della Radice",
+      "descrizione": "Un cristallo verde-azzurro che pulsa lentamente, come un piccolo cuore. È caldo. Vive.",
+      "descrizione_terra": "Trovi cristallo della radice qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "cristallo_radice",
+        "verde_cristallo"
+      ]
+    },
+    "radice_madre": {
+      "nome": "radice",
+      "nome_completo": "Radice Madre",
+      "descrizione": "Una radice piccolissima dell'Albero di Luce. Pulsa nella tua mano, gentile come una creatura addomesticata.",
+      "descrizione_terra": "Trovi radice madre qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "radice_madre",
+        "germoglio"
+      ]
+    },
+    "corona_titanica": {
+      "nome": "corona_titanica",
+      "nome_completo": "Corona Titanica",
+      "descrizione": "Una corona di metallo nero con otto punte vuote. Antica oltre ogni misura. Ha conosciuto teste che non potresti immaginare.",
+      "descrizione_terra": "Trovi corona titanica qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "corona",
+        "diadema"
+      ]
+    },
+    "meccanismo_completo": {
+      "nome": "meccanismo",
+      "nome_completo": "Meccanismo a ingranaggi",
+      "descrizione": "Ingranaggio e ruota dentata uniti in un meccanismo funzionante. Pronto per essere montato.",
+      "descrizione_terra": "Trovi meccanismo a ingranaggi qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "meccanismo"
+      ]
+    },
+    "manovella_completa": {
+      "nome": "manovella_completa",
+      "nome_completo": "Manovella completa",
+      "descrizione": "Una manovella con il pendolo come pomello: pesa, gira, ruota dolcemente. Pronta per la piattaforma.",
+      "descrizione_terra": "Trovi manovella completa qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "manovella"
+      ]
+    },
+    "funi_metalliche_intrecciate": {
+      "nome": "ponte_riparato",
+      "nome_completo": "Kit di riparazione ponte",
+      "descrizione": "Funi metalliche intrecciate con il binario di ferro: tutto il necessario per riparare un ponte sospeso.",
+      "descrizione_terra": "Trovi kit di riparazione ponte qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "ponte_riparato",
+        "kit_ponte"
+      ]
+    },
+    "lente_smeraldo": {
+      "nome": "lente",
+      "nome_completo": "Lente di smeraldo",
+      "descrizione": "Lente verde tagliata da un singolo smeraldo. Quando ci guardi attraverso, la luce ordinaria diventa parlante.",
+      "descrizione_terra": "Trovi lente di smeraldo qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "lente",
+        "smeraldo"
+      ]
+    },
+    "corona_attivata": {
+      "nome": "corona_attivata",
+      "nome_completo": "Corona Titanica attivata",
+      "descrizione": "La corona riempita dei tre simboli: stella, radice, occhio. Pulsa di luce dolce e fredda. Pronta a essere indossata.",
+      "descrizione_terra": "Trovi corona titanica attivata qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "corona_completa"
+      ]
+    },
+    "lampada_eterna": {
+      "nome": "lampada_eterna",
+      "nome_completo": "Lampada Eterna",
+      "descrizione": "Una lampada di rame con una fiamma piccola e perfettamente ferma. Brilla da prima che tu nascessi e brillerà dopo che sarai morto. Custodita per millenni in un cunicolo dimenticato.",
+      "descrizione_terra": "Trovi lampada eterna qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "lampada",
+        "fiamma"
+      ]
+    },
+    "manovella_temp": {
+      "nome": "manovella_temp",
+      "nome_completo": "Asta della manovella",
+      "descrizione": "L'asta nuda della manovella, smontata. Aspetta un pomello da fissare in cima.",
+      "descrizione_terra": "Trovi asta della manovella qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "asta",
+        "manovella_asta"
+      ]
+    }
+  },
+  "characters": {
+    "kaia": {
+      "nome": "Kaia",
+      "descrizione": "Una donna anziana dalla pelle scura e rugosa come corteccia d'albero. I suoi occhi sono profondi e saggi, e i capelli bianchi sono raccolti in trecce decorate con conchiglie. Porta una collana di perle e ossa, e si muove con una dignità calma e sicura. È l'anziana del villaggio.",
+      "alias": [
+        "anziana",
+        "vecchia",
+        "donna"
+      ],
+      "stanza": "villaggio"
+    },
+    "marco": {
+      "nome": "Marco",
+      "descrizione": "Un uomo sulla quarantina, magro e abbronzato, con una barba incolta e occhi irrequieti. I vestiti sono logori e rattoppati. Sembra un altro naufrago — ma lui è qui da molto più tempo di te. C'è qualcosa di stanco ma determinato nel suo sguardo.",
+      "alias": [
+        "uomo",
+        "naufrago"
+      ],
+      "stanza": "villaggio"
+    },
+    "tiko": {
+      "nome": "Tiko",
+      "descrizione": "Un ragazzo giovane, forse vent'anni, con un corpo asciutto e muscoloso da pescatore. La pelle è color bronzo, i capelli neri e arruffati dal sale. Ha un sorriso aperto e contagioso e gli occhi vivaci di chi conosce il mare come la propria casa.",
+      "alias": [
+        "ragazzo",
+        "pescatore",
+        "giovane"
+      ],
+      "stanza": "molo"
+    },
+    "luna": {
+      "nome": "Luna",
+      "descrizione": "Una donna di età indefinibile — potrebbe avere trent'anni o sessanta. La pelle è olivastra, gli occhi verdi come le foglie della giungla. I capelli lunghi e neri sono intrecciati con fiori ed erbe. Si muove con la grazia silenziosa di chi vive da sempre nella foresta.",
+      "alias": [
+        "erborista",
+        "donna della giungla"
+      ],
+      "stanza": "capanna_luna"
+    },
+    "guardiano": {
+      "nome": "Il Guardiano",
+      "descrizione": "Una figura fatta di luce azzurra e trasparente, vagamente umanoide. I lineamenti del viso sono nobili e antichi — un uomo che è stato re, sacerdote, o entrambi. Gli occhi sono due stelle azzurre che sembrano guardare attraverso di te, dentro di te. La sua voce, quando parla, risuona come se venisse da molto lontano — o da molto tempo fa.",
+      "alias": [
+        "spirito",
+        "fantasma",
+        "figura",
+        "entità"
+      ],
+      "stanza": "sala_guardiano"
+    },
+    "archivista": {
+      "nome": "L'Archivista",
+      "descrizione": "Una figura di luce traslucida, vagamente femminile, fluttuante a un metro dal pavimento. Il suo volto è sereno e gli occhi, quando aperti, sono di un blu che hai visto solo nel cuore delle fiamme. Parla senza muovere le labbra, una voce che senti dentro più che fuori.",
+      "alias": [
+        "archivista",
+        "donna_luce",
+        "spirito"
+      ],
+      "stanza": "archivio"
+    },
+    "re_automa": {
+      "nome": "Il Re-Automa",
+      "descrizione": "Un automa colossale alto quattro metri, di metallo patinato verde-rame. Il suo corpo è coperto di intarsi delicati, e la sua corona — quella che porta — è semplice, ferro grezzo. Il suo volto è una maschera di rame con due fessure per gli occhi: nelle fessure, una luce calma e antichissima.",
+      "alias": [
+        "re",
+        "re_automa",
+        "automa",
+        "gigante"
+      ],
+      "stanza": "agora_perduta"
+    }
+  },
+  "dialogues": {
+    "kaia": [
+      {
+        "condizione": {
+          "flag": "quest_kaia_completa"
+        },
+        "saluto": "Kaia ti accoglie con un sorriso caldo.\n\n\"Il medaglione ti guiderà, straniero. Le rovine custodiscono segreti antichi — e forse la chiave per lasciare quest'isola.\"",
+        "opzioni": [
+          {
+            "testo": "Parlami delle rovine",
+            "risposta": "\"Le rovine sono ciò che resta della civiltà che abitava quest'isola migliaia di anni fa. Erano un popolo saggio — costruirono il faro, il tempio, tutto. Poi il vulcano eruttò e il mare inghiottì parte dell'isola. Il Guardiano protegge ancora le rovine. È... l'ultimo di loro. Uno spirito, un'eco.\""
+          },
+          {
+            "testo": "Parlami del faro",
+            "risposta": "\"Il faro fu costruito dagli Antichi per guidare le navi. Quando la civiltà cadde, il faro si spense. Ma può essere riacceso — servono tre cose: il fuoco della terra, una fonte di luce, e il cuore degli antichi. Il Guardiano delle rovine sa di più.\""
+          },
+          {
+            "testo": "Come va il villaggio?",
+            "risposta": "\"Da quando hai riportato l'artefatto, il mare è di nuovo generoso. I pesci sono tornati, e anche la speranza. Sei un amico del villaggio, straniero.\""
+          },
+          {
+            "testo": "Devo andare",
+            "fine": true
+          }
+        ]
+      },
+      {
+        "condizione": {
+          "flag": "quest_kaia_accettata"
+        },
+        "saluto": "Kaia ti guarda con speranza.\n\n\"Hai trovato l'artefatto sacro? È nelle grotte marine, a est della caletta. Ma stai attento — le grotte sono buie e pericolose senza luce.\"",
+        "opzioni": [
+          {
+            "testo": "Sto ancora cercando",
+            "risposta": "\"Le grotte marine sono a est della caletta, oltre la spiaggia dove sei arrivato. Avrai bisogno di una torcia — la pietra focaia si trova tra le rocce della caletta. Il legno non ti mancherà.\""
+          },
+          {
+            "testo": "Parlami dell'artefatto",
+            "risposta": "\"È una statuetta di giada verde — rappresenta lo spirito del mare. Proteggeva il nostro villaggio da generazioni, ma un giorno una mareggiata la portò via. Da allora, la pesca è scarsa e il mare ci è nemico.\""
+          },
+          {
+            "testo": "Tornerò con l'artefatto",
+            "fine": true
+          }
+        ]
+      },
+      {
+        "condizione": null,
+        "saluto": "La donna anziana ti osserva avvicinarti con curiosità ma senza paura.\n\n\"Un altro naufrago. Il mare porta e il mare toglie. Benvenuto nella nostra isola, straniero.\"",
+        "opzioni": [
+          {
+            "testo": "Chi sei?",
+            "risposta": "\"Sono Kaia, l'anziana di questo villaggio. La mia famiglia vive su quest'isola da generazioni — prima che il mondo esterno si dimenticasse di noi. Conosco ogni pietra, ogni albero, ogni segreto di questa terra.\""
+          },
+          {
+            "testo": "Come faccio a lasciare l'isola?",
+            "risposta": "\"Lasciare l'isola... non è semplice. Il mare aperto è troppo vasto per una barca da pesca. L'unico modo è segnalare una nave di passaggio. C'è un vecchio faro sulle scogliere del nord — costruito dagli Antichi. Se riuscissi a riaccenderlo... ma è spento da generazioni.\""
+          },
+          {
+            "testo": "Posso fare qualcosa per il villaggio?",
+            "risposta": "\"In effetti... sì. Il nostro artefatto sacro — una statuetta di giada che protegge il villaggio — è andato perduto nelle grotte marine a est. Senza di esso, la pesca è scarsa e la sfortuna ci perseguita. Se riuscissi a riportarlo... ti sarei eternamente grata.\"",
+            "azione": {
+              "tipo": "flag",
+              "id": "quest_kaia_accettata"
+            }
+          },
+          {
+            "testo": "Devo andare",
+            "fine": true
+          }
+        ]
+      }
+    ],
+    "marco": [
+      {
+        "condizione": {
+          "flag": "faro_acceso"
+        },
+        "saluto": "Marco ti abbraccia con gli occhi lucidi.\n\n\"Ce l'hai fatta. Il faro brilla. Dopo tutti questi anni... finalmente. Grazie, amico. Grazie.\"",
+        "opzioni": [
+          {
+            "testo": "Ce l'abbiamo fatta insieme",
+            "risposta": "\"Sì... ma senza il tuo coraggio, sarei ancora qui a guardare il mare e sperare. Ora il mare ci riporterà a casa.\""
+          },
+          {
+            "testo": "La nave arriverà presto",
+            "fine": true
+          }
+        ]
+      },
+      {
+        "condizione": null,
+        "saluto": "L'uomo ti guarda con un misto di sorpresa e compassione.\n\n\"Un altro naufrago, eh? Benvenuto nel club. Sono Marco. Sono arrivato qui... tre anni fa? Quattro? Ho perso il conto.\"",
+        "opzioni": [
+          {
+            "testo": "Come sei finito qui?",
+            "risposta": "\"Ero su una barca a vela, una traversata atlantica in solitario. La tempesta mi ha preso come ha preso te. Questa isola non appare su nessuna carta. È come se non esistesse per il resto del mondo.\""
+          },
+          {
+            "testo": "Hai mai provato ad andartene?",
+            "risposta": "\"Mille volte. Ho provato a costruire zattere, a nuotare, a segnalare aerei. Niente funziona. L'unica speranza è il faro — un vecchio faro sulle scogliere del nord. Se riuscissimo a riaccenderlo, le navi lo vedrebbero. Ma il meccanismo è complesso... servono pezzi particolari.\"",
+            "azione": {
+              "tipo": "flag",
+              "id": "marco_info_faro"
+            }
+          },
+          {
+            "testo": "Parlami dell'isola",
+            "risposta": "\"L'isola è più grande di quanto sembra. A sud la spiaggia dove sei arrivato, al centro la giungla, a nord le scogliere e il faro. C'è un vulcano dormiente — la cima offre una vista incredibile. E ci sono delle rovine antiche nella giungla... una civiltà dimenticata. Kaia, l'anziana, ne sa più di me.\""
+          },
+          {
+            "testo": "Conosci la laguna?",
+            "risposta": "\"La laguna a ovest? Sì, ci sono stato una volta con Tiko. C'è un vecchio capanno con attrezzatura da sub. Qualcuno si immergeva lì — forse esploratori, forse cercatori di tesori. Il ragazzo vuole riparare la barca per tornarci. Se lo aiuti, potrebbe portarti.\""
+          },
+          {
+            "testo": "A dopo, Marco",
+            "fine": true
+          }
+        ]
+      }
+    ],
+    "tiko": [
+      {
+        "condizione": {
+          "flag": "barca_riparata"
+        },
+        "saluto": "Tiko sorride orgoglioso accanto alla barca riparata.\n\n\"La barca è pronta! Puoi usarla quando vuoi — basta dire 'barca' e ti porterà alla laguna. Buon viaggio!\"",
+        "opzioni": [
+          {
+            "testo": "Grazie, Tiko",
+            "risposta": "\"Di niente! Io resto qui a pescare. Se trovi qualcosa di interessante nella laguna, fammi sapere!\""
+          },
+          {
+            "testo": "Ci vediamo",
+            "fine": true
+          }
+        ]
+      },
+      {
+        "condizione": null,
+        "saluto": "Il giovane pescatore ti saluta con un gesto amichevole.\n\n\"Ehi! Sei il nuovo naufrago, vero? Io sono Tiko. Pesco, nuoto, e conosco queste acque come le mie tasche.\"",
+        "opzioni": [
+          {
+            "testo": "La barca si può riparare?",
+            "risposta": "\"Certo! Mi serve solo della resina d'albero per sigillare le falle e dei chiodi per rinforzare lo scafo. La resina la trovi nella giungla — quegli alberi enormi ne trasudano a fiumi. I chiodi... beh, ci sono resti di vecchie costruzioni in giro per l'isola.\"",
+            "azione": {
+              "tipo": "flag",
+              "id": "quest_tiko_accettata"
+            }
+          },
+          {
+            "testo": "Cosa sai della laguna?",
+            "risposta": "\"La laguna? È un paradiso! Acque cristalline, pesci enormi, coralli incredibili. Ma è troppo lontana per nuotarci — serve la barca. E la barca ha bisogno di riparazioni...\""
+          },
+          {
+            "testo": "Sei nato qui?",
+            "risposta": "\"Nato e cresciuto. La mia famiglia è qui da sempre — come quella di Kaia. Non conosco altro mondo che quest'isola. Ma non mi lamento — il mare mi dà tutto ciò di cui ho bisogno. Quasi tutto.\""
+          },
+          {
+            "testo": "A presto, Tiko",
+            "fine": true
+          }
+        ]
+      }
+    ],
+    "luna": [
+      {
+        "condizione": {
+          "flag": "quest_luna_completa"
+        },
+        "saluto": "Luna ti accoglie con un sorriso misterioso.\n\n\"L'orchidea è stata preziosa. La giungla ti ha accettato, straniero — lo sento.\"",
+        "opzioni": [
+          {
+            "testo": "Sai qualcosa sul faro?",
+            "risposta": "\"Il faro ha bisogno del fuoco della terra — un cristallo vulcanico dalla cima del vulcano. Ha bisogno di luce — il cristallo la fornirà. E ha bisogno di un cuore — la gemma di potere, nascosta nelle profondità sotto le rovine. Tre doni dell'isola per risvegliare la speranza.\""
+          },
+          {
+            "testo": "Parlami del tempio sommerso",
+            "risposta": "\"C'è un tempio sotto le grotte marine — costruito dagli Antichi prima che il mare lo inghiottisse. Per raggiungerlo serve attrezzatura da sub. C'è un vecchio capanno nella laguna con l'attrezzatura... se riesci ad arrivarci.\""
+          },
+          {
+            "testo": "Grazie, Luna",
+            "fine": true
+          }
+        ]
+      },
+      {
+        "condizione": null,
+        "saluto": "La donna ti studia in silenzio per un lungo momento prima di parlare.\n\n\"La giungla ti ha portato fin qui. Non capita a caso — la foresta decide chi far passare e chi no. Io sono Luna.\"",
+        "opzioni": [
+          {
+            "testo": "Chi sei?",
+            "risposta": "\"Sono Luna. Vivo nella giungla da... da sempre, mi sembra. Conosco ogni pianta, ogni animale, ogni segreto verde di questa foresta. Le piante parlano, sai? Bisogna solo saper ascoltare.\""
+          },
+          {
+            "testo": "Hai bisogno di qualcosa?",
+            "risposta": "\"Cerco un'orchidea lunare — una pianta rara dai petali argentati. Cresce nella giungla profonda, dove la luce non arriva mai. Con essa posso preparare medicine potenti. Se la trovi, sarò in debito con te.\"",
+            "azione": {
+              "tipo": "flag",
+              "id": "quest_luna_accettata"
+            }
+          },
+          {
+            "testo": "Conosci le rovine?",
+            "risposta": "\"Le rovine sono sacre. Gli Antichi le costruirono millenni fa — erano un popolo saggio che viveva in armonia con l'isola. Poi il vulcano li distrusse. Ma i loro segreti sono ancora là, custoditi dal Guardiano.\""
+          },
+          {
+            "testo": "Devo andare",
+            "fine": true
+          }
+        ]
+      }
+    ],
+    "guardiano": [
+      {
+        "condizione": {
+          "flag": "enigma2_risolto"
+        },
+        "saluto": "Il Guardiano ti osserva con approvazione.\n\n\"Hai dimostrato saggezza, viaggiatore. Le chiavi sono tue — usa ciò che custodiscono con rispetto.\"",
+        "opzioni": [
+          {
+            "testo": "Parlami della tua civiltà",
+            "risposta": "\"Eravamo costruttori, sognatori, navigatori. Costruimmo il faro per guidare le navi attraverso acque pericolose. Il tempio per onorare il mare. Queste rovine per preservare la conoscenza. Poi il vulcano parlò, e il mare ci reclamò. Io sono l'ultimo eco della nostra voce.\""
+          },
+          {
+            "testo": "Come posso accendere il faro?",
+            "risposta": "\"Tre doni dell'isola: l'olio della giungla per gli ingranaggi, il cristallo del vulcano per la luce, e la gemma di potere dalla cripta per l'energia. Porta tutti e tre al faro e la luce tornerà a brillare.\""
+          },
+          {
+            "testo": "Addio, Guardiano",
+            "fine": true
+          }
+        ]
+      },
+      {
+        "condizione": {
+          "flag": "enigma1_risolto"
+        },
+        "saluto": "Il Guardiano ti guarda con interesse.\n\n\"Hai risposto al primo enigma. Ma la saggezza ha molte facce. Sei pronto per il secondo?\"",
+        "opzioni": [
+          {
+            "testo": "Sono pronto per il secondo enigma",
+            "tipo": "enigma",
+            "enigma_id": "enigma2"
+          },
+          {
+            "testo": "Ho bisogno di più tempo",
+            "risposta": "\"Il tempo è un lusso che il saggio non spreca. Torna quando sarai pronto.\""
+          },
+          {
+            "testo": "Me ne vado",
+            "fine": true
+          }
+        ]
+      },
+      {
+        "condizione": null,
+        "saluto": "La figura luminosa si volta verso di te. I suoi occhi di luce azzurra ti trafiggono.\n\n\"Un vivente. Dopo tanto tempo. Sei venuto a cercare ciò che i miei fratelli hanno nascosto, viaggiatore?\"",
+        "opzioni": [
+          {
+            "testo": "Chi sei?",
+            "risposta": "\"Sono il Guardiano — l'ultimo custode di ciò che fu. Il mio popolo è scomparso, ma il mio dovere resta. Custodisco le chiavi del faro e della cripta. Solo chi è degno può averle.\""
+          },
+          {
+            "testo": "Ho bisogno delle chiavi",
+            "risposta": "\"Le chiavi non si prendono — si guadagnano. Rispondi ai miei enigmi, e le chiavi saranno tue. Fallisci, e tornerai a mani vuote. Scegli: sei pronto?\""
+          },
+          {
+            "testo": "Sono pronto per l'enigma",
+            "tipo": "enigma",
+            "enigma_id": "enigma1"
+          },
+          {
+            "testo": "Non ancora",
+            "fine": true
+          }
+        ]
+      }
+    ],
+    "archivista": [
+      {
+        "condizione": {
+          "flag": "archivista_consultata"
+        },
+        "saluto": "L'Archivista riapre gli occhi blu.\n\n\"Sei tornato, viaggiatore. La conoscenza non si finisce mai. Cosa cerchi oggi?\"",
+        "opzioni": [
+          {
+            "testo": "Parlami della Radice del Mondo",
+            "risposta": "\"L'Albero di Luce è la sorgente. Quando il primo seme cadde nelle profondità della pietra, da esso germogliò tutto: la nostra civiltà, la magia, il faro stesso. Per raggiungere la Radice devi attraversare l'Abisso, e per attraversare l'Abisso devi prima riattivare il Cuore della Macchina.\""
+          },
+          {
+            "testo": "Come riattivo il Cuore della Macchina?",
+            "risposta": "\"Il Cuore vuole essere risvegliato dal pendolo. Trova il pendolo di ottone nella forgia. Combinalo con la manovella spezzata della piattaforma. Una volta completata, gira la manovella e la piattaforma si solleverà fino al Cuore.\""
+          },
+          {
+            "testo": "Parlami del Re-Automa",
+            "risposta": "\"L'ultimo Re. Quando i nostri compresero che la fine era vicina, il Re scelse di farsi automa per attendere chi sarebbe venuto. Aspetta da quattromila anni. Ti aspettava.\""
+          },
+          {
+            "testo": "Come si apre il portale dei Titani?",
+            "risposta": "\"I tre incavi vogliono i tre simboli della creazione: la stella (il cosmo), l'occhio (la coscienza), la radice (la vita). Trova un frammento di stella, l'occhio di un Titano, e una radice viva. Posizionali nelle nicchie giuste.\""
+          },
+          {
+            "fine": true,
+            "testo": "Grazie, Archivista. Tornerò."
+          }
+        ]
+      },
+      {
+        "saluto": "La figura di luce apre gli occhi blu. Ti studia per un lungo momento — non con i sensi, ma con qualcosa di più profondo.\n\n\"Sei vivo. E sei sceso. Sono passati millenni dall'ultimo visitatore. Mi chiamo come mi chiamerai. Il mio nome è dimenticato, ma la mia funzione no: io sono l'Archivio. Cosa vuoi sapere, viaggiatore?\"",
+        "opzioni": [
+          {
+            "testo": "Dove sono?",
+            "azione": {
+              "tipo": "flag",
+              "id": "archivista_consultata"
+            },
+            "risposta": "\"Sotto l'isola. Sotto il faro. Sotto il mare. Questa è la Città dei Costruttori, l'ultima dimora del popolo che fabbricò il faro per chiamare i naviganti — non come SOS, ma come INVITO. Pochi rispondono. Tu sei uno.\""
+          },
+          {
+            "testo": "Come faccio a procedere?",
+            "azione": {
+              "tipo": "flag",
+              "id": "archivista_consultata"
+            },
+            "risposta": "\"Esplora. Raccogli. Riattiva il Cuore della Macchina nella sala a nord. Poi parla con il Re-Automa. Lui ti darà la chiave finale. Ma ricorda: chi raggiunge la Radice non torna mai uguale. Ti avverto.\""
+          },
+          {
+            "testo": "Sei... viva?",
+            "azione": {
+              "tipo": "flag",
+              "id": "archivista_consultata"
+            },
+            "risposta": "\"Sono ciò che resta di chi sono stata. Una funzione. Un ricordo che si è fatto strumento. Non è importante. Ciò che conta è che sono qui, e tu sei qui, e abbiamo qualcosa da fare insieme.\""
+          },
+          {
+            "fine": true,
+            "testo": "Devo andare."
+          }
+        ]
+      }
+    ],
+    "re_automa": [
+      {
+        "condizione": {
+          "flag": "re_completato"
+        },
+        "saluto": "Il Re-Automa china leggermente la testa. \"Hai indossato la corona. Sei il prossimo. Va', e regna gentilmente.\"",
+        "opzioni": [
+          {
+            "fine": true,
+            "testo": "Mi inchino. Addio, Re."
+          }
+        ]
+      },
+      {
+        "condizione": {
+          "oggetto": "corona_attivata"
+        },
+        "saluto": "Il Re-Automa solleva lo sguardo verso di te. Vede la corona attivata nelle tue mani. Una vibrazione di energia gli percorre il corpo metallico. La sua voce, quando arriva, è come il suono di un bronzo colpito da lontano:\n\n\"L'hai trovata. L'hai completata. Hai compreso. Vieni avanti, viaggiatore.\"",
+        "opzioni": [
+          {
+            "testo": "Cosa devo fare ora?",
+            "azione": {
+              "tipo": "flag",
+              "id": "re_completato"
+            },
+            "risposta": "\"Discendi nell'Abisso. Trova la Radice del Mondo. Lì, davanti all'Albero di Luce, indossa la Corona. La sceglierai. La sceglierà te. E saprai cosa devi essere.\""
+          },
+          {
+            "testo": "E tu? Cosa ne sarà di te?",
+            "azione": {
+              "tipo": "flag",
+              "id": "re_completato"
+            },
+            "risposta": "\"Io ho aspettato quattromila anni per consegnarti questo momento. Quando indosserai la corona, io potrò finalmente spegnermi. È il dono che mi farai.\"\n\nLa luce nei suoi occhi vacilla, e per un istante vedi qualcosa che somiglia a un sorriso."
+          }
+        ]
+      },
+      {
+        "saluto": "Il Re-Automa solleva lentamente la testa. La sua voce arriva da molto lontano, come se attraversasse il tempo per raggiungerti:\n\n\"Sei venuto. Bene. Non sapevo se saresti riuscito ad arrivare fino qui. Adesso ti vedo, e capisco. Sì. Tu puoi farcela. Ma prima devi prepararti.\"",
+        "opzioni": [
+          {
+            "testo": "Prepararmi a cosa?",
+            "risposta": "\"A indossare la Corona Titanica. La troverai nella Radice del Mondo, oltre l'Abisso. Ma per attivarla devi raccogliere tre simboli: una stella dal mio osservatorio, l'occhio di un Titano dal viale, e la radice viva dell'Albero. Posizionali nelle tre punte vuote più alte della corona.\""
+          },
+          {
+            "testo": "Come passo l'Abisso?",
+            "risposta": "\"Il ponte è spezzato. Funi e binario lo riparano. Cerca nella biblioteca dell'Archivista, e nella sala degli ingranaggi.\""
+          },
+          {
+            "testo": "Cosa c'è oltre la Radice?",
+            "risposta": "\"Non ciò che pensi. Non un'altra stanza, non un mondo nuovo. Una scelta. La Corona ti chiederà chi vuoi essere. Pensaci, viaggiatore. Pensa bene.\""
+          },
+          {
+            "testo": "Chi siete voi? Chi eravate?",
+            "risposta": "\"Eravamo i Costruttori. Sapevamo molto, troppo. Quando la nostra civiltà comprese che eravamo la causa della nostra rovina, scegliemmo di scendere — di sigillarci sotto la pietra, di lasciare che il mondo guarisse senza di noi. Io sono l'ultimo. Aspettavo te.\""
+          },
+          {
+            "fine": true,
+            "testo": "Devo riflettere. Tornerò."
+          }
+        ]
+      }
+    ]
+  },
+  "quests": {
+    "quest_kaia": {
+      "nome": "L'Artefatto Sacro",
+      "descrizione": "Kaia ti ha chiesto di recuperare l'artefatto sacro dalle grotte marine.",
+      "flag_attivazione": "quest_kaia_accettata",
+      "flag_completamento": "quest_kaia_completa",
+      "obiettivi": [
+        {
+          "desc": "Trova l'artefatto sacro nelle grotte marine",
+          "check": "oggetto:artefatto_sacro"
+        },
+        {
+          "desc": "Riporta l'artefatto a Kaia nel villaggio",
+          "check": "flag:quest_kaia_completa"
+        }
+      ]
+    },
+    "quest_tiko": {
+      "nome": "La Barca di Tiko",
+      "descrizione": "Tiko ha bisogno di resina e chiodi per riparare la sua barca.",
+      "flag_attivazione": "quest_tiko_accettata",
+      "flag_completamento": "barca_riparata",
+      "obiettivi": [
+        {
+          "desc": "Trova della resina nella giungla",
+          "check": "oggetto:resina"
+        },
+        {
+          "desc": "Trova dei chiodi arrugginiti",
+          "check": "oggetto:chiodi_arrugginiti"
+        },
+        {
+          "desc": "Porta i materiali a Tiko al molo",
+          "check": "flag:barca_riparata"
+        }
+      ]
+    },
+    "quest_luna": {
+      "nome": "L'Orchidea Lunare",
+      "descrizione": "Luna cerca un'orchidea rara nella giungla profonda.",
+      "flag_attivazione": "quest_luna_accettata",
+      "flag_completamento": "quest_luna_completa",
+      "obiettivi": [
+        {
+          "desc": "Trova l'orchidea lunare nella giungla profonda",
+          "check": "oggetto:pianta_rara"
+        },
+        {
+          "desc": "Porta l'orchidea a Luna",
+          "check": "flag:quest_luna_completa"
+        }
+      ]
+    },
+    "quest_faro": {
+      "nome": "Riaccendi il Faro",
+      "descrizione": "Riaccendi il faro per segnalare le navi di passaggio e lasciare l'isola.",
+      "flag_attivazione": null,
+      "flag_completamento": "faro_acceso",
+      "obiettivi": [
+        {
+          "desc": "Trova l'olio vegetale nella giungla",
+          "check": "oggetto_o_flag:olio_vegetale:faro_olio"
+        },
+        {
+          "desc": "Trova il cristallo vulcanico sulla cima del vulcano",
+          "check": "oggetto_o_flag:cristallo_vulcanico:faro_cristallo"
+        },
+        {
+          "desc": "Trova la gemma di potere nella cripta",
+          "check": "oggetto_o_flag:gemma_potere:faro_gemma"
+        },
+        {
+          "desc": "Ottieni la chiave del faro dal Guardiano",
+          "check": "oggetto:chiave_faro"
+        },
+        {
+          "desc": "Installa i tre elementi nel faro",
+          "check": "flag:faro_acceso"
+        }
+      ]
+    }
+  },
+  "puzzles": {
+    "enigma1": {
+      "testo": "Il Guardiano alza una mano luminosa e la sala si oscura. La sua voce risuona come un'eco dal passato:\n\n\"Vivo senza respiro,\nfreddo come la morte.\nMai assetato, sempre bevendo.\nIn armatura, mai tintinnante.\nCosa sono?\"",
+      "risposte": [
+        "pesce",
+        "un pesce",
+        "il pesce",
+        "fish"
+      ],
+      "successo": "Il Guardiano annuisce lentamente, e la luce torna nella sala.\n\n\"Il pesce. Corretto. Conosci la vita che si nasconde sotto la superficie — questo è il primo passo della saggezza.\"\n\nUna chiave di ferro appare nelle sue mani luminose e fluttua verso di te.",
+      "fallimento": "Il Guardiano scuote la testa.\n\n\"Non è la risposta giusta. La saggezza richiede pazienza e riflessione. Torna quando avrai pensato meglio.\"",
+      "oggetto": "chiave_faro",
+      "flag": "enigma1_risolto"
+    },
+    "enigma2": {
+      "testo": "Il Guardiano si fa più luminoso. Le stelle sul soffitto brillano più forte.\n\n\"Ho città, ma non case.\nHo foreste, ma non alberi.\nHo fiumi, ma non acqua.\nCosa sono?\"",
+      "risposte": [
+        "mappa",
+        "una mappa",
+        "la mappa",
+        "carta",
+        "cartina"
+      ],
+      "successo": "Il Guardiano sorride — o almeno, la sua luce si fa più calda.\n\n\"La mappa. Sì — la rappresentazione del mondo, non il mondo stesso. Chi sa leggere la mappa, sa trovare la strada.\"\n\nUn'altra chiave appare — questa di un metallo sconosciuto che non ha subito il passare dei millenni.",
+      "fallimento": "Il Guardiano sospira — un suono come il vento tra le rovine.\n\n\"Non ancora. La risposta è più semplice di quanto pensi. Torna quando la vedrai.\"",
+      "oggetto": "chiave_antica",
+      "flag": "enigma2_risolto"
+    }
+  },
+  "puzzles_interactive": {
+    "lucchetto_scrigno": {
+      "tipo": "lucchetto",
+      "stanza": "agora_perduta",
+      "trigger_examine": "scrigno",
+      "testo": "Lo scrigno antico ai piedi del trono. Quattro rotelle, ognuna con simboli misteriosi. Una iscrizione: 'IL SOLE NASCE A ORIENTE, IL TRIANGOLO SACRO PUNTA AL CIELO, AL TERZO GIORNO IL RE GIUNSE, E LA TERRA LO ACCOLSE.'",
+      "rotelle": [
+        [
+          "☉",
+          "☽",
+          "★",
+          "✦"
+        ],
+        [
+          "▲",
+          "■",
+          "●",
+          "◆"
+        ],
+        [
+          "I",
+          "II",
+          "III",
+          "IV"
+        ],
+        [
+          "♁",
+          "♆",
+          "♅",
+          "♄"
+        ]
+      ],
+      "soluzione": [
+        "☉",
+        "▲",
+        "III",
+        "♁"
+      ],
+      "successo": "Le rotelle si allineano con uno schiocco di metallo. Lo scrigno si apre con un sibilo di aria che esce dopo millenni. Dentro, posato su un velo di seta antichissima, c'è il Sigillo del Re.",
+      "fallimento": "Le rotelle scattano nelle posizioni errate. Lo scrigno resta chiuso.",
+      "flag": "scrigno_aperto",
+      "ottieni": [
+        "sigillo_re"
+      ]
+    },
+    "stelle_osservatorio": {
+      "tipo": "stelle",
+      "stanza": "osservatorio",
+      "trigger_examine": "mosaico",
+      "testo": "Il mosaico di tre stelle pulsa in attesa. Sulla parete, un meccanismo con tre ruote di pietra corrisponde alle tre stelle proiettate. Allinea ognuna con il segno tratteggiato per completare la costellazione antica.",
+      "targets": [
+        90,
+        180,
+        270
+      ],
+      "successo": "Le tre stelle si allineano perfettamente. Un clic risuona: sull'astrolabio centrale, una piccola apertura rivela un frammento di stella incastonato nell'ottone — in dono a chi ha saputo guardare il cielo giusto.",
+      "fallimento": "Le stelle vibrano ma non sono allineate. Riprova.",
+      "flag": "stelle_allineate_puzzle",
+      "ottieni": [
+        "frammento_stella"
+      ]
+    },
+    "pendolo_cuore": {
+      "tipo": "pendolo",
+      "stanza": "cuore_macchina",
+      "trigger_examine": "pendolo",
+      "testo": "Il pendolo gigante oscilla lento sopra di te. La sala lo accompagna con un battito preciso. Se lo segui col tuo ritmo per quattro battiti, il Cuore forse ti ascolterà.",
+      "target_rhythm": [
+        900,
+        900,
+        900,
+        900
+      ],
+      "successo": "Hai seguito il tempo perfetto. Il Cuore sopra di te emette un bagliore breve ma netto — qualcosa si è predisposto. D'ora in poi, il Cuore risponderà più pronto al prossimo intervento meccanico.",
+      "fallimento": "Il ritmo è sfasato. Il pendolo continua imperturbabile. Riprova quando avrai il giusto tempo dentro.",
+      "flag": "pendolo_sintonizzato",
+      "ottieni": []
+    }
+  },
+  "recipes": [
+    {
+      "ingredienti": [
+        "legna",
+        "pietra_focaia"
+      ],
+      "risultato": "torcia",
+      "messaggio": "Strofini la pietra focaia sulla legna secca. Una, due, tre volte — finché una scintilla prende vita. La fiamma cresce, avvolgendo il legno. Hai creato una torcia!"
+    },
+    {
+      "ingredienti": [
+        "lama_antica",
+        "ramo_robusto"
+      ],
+      "risultato": "machete",
+      "messaggio": "Incastri la lama di ossidiana nell'estremità del ramo robusto, fissandola con delle fibre vegetali strappate da una liana. Il risultato è un machete primitivo ma micidiale. La lama nera luccica, pronta a tagliare."
+    },
+    {
+      "ingredienti": [
+        "ingranaggio",
+        "ruota_dentata"
+      ],
+      "risultato": "meccanismo_completo",
+      "messaggio": "Incastri la ruota dentata sull'ingranaggio. Si parlano subito, denti e cave, e ruotano insieme con un click di soddisfazione meccanica. Hai un meccanismo completo."
+    },
+    {
+      "ingredienti": [
+        "pendolo_ottone",
+        "manovella_temp"
+      ],
+      "risultato": "manovella_completa",
+      "messaggio": "Attacchi il pendolo all'asta della manovella. Pesa giusto. Ora la manovella ha il suo pomello — è completa, pronta per essere girata."
+    },
+    {
+      "ingredienti": [
+        "funi_metalliche",
+        "binario_ferro"
+      ],
+      "risultato": "funi_metalliche_intrecciate",
+      "messaggio": "Intrecci le funi metalliche attorno al binario di ferro. Ora hai un kit per riparare il ponte: una struttura solida con le funi che la sostengono."
+    },
+    {
+      "ingredienti": [
+        "frammento_stella",
+        "ampolla"
+      ],
+      "risultato": "lente_smeraldo",
+      "messaggio": "Inserisci il frammento di stella nell'ampolla di cristallo. La luce si concentra, si focalizza, si fa lente. Ora hai uno smeraldo che vede oltre l'apparenza."
+    },
+    {
+      "ingredienti": [
+        "corona_titanica",
+        "frammento_stella"
+      ],
+      "risultato": "corona_titanica_step1",
+      "messaggio": "Posizioni il frammento di stella in una delle punte della corona. La punta si chiude attorno al frammento e brilla. Manca ancora qualcosa: l'occhio e la radice."
+    },
+    {
+      "ingredienti": [
+        "corona_titanica_step1",
+        "occhio_titano"
+      ],
+      "risultato": "corona_titanica_step2",
+      "messaggio": "Posizioni l'Occhio del Titano in una seconda punta. La corona vibra. Manca ancora una cosa: la vita stessa, la radice."
+    },
+    {
+      "ingredienti": [
+        "corona_titanica_step2",
+        "radice_madre"
+      ],
+      "risultato": "corona_attivata",
+      "messaggio": "Posizioni la Radice Madre nella terza punta. Le tre energie si parlano: stella, mente, vita. Le otto punte si illuminano una dopo l'altra in cascata. La Corona Titanica è ora ATTIVA. Pulsa, dolce e fredda, nelle tue mani."
+    }
+  ],
+  "room_actions": {
+    "machete::radura": {
+      "messaggio": "Afferri il machete e ti lanci contro il muro di vegetazione a nord. Colpo dopo colpo, liane e rovi cedono alla lama di ossidiana. Il sudore ti cola sulla fronte, ma dopo mezz'ora di lavoro un sentiero si apre tra la giungla.\n\nLa via verso nord è ora libera.",
+      "flag": "sentiero_giungla",
+      "consuma": false
+    },
+    "corda::giungla_profonda": {
+      "messaggio": "Leghi un'estremità della corda al tronco di un albero massiccio sul bordo del dirupo, poi lanci il resto nel vuoto. La corda si srotola, raggiungendo il sentiero della montagna in basso. Adesso puoi scendere e risalire in sicurezza.\n\nLa via verso nord è ora accessibile.",
+      "flag": "corda_montagna",
+      "consuma": true
+    },
+    "olio_vegetale::faro": {
+      "messaggio": "Versi l'olio denso sugli ingranaggi del meccanismo. Lentamente, con scricchiolii e proteste, le ruote dentate cominciano a muoversi. L'olio penetra nelle giunture arrugginite, restituendo vita al vecchio meccanismo.\n\nGli ingranaggi sono lubrificati. Ma il meccanismo ha ancora bisogno di una fonte di luce e di energia.",
+      "flag": "faro_olio",
+      "consuma": true
+    },
+    "cristallo_vulcanico::faro": {
+      "messaggio": "Posizioni il cristallo vulcanico al centro del sistema di specchi. La lente principale lo cattura, e per un istante un raggio di luce ambrata attraversa la torre. Il cristallo è perfetto — contiene il fuoco della terra.\n\nIl cristallo è al suo posto. Ma il meccanismo ha ancora bisogno di energia per funzionare continuamente.",
+      "flag": "faro_cristallo",
+      "consuma": true
+    },
+    "gemma_potere::faro": {
+      "messaggio": "Posizioni la gemma di potere nell'incavatura alla base del meccanismo — si incastra perfettamente, come se fosse stata creata per quel preciso scopo. La gemma pulsa più forte, il suo bagliore ambrato si intensifica.",
+      "flag": "faro_gemma",
+      "consuma": true
+    },
+    "valvola_vapore::cripta_meccanica": {
+      "messaggio": "Avviti la valvola al raccordo del corridoio. Il sibilo del vapore si calma in un respiro regolare. Il passaggio è ora sicuro.",
+      "flag": "valvola_installata",
+      "consuma": true
+    },
+    "manovella_completa::sala_ingranaggi": {
+      "messaggio": "Avviti la manovella completa al perno della piattaforma. Ora ha presa: puoi girarla. Lo fai. La piattaforma si solleva con un rombo di ingranaggi che si svegliano. Sale fino al Cuore della Macchina, sospeso sopra di te.\n\nIl Cuore si illumina, lentamente, da nero a verde-azzurro pulsante. La porta a nord, nella stessa sala, scatta aperta.",
+      "flag": "cuore_riattivato",
+      "consuma": true
+    },
+    "funi_metalliche_intrecciate::abisso": {
+      "messaggio": "Lavori per ore. Le funi vengono tese, il binario fa da nuovo asse, le assi mancanti vengono sostituite. Quando finisci, il ponte è solido. Puoi attraversarlo.",
+      "flag": "ponte_riparato",
+      "consuma": true
+    },
+    "lente_smeraldo::osservatorio": {
+      "messaggio": "Inserisci la lente di smeraldo nella scanalatura sulla cima dell'astrolabio. Le stelle proiettate sul soffitto cambiano: si raggruppano, si allineano, formano un disegno chiaro — tre stelle in fila, perfettamente allineate col mosaico sul muro.\n\nC'è un click sotto i tuoi piedi: una porta nascosta si apre nel pavimento.",
+      "flag": "stelle_allineate",
+      "consuma": false
+    },
+    "corona_attivata::radice_mondo": {
+      "messaggio": "Sollevi la Corona Titanica con entrambe le mani. Pesa più di quanto ti aspettassi: il peso del tempo. La avvicini lentamente alla testa.",
+      "flag": "corona_indossata",
+      "consuma": true
+    },
+    "meccanismo_completo::via_titani": {
+      "messaggio": "Inserisci il meccanismo nei tre incavi del portale. Le tre forme — triangolo, quadrato, pentagono — combaciano perfettamente. Gli ingranaggi del meccanismo si parlano con quelli del portale, e per la prima volta dopo millenni la pietra circolare si schiude. Una via alternativa per la Radice del Mondo si apre.",
+      "flag": "portale_aperto",
+      "consuma": true
+    },
+    "piccone::cripta": {
+      "messaggio": "Sferri un colpo, due, tre. Le pietre allentate cedono una dopo l'altra. Polvere antichissima si solleva. Quando il muro crolla del tutto, ti trovi davanti a un piccolo cunicolo asciutto che si apre verso nord. La luce di una fiamma calda brilla in fondo.",
+      "flag": "cunicolo_aperto",
+      "consuma": false,
+      "audio": "wall_break"
+    },
+    "martello_rame::sala_ingranaggi": {
+      "messaggio": "Con il martello di rame allenti il bullone alla base della manovella. L'asta nuda si stacca: ora puoi prenderla con te per montarla altrove.",
+      "ottieni": [
+        "manovella_temp"
+      ],
+      "flag": "asta_estratta",
+      "consuma": false
+    }
+  },
+  "deliveries": {
+    "artefatto_sacro::kaia": {
+      "messaggio": "Porgi l'artefatto sacro a Kaia. Le sue mani tremano mentre prende la statuetta di giada. Gli occhi le si riempiono di lacrime.\n\n\"L'hai trovato... dopo tutti questi anni. Questo artefatto proteggeva il nostro villaggio. Senza di esso, la pesca era scarsa e il mare agitato. Grazie, straniero.\"\n\nSi toglie dal collo un medaglione e te lo porge.\n\n\"Prendi questo. È il medaglione degli Antichi — ti aprirà le porte delle rovine nella giungla. Là troverai le risposte che cerchi.\"",
+      "rimuovi": [
+        "artefatto_sacro"
+      ],
+      "ottieni": [
+        "medaglione"
+      ],
+      "flag": "quest_kaia_completa"
+    },
+    "resina::tiko": {
+      "condizione_extra": "oggetto:chiodi_arrugginiti",
+      "messaggio": "Mostri a Tiko la resina e i chiodi arrugginiti.\n\n\"Ma questo è proprio quello che mi serve!\" esclama con gli occhi che brillano. \"Con la resina sigillo le falle, con i chiodi rinforzo le giunture. Dammi un'ora!\"\n\nTiko si mette al lavoro con un'energia febbrile. Martella, spalma, inchioda. Dopo un'ora, si rialza soddisfatto.\n\n\"La barca è pronta! Non vincerà premi di bellezza, ma navigherà. Ho visto una laguna a ovest — potrebbe valere la pena esplorarla. La barca è tua.\"",
+      "rimuovi": [
+        "resina",
+        "chiodi_arrugginiti"
+      ],
+      "ottieni": [],
+      "flag": "barca_riparata"
+    },
+    "chiodi_arrugginiti::tiko": {
+      "condizione_extra": "oggetto:resina",
+      "messaggio": "Mostri a Tiko i chiodi e la resina.\n\n\"Ma questo è proprio quello che mi serve!\" esclama con gli occhi che brillano. \"Con la resina sigillo le falle, con i chiodi rinforzo le giunture. Dammi un'ora!\"\n\nTiko si mette al lavoro con un'energia febbrile. Martella, spalma, inchioda. Dopo un'ora, si rialza soddisfatto.\n\n\"La barca è pronta! Non vincerà premi di bellezza, ma navigherà. Ho visto una laguna a ovest — potrebbe valere la pena esplorarla. La barca è tua.\"",
+      "rimuovi": [
+        "resina",
+        "chiodi_arrugginiti"
+      ],
+      "ottieni": [],
+      "flag": "barca_riparata"
+    },
+    "pianta_rara::luna": {
+      "messaggio": "Luna prende l'orchidea lunare con una delicatezza reverenziale.\n\n\"L'orchidea lunare... la cercavo da anni. Con questa posso preparare l'antidoto universale — cura qualsiasi veleno dell'isola.\"\n\nSi mette subito al lavoro. Con movimenti esperti, macina i petali nel mortaio, aggiunge polveri dai vasetti, e dopo pochi minuti ti porge una fiala di liquido verde.\n\n\"Ecco l'antidoto. E un consiglio: nella laguna a ovest del molo c'è un vecchio capanno con attrezzatura da sub. Se vuoi esplorare le profondità marine, è là che devi andare.\"",
+      "rimuovi": [
+        "pianta_rara"
+      ],
+      "ottieni": [
+        "antidoto"
+      ],
+      "flag": "quest_luna_completa"
+    },
+    "tavoletta_runica::archivista": {
+      "messaggio": "Porgi la tavoletta runica all'Archivista. Lei la accetta delicatamente, e per la prima volta sorride davvero.\n\n\"Una tavoletta perduta. La leggo. Ah... è una mappa. Una mappa del Cuore della Macchina, e dei suoi tre punti deboli. Tienila, ora ti sarà più utile a te che a me.\"\n\nDopo un momento, dalla tunica di luce estrae un piccolo dono e te lo porge.",
+      "rimuovi": [],
+      "ottieni": [
+        "lente_smeraldo"
+      ],
+      "flag": "archivista_dono"
+    },
+    "sigillo_re::archivista": {
+      "messaggio": "L'Archivista riconosce subito il sigillo. \"Il segno del Re. Hai parlato con lui. Bene. Allora questa è tua.\"\n\nTi consegna una piccola tavoletta in cui sono incise le risposte a un enigma antico — un dono di conoscenza.",
+      "ottieni": [],
+      "flag": "archivista_riconosce_re"
+    }
+  },
+  "blocked_destinations": {
+    "caletta::est": "grotte",
+    "radura::nord": "giungla",
+    "giungla::est": "rovine",
+    "giungla_profonda::nord": "sentiero_montagna",
+    "scogliere::ovest": "faro",
+    "sala_guardiano::giù": "cripta",
+    "molo::barca": "laguna",
+    "grotte::giù": "tempio_sommerso",
+    "faro::giu": "pozzo_faro",
+    "pozzo_faro::giu": "cripta_meccanica",
+    "cripta_meccanica::est": "corridoio_vapore",
+    "sala_ingranaggi::nord": "cuore_macchina",
+    "cuore_macchina::nord": "agora_perduta",
+    "agora_perduta::nord": "abisso",
+    "abisso::est": "radice_mondo",
+    "via_titani::dentro": "radice_mondo",
+    "osservatorio::dentro": "via_titani",
+    "cripta::nord": "cunicolo_nascosto"
+  },
+  "start_room": "spiaggia",
+  "finale_atto_ii": "Indossi la Corona Titanica.\n\nPer un istante, niente. Poi le otto punte si illuminano in cascata, e una luce dolce e fredda ti avvolge — non un fuoco, ma una luna piena fatta a corona. Sai tutto, di colpo. Sai chi furono i Costruttori, sai perché scelsero di scendere, sai cosa è l'Albero di Luce: la coscienza addormentata del mondo stesso, e tu sei il suo nuovo custode.\n\nL'Albero ti si apre davanti come un fiore. Tu non hai più paura. Tu non sei più solo.\n\nDa molto, molto in alto, sull'isola, il faro continua a brillare nella notte. Non chiama soccorso. Chiama il prossimo. Tra cento anni, tra mille, qualcuno lo vedrà, e si chiederà cosa significhi.\n\nTu glielo dirai, quando arriverà.\n\n~ Fine ~",
+  "collectibles": {
+    "conchiglia": {
+      "nome": "Conchiglia spiralata",
+      "lore": "Il mare ha una memoria propria. Avvicinala all'orecchio: senti il pianto antico di tutte le navi che non sono tornate."
+    },
+    "perla_nera": {
+      "nome": "Perla nera della laguna",
+      "lore": "Si dice che le perle nere nascano nelle ostriche che hanno visto un omicidio. Questa ha visto qualcosa di peggio: un'intera civiltà sigillarsi sotto la pietra."
+    },
+    "corona_corallo": {
+      "nome": "Corona di corallo",
+      "lore": "Una corona infantile, fatta di rametti di corallo intrecciati. Apparteneva a una bambina del popolo sommerso. Ha giocato a essere regina prima della fine."
+    },
+    "frammento_mappa": {
+      "nome": "Frammento di mappa antica",
+      "lore": "Solo un quarto della carta originale. Mostra l'isola con un nome che non sai leggere e una croce sopra il faro. Sotto la croce, in piccolo: «la porta»."
+    },
+    "messaggio_bottiglia": {
+      "nome": "Messaggio in bottiglia",
+      "lore": "«Se leggi questo, sei l'undicesimo. I primi dieci sono diventati la luce del faro. Decidi tu se vuoi essere l'ultimo lume o se vuoi spegnerlo.» Firmato: il decimo."
+    },
+    "diario_guardiano": {
+      "nome": "Diario del Guardiano",
+      "lore": "Pagine fitte di una grafia minuta. L'ultima riga, scarabocchiata di fretta: «Non eravamo dèi. Eravamo solo i primi a capire. Mi spiace, lettore. Tu adesso devi capire dopo di me.»"
+    },
+    "tavoletta_antica": {
+      "nome": "Tavoletta cifrata",
+      "lore": "Tre simboli si ripetono: un occhio, una stella, una radice. Sotto, la frase: «Quando i tre tornano insieme, il mondo respira di nuovo.»"
+    },
+    "sigillo_antico": {
+      "nome": "Sigillo del tempio sommerso",
+      "lore": "Il sigillo di un sacerdote del culto del faro. Sul retro, due parole: «accendi soltanto»."
+    },
+    "tridente": {
+      "nome": "Tridente cerimoniale",
+      "lore": "Le tre punte rappresentano i tre poteri del faro: olio, cristallo, gemma. Chi lo impugnava chiamava le navi. Chi lo impugnava le mandava anche a fondo."
+    },
+    "cristallo_radice": {
+      "nome": "Cristallo della Radice",
+      "lore": "Pulsa al ritmo dell'Albero di Luce. Se lo tieni vicino al cuore, senti che il tuo battito si sincronizza al suo. Smetti di avere paura. Smetti di avere fretta."
+    },
+    "muschio_blu": {
+      "nome": "Muschio bioluminescente dell'Abisso",
+      "lore": "Cresce solo dove la luce del sole non è mai arrivata e non arriverà mai. Eppure brilla. Lezione: la luce non viene sempre da fuori."
+    },
+    "spore_lumino": {
+      "nome": "Spore della soglia",
+      "lore": "Le porte tra i mondi rilasciano spore quando si aprono. Queste sono le spore del pozzo del faro — la prima soglia che hai attraversato."
+    },
+    "lampada_eterna": {
+      "nome": "Lampada Eterna",
+      "lore": "Una luce che brucia da sempre senza consumarsi. I Costruttori dicevano: «la luce vera non viene dal combustibile, viene dalla decisione di brillare». Tu adesso porti questa decisione con te."
+    }
+  },
+  "map_positions": {
+    "spiaggia": {
+      "x": 50,
+      "y": 90,
+      "atto": 1
+    },
+    "caletta": {
+      "x": 70,
+      "y": 88,
+      "atto": 1
+    },
+    "grotte": {
+      "x": 85,
+      "y": 90,
+      "atto": 1
+    },
+    "tempio_sommerso": {
+      "x": 95,
+      "y": 95,
+      "atto": 1
+    },
+    "foresta": {
+      "x": 50,
+      "y": 75,
+      "atto": 1
+    },
+    "radura": {
+      "x": 60,
+      "y": 70,
+      "atto": 1
+    },
+    "scogliere_sud": {
+      "x": 30,
+      "y": 92,
+      "atto": 1
+    },
+    "cimitero_marino": {
+      "x": 18,
+      "y": 95,
+      "atto": 1
+    },
+    "bivio_giungla": {
+      "x": 70,
+      "y": 50,
+      "atto": 1
+    },
+    "cunicolo_nascosto": {
+      "x": 92,
+      "y": 65,
+      "atto": 1
+    },
+    "villaggio": {
+      "x": 38,
+      "y": 65,
+      "atto": 1
+    },
+    "molo": {
+      "x": 22,
+      "y": 70,
+      "atto": 1
+    },
+    "giungla": {
+      "x": 65,
+      "y": 58,
+      "atto": 1
+    },
+    "giungla_profonda": {
+      "x": 75,
+      "y": 55,
+      "atto": 1
+    },
+    "capanna_luna": {
+      "x": 80,
+      "y": 48,
+      "atto": 1
+    },
+    "sentiero_montagna": {
+      "x": 78,
+      "y": 38,
+      "atto": 1
+    },
+    "cima_vulcano": {
+      "x": 78,
+      "y": 25,
+      "atto": 1
+    },
+    "scogliere": {
+      "x": 32,
+      "y": 45,
+      "atto": 1
+    },
+    "faro": {
+      "x": 22,
+      "y": 38,
+      "atto": 1
+    },
+    "rovine": {
+      "x": 78,
+      "y": 60,
+      "atto": 1
+    },
+    "sala_guardiano": {
+      "x": 84,
+      "y": 65,
+      "atto": 1
+    },
+    "cripta": {
+      "x": 90,
+      "y": 70,
+      "atto": 1
+    },
+    "laguna": {
+      "x": 12,
+      "y": 78,
+      "atto": 1
+    },
+    "pozzo_faro": {
+      "x": 22,
+      "y": 28,
+      "atto": 2
+    },
+    "cripta_meccanica": {
+      "x": 22,
+      "y": 22,
+      "atto": 2
+    },
+    "corridoio_perduto": {
+      "x": 14,
+      "y": 26,
+      "atto": 2
+    },
+    "sala_ingranaggi": {
+      "x": 35,
+      "y": 18,
+      "atto": 2
+    },
+    "corridoio_vapore": {
+      "x": 30,
+      "y": 30,
+      "atto": 2
+    },
+    "forgia_antica": {
+      "x": 38,
+      "y": 32,
+      "atto": 2
+    },
+    "archivio": {
+      "x": 22,
+      "y": 14,
+      "atto": 2
+    },
+    "osservatorio": {
+      "x": 48,
+      "y": 14,
+      "atto": 2
+    },
+    "cuore_macchina": {
+      "x": 50,
+      "y": 22,
+      "atto": 2
+    },
+    "agora_perduta": {
+      "x": 65,
+      "y": 22,
+      "atto": 2
+    },
+    "via_titani": {
+      "x": 78,
+      "y": 18,
+      "atto": 2
+    },
+    "abisso": {
+      "x": 80,
+      "y": 30,
+      "atto": 2
+    },
+    "radice_mondo": {
+      "x": 90,
+      "y": 22,
+      "atto": 2
+    }
+  },
+  "room_zones": {
+    "spiaggia": {
+      "items": [
+        [
+          30,
+          72
+        ],
+        [
+          50,
+          80
+        ],
+        [
+          72,
+          75
+        ],
+        [
+          40,
+          68
+        ]
+      ],
+      "npcs": [
+        [
+          50,
+          55
+        ]
+      ]
+    },
+    "caletta": {
+      "items": [
+        [
+          28,
+          78
+        ],
+        [
+          48,
+          76
+        ],
+        [
+          72,
+          80
+        ]
+      ],
+      "npcs": [
+        [
+          50,
+          55
+        ]
+      ]
+    },
+    "grotte": {
+      "items": [
+        [
+          25,
+          72
+        ],
+        [
+          50,
+          80
+        ],
+        [
+          75,
+          72
+        ]
+      ],
+      "npcs": [
+        [
+          50,
+          55
+        ]
+      ]
+    },
+    "tempio_sommerso": {
+      "items": [
+        [
+          30,
+          76
+        ],
+        [
+          55,
+          82
+        ],
+        [
+          78,
+          76
+        ]
+      ],
+      "npcs": [
+        [
+          50,
+          55
+        ]
+      ]
+    },
+    "foresta": {
+      "items": [
+        [
+          35,
+          72
+        ],
+        [
+          60,
+          78
+        ],
+        [
+          75,
+          68
+        ]
+      ]
+    },
+    "radura": {
+      "items": [
+        [
+          28,
+          75
+        ],
+        [
+          50,
+          80
+        ],
+        [
+          72,
+          72
+        ]
+      ]
+    },
+    "scogliere_sud": {
+      "items": [
+        [
+          40,
+          75
+        ],
+        [
+          65,
+          80
+        ]
+      ]
+    },
+    "cimitero_marino": {
+      "items": []
+    },
+    "bivio_giungla": {
+      "items": []
+    },
+    "corridoio_perduto": {
+      "items": []
+    },
+    "cunicolo_nascosto": {
+      "items": [
+        [
+          50,
+          68
+        ]
+      ]
+    },
+    "villaggio": {
+      "items": [
+        [
+          28,
+          75
+        ],
+        [
+          70,
+          76
+        ]
+      ],
+      "npcs": [
+        [
+          45,
+          52
+        ],
+        [
+          60,
+          55
+        ]
+      ]
+    },
+    "molo": {
+      "items": [
+        [
+          35,
+          75
+        ],
+        [
+          60,
+          82
+        ],
+        [
+          75,
+          72
+        ]
+      ]
+    },
+    "giungla": {
+      "items": [
+        [
+          30,
+          75
+        ],
+        [
+          55,
+          80
+        ],
+        [
+          75,
+          72
+        ]
+      ]
+    },
+    "giungla_profonda": {
+      "items": [
+        [
+          28,
+          72
+        ],
+        [
+          50,
+          78
+        ],
+        [
+          72,
+          75
+        ]
+      ]
+    },
+    "capanna_luna": {
+      "items": [
+        [
+          30,
+          72
+        ],
+        [
+          50,
+          80
+        ],
+        [
+          70,
+          72
+        ]
+      ],
+      "npcs": [
+        [
+          50,
+          55
+        ]
+      ]
+    },
+    "sentiero_montagna": {
+      "items": [
+        [
+          30,
+          75
+        ],
+        [
+          55,
+          80
+        ],
+        [
+          75,
+          75
+        ]
+      ]
+    },
+    "cima_vulcano": {
+      "items": [
+        [
+          30,
+          80
+        ],
+        [
+          55,
+          72
+        ],
+        [
+          72,
+          82
+        ]
+      ]
+    },
+    "scogliere": {
+      "items": [
+        [
+          28,
+          75
+        ],
+        [
+          55,
+          80
+        ]
+      ]
+    },
+    "faro": {
+      "items": [
+        [
+          45,
+          80
+        ],
+        [
+          60,
+          72
+        ]
+      ]
+    },
+    "rovine": {
+      "items": [
+        [
+          28,
+          72
+        ],
+        [
+          50,
+          80
+        ],
+        [
+          72,
+          72
+        ]
+      ]
+    },
+    "sala_guardiano": {
+      "items": [
+        [
+          50,
+          80
+        ]
+      ],
+      "npcs": [
+        [
+          50,
+          52
+        ]
+      ]
+    },
+    "cripta": {
+      "items": [
+        [
+          28,
+          75
+        ],
+        [
+          55,
+          82
+        ],
+        [
+          72,
+          72
+        ]
+      ]
+    },
+    "laguna": {
+      "items": [
+        [
+          35,
+          80
+        ],
+        [
+          60,
+          75
+        ]
+      ]
+    },
+    "pozzo_faro": {
+      "items": [
+        [
+          30,
+          72
+        ],
+        [
+          70,
+          75
+        ]
+      ]
+    },
+    "cripta_meccanica": {
+      "items": [
+        [
+          28,
+          75
+        ],
+        [
+          50,
+          72
+        ],
+        [
+          72,
+          80
+        ],
+        [
+          40,
+          68
+        ]
+      ]
+    },
+    "sala_ingranaggi": {
+      "items": [
+        [
+          25,
+          72
+        ],
+        [
+          45,
+          80
+        ],
+        [
+          65,
+          72
+        ],
+        [
+          78,
+          80
+        ]
+      ]
+    },
+    "corridoio_vapore": {
+      "items": [
+        [
+          35,
+          72
+        ],
+        [
+          65,
+          80
+        ]
+      ]
+    },
+    "forgia_antica": {
+      "items": [
+        [
+          28,
+          75
+        ],
+        [
+          72,
+          72
+        ]
+      ]
+    },
+    "archivio": {
+      "items": [
+        [
+          30,
+          80
+        ],
+        [
+          50,
+          72
+        ],
+        [
+          70,
+          80
+        ]
+      ],
+      "npcs": [
+        [
+          50,
+          55
+        ]
+      ]
+    },
+    "osservatorio": {
+      "items": [
+        [
+          30,
+          80
+        ],
+        [
+          72,
+          75
+        ]
+      ]
+    },
+    "cuore_macchina": {
+      "items": []
+    },
+    "agora_perduta": {
+      "items": [
+        [
+          30,
+          80
+        ]
+      ],
+      "npcs": [
+        [
+          50,
+          52
+        ]
+      ]
+    },
+    "via_titani": {
+      "items": [
+        [
+          28,
+          75
+        ],
+        [
+          72,
+          80
+        ]
+      ]
+    },
+    "abisso": {
+      "items": [
+        [
+          30,
+          80
+        ],
+        [
+          50,
+          72
+        ]
+      ]
+    },
+    "radice_mondo": {
+      "items": [
+        [
+          30,
+          75
+        ],
+        [
+          70,
+          75
+        ]
+      ]
+    }
+  },
+  "epilogo_segreto": "EPILOGO SEGRETO — Tutti i dodici frammenti raccolti.\n\nHai trovato tutto. Le conchiglie, le perle, i diari, le tavolette: ogni voce dimenticata che l'isola e le sue profondità avevano nascosto. E ascoltandole tutte insieme, capisci.\n\nNon sei un naufrago. Non sei MAI stato un naufrago.\n\nSei tornato. La tempesta che ti ha portato qui era il tuo modo di tornare — perché tu eri uno di loro, dei Costruttori, e quando la tua civiltà scese sotto la pietra tu non scendesti con loro. Restasti fuori. Ti dimenticasti di te. Vagasti per millenni in una vita umana dopo l'altra, finché finalmente la corrente ti ha riportato a casa.\n\nAdesso sai chi sei. E loro lo sanno da sempre."
+}

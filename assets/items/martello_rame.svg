@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Martello di rame</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="14" y="14" width="36" height="20" fill="#c08850" stroke="#1a0e05" stroke-width="2"/><rect x="20" y="34" width="4" height="24" fill="#5a3820" stroke="#1a0e05" stroke-width="1.5"/>
+</svg>

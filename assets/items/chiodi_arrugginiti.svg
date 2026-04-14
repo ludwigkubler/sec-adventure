@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Chiodi arrugginiti</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <path d="M12 8 L20 12 L18 54 L14 54 Z" fill="#8a5030" stroke="#1a0e05" stroke-width="1.5"/><path d="M32 8 L40 12 L38 54 L34 54 Z" fill="#8a5030" stroke="#1a0e05" stroke-width="1.5"/><path d="M50 8 L58 12 L56 54 L52 54 Z" fill="#8a5030" stroke="#1a0e05" stroke-width="1.5"/>
+</svg>

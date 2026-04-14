@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Orchidea lunare</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="22" y="44" width="20" height="16" fill="#5a3820" stroke="#1a0e05" stroke-width="2"/><path d="M32 44 L32 8" stroke="#6a8040" stroke-width="2"/><path d="M32 16 Q20 18 14 12 Q20 22 32 22 Q44 22 50 12 Q44 18 32 16 Z" fill="#7a9050" stroke="#1a0e05" stroke-width="1.5"/><circle cx="32" cy="14" r="5" fill="#e0a0d0" stroke="#1a0e05" stroke-width="1"/>
+</svg>

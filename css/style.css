@@ -1,0 +1,269 @@
+:root{
+  --bg: #1a140c;
+  --fg: #e8d7b0;
+  --accent: #c08a3c;
+  --accent-hot: #f0b25a;
+  --panel: rgba(20,14,8,0.88);
+  --border: #5c3e1c;
+  --exit: #8ec2c2;
+  --exit-glow: rgba(142,194,194,.5);
+  --item: #e0c070;
+  --item-glow: rgba(224,192,112,.55);
+  --npc: #d87050;
+  --blocked: #5c2820;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;color:var(--fg);font-family:Georgia,serif;overflow:hidden}
+button{font-family:inherit}
+
+#game{position:relative;width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center, #1a0e05 0%, #000 80%)}
+#game.cur-use{cursor:crosshair}
+
+/* ─── SCENE ─── */
+#scene{position:relative;width:min(100vw,1280px);aspect-ratio:16/10;max-height:80vh;background:#0b0705;box-shadow:0 0 80px #000 inset, 0 4px 30px #000;overflow:hidden;border:1px solid var(--border);border-radius:3px}
+#bg{position:absolute;inset:-3%;background-size:cover;background-position:center;background-color:#2a1a0c;transition:opacity .4s, filter .4s;image-rendering:auto;animation:kenBurns 32s ease-in-out infinite alternate}
+#bg.fading{opacity:.0;filter:blur(8px);animation-play-state:paused}
+@keyframes kenBurns{
+  0%   {transform:scale(1.04) translate(-1%, -1%)}
+  100% {transform:scale(1.10) translate(1%, 1%)}
+}
+#vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,.65) 100%);z-index:5}
+#scene-title{position:absolute;top:14px;left:50%;transform:translateX(-50%);background:var(--panel);color:var(--accent-hot);padding:4px 16px;font-size:13px;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--border);border-radius:2px;opacity:0;transition:opacity .8s;z-index:8;pointer-events:none}
+#scene-title.show{opacity:1}
+#hotspots{position:absolute;inset:0;z-index:10}
+#cursor-hint{position:fixed;pointer-events:none;background:var(--panel);color:var(--fg);padding:4px 10px;font-size:12px;border:1px solid var(--border);border-radius:3px;z-index:200;display:none;max-width:280px;font-style:italic;letter-spacing:.5px}
+
+/* ─── HUD overlay (speedrun) ─── */
+#hud-overlay{position:absolute;top:12px;left:12px;display:flex;gap:10px;z-index:18;pointer-events:none}
+#hud-overlay span{background:var(--panel);color:var(--accent);padding:4px 10px;font-size:12px;border:1px solid var(--border);border-radius:3px;font-family:'Courier New',monospace;letter-spacing:.5px;backdrop-filter:blur(3px)}
+#hud-overlay span#hud-pct{color:var(--accent-hot)}
+
+/* ─── TOPBAR ─── */
+#topbar{position:absolute;top:8px;right:8px;display:flex;gap:6px;z-index:20}
+.topbtn{width:32px;height:32px;background:var(--panel);color:var(--fg);border:1px solid var(--border);border-radius:3px;cursor:pointer;font-size:14px;transition:all .2s}
+.topbtn:hover{background:#2a1a0c;border-color:var(--accent-hot);color:var(--accent-hot);transform:scale(1.08)}
+
+/* ─── HOTSPOTS ─── */
+.hotspot{position:absolute;display:flex;flex-direction:column;align-items:center;cursor:pointer;user-select:none;transition:transform .2s ease-out}
+.hotspot:hover{transform:translate(-50%,-50%) scale(1.18)}
+.hotspot .icon{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(20,14,8,.65);border:1.5px solid transparent;box-shadow:0 2px 12px rgba(0,0,0,.55);position:relative;transition:all .2s}
+.hotspot .icon img{width:42px;height:42px;object-fit:contain}
+
+/* item: pulse dorato lento + bobbing verticale */
+.hotspot.type-item .icon{border-color:var(--item);animation:pulseItem 2.4s ease-in-out infinite}
+.hotspot.type-item{animation:bobItem 3.2s ease-in-out infinite}
+.hotspot.type-item:nth-child(2n){animation-delay:.6s}
+.hotspot.type-item:nth-child(3n){animation-delay:1.2s}
+.hotspot.type-item:hover .icon{box-shadow:0 0 24px var(--item-glow), 0 2px 12px #000}
+@keyframes pulseItem{
+  0%,100%{box-shadow:0 0 0 0 rgba(224,192,112,0), 0 2px 8px #000}
+  50%   {box-shadow:0 0 22px 2px rgba(224,192,112,.35), 0 2px 8px #000}
+}
+@keyframes bobItem{
+  0%,100%{translate:0 0}
+  50%   {translate:0 -5px}
+}
+
+/* npc: portrait grande con anello rosso pulsante */
+.hotspot.type-npc .icon{border-color:var(--npc);width:90px;height:90px;animation:pulseNpc 3s ease-in-out infinite}
+.hotspot.type-npc .icon img{width:84px;height:84px;border-radius:50%;object-fit:cover}
+@keyframes pulseNpc{
+  0%,100%{box-shadow:0 0 0 0 rgba(216,112,80,0), 0 2px 12px #000}
+  50%   {box-shadow:0 0 28px 4px rgba(216,112,80,.4), 0 2px 12px #000}
+}
+
+/* exit: solo freccia, pulse cyan */
+.hotspot.type-exit .icon{border:none;background:rgba(0,30,30,.45);font-size:34px;color:var(--exit);width:64px;height:64px;text-shadow:0 0 18px var(--exit-glow);animation:pulseExit 2.2s ease-in-out infinite;font-weight:bold;line-height:1}
+.hotspot.type-exit:hover .icon{color:#bee5e5;text-shadow:0 0 28px var(--exit), 0 0 50px var(--exit-glow);background:rgba(0,40,40,.7)}
+.hotspot.type-exit.blocked .icon{color:var(--blocked);text-shadow:0 0 12px rgba(140,40,40,.6);animation:none;opacity:.55;background:rgba(40,10,10,.45)}
+@keyframes pulseExit{
+  0%,100%{transform:scale(1);text-shadow:0 0 14px var(--exit-glow)}
+  50%   {transform:scale(1.08);text-shadow:0 0 24px var(--exit-glow), 0 0 8px var(--exit)}
+}
+
+/* examine: discreto */
+.hotspot.type-examine .icon{border:none;background:rgba(20,14,8,.35);width:30px;height:30px;font-size:14px;color:#a89060;opacity:.45}
+.hotspot.type-examine:hover .icon{opacity:.95;color:var(--accent-hot);transform:scale(1.3)}
+
+/* label: nascosta di default, appare in hover */
+.hotspot .label{margin-top:4px;font-size:11px;color:var(--fg);background:var(--panel);padding:2px 8px;border-radius:2px;white-space:nowrap;opacity:0;transition:opacity .25s;border:1px solid rgba(92,62,28,.5);letter-spacing:.5px}
+.hotspot:hover .label{opacity:.9}
+.hotspot.type-exit .label{font-style:italic;color:#bee5e5}
+
+/* ─── HUD ─── */
+#hud{width:min(100vw,1280px);background:#0a0703;border:1px solid var(--border);border-top:none;display:flex;flex-direction:column;border-radius:0 0 3px 3px}
+#text-log{padding:10px 16px;min-height:80px;max-height:140px;overflow-y:auto;border-bottom:1px solid var(--border);font-size:14.5px;line-height:1.5;scrollbar-width:thin;scrollbar-color:var(--border) #000}
+#text-log::-webkit-scrollbar{width:8px}
+#text-log::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+#text-log .line{margin-bottom:6px;animation:lineIn .5s ease-out}
+#text-log .line.narrative{color:#d8c090}
+#text-log .line.system{color:var(--accent);font-style:italic;font-size:13px}
+#text-log .line.title{color:var(--accent-hot);font-weight:bold;font-size:17px;margin:8px 0 4px;letter-spacing:1px}
+@keyframes lineIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+#inventory-bar{display:flex;align-items:center;gap:6px;padding:8px 10px;min-height:64px;flex-wrap:wrap}
+.inv-empty{color:#6a5840;font-style:italic;padding:8px 10px;font-size:13px}
+.inv-slot{width:50px;height:50px;border:1.5px solid var(--border);border-radius:3px;background:#1a120a;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;transition:all .15s;animation:slotIn .35s ease-out}
+.inv-slot:hover{border-color:var(--accent-hot);background:#2a1a0a;transform:translateY(-2px)}
+.inv-slot.selected{border-color:var(--accent-hot);box-shadow:0 0 18px var(--accent-hot);background:#3a2a10;animation:selectedPulse 1.6s ease-in-out infinite}
+.inv-slot img{width:38px;height:38px;object-fit:contain}
+.inv-slot .inv-name{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:var(--panel);font-size:11px;padding:3px 8px;border-radius:3px;white-space:nowrap;z-index:50;display:none;border:1px solid var(--border);color:var(--accent-hot)}
+.inv-slot:hover .inv-name{display:block}
+@keyframes slotIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes selectedPulse{
+  0%,100%{box-shadow:0 0 14px var(--accent-hot)}
+  50%   {box-shadow:0 0 26px var(--accent-hot)}
+}
+
+/* ─── MODAL ─── */
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.78);display:flex;align-items:center;justify-content:center;z-index:300;backdrop-filter:blur(2px);animation:modalIn .25s ease-out}
+#modal.hidden{display:none}
+@keyframes modalIn{from{opacity:0}to{opacity:1}}
+#modal-content{background:linear-gradient(180deg, #1f140a 0%, #14090a 100%);border:1px solid var(--accent);padding:26px 32px;max-width:740px;max-height:85vh;overflow-y:auto;border-radius:4px;box-shadow:0 0 60px rgba(192,138,60,.25), 0 8px 40px #000;animation:contentIn .35s cubic-bezier(.2,.7,.3,1.2)}
+@keyframes contentIn{from{opacity:0;transform:scale(.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+#modal-content h3{color:var(--accent-hot);margin-bottom:14px;font-size:20px;letter-spacing:1px;border-bottom:1px solid rgba(192,138,60,.3);padding-bottom:8px}
+#modal-content p{margin:10px 0;line-height:1.6;color:#d8c090;font-size:14.5px}
+#modal-content .modal-actions{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+#modal-content button,
+.dialog-opt{background:#2a1a0c;color:var(--fg);border:1px solid var(--border);padding:11px 16px;cursor:pointer;font-family:inherit;font-size:14px;text-align:left;transition:all .15s;border-radius:3px}
+#modal-content button:hover,
+.dialog-opt:hover{background:#3a2a14;border-color:var(--accent-hot);color:var(--accent-hot);transform:translateX(4px)}
+.puzzle-input{width:100%;background:#0e0805;color:var(--fg);border:1px solid var(--border);padding:12px;font-family:inherit;font-size:15px;margin-top:10px;border-radius:3px;letter-spacing:1px}
+.puzzle-input:focus{outline:none;border-color:var(--accent-hot);box-shadow:0 0 12px rgba(192,138,60,.4)}
+
+/* journal */
+.journal-quest{margin:14px 0;padding:12px;background:rgba(20,14,8,.6);border-left:3px solid var(--accent);border-radius:0 3px 3px 0}
+.journal-quest h4{color:var(--accent-hot);margin-bottom:6px;font-size:15px}
+.journal-quest .desc{font-size:13px;color:#b8a880;margin-bottom:8px;font-style:italic}
+.journal-quest .obj{font-size:13px;padding:3px 0;color:#a89060}
+.journal-quest .obj.done{color:#80a060;text-decoration:line-through}
+.journal-quest .obj::before{content:"○ ";color:var(--accent)}
+.journal-quest .obj.done::before{content:"● "}
+.journal-quest.done{border-left-color:#80a060}
+.journal-quest.done h4{color:#a0c080}
+.journal-empty{color:#6a5840;font-style:italic;text-align:center;padding:20px}
+
+/* ─── CODEX (collezionabili) ─── */
+.codex-progress{margin:14px 0 18px;text-align:center}
+.codex-bar{height:8px;background:#1a0e05;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:6px}
+.codex-bar-fill{height:100%;background:linear-gradient(90deg, var(--accent), var(--accent-hot));transition:width .8s ease-out;box-shadow:0 0 12px var(--accent-hot)}
+.codex-counter{font-size:13px;color:var(--accent);letter-spacing:1px;font-style:italic}
+.codex-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.codex-card{display:flex;gap:10px;padding:10px;background:rgba(20,14,8,.6);border:1px solid var(--border);border-radius:4px;transition:all .2s}
+.codex-card.found{border-color:var(--accent);background:rgba(60,40,16,.4)}
+.codex-card.found:hover{border-color:var(--accent-hot);transform:translateY(-2px);box-shadow:0 0 14px rgba(192,138,60,.3)}
+.codex-card.locked{opacity:.45;filter:grayscale(.7)}
+.codex-img{width:48px;height:48px;flex-shrink:0;background:#1a0e05;border:1px solid var(--border);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#5a4030}
+.codex-img img{width:42px;height:42px;object-fit:contain}
+.codex-info{flex:1;min-width:0}
+.codex-name{font-size:13px;color:var(--accent-hot);font-weight:bold;margin-bottom:4px}
+.codex-card.locked .codex-name{color:#5a4030}
+.codex-lore{font-size:11px;color:#b8a880;line-height:1.4;font-style:italic}
+
+/* ─── MAP (mappa SVG) ─── */
+.map-container{margin:10px 0;background:radial-gradient(ellipse at center, #1a1208 0%, #0a0503 100%);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.map-svg{display:block;width:100%;height:auto;background:transparent}
+.map-svg .edge{stroke:#3a2818;stroke-width:1.5;fill:none}
+.map-svg .edge.known{stroke:#7a5830;stroke-width:1.8;opacity:.8}
+.map-svg .edge.half{stroke:#3a2818;stroke-width:1.4;opacity:.5;stroke-dasharray:3 3}
+.map-svg .edge.unknown{display:none}
+.map-svg .node{stroke:#5a4030;stroke-width:1.5;fill:#1a0e05}
+.map-svg .node.unknown{fill:#1a0e05;stroke:#3a2818;opacity:.5}
+.map-svg .node.visited.atto-1{fill:#c08850;stroke:#e0c080}
+.map-svg .node.visited.atto-2{fill:#4a90b0;stroke:#80d0e0}
+.map-svg .node.current{fill:#f0b25a;stroke:#fff0a0;stroke-width:2.5;filter:drop-shadow(0 0 8px #f0b25a)}
+.map-svg .node.current{animation:pulseMap 1.4s ease-in-out infinite}
+@keyframes pulseMap{
+  0%,100%{filter:drop-shadow(0 0 6px #f0b25a)}
+  50%   {filter:drop-shadow(0 0 16px #fff0a0)}
+}
+.map-svg .map-label{font-family:Georgia,serif;font-size:9px;fill:#d8c090;pointer-events:none}
+.map-svg .map-separator{stroke:var(--border);stroke-width:1;stroke-dasharray:6 4;opacity:.5}
+.map-svg .map-section{font-family:Georgia,serif;font-size:11px;font-style:italic;fill:var(--accent);letter-spacing:1px}
+
+/* ─── TOAST (achievement / discovery) ─── */
+.toast{position:fixed;top:20px;left:50%;transform:translate(-50%, -120%);background:linear-gradient(180deg, #2a1a0c, #14090a);color:var(--fg);padding:14px 20px;border:1px solid var(--accent);border-radius:6px;box-shadow:0 6px 30px rgba(192,138,60,.35), 0 0 80px rgba(0,0,0,.5);z-index:600;display:flex;align-items:center;gap:14px;min-width:300px;max-width:480px;transition:transform .55s cubic-bezier(.2,.8,.3,1.4), opacity .4s;opacity:0}
+.toast.show{transform:translate(-50%, 0);opacity:1}
+.toast-icon{font-size:30px;line-height:1;flex-shrink:0;filter:drop-shadow(0 0 10px var(--accent-hot))}
+.toast-title{font-size:14px;color:var(--accent-hot);font-weight:bold;letter-spacing:1px}
+.toast-body{font-size:12px;color:#b8a880;font-style:italic;margin-top:2px}
+.toast-codex{border-color:#80a060;box-shadow:0 6px 30px rgba(128,160,96,.35)}
+.toast-codex .toast-icon{filter:drop-shadow(0 0 10px #a0c080)}
+.toast-codex .toast-title{color:#a0c080}
+
+/* ─── STARS PUZZLE ─── */
+.stars-container{display:flex;justify-content:center;gap:16px;margin:20px 0;padding:18px;background:radial-gradient(ellipse at center, #1a1830 0%, #0a0515 100%);border:1px solid var(--border);border-radius:6px}
+.star-container{display:flex;flex-direction:column;align-items:center;gap:6px}
+.star-dial{width:110px;height:110px;display:block}
+.star-buttons{display:flex;align-items:center;gap:8px;background:rgba(20,14,8,.6);padding:4px 10px;border-radius:3px;border:1px solid var(--border)}
+.star-btn{background:var(--accent);color:#1a0e05;border:none;width:26px;height:26px;cursor:pointer;border-radius:3px;font-size:12px;font-weight:bold}
+.star-btn:hover{background:var(--accent-hot);transform:scale(1.1)}
+.star-angle{color:var(--accent-hot);font-family:'Courier New',monospace;font-size:12px;min-width:42px;text-align:center}
+
+/* ─── PENDULUM PUZZLE ─── */
+#pendulum-area{height:200px;position:relative;margin:20px 0;background:radial-gradient(ellipse at center top, #2a1a0c 0%, #0a0503 100%);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+#pendulum-rod{position:absolute;top:0;left:50%;width:4px;height:150px;background:linear-gradient(180deg, #5c3e1c, #c08a3c);transform-origin:top center;animation:pendulumSwing 1.8s ease-in-out infinite;transform:translateX(-50%)}
+#pendulum-weight{position:absolute;bottom:-14px;left:50%;width:36px;height:36px;background:radial-gradient(circle at 30% 30%, #f0d088, #c08850);border-radius:50%;transform:translateX(-50%);box-shadow:0 0 18px rgba(240,208,136,.5), inset -4px -4px 8px rgba(0,0,0,.4)}
+@keyframes pendulumSwing{
+  0%,100%{transform:translateX(-50%) rotate(-25deg)}
+  50%   {transform:translateX(-50%) rotate(25deg)}
+}
+#pendulum-hits{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:12px}
+.hit-mark{font-size:20px;color:#5c3e1c;transition:all .25s}
+.hit-mark.good{color:#80c080;text-shadow:0 0 10px #80c080;transform:scale(1.3)}
+.hit-mark.bad{color:#c06060;text-shadow:0 0 10px #c06060;animation:shake .25s}
+@keyframes shake{0%,100%{translate:0 0}25%{translate:-3px 0}75%{translate:3px 0}}
+
+/* ─── LUCCHETTO PUZZLE ─── */
+.lock-container{display:flex;justify-content:center;gap:18px;margin:24px 0;padding:20px;background:rgba(0,0,0,.45);border:1px solid var(--border);border-radius:6px}
+.lock-wheel{display:flex;flex-direction:column;align-items:center;gap:8px}
+.lock-arrow{background:rgba(192,138,60,.15);color:var(--accent);border:1px solid var(--border);width:48px;height:28px;cursor:pointer;border-radius:3px;font-size:14px;transition:all .12s;line-height:1}
+.lock-arrow:hover{background:var(--accent);color:#000;transform:scale(1.1)}
+.lock-symbol{width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#3a2818,#1a0e05);border:2px solid var(--accent);border-radius:6px;font-size:34px;color:var(--accent-hot);box-shadow:inset 0 2px 8px rgba(0,0,0,.7), 0 0 14px rgba(192,138,60,.25)}
+
+/* ─── TITLE SCREEN ─── */
+#title-screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;z-index:500;text-align:center}
+#title-screen.hidden{display:none}
+.title-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center, #2a1a0c 0%, #0a0503 70%, #000 100%);overflow:hidden}
+.title-bg::before,.title-bg::after{content:"";position:absolute;width:200%;height:200%;background:radial-gradient(ellipse at center, rgba(192,138,60,.05) 0%, transparent 60%);animation:swirl 30s linear infinite}
+.title-bg::after{animation-direction:reverse;animation-duration:45s}
+@keyframes swirl{from{transform:rotate(0deg) translate(-25%,-25%)}to{transform:rotate(360deg) translate(-25%,-25%)}}
+.title-inner{position:relative;z-index:2;padding:40px;animation:titleIn 1.2s ease-out}
+@keyframes titleIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+#title-screen h1{font-size:54px;color:var(--accent-hot);margin-bottom:8px;letter-spacing:4px;text-shadow:0 0 40px rgba(240,178,90,.5),0 4px 8px #000;font-weight:normal}
+#title-screen .subtitle{font-style:italic;color:var(--accent);margin-bottom:48px;font-size:18px;letter-spacing:2px}
+.title-buttons{display:flex;gap:18px;margin-bottom:48px;justify-content:center}
+.title-buttons button{background:rgba(42,26,12,.85);color:var(--fg);border:1px solid var(--border);padding:14px 32px;font-family:inherit;font-size:15px;cursor:pointer;border-radius:3px;transition:all .25s;letter-spacing:1px;backdrop-filter:blur(4px)}
+.title-buttons button:hover{background:#3a2a14;border-color:var(--accent-hot);color:var(--accent-hot);box-shadow:0 0 20px rgba(192,138,60,.3);transform:translateY(-2px)}
+.title-buttons button:disabled{opacity:.35;cursor:not-allowed}
+#title-screen .credits{max-width:520px;font-size:12px;color:#7a6850;line-height:1.7;letter-spacing:.5px;margin:0 auto}
+
+.hidden{display:none!important}
+
+/* ─── EFFECTS LAYER (fusion, particles, sparkles) ─── */
+.fx-flash{position:fixed;inset:0;background:radial-gradient(circle at center, #fff 0%, #fff0a0 30%, transparent 70%);opacity:0;animation:fxFlash 0.55s ease-out forwards;z-index:340;pointer-events:none;mix-blend-mode:screen}
+@keyframes fxFlash{0%{opacity:0}25%{opacity:.85}100%{opacity:0}}
+.fx-particle{position:fixed;width:6px;height:6px;border-radius:50%;background:#f0b25a;box-shadow:0 0 8px currentColor;pointer-events:none;z-index:340;transition:transform 0.65s cubic-bezier(.2,.7,.3,1), opacity 0.65s ease-out}
+.fx-result{will-change:transform, opacity, left, top}
+
+/* Cursore mirino con oggetto selezionato: bordo extra sui hotspot */
+#game.cur-use .hotspot:hover .icon{box-shadow:0 0 26px var(--accent-hot), 0 2px 12px #000;border-color:var(--accent-hot) !important}
+#game.cur-use .hotspot.type-exit:hover .icon{color:var(--accent-hot);text-shadow:0 0 28px var(--accent-hot)}
+
+/* prefers-reduced-motion: disabilita le animazioni di ambiente */
+@media (prefers-reduced-motion: reduce){
+  #bg, .hotspot, .hotspot .icon, .inv-slot, .map-svg .node.current,
+  .toast, #modal-content, .codex-card, .title-bg::before, .title-bg::after,
+  .codex-bar-fill, #scene-title{
+    animation: none !important;
+    transition: none !important;
+  }
+  .fx-particle, .fx-flash, .fx-result{display:none !important}
+}
+
+/* responsive */
+@media (max-width:760px){
+  #scene{max-height:60vh}
+  .hotspot.type-npc .icon{width:70px;height:70px}
+  .hotspot.type-npc .icon img{width:64px;height:64px}
+}

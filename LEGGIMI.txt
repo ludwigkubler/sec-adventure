@@ -1,0 +1,220 @@
+L'ISOLA DEL NAUFRAGIO - Avventura grafica in due atti
+======================================================
+
+AVVIO
+-----
+    cd /home/ludo/Scrivania/shmgs/games/submachine
+    python3 -m http.server 8000
+
+Browser:  http://localhost:8000/
+(serve un server perché il gioco carica world.json via fetch)
+
+
+COME SI GIOCA
+-------------
+- FRECCE CYAN ai bordi: cliccale per spostarti. Niente etichette di direzione —
+  tooltip mostra il nome della stanza solo se sei già stato lì.
+- FRECCE ROSSO SCURO: vie bloccate (servirà qualcosa per sbloccarle).
+- ANELLI DORATI: oggetti da raccogliere.
+- RITRATTI: personaggi. Cliccali per parlare.
+- ROMBI ◈ piccoli: dettagli da esaminare. Alcuni nascondono mini-puzzle.
+
+COMBINARE / USARE OGGETTI
+-------------------------
+1. Clicca un oggetto nell'inventario in basso → si illumina (è "selezionato").
+2. Per COMBINARE: clicca un altro oggetto in inventario.
+   Per USARE: clicca personaggio, freccia bloccata, dettaglio della scena ◈.
+3. Click destro o ESC per deselezionare.
+4. Shift+click su un oggetto inventario = lo esamini (descrizione).
+
+Il cursore diventa un mirino quando hai un oggetto selezionato.
+
+Esempi:
+- LEGNA + PIETRA FOCAIA = TORCIA (combinazione)
+- TORCIA usata sull'apertura buia della caletta = via verso le grotte
+- INGRANAGGIO + RUOTA DENTATA = MECCANISMO (Atto II)
+
+
+I DUE ATTI
+----------
+ATTO I — L'isola: sopravvivi al naufragio, esplora 20 stanze, conosci 5 abitanti,
+risolvi enigmi, raccogli i tre componenti del faro (olio, cristallo, gemma) e
+accendilo. A questo punto ti viene offerta una scelta:
+
+  A) Aspetta i soccorsi — finale canonico (chiamata di salvataggio)
+  B) Scendi nelle profondità — apre l'ATTO II
+
+ATTO II — Le profondità: il faro era una porta. Sotto l'isola, una civiltà-macchina
+perduta ti attende. 12 stanze sotterranee, 2 nuovi personaggi (l'Archivista e il
+Re-Automa), nuovi puzzle meccanici, mini-puzzle interattivi (lucchetto a quattro
+rotelle), e un finale completamente diverso: la Corona Titanica.
+
+
+TASTIERA
+--------
+T  = mappa interattiva
+C  = codex (collezionabili)
+J  = diario missioni
+M  = audio on/off
+?  = aiuto
+ESC = chiudi modali / deseleziona
+Click destro = deseleziona
+Shift+click oggetto inv = esamina
+
+
+COLLEZIONABILI (CODEX)
+----------------------
+12 frammenti di lore sparsi nel mondo. Ogni volta che ne raccogli uno, una notifica
+appare in alto. Il codex (tasto C) mostra il progresso: trovati / ancora da trovare.
+Raccogliendoli tutti, dopo il finale dell'Atto II, si sblocca un EPILOGO SEGRETO
+che rivela la verità sulla vera identità del protagonista.
+
+I 12 frammenti sono nascosti in: spiaggia, caletta, scogliere_sud, scogliere,
+faro, cripta, tempio_sommerso (×3), laguna, abisso (×2), pozzo_faro.
+
+
+MAPPA INTERATTIVA
+-----------------
+Tasto T: SVG con tutte le 32 stanze del mondo.
+- Nodo dorato: posizione attuale (pulsante)
+- Nodi seppia: stanze visitate dell'Atto I
+- Nodi cyan: stanze visitate dell'Atto II
+- Nodi grigi: stanze ancora sconosciute
+- Linee piene: collegamenti scoperti
+- Linea tratteggiata orizzontale: separatore Atto I / Atto II
+
+
+ACHIEVEMENT
+-----------
+Toast notification (in alto) per:
+- Lume Antico (faro acceso)
+- Soglia Varcata (primo accesso al pozzo)
+- Sotto la Pietra (Agorà perduta raggiunta)
+- Al Centro (Radice del Mondo)
+- Esploratore (tutte le 20 stanze dell'Atto I visitate)
+- Codex Completo (12/12 lore raccolti)
+- Custode dell'Albero (Corona Titanica indossata)
+
+
+AUDIT TOOL
+----------
+    python3 tools/audit.py
+
+Verifica integrità del mondo: phantom items, deadend, stanze irraggiungibili.
+Output attuale: 0 phantom, 0 stanze irraggiungibili, 2 oggetti decorativi
+(bacche per sopravvivenza, antidoto come ricompensa narrativa di Luna).
+
+
+PULIZIA INVENTARIO (ultima iterazione)
+--------------------------------------
+Rimossi 5 oggetti vicolo cieco dagli spawn (bottiglia, fiori, rete_pesca,
+erbe_secche, catena_oro): non più raccolti, niente bloat in inventario.
+
+Il PICCONE ora ha funzione reale: usalo sul "muro_screpolato" della cripta
+per aprire il CUNICOLO NASCOSTO, dove troverai la LAMPADA ETERNA (13°
+collezionabile della codex).
+
+
+STANZE ATMOSFERICHE (ultima iterazione)
+---------------------------------------
+4 nuove stanze per dare respiro e mistero, senza item interattivi:
+- Cimitero Marino (sud delle scogliere_sud) - relitti di un secolo
+- Bivio degli Antichi (sudest dalla giungla_profonda) - totem misterioso
+- Corridoio Perduto (ovest dalla cripta_meccanica) - migliaia di nomi
+- Cunicolo Nascosto (rivelato dal piccone, contiene lampada_eterna)
+
+Totale stanze: 36 (era 32). Totale collezionabili: 13 (era 12).
+
+
+ANIMAZIONI E DINAMICITÀ
+-----------------------
+Tutti gli oggetti BOBBANO leggermente (movimento 5px verticale, 3.2s ciclo).
+Lo sfondo ha un effetto KEN BURNS continuo (zoom + drift, ciclo 32s).
+
+PICKUP: oggetto vola in inventario + esplosione di particelle dorate.
+COMBINE: i due oggetti volano al centro della scena, ruotano, FLASH bianco
+con particelle multicolor, il risultato appare grande e vola in inventario.
+USE-ON-TARGET: l'oggetto vola dall'inventario al target (porta, NPC, dettaglio),
+ruotando, finisce con uno SPARKLE bianco-oro al punto di contatto.
+
+Tutti i SFX nuovi:
+- fusion: whoosh + chime trasformazione + flash sonoro
+- sparkle: pip cristallino veloce per use-on
+- wall_break: thud + crollo (per piccone sulla parete)
+- particle: pip leggero per particelle
+
+Rispetta `prefers-reduced-motion: reduce`: tutte le animazioni vengono
+disattivate per chi ha la preferenza di sistema.
+
+
+AUDIO
+-----
+Tutto generato proceduralmente con Web Audio API. Niente file esterni.
+- Musica ambient diversa per ognuno dei 32 biomi (drone+LFO+noise filtrato)
+- SFX differenziati per MATERIALE dell'oggetto:
+    * legno → click sordo + sub-bass
+    * vetro → tinkle armonico
+    * metallo → ting prolungato
+    * pietra → noise burst breve
+    * organico → rustle filtrato
+    * mistico → cascata di toni
+    * corda → swoosh
+- Crossfade automatico tra biomi al cambio scena
+
+
+STRUTTURA PROGETTO
+------------------
+index.html                  — pagina principale
+css/style.css               — stile + animazioni + lucchetto puzzle
+js/engine.js                — stato di gioco, regole, finale doppio
+js/audio.js                 — sintesi audio procedurale (musica + SFX per materiale)
+js/render.js                — disegno scena, hotspot, inventario, animazioni
+js/ui.js                    — modali (dialoghi, enigmi, diario, lucchetto, finali)
+js/input.js                 — gestione click + tastiera
+js/main.js                  — bootstrap
+
+data/world.json             — mondo unito (Atto I + Atto II)
+data/expansion.json         — solo Atto II (sorgente per il merge)
+
+assets/rooms/*.png          — 32 sfondi (20 Atto I + 12 Atto II)
+assets/npcs/*.png           — 7 ritratti (5 Atto I + 2 Atto II)
+assets/items/*.svg          — 58 icone oggetto (34 Atto I + 24 Atto II)
+
+tools/export_world.py       — estrattore mondo.py + merge expansion → world.json
+tools/build_expansion.py    — definisce stanze/oggetti/etc. dell'Atto II
+tools/generate_sd.py        — generatore immagini via SD-WebUI su sec
+tools/generate_svg_items.py — generatore icone oggetti SVG
+
+
+RIGENERARE GLI ASSET
+--------------------
+Mondo (base + atto II):  python3 tools/build_expansion.py && python3 tools/export_world.py
+Icone SVG:               python3 tools/generate_svg_items.py
+Sfondi Atto I:           python3 tools/generate_sd.py rooms
+Sfondi Atto II:          python3 tools/generate_sd.py atto2
+NPC Atto I:              python3 tools/generate_sd.py npcs
+Tutto:                   python3 tools/generate_sd.py all
+
+
+ARCHITETTURA NARRATIVA
+----------------------
+Atto I — 20 stanze, 5 NPC, 2 enigmi del Guardiano, ricetta torcia
+Atto II — 12 stanze sotterranee meccaniche, 2 NPC (Archivista, Re-Automa),
+          7 ricette di crafting, 1 lucchetto interattivo a 4 rotelle,
+          puzzle a passi multipli (riparazione ponte, riattivazione cuore,
+          allineamento stelle, attivazione corona)
+
+Stile visivo Atto I: sepia/ocra (rifugio tropicale, isola misteriosa)
+Stile visivo Atto II: verdigris/bronzo (Syberia + Verne, civiltà-macchina)
+
+
+DESIGN MULTIAGENTICO
+--------------------
+Il gioco è frutto di iterazione "in CDA" con ruoli simulati:
+- Marketing: atmosfera, fog-of-war, mistery mode, audio essenziale
+- Backend: corretto bug combine, fix flag exits, finale doppio
+- Frontend: animazioni, mini-puzzle interattivo, lucchetto UI, mappa
+- Game design: Atto II Syberia/Verne, Re-Automa, città-macchina
+
+Tre revisioni successive: prima base, poi mistery+audio+animazioni,
+poi espansione completa Atto II + bug fix critici.

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Cristallo della Radice</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <polygon points="32,6 50,28 40,58 24,58 14,28" fill="#40c0a0" stroke="#1a0e05" stroke-width="2"/><polygon points="32,6 40,28 32,40 24,28" fill="#80e0c0" stroke="#40c0a0" stroke-width="1"/><circle cx="32" cy="34" r="4" fill="#ffffff" opacity="0.7"/>
+</svg>

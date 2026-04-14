@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Sigillo dell'antica civiltà</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <circle cx="32" cy="32" r="26" fill="#c08a3c" stroke="#1a0e05" stroke-width="2"/><circle cx="32" cy="32" r="18" fill="none" stroke="#1a0e05" stroke-width="1.5"/><polygon points="32,14 40,28 56,28 44,38 48,54 32,46 16,54 20,38 8,28 24,28" fill="#1a0e05" opacity="0.5"/>
+</svg>

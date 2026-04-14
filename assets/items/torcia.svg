@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Torcia artigianale</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="28" y="32" width="8" height="28" fill="#8a5a30" stroke="#1a0e05" stroke-width="2"/><path d="M20 32 L44 32 L38 24 L26 24 Z" fill="#5a3820" stroke="#1a0e05" stroke-width="2"/><path d="M22 24 Q32 2 42 24 Q32 14 22 24 Z" fill="#ff8030" stroke="#c04010" stroke-width="1.5"/><path d="M28 18 Q32 8 36 18 Q32 12 28 18 Z" fill="#ffe060"/>
+</svg>

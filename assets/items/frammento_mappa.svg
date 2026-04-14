@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Frammento di mappa antica</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <path d="M8 10 L54 6 L58 52 L10 56 Z" fill="#d0b080" stroke="#1a0e05" stroke-width="2"/><path d="M20 20 Q30 26 44 24 M18 36 Q28 32 46 38 M22 48 L44 46" stroke="#6a4020" stroke-width="1.5" fill="none"/><circle cx="40" cy="28" r="3" fill="#b04030"/>
+</svg>

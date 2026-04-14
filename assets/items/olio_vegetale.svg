@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Olio vegetale denso</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <path d="M22 10 L42 10 L42 20 L46 24 L46 56 Q46 58 44 58 L20 58 Q18 58 18 56 L18 24 L22 20 Z" fill="#d0a040" stroke="#1a0e05" stroke-width="2"/><rect x="26" y="4" width="12" height="8" fill="#5a3820" stroke="#1a0e05" stroke-width="1.5"/>
+</svg>

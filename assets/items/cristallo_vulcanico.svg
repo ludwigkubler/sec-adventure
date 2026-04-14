@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Cristallo vulcanico</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <polygon points="32,4 48,24 40,56 24,56 16,24" fill="#d84030" stroke="#1a0e05" stroke-width="2"/><polygon points="32,4 40,24 32,42 24,24" fill="#e8806a" stroke="#d84030" stroke-width="1"/>
+</svg>

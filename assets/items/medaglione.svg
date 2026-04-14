@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Medaglione degli Antichi</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <circle cx="32" cy="36" r="20" fill="#c08a3c" stroke="#1a0e05" stroke-width="2"/><circle cx="32" cy="36" r="14" fill="none" stroke="#1a0e05" stroke-width="1.5"/><polygon points="32,26 36,34 44,34 38,40 40,48 32,44 24,48 26,40 20,34 28,34" fill="#1a0e05"/><path d="M22 16 L32 12 L42 16" stroke="#8a5a30" stroke-width="2" fill="none"/>
+</svg>

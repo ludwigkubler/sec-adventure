@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Antidoto di Luna</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="22" y="8" width="20" height="8" fill="#5a3820" stroke="#1a0e05" stroke-width="1.5"/><path d="M22 16 L22 50 L26 58 L38 58 L42 50 L42 16 Z" fill="#70c080" stroke="#1a0e05" stroke-width="2"/><rect x="26" y="22" width="12" height="20" fill="#3a8050" opacity="0.6"/>
+</svg>

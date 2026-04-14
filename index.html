@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'Isola del Naufragio</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="game">
+  <div id="scene">
+    <div id="bg"></div>
+    <div id="vignette"></div>
+    <div id="hotspots"></div>
+    <div id="cursor-hint"></div>
+    <div id="scene-title"></div>
+    <div id="topbar">
+      <button class="topbtn" id="btn-map" title="Map (T)">🗺</button>
+      <button class="topbtn" id="btn-codex" title="Codex (C)">📜</button>
+      <button class="topbtn" id="btn-journal" title="Journal (J)">📖</button>
+      <button class="topbtn" id="btn-hint" title="Hint (H)">💡</button>
+      <button class="topbtn" id="btn-mute" title="Audio (M)">🔊</button>
+      <button class="topbtn" id="btn-lang" title="Language (L)">🌐</button>
+      <button class="topbtn" id="btn-help" title="Help (?)">?</button>
+      <button class="topbtn" id="btn-menu" title="Menu (ESC)">≡</button>
+    </div>
+    <div id="hud-overlay">
+      <span id="hud-time" title="Time">⏱ 00:00</span>
+      <span id="hud-rooms" title="Rooms visited">🏠 0/36</span>
+      <span id="hud-pct" title="Completion">✦ 0%</span>
+    </div>
+  </div>
+  <div id="hud">
+    <div id="text-log"></div>
+    <div id="inventory-bar"></div>
+  </div>
+  <div id="modal" class="hidden">
+    <div id="modal-content"></div>
+  </div>
+  <div id="title-screen">
+    <div class="title-bg"></div>
+    <div class="title-inner">
+      <h1>L'Isola del Naufragio</h1>
+      <p class="subtitle">~ un'avventura grafica ~</p>
+      <div class="title-buttons">
+        <button id="btn-new">Nuova partita</button>
+        <button id="btn-continue">Continua</button>
+      </div>
+      <p class="credits">avventura punta-e-clicca · audio procedurale · tecnologia open source</p>
+    </div>
+  </div>
+</div>
+<script src="js/i18n.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/render.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/input.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Ingranaggio di rame</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <g transform="translate(32 32)"><g fill="#c08850" stroke="#1a0e05" stroke-width="1.5"><rect x="-4" y="-26" width="8" height="10" transform="rotate(0)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(45)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(90)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(135)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(180)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(225)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(270)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(315)"/></g><circle r="18" fill="#c08850" stroke="#1a0e05" stroke-width="2"/><circle r="6" fill="#1a0e05"/></g>
+</svg>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Messaggio in una bottiglia</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="16" y="12" width="32" height="42" rx="3" fill="#d8c8a0" stroke="#1a0e05" stroke-width="2"/><path d="M22 22 L42 22 M22 30 L40 30 M22 38 L42 38 M22 46 L38 46" stroke="#8a6030" stroke-width="1.5"/>
+</svg>

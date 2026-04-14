@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Bottiglia di vetro</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="24" y="8" width="16" height="10" fill="#405848" stroke="#1a0e05" stroke-width="2"/><path d="M20 20 L20 54 Q20 58 24 58 L40 58 Q44 58 44 54 L44 20 Z" fill="#5a8070" stroke="#1a0e05" stroke-width="2"/><rect x="28" y="4" width="8" height="6" fill="#3a2818" stroke="#1a0e05" stroke-width="1"/>
+</svg>

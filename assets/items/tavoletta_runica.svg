@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Tavoletta runica</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="14" y="10" width="36" height="44" rx="2" fill="#909088" stroke="#1a0e05" stroke-width="2"/><text x="20" y="22" font-size="8" fill="#1a0e05" font-family="serif">⌘</text><text x="30" y="22" font-size="8" fill="#1a0e05" font-family="serif">⌘</text><text x="40" y="22" font-size="8" fill="#1a0e05" font-family="serif">⌘</text><text x="20" y="32" font-size="8" fill="#1a0e05" font-family="serif">⌘</text><text x="30" y="32" font-size="8" fill="#1a0e05" font-family="serif">⌘</text><text x="40" y="32" font-size="8" fill="#1a0e05" font-family="serif">⌘</text><text x="20" y="42" font-size="8" fill="#1a0e05" font-family="serif">⌘</text><text x="30" y="42" font-size="8" fill="#1a0e05" font-family="serif">⌘</text><text x="40" y="42" font-size="8" fill="#1a0e05" font-family="serif">⌘</text>
+</svg>

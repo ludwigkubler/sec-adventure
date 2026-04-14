@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Manovella completa</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="30" y="14" width="4" height="28" fill="#c08850" stroke="#1a0e05" stroke-width="1.5"/><circle cx="32" cy="14" r="6" fill="#d4a060" stroke="#1a0e05" stroke-width="1.5"/><path d="M32 42 L48 50 L40 58 L24 58 L16 50 Z" fill="#c08850" stroke="#1a0e05" stroke-width="2"/>
+</svg>

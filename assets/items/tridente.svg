@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Tridente cerimoniale</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="30" y="28" width="4" height="32" fill="#8a5a30" stroke="#1a0e05" stroke-width="1.5"/><polygon points="20,8 22,28 30,28 32,18 34,28 42,28 44,8 38,20 32,10 26,20" fill="#c0c0c8" stroke="#1a0e05" stroke-width="2"/>
+</svg>

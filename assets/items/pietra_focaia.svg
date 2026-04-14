@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Pietra focaia</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <polygon points="10,40 24,14 44,18 54,36 48,54 20,52" fill="#707068" stroke="#1a0e05" stroke-width="2"/><polygon points="20,30 30,20 40,30 35,42 22,40" fill="#909088"/>
+</svg>

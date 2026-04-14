@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Corona di corallo</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <path d="M8 46 L12 20 L20 38 L28 16 L36 38 L44 18 L52 38 L56 46 L56 58 L8 58 Z" fill="#e08070" stroke="#1a0e05" stroke-width="2"/><circle cx="28" cy="16" r="4" fill="#d84030"/><circle cx="44" cy="18" r="3" fill="#d84030"/>
+</svg>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Tavoletta di pietra incisa</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <rect x="10" y="14" width="44" height="36" rx="2" fill="#a89060" stroke="#1a0e05" stroke-width="2"/><path d="M18 22 L46 22 M18 28 L40 28 M18 34 L44 34 M18 40 L38 40" stroke="#4a3010" stroke-width="1.5"/>
+</svg>

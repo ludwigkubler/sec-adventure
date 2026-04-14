@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Erbe medicinali secche</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <path d="M14 56 L16 12 Q18 8 20 12 L22 56 Z" fill="#a89060" stroke="#1a0e05" stroke-width="1.5"/><path d="M24 56 L26 12 Q28 8 30 12 L32 56 Z" fill="#a89060" stroke="#1a0e05" stroke-width="1.5"/><path d="M34 56 L36 12 Q38 8 40 12 L42 56 Z" fill="#a89060" stroke="#1a0e05" stroke-width="1.5"/><path d="M44 56 L46 12 Q48 8 50 12 L52 56 Z" fill="#a89060" stroke="#1a0e05" stroke-width="1.5"/>
+</svg>

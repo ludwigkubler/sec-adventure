@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Rete da pesca</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <path d="M8 20 L56 20 L48 56 L16 56 Z" fill="none" stroke="#8a5a30" stroke-width="2"/><path d="M8 20 L16 56" stroke="#8a5a30" stroke-width="1.5"/><path d="M14 20 L21 56" stroke="#8a5a30" stroke-width="1.5"/><path d="M20 20 L26 56" stroke="#8a5a30" stroke-width="1.5"/><path d="M26 20 L31 56" stroke="#8a5a30" stroke-width="1.5"/><path d="M32 20 L36 56" stroke="#8a5a30" stroke-width="1.5"/><path d="M38 20 L41 56" stroke="#8a5a30" stroke-width="1.5"/><path d="M44 20 L46 56" stroke="#8a5a30" stroke-width="1.5"/><path d="M50 20 L51 56" stroke="#8a5a30" stroke-width="1.5"/><path d="M56 20 L56 56" stroke="#8a5a30" stroke-width="1.5"/><path d="M8 20 L56 20" stroke="#8a5a30" stroke-width="1.5"/><path d="M8 29 L56 29" stroke="#8a5a30" stroke-width="1.5"/><path d="M8 38 L56 38" stroke="#8a5a30" stroke-width="1.5"/><path d="M8 47 L56 47" stroke="#8a5a30" stroke-width="1.5"/><path d="M8 56 L56 56" stroke="#8a5a30" stroke-width="1.5"/>
+</svg>

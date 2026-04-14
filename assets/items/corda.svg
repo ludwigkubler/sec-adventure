@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Corda robusta</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <path d="M8 32 Q16 20 24 32 T40 32 T56 32" stroke="#8a5a30" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M8 40 Q16 28 24 40 T40 40 T56 40" stroke="#6a4020" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>

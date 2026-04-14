@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Chiave della cripta</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <circle cx="18" cy="32" r="10" fill="none" stroke="#909088" stroke-width="4"/><rect x="26" y="29" width="30" height="6" fill="#909088" stroke="#1a0e05" stroke-width="1.5"/><rect x="46" y="28" width="3" height="10" fill="#909088" stroke="#1a0e05" stroke-width="1"/>
+</svg>

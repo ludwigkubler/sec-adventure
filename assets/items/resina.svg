@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Resina d'albero</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <ellipse cx="32" cy="40" rx="18" ry="20" fill="#d08030" stroke="#1a0e05" stroke-width="2"/><path d="M32 20 Q26 30 24 40" stroke="#e8a060" stroke-width="2" fill="none"/>
+</svg>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Radice Madre</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <path d="M32 8 Q32 18 28 24 T22 36 T18 50 M32 8 Q34 16 38 24 T46 38 T50 52 M32 8 Q32 22 32 36 T32 56" stroke="#80c0a0" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="32" cy="8" r="6" fill="#a0e0c0" stroke="#1a0e05" stroke-width="1"/>
+</svg>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Meccanismo a ingranaggi</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <g transform="translate(22 32)"><circle r="14" fill="#c08850" stroke="#1a0e05" stroke-width="1.5"/></g><g transform="translate(42 32)"><circle r="10" fill="#707068" stroke="#1a0e05" stroke-width="1.5"/></g><text x="32" y="55" font-size="9" fill="#c08a3c" text-anchor="middle">⚙</text>
+</svg>
