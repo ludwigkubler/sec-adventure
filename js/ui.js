@@ -182,28 +182,40 @@ const UI = (() => {
 
   function showMenu() {
     Audio.sfx("click");
+    const capOn = Audio.captionsEnabled();
+    const lang = I18n.getLang();
+    const L = (it, en) => lang === "en" ? en : it;
     show(`
-      <h3>Menu</h3>
+      <h3>${esc(I18n.t("menu"))}</h3>
       <div class="modal-actions">
-        <button id="m-save">💾 Salva partita</button>
-        <button id="m-load">📂 Carica partita</button>
-        <button id="m-help">❓ Come si gioca</button>
-        <button id="m-journal">📖 Diario</button>
-        <button id="m-restart" style="opacity:.7">🔄 Ricomincia da capo</button>
-        <button id="ui-close">Chiudi</button>
+        <button id="m-save">${esc(I18n.t("save"))}</button>
+        <button id="m-load">${esc(I18n.t("load"))}</button>
+        <button id="m-help">${esc(I18n.t("help_menu"))}</button>
+        <button id="m-journal">${esc(I18n.t("journal_menu"))}</button>
+        <button id="m-captions">💬 ${L("Sottotitoli SFX", "SFX captions")}: ${capOn ? L("ON","ON") : L("OFF","OFF")}</button>
+        <button id="m-restart" style="opacity:.7">${esc(I18n.t("restart_menu"))}</button>
+        <button id="ui-close">${esc(I18n.t("close"))}</button>
       </div>
     `);
-    document.getElementById("m-save").onclick = () => { Engine.save(); Audio.sfx("puzzle_ok"); showText("Salvataggio", "Partita salvata."); };
+    document.getElementById("m-save").onclick = () => { Engine.save(); Audio.sfx("puzzle_ok"); showText(I18n.t("save"), I18n.t("save_saved")); };
     document.getElementById("m-load").onclick = () => {
-      if (Engine.load()) { close(); Render.drawScene(); Audio.setRoom(Engine.getState().room); Render.logSystem("Partita caricata."); }
-      else showText("Errore", "Nessun salvataggio trovato.");
+      if (Engine.load()) { close(); Render.drawScene(); Audio.setRoom(Engine.getState().room); Render.logSystem(I18n.t("save_loaded")); }
+      else showText("Errore", I18n.t("save_missing"));
     };
     document.getElementById("m-help").onclick = showHelp;
     document.getElementById("m-journal").onclick = showJournal;
+    document.getElementById("m-captions").onclick = () => {
+      const now = Audio.toggleCaptions();
+      Audio.sfx("click");
+      showText(L("Sottotitoli", "Captions"), now
+        ? L("Sottotitoli SFX attivati. I suoni significativi saranno mostrati anche come testo nel log.",
+            "SFX captions enabled. Meaningful sounds will also be shown as text in the log.")
+        : L("Sottotitoli SFX disattivati.", "SFX captions disabled."));
+    };
     document.getElementById("m-restart").onclick = () => {
-      if (confirm("Sei sicuro di voler ricominciare? I progressi attuali andranno persi.")) {
-        Engine.reset(); location.reload();
-      }
+      const msg = L("Sei sicuro di voler ricominciare? I progressi attuali andranno persi.",
+                    "Are you sure you want to restart? Current progress will be lost.");
+      if (confirm(msg)) { Engine.reset(); location.reload(); }
     };
     document.getElementById("ui-close").onclick = close;
   }

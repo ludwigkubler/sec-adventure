@@ -19,7 +19,9 @@
       "esaminabili": {
         "relitto": "Il relitto della tua barca è irrecuperabile. Lo scafo è squarciato in più punti, l'albero maestro spezzato. Tra i rottami riesci a distinguere qualche tavola ancora utilizzabile e dei pezzi di corda.",
         "mare": "Il mare si estende infinito fino all'orizzonte. Nessuna vela, nessuna terra in vista. Solo acqua blu e cielo azzurro che si confondono in lontananza.",
-        "sabbia": "Sabbia fine e dorata, punteggiata di conchiglie e detriti. Le tue impronte sono le uniche visibili."
+        "sabbia": "Sabbia fine e dorata, punteggiata di conchiglie e detriti. Le tue impronte sono le uniche visibili.",
+        "segno_sabbia": "C'è un disegno nella sabbia — uno spirale a tre bracci. L'onda lo sta cancellando. Per un istante, prima che scompaia del tutto, ti sembra di *averlo disegnato tu*. Poi il pensiero svanisce.",
+        "tue_mani": "Le tue mani. Ti guardi i palmi, come se non li vedessi da sempre. C'è una piccola cicatrice lineare sul palmo destro — non ti ricordi di essertela fatta. Eppure è antica."
       }
     },
     "caletta": {
@@ -67,7 +69,8 @@
       "esaminabili": {
         "stalattiti": "Formazioni calcaree millenarie. Alcune hanno forme bizzarre, quasi antropomorfe, come sentinelle di pietra.",
         "muschio": "Il muschio bioluminescente emana una luce verde tenue ma costante. È una forma di vita affascinante, che prospera nell'oscurità totale di queste grotte.",
-        "acqua": "L'acqua è cristallina in superficie ma diventa nera come l'inchiostro pochi metri più in basso. Sembra molto profonda. Intravedi delle strutture regolari sul fondo... artificiali?"
+        "acqua": "L'acqua è cristallina in superficie ma diventa nera come l'inchiostro pochi metri più in basso. Sembra molto profonda. Intravedi delle strutture regolari sul fondo... artificiali?",
+        "incisioni_familiari": "Le spirali sulla parete. Le guardi e *sai* in che ordine vanno lette — dall'esterno verso l'interno, poi fuori di nuovo. Come hai imparato? Non sapresti dirlo. Lo sai e basta."
       }
     },
     "tempio_sommerso": {
@@ -260,7 +263,8 @@
       "esaminabili": {
         "erbe": "Decine di specie diverse: alcune le riconosci — rosmarino, salvia, timo — ma altre sono completamente sconosciute, con foglie di forme e colori bizzarri.",
         "mortaio": "Un mortaio di pietra lavica, liscio dall'uso. Dentro ci sono residui di una polvere verde brillante.",
-        "vasetti": "Vasetti etichettati con simboli che non comprendi. Ogni vasetto contiene una polvere o un unguento di colore diverso. Luna sa cosa farne."
+        "vasetti": "Vasetti etichettati con simboli che non comprendi. Ogni vasetto contiene una polvere o un unguento di colore diverso. Luna sa cosa farne.",
+        "sguardo_luna": "Luna ti osserva più a lungo di quanto sia educato. Quando le tue pupille incrociano le sue, smette di fingere. «Non sei quello che sembri. Tu lo sai, in qualche parte di te. Lo saprai del tutto quando sarà il momento.» Poi sorride, e non dice più niente."
       }
     },
     "sentiero_montagna": {
@@ -342,7 +346,8 @@
         "meccanismo": "Il meccanismo di segnalazione è un capolavoro di ingegneria antica. Specchi parabolici, lenti convergenti, e un sistema di ingranaggi che doveva far ruotare la luce. Per farlo funzionare servirebbe:\n• Dell'olio per lubrificare gli ingranaggi\n• Un cristallo come fonte di luce\n• Una gemma di potere come fonte di energia\nTre elementi. Tre chiavi per accendere la speranza.",
         "scala": "La scala a chiocciola è arrugginita ma ancora solida. Sale per una ventina di metri fino alla piattaforma della lanterna.",
         "lente": "La grande lente del faro, fatta di un cristallo straordinariamente puro. Anche opaca com'è, i raggi del sole che la attraversano creano arcobaleni.",
-        "pavimento_faro": "Quando il faro è acceso, il pavimento di pietra si apre come un fiore di metallo. Sotto, un pozzo verticale scende nelle profondità."
+        "pavimento_faro": "Quando il faro è acceso, il pavimento di pietra si apre come un fiore di metallo. Sotto, un pozzo verticale scende nelle profondità.",
+        "vibrazione": "Metti la mano sulla pietra del faro. Vibra, leggermente, come un cuore. Non nel ritmo di qualcosa di meccanico: nel ritmo di *qualcosa che ti conosce*. Ritiri la mano di colpo."
       }
     },
     "rovine": {

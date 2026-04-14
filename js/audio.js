@@ -7,18 +7,33 @@ const Audio = (() => {
   let currentAmbient = null;
   let muted = false;
 
+  let compressor = null;
+  let sharedNoiseBuffer = null;
   function ensure() {
     if (ctx) return;
     ctx = new (window.AudioContext || window.webkitAudioContext)();
+    // DynamicsCompressor tra master e destination: evita clipping in fanfare/ending/wall_break
+    compressor = ctx.createDynamicsCompressor();
+    compressor.threshold.value = -20;
+    compressor.knee.value = 8;
+    compressor.ratio.value = 4;
+    compressor.attack.value = 0.005;
+    compressor.release.value = 0.12;
+    compressor.connect(ctx.destination);
     masterGain = ctx.createGain();
     masterGain.gain.value = 0.7;
-    masterGain.connect(ctx.destination);
+    masterGain.connect(compressor);
     musicGain = ctx.createGain();
     musicGain.gain.value = 0.35;
     musicGain.connect(masterGain);
     sfxGain = ctx.createGain();
     sfxGain.gain.value = 0.55;
     sfxGain.connect(masterGain);
+    // Shared noise buffer (4s): unica allocazione per tutta la sessione (~768KB)
+    const len = ctx.sampleRate * 4;
+    sharedNoiseBuffer = ctx.createBuffer(1, len, ctx.sampleRate);
+    const data = sharedNoiseBuffer.getChannelData(0);
+    for (let i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * 0.5;
   }
   function resume() {
     ensure();
@@ -31,7 +46,7 @@ const Audio = (() => {
     spiaggia:   {freqs:[110, 165, 220], cutoff:1200, lfoRate:0.07, type:"sine",   noise:0.04, name:"onda"},
     caletta:    {freqs:[98, 147, 196],  cutoff:900,  lfoRate:0.05, type:"sine",   noise:0.05, name:"caletta"},
     grotte:     {freqs:[55, 82.4, 110], cutoff:380,  lfoRate:0.04, type:"sine",   noise:0.06, name:"grotte"},
-    tempio_sommerso:{freqs:[65, 98, 130], cutoff:520, lfoRate:0.03, type:"triangle", noise:0.03, name:"abisso"},
+    tempio_sommerso:{freqs:[65, 98, 130], cutoff:520, lfoRate:0.03, type:"triangle", noise:0.03, name:"tempio"},
     foresta:    {freqs:[146, 220, 293], cutoff:1500, lfoRate:0.09, type:"sawtooth", noise:0.08, name:"foresta"},
     radura:     {freqs:[174, 261, 349], cutoff:1700, lfoRate:0.08, type:"sine",   noise:0.06, name:"radura"},
     scogliere_sud:{freqs:[110, 174, 220], cutoff:1100, lfoRate:0.10, type:"sine", noise:0.07, name:"vento"},
@@ -40,14 +55,16 @@ const Audio = (() => {
     giungla:    {freqs:[130, 196, 261], cutoff:1300, lfoRate:0.08, type:"sawtooth", noise:0.10, name:"giungla"},
     giungla_profonda:{freqs:[87, 130, 174], cutoff:700, lfoRate:0.04, type:"sawtooth", noise:0.12, name:"profondo"},
     capanna_luna:{freqs:[155, 233, 311], cutoff:1400, lfoRate:0.05, type:"sine", noise:0.03, name:"sciamana"},
-    sentiero_montagna:{freqs:[110, 165, 220], cutoff:1500, lfoRate:0.10, type:"sine", noise:0.06, name:"vetta"},
+    // Sentiero montagna: aria rarefatta, quarta sopra a spiaggia — distinto armonicamente
+    sentiero_montagna:{freqs:[138, 207, 277, 415], cutoff:2200, lfoRate:0.14, type:"triangle", noise:0.03, name:"vetta"},
     cima_vulcano:{freqs:[55, 73.4, 110], cutoff:600, lfoRate:0.04, type:"sawtooth", noise:0.15, name:"vulcano"},
     scogliere:  {freqs:[98, 147, 196], cutoff:1100, lfoRate:0.10, type:"sine", noise:0.07, name:"scogliere"},
     faro:       {freqs:[82.4, 123, 165], cutoff:850, lfoRate:0.04, type:"triangle", noise:0.04, name:"faro"},
     rovine:     {freqs:[65, 98, 146], cutoff:600, lfoRate:0.03, type:"sawtooth", noise:0.05, name:"rovine"},
     sala_guardiano:{freqs:[73, 110, 165], cutoff:700, lfoRate:0.025, type:"sine", noise:0.03, name:"guardiano"},
     cripta:     {freqs:[58, 87, 116], cutoff:450, lfoRate:0.03, type:"sawtooth", noise:0.05, name:"cripta"},
-    laguna:     {freqs:[174, 261, 349], cutoff:1600, lfoRate:0.06, type:"sine", noise:0.04, name:"laguna"},
+    // Laguna: fifth inferiore rispetto a radura, texture glass-like, più spaziale
+    laguna:     {freqs:[116, 174, 233, 349], cutoff:2000, lfoRate:0.05, type:"triangle", noise:0.03, name:"laguna"},
     // ─── Atto II — biomi sotterranei ───
     pozzo_faro:       {freqs:[55, 73.4, 110], cutoff:500, lfoRate:0.025, type:"triangle", noise:0.06, name:"pozzo"},
     cripta_meccanica: {freqs:[65, 98, 130, 195], cutoff:700, lfoRate:0.06, type:"square", noise:0.04, name:"meccanica"},
@@ -109,13 +126,10 @@ const Audio = (() => {
       lfos.push(lfo, ampLfo);
     });
 
-    // Strato di noise filtrato (atmosfera)
-    if (preset.noise > 0) {
-      const noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 4, ctx.sampleRate);
-      const data = noiseBuf.getChannelData(0);
-      for (let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * 0.5;
+    // Strato di noise filtrato — usa il buffer condiviso (unica allocazione per sessione)
+    if (preset.noise > 0 && sharedNoiseBuffer) {
       const noiseSrc = ctx.createBufferSource();
-      noiseSrc.buffer = noiseBuf;
+      noiseSrc.buffer = sharedNoiseBuffer;
       noiseSrc.loop = true;
       const noiseFilter = ctx.createBiquadFilter();
       noiseFilter.type = "bandpass";
@@ -186,10 +200,43 @@ const Audio = (() => {
     const g = ctx.createGain();
     g.gain.value = gain;
     src.connect(f).connect(g).connect(sfxGain);
+    // Cleanup esplicito a fine playback: libera grafo audio
+    src.onended = () => { try { src.disconnect(); f.disconnect(); g.disconnect(); } catch(e){} };
     src.start();
   }
 
+  // Subtitle opzionali per SFX narrativi (accessibility)
+  const SFX_SUBTITLES = {
+    door:        {it: "[porta che si apre]", en: "[door opens]"},
+    wall_break:  {it: "[muro che crolla]",  en: "[wall collapses]"},
+    fusion:      {it: "[oggetti che si fondono]", en: "[items fusing]"},
+    pickup:      {it: "[raccolto]", en: "[picked up]"},
+    combine:     {it: "[combinato]", en: "[combined]"},
+    puzzle_ok:   {it: "[enigma risolto]", en: "[puzzle solved]"},
+    puzzle_fail: {it: "[enigma sbagliato]", en: "[puzzle wrong]"},
+    fanfare:     {it: "[fanfara]", en: "[fanfare]"},
+    ending:      {it: "[finale]", en: "[ending]"},
+    discovery:   {it: "[scoperta]", en: "[discovery]"},
+    fail:        {it: "[niente]", en: "[nothing happens]"},
+  };
+  let captionsOn = localStorage.getItem("isola_captions") === "1";
+  function toggleCaptions() {
+    captionsOn = !captionsOn;
+    localStorage.setItem("isola_captions", captionsOn ? "1" : "0");
+    return captionsOn;
+  }
+  function captionsEnabled() { return captionsOn; }
+  function emitCaption(name) {
+    if (!captionsOn) return;
+    const sub = SFX_SUBTITLES[name];
+    if (!sub) return;
+    const lang = (window.I18n && I18n.getLang()) || "it";
+    const txt = sub[lang] || sub.it;
+    if (window.Render && Render.logSystem) Render.logSystem(txt);
+  }
+
   function sfx(name) {
+    emitCaption(name);
     if (muted || !ctx) return;
     resume();
     switch (name) {
@@ -329,5 +376,6 @@ const Audio = (() => {
   }
   function isMuted(){ return muted; }
 
-  return {resume, setRoom, sfx, sfxItem, materialOf, toggleMute, isMuted};
+  return {resume, setRoom, sfx, sfxItem, materialOf, toggleMute, isMuted,
+          toggleCaptions, captionsEnabled};
 })();

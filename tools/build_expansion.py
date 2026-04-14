@@ -669,13 +669,31 @@ ROOM_PATCHES = {
         },
         "esaminabili_add": {
             "pavimento_faro": "Quando il faro è acceso, il pavimento di pietra si apre come un fiore di metallo. Sotto, un pozzo verticale scende nelle profondità.",
+            "vibrazione": "Metti la mano sulla pietra del faro. Vibra, leggermente, come un cuore. Non nel ritmo di qualcosa di meccanico: nel ritmo di *qualcosa che ti conosce*. Ritiri la mano di colpo.",
         },
     },
     # Pulizia: rimuovi oggetti vicolo cieco dal mondo base
-    "spiaggia":     {"oggetti_remove": ["bottiglia"]},
+    "spiaggia": {
+        "oggetti_remove": ["bottiglia"],
+        "esaminabili_add": {
+            "segno_sabbia": "C'è un disegno nella sabbia — uno spirale a tre bracci. L'onda lo sta cancellando. Per un istante, prima che scompaia del tutto, ti sembra di *averlo disegnato tu*. Poi il pensiero svanisce.",
+            "tue_mani": "Le tue mani. Ti guardi i palmi, come se non li vedessi da sempre. C'è una piccola cicatrice lineare sul palmo destro — non ti ricordi di essertela fatta. Eppure è antica.",
+        },
+    },
     "radura":       {"oggetti_remove": ["fiori"]},
     "molo":         {"oggetti_remove": ["rete_pesca"]},
-    "capanna_luna": {"oggetti_remove": ["erbe_secche"]},
+    "capanna_luna": {
+        "oggetti_remove": ["erbe_secche"],
+        "esaminabili_add": {
+            "sguardo_luna": "Luna ti osserva più a lungo di quanto sia educato. Quando le tue pupille incrociano le sue, smette di fingere. «Non sei quello che sembri. Tu lo sai, in qualche parte di te. Lo saprai del tutto quando sarà il momento.» Poi sorride, e non dice più niente.",
+        },
+    },
+    # Foreshadowing: riconoscimento simboli nella grotta
+    "grotte": {
+        "esaminabili_add": {
+            "incisioni_familiari": "Le spirali sulla parete. Le guardi e *sai* in che ordine vanno lette — dall'esterno verso l'interno, poi fuori di nuovo. Come hai imparato? Non sapresti dirlo. Lo sai e basta.",
+        },
+    },
     # Cripta: aggiungi muro esaminabile + uscita bloccata verso cunicolo_nascosto
     "cripta": {
         "esaminabili_add": {

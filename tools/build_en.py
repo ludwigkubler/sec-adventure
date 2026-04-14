@@ -668,6 +668,103 @@ DELIVERIES_EN = {
     "sigillo_re::archivista": "The Archivist immediately recognizes the seal. \"The mark of the King. You have spoken with him. Good. Then this is yours.\"\n\nShe hands you a small tablet inscribed with the answers to an ancient riddle — a gift of knowledge.",
 }
 
+DIALOG_EXTRA_EN = {
+    # Stage aggiuntivi non ancora tradotti
+    "kaia": {0: {"opzioni_extra": [
+        None, None,
+        {"testo": "How is the village?",
+         "risposta": "\"Since you brought the artifact back, the sea has been generous again. The villagers have returned to fishing with faith. You have given us a future we thought we had lost.\""},
+        {"testo": "I must go"},
+    ]}, 2: {"opzioni_extra": [
+        None, None,
+        {"testo": "Do you need anything?",
+         "risposta": "\"Actually... yes. Our sacred artifact — a small jade statuette — was lost in the sea caves. Those who tried to recover it never returned. But you... I feel there is something different in you.\""},
+        {"testo": "I must go"},
+    ]}},
+    "tiko": {0: {"opzioni_extra": [
+        None,
+        {"testo": "See you around"},
+    ]}},
+    "luna": {0: {
+        "saluto": "Luna welcomes you with a mysterious smile.\n\n\"The moon orchid is safe between my hands. Thanks to you, I can prepare the medicines the village needs. Come, ask me anything.\"",
+        "opzioni": [
+            {"testo": "Do you know anything about the lighthouse?",
+             "risposta": "\"The lighthouse needs the fire of the earth — a volcanic crystal from the summit. And a rare oil, and a gem of power. The three elements of the Ancients. Only together they can awaken the old flame.\""},
+            {"testo": "Tell me about the submerged temple",
+             "risposta": "\"A temple beneath the sea caves — built by the Ancients when the water had not yet risen. Inside, three offerings left forever: a seal, a trident, a coral crown. Only those who know how to breathe below can reach them.\""},
+            {"testo": "Thank you, Luna"},
+        ],
+    }, 1: {
+        "saluto": "The woman studies you in silence for a long moment before speaking.\n\n\"A traveler with eyes full of sea. Come closer, don't be afraid. Old as I am, I am not dangerous.\"",
+        "opzioni": [
+            {"testo": "Who are you?",
+             "risposta": "\"I am Luna. I have lived in the jungle since... forever, it seems to me. I know herbs, I know moon and sun, I know what grows in the shadow and what grows in the light. But I cannot leave this hut for long: my legs no longer carry me far.\""},
+            {"testo": "Do you need anything?",
+             "risposta": "\"I am looking for a moon orchid — a rare plant with silver petals that blooms only on the volcano summit. Bring me one and I will teach you things the jungle whispers to me.\""},
+            {"testo": "Do you know the ruins?",
+             "risposta": "\"The ruins are sacred. The Ancients built them millennia ago, when the sea was lower and the volcano still quiet. They knew things we have forgotten. The Guardian still watches over them.\""},
+            {"testo": "I must go"},
+        ],
+    }},
+    "guardiano": {0: {
+        "saluto": "The Guardian observes you with approval.\n\n\"You have shown wisdom, traveler. The keys have been given. The Abandoned Lighthouse now awaits your touch. Listen to the wind, it will guide you there.\"",
+        "opzioni": [
+            {"testo": "Tell me about your civilization",
+             "risposta": "\"We were builders, dreamers, navigators. We raised the lighthouse to call ships in the storm. But pride made us raise it too high, and the volcano was offended. The sea rose. Only ruins and I remain.\""},
+            {"testo": "How can I light the lighthouse?",
+             "risposta": "\"Three gifts of the island: jungle oil for the gears, volcanic crystal for the heart, gem of power for the flame. Only with the three of them the lighthouse calls again. Good luck, traveler.\""},
+            {"testo": "Farewell, Guardian"},
+        ],
+    }, 1: {
+        "saluto": "The Guardian looks at you with interest.\n\n\"You have answered the first correctly. But wisdom is not proven with a single stroke. Are you ready for the second riddle?\"",
+        "opzioni": [
+            {"testo": "I am ready for the second riddle"},
+            {"testo": "I need more time",
+             "risposta": "\"Time is a luxury the wise do not waste. Come back when you are ready. The second riddle awaits you.\""},
+            {"testo": "I leave"},
+        ],
+    }, 2: {
+        "saluto": "The luminous figure turns toward you. Its eyes of light fix you and through you, as if it were reading your future along with your past.\n\n\"Traveler. You have come far. But to continue, you must prove yourself worthy. Two riddles I have for you. Two steps toward the lighthouse.\"",
+        "opzioni": [
+            {"testo": "Who are you?",
+             "risposta": "\"I am the Guardian — the last custodian of what was. My duty is to test those who seek the light of the lighthouse. Only the wise deserve to wake it.\""},
+            {"testo": "I need the keys",
+             "risposta": "\"Keys are not taken — they are earned. Answer my riddles and you will have them. The first: \""},
+            {"testo": "I am ready for the riddle"},
+            {"testo": "Not yet"},
+        ],
+    }},
+}
+
+ROOM_EXAMINABLES_EXTRA_EN = {
+    "radura": {
+        "fonte": "The water is cool and crystalline. You drink in long sips — it's freshwater from an underground spring.",
+        "farfalle": "Butterflies of electric blue, the size of your hand. They don't fly away when you approach. They watch, as if they knew you.",
+    },
+    "scogliere_sud": {
+        "costruzione": "The remains of what looks like a watchtower, built with blocks of dark stone. Barely standing.",
+        "mare": "From up here the sea is a terrifying and magnificent spectacle. You could stay and watch it for hours.",
+    },
+    "molo": {
+        "baia": "The waters of the bay are incredibly clear. You can see the bottom sandy and full of small silvery fish.",
+    },
+    "giungla_profonda": {
+        "funghi": "Bioluminescent mushrooms of various species — some shaped like small umbrellas, others like tentacles. All glow softly.",
+        "dirupo": "The ravine is about ten meters deep. The bottom looks dark and inhabited. A rope would help you descend.",
+    },
+    "sentiero_montagna": {
+        "roccia": "Volcanic rock, dark and porous. In some places glittering metallic flecks are visible.",
+        "panorama": "From here you can already see a good part of the island. The forest covers the interior, the sea surrounds everything.",
+    },
+    "scogliere": {
+        "nido": "A sea-eagle nest, built of branches and algae. It contains an old map fragment — perhaps dropped by a sailor long ago.",
+    },
+    "laguna": {
+        "capanno": "The shack is old but still standing. Inside you find diving gear — old but functional.",
+        "coralli": "The lagoon's corals are of extraordinary beauty — reds, yellows, blues. They form pillars and natural arches.",
+    },
+}
+
 ROOM_EXAMINABLES_EN = {
     "caletta": {"rocce": "Polished volcanic rock, rich with deep striations. Some fragments contain small glittering metallic flecks — ferrite? Or something else."},
     "grotte": {
@@ -942,6 +1039,33 @@ for rid, exs in ROOM_EXAMINABLES_EN.items():
         EN["rooms"][rid].setdefault("esaminabili", {})
         for k, v in exs.items():
             EN["rooms"][rid]["esaminabili"][k] = v
+
+# Esaminabili extra (v1.2)
+for rid, exs in ROOM_EXAMINABLES_EXTRA_EN.items():
+    if rid in EN["rooms"]:
+        EN["rooms"][rid].setdefault("esaminabili", {})
+        for k, v in exs.items():
+            EN["rooms"][rid]["esaminabili"][k] = v
+
+# Dialoghi extra (v1.2): stage e opzioni residue
+for npc, stages_map in DIALOG_EXTRA_EN.items():
+    if npc not in EN["dialogues"]: continue
+    for si, data in stages_map.items():
+        if si >= len(EN["dialogues"][npc]): continue
+        stage = EN["dialogues"][npc][si]
+        if "saluto" in data: stage["saluto"] = data["saluto"]
+        if "opzioni" in data:
+            for oi, opt in enumerate(data["opzioni"]):
+                if oi < len(stage.get("opzioni", [])):
+                    for ok, ov in opt.items():
+                        stage["opzioni"][oi][ok] = ov
+        if "opzioni_extra" in data:
+            # Mappa indice-per-indice le opzioni non None
+            for oi, opt in enumerate(data["opzioni_extra"]):
+                if opt is None: continue
+                if oi < len(stage.get("opzioni", [])):
+                    for ok, ov in opt.items():
+                        stage["opzioni"][oi][ok] = ov
 
 OUT.write_text(json.dumps(EN, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"Wrote {OUT}")

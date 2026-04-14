@@ -19,7 +19,9 @@
       "esaminabili": {
         "relitto": "The wreck of your boat is beyond saving. The hull is torn in several places, the mast snapped. Among the debris you can make out a few usable planks and some pieces of rope.",
         "mare": "The sea stretches endless to the horizon. No sail, no land in sight. Just blue water and blue sky blending in the distance.",
-        "sabbia": "Fine golden sand, dotted with shells and debris. Your footprints are the only ones visible."
+        "sabbia": "Fine golden sand, dotted with shells and debris. Your footprints are the only ones visible.",
+        "segno_sabbia": "C'è un disegno nella sabbia — uno spirale a tre bracci. L'onda lo sta cancellando. Per un istante, prima che scompaia del tutto, ti sembra di *averlo disegnato tu*. Poi il pensiero svanisce.",
+        "tue_mani": "Le tue mani. Ti guardi i palmi, come se non li vedessi da sempre. C'è una piccola cicatrice lineare sul palmo destro — non ti ricordi di essertela fatta. Eppure è antica."
       }
     },
     "caletta": {
@@ -70,6 +72,7 @@
         "stalattiti": "Stone icicles hang from the ceiling, some very long. Water drips with perfect regularity.",
         "muschio": "Phosphorescent moss. Emits a faint bluish light. Useful to see even without a torch — briefly.",
         "acqua": "The water of the pool is unnaturally clear. You see your face — but it looks older, or younger, you can't tell.",
+        "incisioni_familiari": "Le spirali sulla parete. Le guardi e *sai* in che ordine vanno lette — dall'esterno verso l'interno, poi fuori di nuovo. Come hai imparato? Non sapresti dirlo. Lo sai e basta.",
         "incisioni": "Spirals that turn counterclockwise. Among them, three recurring symbols: an eye, a star, a root. The three again, here too.",
         "pozza": "The water is perfectly still. You see your reflection, but with something different: your face looks older, or younger, or both. Stepping closer, it corrects itself.",
         "stalattite": "Water drips from the tip every second and a half. Exactly. If this is a clock, it has been ticking for thousands of years."
@@ -135,8 +138,8 @@
       "oggetti": [],
       "npcs": [],
       "esaminabili": {
-        "fonte": "L'acqua è fresca e cristallina. Bevi a grandi sorsate — è la cosa più buona che tu abbia mai assaggiato. Ti senti subito più forte e lucido.",
-        "farfalle": "Farfalle di un blu elettrico, grandi come la tua mano. Non ne hai mai viste di simili. Quest'isola è un mondo a parte.",
+        "fonte": "The water is cool and crystalline. You drink in long sips — it's freshwater from an underground spring.",
+        "farfalle": "Butterflies of electric blue, the size of your hand. They don't fly away when you approach. They watch, as if they knew you.",
         "cerchio": "A circle of carved stones, each with a symbol. The symbols are worn, but one is clearer than the others: a stylized sun. Or is it a lighthouse?",
         "fiori": "Flowers of every color. Some smell like candy, others like ash. One has perfectly geometric petals — twenty-one, you count. A prime number.",
         "parete_vegetazione": "A wall of creepers and brambles, too thick to pass. A good blade would help — even better, a machete."
@@ -157,8 +160,8 @@
       ],
       "npcs": [],
       "esaminabili": {
-        "costruzione": "I resti di quella che sembra una torre di avvistamento, costruita con la stessa pietra delle scogliere. È crollata da molto tempo. Tra i detriti trovi dei chiodi arrugginiti ma ancora robusti.",
-        "mare": "Da quassù il mare è uno spettacolo terrificante e magnifico. Le onde si infrangono sulle rocce con una forza primordiale. Molto lontano, verso sud-ovest, ti sembra di vedere... una sagoma? Una nave? No, deve essere un'illusione ottica.",
+        "costruzione": "The remains of what looks like a watchtower, built with blocks of dark stone. Barely standing.",
+        "mare": "From up here the sea is a terrifying and magnificent spectacle. You could stay and watch it for hours.",
         "calata_sud": "A narrow staircase, carved into the rock, descends toward a remote cove. From up here you can't see the bottom, but you can feel the wind carrying up a smell of rotting wood and rust.",
         "gabbiani": "Gulls glide in wide circles. One keeps watching you, its head tilted, as if it were about to tell you something it can't.",
         "roccia": "Dark volcanic rock, chipped by the wind of millennia. Some fragments contain glittering metal flecks."
@@ -205,7 +208,7 @@
       ],
       "esaminabili": {
         "barca": "A small fishing boat in rough shape. Some planks are loose, a piece of the prow is missing. With rusty nails and good wood you could fix it.",
-        "baia": "Le acque della baia sono incredibilmente limpide. Si vede il fondale di sabbia bianca e i banchi di pesci colorati. Oltre la baia, verso ovest, si intravede una laguna nascosta tra le mangrovie.",
+        "baia": "The waters of the bay are incredibly clear. You can see the bottom sandy and full of small silvery fish.",
         "reti": "Nets hung to dry. They smell of fish and salt. Professional work.",
         "acqua": "The water of the bay is calm and transparent. You see the bottom: rocks, algae, the occasional fish. Below, deeper down, something dark and big that barely moves."
       }
@@ -257,8 +260,8 @@
       ],
       "npcs": [],
       "esaminabili": {
-        "funghi": "Funghi bioluminescenti di diverse specie — alcuni a forma di coppa, altri come piccoli ombrelli. La loro luce verde crea un'atmosfera irreale, come se fossi in un altro mondo.",
-        "dirupo": "Il dirupo è profondo una decina di metri. Il sentiero della montagna è visibile in basso. Con una corda legata a uno di questi alberi robusti, potresti scendere senza problemi.",
+        "funghi": "Bioluminescent mushrooms of various species — some shaped like small umbrellas, others like tentacles. All glow softly.",
+        "dirupo": "The ravine is about ten meters deep. The bottom looks dark and inhabited. A rope would help you descend.",
         "sentiero_sudest": "Toward the southeast, a narrow path winds among the tallest trunks. You can make out an opening — perhaps a crossroads.",
         "precipizio": "A ravine that descends into darkness. From up here you can't see the bottom. You'd need a good rope to climb down.",
         "fango": "The ground is muddy and bears strange prints. Not human feet. Not even animals you know.",
@@ -281,6 +284,7 @@
         "erbe": "Bundles of dried herbs hanging from the ceiling. Some you recognize (sage, thyme), others no. The smell is complex: sweet, bitter, medicinal.",
         "mortaio": "A stone mortar stained with herbs. Luna prepares remedies here.",
         "vasetti": "Small pots with dried herbs, each labeled with symbols you don't recognize.",
+        "sguardo_luna": "Luna ti osserva più a lungo di quanto sia educato. Quando le tue pupille incrociano le sue, smette di fingere. «Non sei quello che sembri. Tu lo sai, in qualche parte di te. Lo saprai del tutto quando sarà il momento.» Poi sorride, e non dice più niente.",
         "candele": "Candles of natural wax, unlit. Each one has a symbol carved at the base.",
         "mappe": "Old maps, drawn on bark. The island is drawn differently than on the map fragment you found — bigger, with extra parts that don't exist in today's reality."
       }
@@ -299,8 +303,8 @@
       ],
       "npcs": [],
       "esaminabili": {
-        "roccia": "Roccia vulcanica, scura e porosa. In alcuni punti sono visibili cristalli incastonati nella pietra — quarzo, ossidiana, e qualcosa che luccica di un colore ambrato.",
-        "panorama": "Da qui si vede già buona parte dell'isola. La foresta copre la maggior parte del territorio. A nord-ovest intravedi le scogliere e... è quello un faro?",
+        "roccia": "Volcanic rock, dark and porous. In some places glittering metallic flecks are visible.",
+        "panorama": "From here you can already see a good part of the island. The forest covers the interior, the sea surrounds everything.",
         "vista": "From up here the entire island looks like a toy. You can trace every place you have visited, in order. You are a small dot moving on something much older than you.",
         "pini": "Gnarled pine trees that grow between the rocks. The wind makes them whistle in a way that almost sounds like human voices.",
         "pietre": "Stones, loose, some pitted by tools. Someone worked up here. Long ago."
@@ -346,7 +350,7 @@
       "npcs": [],
       "esaminabili": {
         "faro": "The lighthouse stands against the sky. Ancient, worn, but still upright. It waits for someone to bring it back to life.",
-        "nido": "Un nido d'aquila marina, costruito con rami e alghe. Contiene due uova macchiate. Meglio non disturbare — la madre ti sta osservando dall'alto con occhi gialli e affilati.",
+        "nido": "A sea-eagle nest, built of branches and algae. It contains an old map fragment — perhaps dropped by a sailor long ago.",
         "orizzonte": "Nothing. Empty sea to the horizon. You can't remember which direction you came from.",
         "mappa_frammento": "Among the rocks, a piece of parchment. A small fragment of an old map — you slip it in your bag."
       }
@@ -373,6 +377,7 @@
         "scala": "A spiral staircase rising endlessly. Steps worn smooth by centuries.",
         "lente": "The great lens of the lighthouse, still intact. When lit, it will focus the light for miles.",
         "pavimento_faro": "When the lighthouse is lit, the stone floor opens like a metal flower. Below, a vertical well descends into the depths.",
+        "vibrazione": "Metti la mano sulla pietra del faro. Vibra, leggermente, come un cuore. Non nel ritmo di qualcosa di meccanico: nel ritmo di *qualcosa che ti conosce*. Ritiri la mano di colpo.",
         "scala_spirale": "Worn stone steps. The center is hollowed by thousands of feet that climbed it before you.",
         "braciere": "A bronze brazier, round, with three indented slots. Each labeled: OIL, CRYSTAL, GEM. Put them in the right order, and the flame will awaken.",
         "diario_guardiano": "On a stool, a metal diary. Pages of ink and dust. The last page ends mid-sentence: 'I do not know if whoever comes after me will understand. I hope—'"
@@ -464,8 +469,8 @@
       ],
       "npcs": [],
       "esaminabili": {
-        "capanno": "Il capanno è vecchio ma ancora in piedi. All'interno trovi dell'attrezzatura subacquea — maschera, pinne, e una bombola d'ossigeno che sembra ancora funzionante. Qualcuno si immergeva qui regolarmente.",
-        "coralli": "I coralli della laguna sono di una bellezza straordinaria — rosa, viola, arancione, con forme ramificate e a ventaglio. Un ecosistema intatto e fragile.",
+        "capanno": "The shack is old but still standing. Inside you find diving gear — old but functional.",
+        "coralli": "The lagoon's corals are of extraordinary beauty — reds, yellows, blues. They form pillars and natural arches.",
         "mangrovie": "Mangroves rise from the water with roots exposed like long fingers. Small fish weave among them.",
         "cascata": "The waterfall is small but steady. The water is freshwater, drinkable. Behind the veil of water, something seems to glow. A cave? Or just reflections?",
         "perla": "A black pearl the size of your fist. It's on a natural pedestal of wet stone. Someone placed it there — recently, or long ago, you can't tell."
@@ -1604,11 +1609,11 @@
             "risposta": "'The lighthouse was built by the Ancients to—'"
           },
           {
-            "testo": "Come va il villaggio?",
-            "risposta": "\"Da quando hai riportato l'artefatto, il mare è di nuovo generoso. I pesci sono tornati, e anche la speranza. Sei un amico del villaggio, straniero.\""
+            "testo": "How is the village?",
+            "risposta": "\"Since you brought the artifact back, the sea has been generous again. The villagers have returned to fishing with faith. You have given us a future we thought we had lost.\""
           },
           {
-            "testo": "Devo andare",
+            "testo": "I must go",
             "fine": true
           }
         ]
@@ -1647,8 +1652,8 @@
             "risposta": "\"I was born on this island. My mother and her mother too. It is not my story to leave. You, however — you were brought here. Brought back, perhaps. We will see.\""
           },
           {
-            "testo": "Goodbye, Kaia.",
-            "risposta": "\"In effetti... sì. Il nostro artefatto sacro — una statuetta di giada che protegge il villaggio — è andato perduto nelle grotte marine a est. Senza di esso, la pesca è scarsa e la sfortuna ci perseguita. Se riuscissi a riportarlo... ti sarei eternamente grata.\"",
+            "testo": "Do you need anything?",
+            "risposta": "\"Actually... yes. Our sacred artifact — a small jade statuette — was lost in the sea caves. Those who tried to recover it never returned. But you... I feel there is something different in you.\"",
             "azione": {
               "tipo": "flag",
               "id": "quest_kaia_accettata"
@@ -1656,7 +1661,7 @@
             "fine": true
           },
           {
-            "testo": "Devo andare",
+            "testo": "I must go",
             "fine": true
           }
         ]
@@ -1724,7 +1729,7 @@
             "fine": true
           },
           {
-            "testo": "Ci vediamo",
+            "testo": "See you around",
             "fine": true
           }
         ]
@@ -1761,44 +1766,44 @@
         "condizione": {
           "flag": "quest_luna_completa"
         },
-        "saluto": "Luna ti accoglie con un sorriso misterioso.\n\n\"L'orchidea è stata preziosa. La giungla ti ha accettato, straniero — lo sento.\"",
+        "saluto": "Luna welcomes you with a mysterious smile.\n\n\"The moon orchid is safe between my hands. Thanks to you, I can prepare the medicines the village needs. Come, ask me anything.\"",
         "opzioni": [
           {
-            "testo": "Sai qualcosa sul faro?",
-            "risposta": "\"Il faro ha bisogno del fuoco della terra — un cristallo vulcanico dalla cima del vulcano. Ha bisogno di luce — il cristallo la fornirà. E ha bisogno di un cuore — la gemma di potere, nascosta nelle profondità sotto le rovine. Tre doni dell'isola per risvegliare la speranza.\""
+            "testo": "Do you know anything about the lighthouse?",
+            "risposta": "\"The lighthouse needs the fire of the earth — a volcanic crystal from the summit. And a rare oil, and a gem of power. The three elements of the Ancients. Only together they can awaken the old flame.\""
           },
           {
-            "testo": "Parlami del tempio sommerso",
-            "risposta": "\"C'è un tempio sotto le grotte marine — costruito dagli Antichi prima che il mare lo inghiottisse. Per raggiungerlo serve attrezzatura da sub. C'è un vecchio capanno nella laguna con l'attrezzatura... se riesci ad arrivarci.\""
+            "testo": "Tell me about the submerged temple",
+            "risposta": "\"A temple beneath the sea caves — built by the Ancients when the water had not yet risen. Inside, three offerings left forever: a seal, a trident, a coral crown. Only those who know how to breathe below can reach them.\""
           },
           {
-            "testo": "Grazie, Luna",
+            "testo": "Thank you, Luna",
             "fine": true
           }
         ]
       },
       {
         "condizione": null,
-        "saluto": "La donna ti studia in silenzio per un lungo momento prima di parlare.\n\n\"La giungla ti ha portato fin qui. Non capita a caso — la foresta decide chi far passare e chi no. Io sono Luna.\"",
+        "saluto": "The woman studies you in silence for a long moment before speaking.\n\n\"A traveler with eyes full of sea. Come closer, don't be afraid. Old as I am, I am not dangerous.\"",
         "opzioni": [
           {
-            "testo": "Chi sei?",
-            "risposta": "\"Sono Luna. Vivo nella giungla da... da sempre, mi sembra. Conosco ogni pianta, ogni animale, ogni segreto verde di questa foresta. Le piante parlano, sai? Bisogna solo saper ascoltare.\""
+            "testo": "Who are you?",
+            "risposta": "\"I am Luna. I have lived in the jungle since... forever, it seems to me. I know herbs, I know moon and sun, I know what grows in the shadow and what grows in the light. But I cannot leave this hut for long: my legs no longer carry me far.\""
           },
           {
-            "testo": "Hai bisogno di qualcosa?",
-            "risposta": "\"Cerco un'orchidea lunare — una pianta rara dai petali argentati. Cresce nella giungla profonda, dove la luce non arriva mai. Con essa posso preparare medicine potenti. Se la trovi, sarò in debito con te.\"",
+            "testo": "Do you need anything?",
+            "risposta": "\"I am looking for a moon orchid — a rare plant with silver petals that blooms only on the volcano summit. Bring me one and I will teach you things the jungle whispers to me.\"",
             "azione": {
               "tipo": "flag",
               "id": "quest_luna_accettata"
             }
           },
           {
-            "testo": "Conosci le rovine?",
-            "risposta": "\"Le rovine sono sacre. Gli Antichi le costruirono millenni fa — erano un popolo saggio che viveva in armonia con l'isola. Poi il vulcano li distrusse. Ma i loro segreti sono ancora là, custoditi dal Guardiano.\""
+            "testo": "Do you know the ruins?",
+            "risposta": "\"The ruins are sacred. The Ancients built them millennia ago, when the sea was lower and the volcano still quiet. They knew things we have forgotten. The Guardian still watches over them.\""
           },
           {
-            "testo": "Devo andare",
+            "testo": "I must go",
             "fine": true
           }
         ]
@@ -1809,18 +1814,18 @@
         "condizione": {
           "flag": "enigma2_risolto"
         },
-        "saluto": "Il Guardiano ti osserva con approvazione.\n\n\"Hai dimostrato saggezza, viaggiatore. Le chiavi sono tue — usa ciò che custodiscono con rispetto.\"",
+        "saluto": "The Guardian observes you with approval.\n\n\"You have shown wisdom, traveler. The keys have been given. The Abandoned Lighthouse now awaits your touch. Listen to the wind, it will guide you there.\"",
         "opzioni": [
           {
-            "testo": "Parlami della tua civiltà",
-            "risposta": "\"Eravamo costruttori, sognatori, navigatori. Costruimmo il faro per guidare le navi attraverso acque pericolose. Il tempio per onorare il mare. Queste rovine per preservare la conoscenza. Poi il vulcano parlò, e il mare ci reclamò. Io sono l'ultimo eco della nostra voce.\""
+            "testo": "Tell me about your civilization",
+            "risposta": "\"We were builders, dreamers, navigators. We raised the lighthouse to call ships in the storm. But pride made us raise it too high, and the volcano was offended. The sea rose. Only ruins and I remain.\""
           },
           {
-            "testo": "Come posso accendere il faro?",
-            "risposta": "\"Tre doni dell'isola: l'olio della giungla per gli ingranaggi, il cristallo del vulcano per la luce, e la gemma di potere dalla cripta per l'energia. Porta tutti e tre al faro e la luce tornerà a brillare.\""
+            "testo": "How can I light the lighthouse?",
+            "risposta": "\"Three gifts of the island: jungle oil for the gears, volcanic crystal for the heart, gem of power for the flame. Only with the three of them the lighthouse calls again. Good luck, traveler.\""
           },
           {
-            "testo": "Addio, Guardiano",
+            "testo": "Farewell, Guardian",
             "fine": true
           }
         ]
@@ -1829,42 +1834,42 @@
         "condizione": {
           "flag": "enigma1_risolto"
         },
-        "saluto": "Il Guardiano ti guarda con interesse.\n\n\"Hai risposto al primo enigma. Ma la saggezza ha molte facce. Sei pronto per il secondo?\"",
+        "saluto": "The Guardian looks at you with interest.\n\n\"You have answered the first correctly. But wisdom is not proven with a single stroke. Are you ready for the second riddle?\"",
         "opzioni": [
           {
-            "testo": "Sono pronto per il secondo enigma",
+            "testo": "I am ready for the second riddle",
             "tipo": "enigma",
             "enigma_id": "enigma2"
           },
           {
-            "testo": "Ho bisogno di più tempo",
-            "risposta": "\"Il tempo è un lusso che il saggio non spreca. Torna quando sarai pronto.\""
+            "testo": "I need more time",
+            "risposta": "\"Time is a luxury the wise do not waste. Come back when you are ready. The second riddle awaits you.\""
           },
           {
-            "testo": "Me ne vado",
+            "testo": "I leave",
             "fine": true
           }
         ]
       },
       {
         "condizione": null,
-        "saluto": "La figura luminosa si volta verso di te. I suoi occhi di luce azzurra ti trafiggono.\n\n\"Un vivente. Dopo tanto tempo. Sei venuto a cercare ciò che i miei fratelli hanno nascosto, viaggiatore?\"",
+        "saluto": "The luminous figure turns toward you. Its eyes of light fix you and through you, as if it were reading your future along with your past.\n\n\"Traveler. You have come far. But to continue, you must prove yourself worthy. Two riddles I have for you. Two steps toward the lighthouse.\"",
         "opzioni": [
           {
-            "testo": "Chi sei?",
-            "risposta": "\"Sono il Guardiano — l'ultimo custode di ciò che fu. Il mio popolo è scomparso, ma il mio dovere resta. Custodisco le chiavi del faro e della cripta. Solo chi è degno può averle.\""
+            "testo": "Who are you?",
+            "risposta": "\"I am the Guardian — the last custodian of what was. My duty is to test those who seek the light of the lighthouse. Only the wise deserve to wake it.\""
           },
           {
-            "testo": "Ho bisogno delle chiavi",
-            "risposta": "\"Le chiavi non si prendono — si guadagnano. Rispondi ai miei enigmi, e le chiavi saranno tue. Fallisci, e tornerai a mani vuote. Scegli: sei pronto?\""
+            "testo": "I need the keys",
+            "risposta": "\"Keys are not taken — they are earned. Answer my riddles and you will have them. The first: \""
           },
           {
-            "testo": "Sono pronto per l'enigma",
+            "testo": "I am ready for the riddle",
             "tipo": "enigma",
             "enigma_id": "enigma1"
           },
           {
-            "testo": "Non ancora",
+            "testo": "Not yet",
             "fine": true
           }
         ]

@@ -69,11 +69,17 @@ const Input = (() => {
     };
   }
 
+  let lastHoverSfxAt = 0;
   function onHotspotHover(e) {
     const hs = e.target.closest(".hotspot");
     if (!hs) { Render.hideHint(); lastHover = null; return; }
     if (hs !== lastHover) {
-      Audio.sfx("hover");
+      // Throttle hover SFX a max 1 ogni 120ms per evitare spam su griglie dense
+      const now = Date.now();
+      if (now - lastHoverSfxAt >= 120) {
+        Audio.sfx("hover");
+        lastHoverSfxAt = now;
+      }
       lastHover = hs;
     }
     const label = hs.querySelector(".label")?.textContent;
