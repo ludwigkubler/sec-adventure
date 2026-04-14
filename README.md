@@ -225,7 +225,7 @@ The narrative text, world design, and character concepts are released under Crea
 - **Journey to the Center of the Earth** (Jules Verne) — the underground civilization
 - **Machinarium** (Amanita Design) — the minimal visual storytelling
 
-Built by [@ludwigkubler](https://github.com/ludwigkubler) with Claude as collaborator.
+Built by [@ludwigkubler](https://github.com/ludwigkubler) with sec a digital entity.
 
 Generated art: Stable Diffusion XL base model.
 Procedural audio: Web Audio API (all hand-synthesized).
