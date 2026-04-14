@@ -592,6 +592,186 @@ RECIPES_MSG_EN = [
     "You place the Mother Root in the third point. The three energies speak to each other: star, mind, life. The eight points light up one after another in cascade. The Titanic Crown is now ACTIVE. It pulses, soft and cold, in your hands.",
 ]
 
+QUESTS_EN = {
+    "quest_kaia": {
+        "nome": "The Sacred Artifact",
+        "descrizione": "Kaia has asked you to recover the sacred artifact from the sea caves.",
+        "obiettivi": [
+            {"desc": "Find the sacred artifact in the sea caves"},
+            {"desc": "Bring the artifact back to Kaia in the village"},
+        ],
+    },
+    "quest_tiko": {
+        "nome": "Tiko's Boat",
+        "descrizione": "Tiko needs resin and rusty nails to repair the boat.",
+        "obiettivi": [
+            {"desc": "Find resin in the deep jungle"},
+            {"desc": "Find rusty nails on the southern cliffs"},
+            {"desc": "Bring both to Tiko at the pier"},
+        ],
+    },
+    "quest_luna": {
+        "nome": "The Rare Plant",
+        "descrizione": "Luna seeks a rare plant that grows only on the volcano summit.",
+        "obiettivi": [
+            {"desc": "Find the rare plant on the volcano summit"},
+            {"desc": "Bring it to Luna in her hut"},
+        ],
+    },
+    "quest_faro": {
+        "nome": "The Ancient Lighthouse",
+        "descrizione": "Relight the ancient lighthouse by placing oil, crystal and gem in the brazier at the top.",
+        "obiettivi": [
+            {"desc": "Find the three components"},
+            {"desc": "Place them in the lighthouse brazier"},
+        ],
+    },
+}
+
+PUZZLES_EN = {
+    "enigma1": {
+        "testo": "The Guardian raises a luminous hand and the hall darkens. His voice echoes like a memory from the past:\n\n\"I live without breath,\ncold as death.\nNever thirsty, always drinking.\nIn armor, never clanking.\nWhat am I?\"",
+        "successo": "The Guardian nods slowly, and light returns to the hall.\n\n\"The fish. Correct. You know the life that hides beneath the surface — this is the first step of wisdom.\"\n\nAn iron key appears in his luminous hands and floats toward you.",
+        "fallimento": "The Guardian shakes his head.\n\n\"That is not the right answer. Wisdom requires patience and reflection. Return when you have thought more carefully.\"",
+    },
+    "enigma2": {
+        "testo": "The Guardian observes you with piercing eyes.\n\n\"Very well. The second riddle:\n\nI have cities without houses,\nforests without trees,\nrivers without water,\nmountains without stone.\nWhat am I?\"",
+        "successo": "The Guardian extends a luminous hand.\n\n\"The map. Correct. You know how to read the world at a distance — this is the second step of wisdom.\"\n\nA silver key materializes before you.",
+        "fallimento": "The Guardian shakes his head once more.\n\n\"Not quite. Observe the world as if it were drawn, not lived.\"",
+    },
+}
+
+PUZZLES_INTERACTIVE_EN = {
+    "lucchetto_scrigno": {
+        "testo": "The ancient chest at the feet of the throne. Four wheels, each with mysterious symbols. An inscription: 'THE SUN RISES IN THE EAST, THE SACRED TRIANGLE POINTS SKYWARD, ON THE THIRD DAY THE KING CAME, AND THE EARTH, THIRD PLANET FROM THE SUN, WELCOMED HIM.'",
+        "successo": "The wheels align with a metallic click. The chest opens with a hiss of air escaping after millennia. Inside, resting on a veil of ancient silk, is the King's Seal.",
+        "fallimento": "The wheels click into wrong positions. The chest remains closed.",
+    },
+    "stelle_osservatorio": {
+        "testo": "The mosaic of three stars pulses in waiting. On the wall, a mechanism with three stone wheels corresponds to the three projected stars. Align each with the dashed mark to complete the ancient constellation.",
+        "successo": "The three stars align perfectly. A click resonates: on the central astrolabe, a small opening reveals a star fragment embedded in the brass — a gift to one who has learned to look at the right sky.",
+        "fallimento": "The stars vibrate but are not aligned. Try again.",
+    },
+    "pendolo_cuore": {
+        "testo": "The giant pendulum swings slowly above you. The hall accompanies it with a precise beat. If you follow it with your rhythm for four beats, the Heart may listen.",
+        "successo": "You have followed perfect time. The Heart above you emits a brief but clear glow — something has readied itself. From now on, the Heart will respond more quickly to the next mechanical intervention.",
+        "fallimento": "The rhythm is off. The pendulum continues unperturbed. Try again when you have the right timing within you.",
+    },
+}
+
+DELIVERIES_EN = {
+    "artefatto_sacro::kaia": "You hand the sacred artifact to Kaia. Her hands tremble as she takes the jade statuette. Tears fill her eyes.\n\n\"You found it... after all these years. This artifact protected our village. Without it, fishing was poor and the sea was rough. Thank you, stranger.\"\n\nShe removes a medallion from her neck and offers it to you.\n\n\"Take this. It is the medallion of the Ancients — it will open the doors of the ruins in the jungle. There you will find the answers you seek.\"",
+    "resina::tiko": "Tiko takes the resin with a grateful nod. \"Perfect. Now all I need are the nails.\"",
+    "chiodi_arrugginiti::tiko": "Tiko takes the nails and combines them with the resin. His face lights up.\n\n\"You've saved me, stranger. I can finally repair the boat.\"\n\nHe works swiftly. Within an hour, the boat is seaworthy. \"It's yours too now. Use it to reach the hidden lagoon to the west.\"",
+    "pianta_rara::luna": "Luna accepts the rare plant with reverent hands. She inhales its scent deeply.\n\n\"You found it where few dare to go. Take this — an antidote for ancient poisons. You may need it.\"",
+    "tavoletta_runica::archivista": "You offer the runic tablet to the Archivist. She accepts it delicately, and for the first time smiles truly.\n\n\"A lost tablet. I read it. Ah... it is a map. A map of the Heart of the Machine, and of its three weak points. Keep it, now it will be more useful to you than to me.\"\n\nAfter a moment, from her tunic of light she produces a small gift and offers it to you.",
+    "sigillo_re::archivista": "The Archivist immediately recognizes the seal. \"The mark of the King. You have spoken with him. Good. Then this is yours.\"\n\nShe hands you a small tablet inscribed with the answers to an ancient riddle — a gift of knowledge.",
+}
+
+ROOM_EXAMINABLES_EN = {
+    "caletta": {"rocce": "Polished volcanic rock, rich with deep striations. Some fragments contain small glittering metallic flecks — ferrite? Or something else."},
+    "grotte": {
+        "stalattiti": "Stone icicles hang from the ceiling, some very long. Water drips with perfect regularity.",
+        "muschio": "Phosphorescent moss. Emits a faint bluish light. Useful to see even without a torch — briefly.",
+        "acqua": "The water of the pool is unnaturally clear. You see your face — but it looks older, or younger, you can't tell.",
+    },
+    "tempio_sommerso": {"bassorilievi": "Reliefs on the columns show a civilization that revered the lighthouse. Robed figures, raised arms, a central flame that is more than flame."},
+    "villaggio": {
+        "fuoco": "A fire pit still warm. Recent embers. Someone cooks here every day.",
+        "reti": "Fishing nets spread out to dry. Well-maintained. Someone fishes here.",
+    },
+    "giungla": {
+        "alberi": "Tall trees, some with bark carved with symbols. The symbols seem recent — within years, not centuries.",
+        "insetti": "Luminous insects among the branches. They move in patterns too regular to be random.",
+    },
+    "capanna_luna": {
+        "mortaio": "A stone mortar stained with herbs. Luna prepares remedies here.",
+        "vasetti": "Small pots with dried herbs, each labeled with symbols you don't recognize.",
+    },
+    "cima_vulcano": {
+        "cratere": "The crater plunges into a red glowing void. Looking long enough, you see figures — or imagine them.",
+        "panorama": "From here you see the entire island. Small, isolated, infinite around it.",
+        "cristalli": "Crystals of various colors scattered across the ground, formed by volcanic heat.",
+    },
+    "faro": {
+        "meccanismo": "A bronze mechanism at the top of the stairs. Three slots wait: one round (oil), one pointed (crystal), one squared (gem).",
+        "scala": "A spiral staircase rising endlessly. Steps worn smooth by centuries.",
+        "lente": "The great lens of the lighthouse, still intact. When lit, it will focus the light for miles.",
+    },
+    "rovine": {
+        "iscrizioni": "Inscriptions in an unknown alphabet. But three symbols recur: eye, star, root.",
+        "colonne": "Broken columns, some still upright. Each one had a function — what?",
+        "portale": "A stone portal covered in creepers. Beyond it, the Guardian's Hall.",
+    },
+    "sala_guardiano": {
+        "altare": "A black basalt altar, empty. Once something was placed here.",
+        "mosaico": "A complex floor mosaic: three spirals converging toward a central point.",
+        "simboli": "Ancient symbols on the walls. The Guardian reads them as if they were fresh.",
+    },
+    "cripta": {"piedistallo": "A dark basalt pedestal. The top is smooth — for an offering, or a resting place."},
+    "radice_mondo": {"piedistallo": "Rough stone with a hollow to receive the crown. Beneath, an inscription: 'WHOEVER WEARS, DOES NOT RETURN THE SAME AS THEY WERE.'"},
+    "scogliere": {
+        "orizzonte": "Nothing. Empty sea to the horizon. You can't remember which direction you came from.",
+        "mappa_frammento": "Among the rocks, a piece of parchment. A small fragment of an old map — you slip it in your bag.",
+    },
+    "radura": {"parete_vegetazione": "A wall of creepers and brambles, too thick to pass. A good blade would help — even better, a machete."},
+}
+
+# Dialoghi mancanti: Marco, Tiko, Kaia stage residui
+DIALOGUES_FULL_EN = {
+    "marco": [
+        {
+            "condizione": {"flag": "barca_riparata"},
+            "saluto": "Marco grins. \"Tiko fixed the boat. Now we have a real hope of getting out — if the lighthouse ever lights up.\"",
+            "opzioni": [
+                {"testo": "Tell me about yourself", "risposta": "\"Shipwrecked, like you. Three years ago. Four? I've lost count. Kaia took me in. The villagers are good people — but they're not like us. They've been here forever.\""},
+                {"testo": "Why haven't you left yet?", "risposta": "\"With what? Until Tiko fixed the boat, nothing. And even now, the currents here are cruel. The lighthouse — if it burns again — is the only real signal. Otherwise you die out there.\""},
+                {"fine": True, "testo": "See you later."},
+            ],
+        },
+        {
+            "saluto": "Marco looks up from a piece of wood he's whittling. \"Another one. You're newer than me, I can tell by how you stand. Not resigned yet.\"",
+            "opzioni": [
+                {"testo": "How long have you been here?", "risposta": "\"Three years ago? Four? I've lost count. My ship broke up on the southern cliffs. I woke up on the same beach where you probably did. Same sand, same nothing.\""},
+                {"testo": "Do you know anything about this island?", "risposta": "\"Kaia tells the old stories — Builders, ancient lighthouse, sunken people. Half legend, half warning. What I know for sure: this island doesn't want to let us go easily.\""},
+                {"testo": "How do we leave?", "risposta": "\"The lighthouse. Everything turns on the lighthouse. Light it and maybe a ship sees it. Or maybe not. Or maybe something worse happens. I don't know — nobody does. Your choice.\""},
+                {"testo": "Can you help me?", "risposta": "\"I stay here. I'm too tired to explore again. But if you find resin and nails for Tiko, the boat comes back to life. That's something. Good luck, friend.\""},
+                {"fine": True, "testo": "Thank you, Marco."},
+            ],
+        },
+    ],
+    "tiko": [
+        {
+            "condizione": {"flag": "barca_riparata"},
+            "saluto": "Tiko waves from the pier, cheerful. \"The boat sails again! Take it whenever you want — the hidden lagoon to the west is worth a visit. Black pearls, they say.\"",
+            "opzioni": [
+                {"testo": "Thank you, Tiko", "risposta": "\"It's I who thank you. Without your resin and nails this tub was only good for firewood.\"", "fine": True},
+            ],
+        },
+        {
+            "saluto": "Tiko is bent over the boat's keel, tools in his hands. He looks up when you arrive.\n\n\"Hey! Finally a fresh face. You don't happen to have some resin and rusty nails, by chance? I need them to fix this old hull.\"",
+            "opzioni": [
+                {"testo": "Where can I find them?", "risposta": "\"Resin from the trees of the deep jungle — careful, the path is overgrown without a machete. Rusty nails... the sea spits them onto the southern cliffs after every storm. Both are worth the effort, I promise.\""},
+                {"testo": "What's in it for me?", "risposta": "\"Access to the boat. There's a hidden lagoon west of here — only reachable by sea. People say strange things grow there. Up to you.\""},
+                {"testo": "Tell me about the village", "risposta": "\"I was born here. My mother was born here. Her mother too. None of us has ever left. Some say we can't. I never tried, to be honest.\""},
+                {"fine": True, "testo": "I'll be back."},
+            ],
+        },
+    ],
+    "kaia": [
+        None, None,  # Stage 0 e 1 già tradotti
+        {
+            "condizione": {"flag": "faro_acceso"},
+            "saluto": "Kaia looks at you with eyes full of a sadness she cannot fully name.\n\n\"You lit the lighthouse. It is both good and bad. It is old news and fresh news. Be careful, stranger — the sea is not the only direction one can travel.\"",
+            "opzioni": [
+                {"testo": "What do you mean?", "risposta": "\"The lighthouse has more than one door. The one out is visible. The one in... it is not for everyone. Choose when the moment comes. I can say no more.\""},
+                {"testo": "Will you come with me if a ship comes?", "risposta": "\"I was born on this island. My mother and her mother too. It is not my story to leave. You, however — you were brought here. Brought back, perhaps. We will see.\""},
+                {"fine": True, "testo": "Goodbye, Kaia."},
+            ],
+        },
+    ],
+}
+
 DIALOGUES_EN = {
     "kaia": {0: {
         "saluto": "Kaia welcomes you with a warm smile.\n\n'The medallion will guide you, stranger. The ruins hold ancient secrets — and perhaps the key to leaving this island.'",
@@ -703,8 +883,7 @@ for i, msg in enumerate(RECIPES_MSG_EN):
     if i < len(EN["recipes"]):
         EN["recipes"][i]["messaggio"] = msg
 
-# Dialoghi: sovrascrivo stage by index (primo stage = condizione più specifica, ultimo = default)
-# Usiamo indice dall'alto: stage 0 = quello più condizionato
+# Dialoghi: primo giro sovrascrive stage-by-index (campi già tradotti)
 for npc, stages_by_idx in DIALOGUES_EN.items():
     if npc in EN["dialogues"]:
         for idx, data in stages_by_idx.items():
@@ -716,6 +895,53 @@ for npc, stages_by_idx in DIALOGUES_EN.items():
                         if oi < len(stage.get("opzioni", [])):
                             for ok, ov in opt.items():
                                 stage["opzioni"][oi][ok] = ov
+
+# Dialoghi: secondo giro con lista piena (Marco/Tiko + Kaia extra stage)
+for npc, stages in DIALOGUES_FULL_EN.items():
+    if npc not in EN["dialogues"]: continue
+    for si, new_stage in enumerate(stages):
+        if new_stage is None: continue
+        if si >= len(EN["dialogues"][npc]): continue
+        cur = EN["dialogues"][npc][si]
+        if "saluto" in new_stage: cur["saluto"] = new_stage["saluto"]
+        if "opzioni" in new_stage:
+            new_opts = new_stage["opzioni"]
+            for oi in range(min(len(new_opts), len(cur.get("opzioni", [])))):
+                for k, v in new_opts[oi].items():
+                    cur["opzioni"][oi][k] = v
+
+# Quests
+for qid, q in QUESTS_EN.items():
+    if qid in EN.get("quests", {}):
+        EN["quests"][qid]["nome"] = q["nome"]
+        EN["quests"][qid]["descrizione"] = q["descrizione"]
+        for oi, ob in enumerate(q.get("obiettivi", [])):
+            if oi < len(EN["quests"][qid].get("obiettivi", [])):
+                EN["quests"][qid]["obiettivi"][oi]["desc"] = ob["desc"]
+
+# Puzzles testuali
+for pid, p in PUZZLES_EN.items():
+    if pid in EN.get("puzzles", {}):
+        for k, v in p.items():
+            EN["puzzles"][pid][k] = v
+
+# Puzzle interattivi
+for pid, p in PUZZLES_INTERACTIVE_EN.items():
+    if pid in EN.get("puzzles_interactive", {}):
+        for k, v in p.items():
+            EN["puzzles_interactive"][pid][k] = v
+
+# Deliveries
+for k, msg in DELIVERIES_EN.items():
+    if k in EN.get("deliveries", {}):
+        EN["deliveries"][k]["messaggio"] = msg
+
+# Esaminabili mancanti
+for rid, exs in ROOM_EXAMINABLES_EN.items():
+    if rid in EN["rooms"]:
+        EN["rooms"][rid].setdefault("esaminabili", {})
+        for k, v in exs.items():
+            EN["rooms"][rid]["esaminabili"][k] = v
 
 OUT.write_text(json.dumps(EN, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"Wrote {OUT}")

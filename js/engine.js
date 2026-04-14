@@ -158,6 +158,10 @@ const Engine = (() => {
     const it = W.items[id];
     if (!it) return {ok:false, msg: "Non c'è nulla da prendere."};
     if (!it.portatile) return {ok:false, msg: `${it.nome_completo} non puoi portartelo via.`};
+    // Guard double-pickup (race condition su click rapidi)
+    if (state.taken[id] || state.inv.includes(id)) {
+      return {ok:false, msg: `Hai già raccolto ${it.nome_completo}.`};
+    }
     state.inv.push(id);
     state.taken[id] = true;
     // Codex: se è un collezionabile, traccialo
@@ -172,7 +176,7 @@ const Engine = (() => {
           state.flags.codex_completo = true;
           emit({type: "achievement", id: "codex_completo",
                 title: "Codex Completo",
-                desc: "Hai trovato tutti i 12 frammenti di lore. Un epilogo segreto ti attende."});
+                desc: `Hai trovato tutti i ${total} frammenti di lore. Un epilogo segreto ti attende.`});
         }
       }
     }
@@ -308,7 +312,12 @@ const Engine = (() => {
   function tryPuzzle(pid, answer) {
     const p = W.puzzles[pid];
     if (!p) return null;
-    const ok = (p.risposte || []).some(a => a.toLowerCase().trim() === answer.toLowerCase().trim());
+    // Normalizza: lowercase, trim, togli articoli/punteggiatura finale
+    const norm = s => s.toLowerCase().trim()
+      .replace(/[.!?;,]+$/, "")
+      .replace(/^(un|una|uno|il|la|lo|i|gli|le|the|a|an)\s+/, "");
+    const nAns = norm(answer);
+    const ok = (p.risposte || []).some(a => norm(a) === nAns);
     if (ok) {
       state.puzzleDone[pid] = true;
       if (p.flag) setFlag(p.flag, true);
@@ -322,18 +331,48 @@ const Engine = (() => {
 
   // ---- Save / load ----
   const SAVE_KEY = "isola_naufragio_save_v1";
+  const META_KEY = "isola_naufragio_meta_v1"; // achievement/codex persistenti cross-partita
   function save() {
+    // Congela il timer per aggiornare state.elapsed prima di salvare
+    freezeTimer();
     localStorage.setItem(SAVE_KEY, JSON.stringify(state));
+    // Riparti il timer se stavamo giocando
+    if (state.startedAt) startTimer();
+    // Meta: achievement persistenti
+    const meta = JSON.parse(localStorage.getItem(META_KEY) || "{}");
+    for (const [aid, a] of Object.entries(state.achievements || {})) {
+      if (!meta[aid]) meta[aid] = a;
+    }
+    localStorage.setItem(META_KEY, JSON.stringify(meta));
     return true;
   }
   function load() {
     const s = localStorage.getItem(SAVE_KEY);
     if (!s) return false;
-    try { state = JSON.parse(s); emit({type: "loaded"}); return true; }
-    catch(e){ return false; }
+    try {
+      state = JSON.parse(s);
+      // Inizializza campi nuovi se save vecchio
+      if (!state.codex) state.codex = {};
+      if (!state.achievements) state.achievements = {};
+      if (!state.visited) state.visited = {};
+      if (!state.elapsed) state.elapsed = 0;
+      timerStart = null;
+      emit({type: "loaded"});
+      return true;
+    } catch(e){ return false; }
   }
   function hasSave() { return !!localStorage.getItem(SAVE_KEY); }
-  function reset() { state = newState(); localStorage.removeItem(SAVE_KEY); emit({type:"reset"}); }
+  function reset() {
+    state = newState();
+    state.visited[state.room] = true;
+    timerStart = null;
+    localStorage.removeItem(SAVE_KEY);
+    emit({type:"reset"});
+  }
+  function getMetaAchievements() {
+    try { return JSON.parse(localStorage.getItem(META_KEY) || "{}"); }
+    catch(e) { return {}; }
+  }
 
   // ---- Select / deselect ----
   function select(id) { state.selected = id; emit({type:"select", id}); }
@@ -369,6 +408,6 @@ const Engine = (() => {
     save, load, hasSave, reset,
     select, deselect, wasVisited,
     codexState, mapState, unlockAchievement,
-    startTimer, getElapsedSeconds, freezeTimer,
+    startTimer, getElapsedSeconds, freezeTimer, getMetaAchievements,
   };
 })();

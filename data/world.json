@@ -2065,7 +2065,7 @@
       "tipo": "lucchetto",
       "stanza": "agora_perduta",
       "trigger_examine": "scrigno",
-      "testo": "Lo scrigno antico ai piedi del trono. Quattro rotelle, ognuna con simboli misteriosi. Una iscrizione: 'IL SOLE NASCE A ORIENTE, IL TRIANGOLO SACRO PUNTA AL CIELO, AL TERZO GIORNO IL RE GIUNSE, E LA TERRA LO ACCOLSE.'",
+      "testo": "Lo scrigno antico ai piedi del trono. Quattro rotelle, ognuna con simboli misteriosi. Una iscrizione: 'IL SOLE NASCE A ORIENTE, IL TRIANGOLO SACRO PUNTA AL CIELO, AL TERZO GIORNO IL RE GIUNSE, E LA TERRA, TERZO PIANETA DAL SOLE, LO ACCOLSE.'",
       "rotelle": [
         [
           "☉",

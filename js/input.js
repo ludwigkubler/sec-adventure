@@ -1,6 +1,12 @@
 // Gestione click + tastiera + audio feedback.
 const Input = (() => {
   let lastHover = null;
+  let busy = false;
+  const withBusy = (ms, fn) => {
+    if (busy) return;
+    busy = true;
+    try { fn(); } finally { setTimeout(() => { busy = false; }, ms); }
+  };
 
   function wire() {
     const hot = document.getElementById("hotspots");
@@ -76,6 +82,7 @@ const Input = (() => {
   }
 
   function onHotspotClick(e) {
+    if (busy) return;
     const hs = e.target.closest(".hotspot");
     if (!hs) return;
     Audio.resume();
@@ -90,13 +97,15 @@ const Input = (() => {
         const res = Engine.useOn(selected, {kind: "exit", dir});
         if (res.ok) {
           Audio.sfx("door");
-          Render.animateUseOn(srcPos, selected, hs, () => {
-            Render.logLine(res.msg);
-            Engine.deselect(); Render.setCursor("none");
-            Render.drawScene();
-            Audio.setRoom(Engine.getState().room);
-            showSceneTitle();
-            describeRoom();
+          withBusy(700, () => {
+            Render.animateUseOn(srcPos, selected, hs, () => {
+              Render.logLine(res.msg);
+              Engine.deselect(); Render.setCursor("none");
+              Render.drawScene();
+              Audio.setRoom(Engine.getState().room);
+              showSceneTitle();
+              describeRoom();
+            });
           });
         } else {
           Audio.sfx("fail");
@@ -107,11 +116,13 @@ const Input = (() => {
       const res = Engine.tryExit(dir);
       if (res.ok) {
         Audio.sfx("door");
-        Render.logLine(res.msg);
-        Render.drawScene();
-        Audio.setRoom(Engine.getState().room);
-        showSceneTitle();
-        describeRoom();
+        withBusy(400, () => {
+          Render.logLine(res.msg);
+          Render.drawScene();
+          Audio.setRoom(Engine.getState().room);
+          showSceneTitle();
+          describeRoom();
+        });
       } else {
         Audio.sfx("fail");
         Render.logSystem(res.msg);
@@ -209,6 +220,7 @@ const Input = (() => {
   }
 
   function onInventoryClick(e) {
+    if (busy) return;
     const slot = e.target.closest(".inv-slot");
     if (!slot) return;
     Audio.resume();
@@ -218,7 +230,6 @@ const Input = (() => {
     // Caso 1: c'è già un oggetto selezionato e clicco un ALTRO oggetto in inventario → COMBINA
     if (st.selected && st.selected !== id) {
       const sel = st.selected;
-      // Cattura le posizioni PRIMA di mutare lo stato
       const pos1 = Render.captureItemPos(sel);
       const pos2 = Render.captureItemPos(id);
       const res = Engine.useOn(sel, {kind: "item", id});
@@ -227,9 +238,11 @@ const Input = (() => {
         Engine.deselect();
         Render.setCursor("none");
         Render.renderInventory();
-        Render.animateCombine(pos1, pos2, sel, id, res.result, () => {
-          Audio.sfxItem("combine", res.result);
-          Render.logLine(res.msg);
+        withBusy(900, () => {
+          Render.animateCombine(pos1, pos2, sel, id, res.result, () => {
+            Audio.sfxItem("combine", res.result);
+            Render.logLine(res.msg);
+          });
         });
       } else {
         Audio.sfx("fail");

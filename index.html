@@ -8,34 +8,34 @@
 </head>
 <body>
 <div id="game">
-  <div id="scene">
-    <div id="bg"></div>
-    <div id="vignette"></div>
-    <div id="hotspots"></div>
-    <div id="cursor-hint"></div>
-    <div id="scene-title"></div>
-    <div id="topbar">
-      <button class="topbtn" id="btn-map" title="Map (T)">🗺</button>
-      <button class="topbtn" id="btn-codex" title="Codex (C)">📜</button>
-      <button class="topbtn" id="btn-journal" title="Journal (J)">📖</button>
-      <button class="topbtn" id="btn-hint" title="Hint (H)">💡</button>
-      <button class="topbtn" id="btn-mute" title="Audio (M)">🔊</button>
-      <button class="topbtn" id="btn-lang" title="Language (L)">🌐</button>
-      <button class="topbtn" id="btn-help" title="Help (?)">?</button>
-      <button class="topbtn" id="btn-menu" title="Menu (ESC)">≡</button>
-    </div>
-    <div id="hud-overlay">
-      <span id="hud-time" title="Time">⏱ 00:00</span>
-      <span id="hud-rooms" title="Rooms visited">🏠 0/36</span>
-      <span id="hud-pct" title="Completion">✦ 0%</span>
+  <div id="scene" role="application" aria-label="Adventure scene">
+    <div id="bg" aria-hidden="true"></div>
+    <div id="vignette" aria-hidden="true"></div>
+    <div id="hotspots" role="group" aria-label="Interactive elements"></div>
+    <div id="cursor-hint" aria-hidden="true"></div>
+    <div id="scene-title" aria-live="polite"></div>
+    <nav id="topbar" aria-label="Game controls">
+      <button class="topbtn" id="btn-map" title="Map (T)" aria-label="Map"><span aria-hidden="true">🗺</span></button>
+      <button class="topbtn" id="btn-codex" title="Codex (C)" aria-label="Codex — lore collectibles"><span aria-hidden="true">📜</span></button>
+      <button class="topbtn" id="btn-journal" title="Journal (J)" aria-label="Journal — active quests"><span aria-hidden="true">📖</span></button>
+      <button class="topbtn" id="btn-hint" title="Hint (H)" aria-label="Contextual hint"><span aria-hidden="true">💡</span></button>
+      <button class="topbtn" id="btn-mute" title="Audio (M)" aria-label="Toggle audio"><span aria-hidden="true">🔊</span></button>
+      <button class="topbtn" id="btn-lang" title="Language (L)" aria-label="Toggle language Italian / English"><span aria-hidden="true">🌐</span></button>
+      <button class="topbtn" id="btn-help" title="Help (?)" aria-label="Help">?</button>
+      <button class="topbtn" id="btn-menu" title="Menu (ESC)" aria-label="Menu"><span aria-hidden="true">≡</span></button>
+    </nav>
+    <div id="hud-overlay" aria-label="Game status" role="status">
+      <span id="hud-time" title="Time" aria-label="Elapsed time">⏱ 00:00</span>
+      <span id="hud-rooms" title="Rooms visited" aria-label="Rooms visited">🏠 0/36</span>
+      <span id="hud-pct" title="Completion" aria-label="Completion">✦ 0%</span>
     </div>
   </div>
   <div id="hud">
-    <div id="text-log"></div>
-    <div id="inventory-bar"></div>
+    <div id="text-log" aria-live="polite" aria-atomic="false" aria-label="Game log"></div>
+    <div id="inventory-bar" role="toolbar" aria-label="Inventory"></div>
   </div>
-  <div id="modal" class="hidden">
-    <div id="modal-content"></div>
+  <div id="modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="modal-content">
+    <div id="modal-content" tabindex="-1"></div>
   </div>
   <div id="title-screen">
     <div class="title-bg"></div>

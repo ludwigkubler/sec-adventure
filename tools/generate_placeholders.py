@@ -160,9 +160,100 @@ def cunicolo_nascosto():
     print("  ✓ cunicolo_nascosto")
 
 
+def re_automa_portrait():
+    """Ritratto stilizzato del Re-Automa — automa di rame patinato con corona di ferro."""
+    random.seed(77)
+    SW, SH = 512, 512
+    img = Image.new("RGB", (SW, SH))
+    # gradiente radial dorato → verdigris
+    px = img.load()
+    for y in range(SH):
+        for x in range(SW):
+            dx = (x - SW/2) / (SW/2)
+            dy = (y - SH/2) / (SH/2)
+            d = (dx*dx + dy*dy) ** 0.5
+            t = max(0, min(1, d))
+            r = int(35 + 25*(1-t))
+            g = int(45 + 35*(1-t))
+            b = int(48 + 10*(1-t))
+            px[x, y] = (r, g, b)
+    d = ImageDraw.Draw(img)
+    cx, cy = SW//2, SH//2 + 20
+    # Corpo: spalle stilizzate
+    d.polygon([(cx-160, SH), (cx-110, cy+50), (cx+110, cy+50), (cx+160, SH)], fill=(80, 110, 90))
+    d.polygon([(cx-150, SH), (cx-100, cy+60), (cx+100, cy+60), (cx+150, SH)], fill=(105, 135, 110))
+    # Collo
+    d.rectangle((cx-30, cy-20, cx+30, cy+70), fill=(95, 125, 100))
+    # Testa (ovale/scudo)
+    d.ellipse((cx-100, cy-160, cx+100, cy+30), fill=(140, 165, 135))
+    # Dettagli placcature testa
+    d.ellipse((cx-100, cy-160, cx+100, cy+30), outline=(60, 80, 60), width=3)
+    # Maschera frontale più chiara
+    d.ellipse((cx-75, cy-130, cx+75, cy+10), fill=(165, 185, 155))
+    # Rivetti intorno
+    for angle in range(0, 360, 30):
+        import math
+        rx = cx + int(92 * math.cos(math.radians(angle-90)))
+        ry = cy - 65 + int(92 * math.sin(math.radians(angle-90)))
+        d.ellipse((rx-5, ry-5, rx+5, ry+5), fill=(70, 90, 70), outline=(40, 55, 40))
+    # Fessure occhi
+    eye_y = cy - 85
+    d.rectangle((cx-50, eye_y-3, cx-18, eye_y+3), fill=(10, 10, 12))
+    d.rectangle((cx+18, eye_y-3, cx+50, eye_y+3), fill=(10, 10, 12))
+    # Luce dentro le fessure (glow verde)
+    for r_off in range(12, 2, -2):
+        alpha = 200 - r_off * 15
+        overlay = Image.new("RGBA", img.size, (0,0,0,0))
+        od = ImageDraw.Draw(overlay)
+        od.rectangle((cx-48, eye_y-2, cx-20, eye_y+2), fill=(120, 220, 180, max(0, alpha)))
+        od.rectangle((cx+20, eye_y-2, cx+48, eye_y+2), fill=(120, 220, 180, max(0, alpha)))
+        img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
+        d = ImageDraw.Draw(img)
+    # Linea della bocca (sottile, ferma)
+    d.line((cx-30, cy-25, cx+30, cy-25), fill=(50, 65, 50), width=2)
+    # Corona: ferro grezzo, 5 punte basse
+    crown_y = cy - 160
+    d.polygon([(cx-90, crown_y), (cx-90, crown_y-25), (cx-60, crown_y-15),
+               (cx-30, crown_y-35), (cx, crown_y-15), (cx+30, crown_y-35),
+               (cx+60, crown_y-15), (cx+90, crown_y-25), (cx+90, crown_y)],
+              fill=(50, 50, 55), outline=(20, 20, 22))
+    d.line((cx-90, crown_y-1, cx+90, crown_y-1), fill=(20, 20, 22), width=2)
+    # Dettagli corpo: intarsi sul petto
+    d.line((cx-40, cy+65, cx+40, cy+65), fill=(55, 80, 60), width=2)
+    d.line((cx-30, cy+85, cx+30, cy+85), fill=(55, 80, 60), width=2)
+    d.ellipse((cx-15, cy+100, cx+15, cy+130), fill=(120, 220, 180), outline=(55, 80, 60), width=2)
+    # Patina verdigris sulla testa (macchie)
+    for _ in range(25):
+        bx = random.randint(cx-85, cx+85)
+        by = random.randint(cy-145, cy+15)
+        rr = random.randint(4, 12)
+        overlay = Image.new("RGBA", img.size, (0,0,0,0))
+        od = ImageDraw.Draw(overlay)
+        od.ellipse((bx-rr, by-rr, bx+rr, by+rr), fill=(90, 130, 95, 60))
+        img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
+        d = ImageDraw.Draw(img)
+    # Vignetta scura
+    vg = Image.new("L", (SW, SH), 0)
+    vgd = ImageDraw.Draw(vg)
+    for i in range(20):
+        a = int(240 - i*12)
+        vgd.ellipse((-30-i*4, -30-i*4, SW+30+i*4, SH+30+i*4), outline=a)
+    vg = vg.filter(ImageFilter.GaussianBlur(30))
+    black = Image.new("RGB", (SW, SH), (15, 10, 8))
+    img = Image.composite(img, black, vg)
+    img.save(Path(__file__).resolve().parent.parent / "assets" / "npcs" / "re_automa.png", "PNG", optimize=True)
+    print("  ✓ re_automa (portrait)")
+
+
 if __name__ == "__main__":
-    print("Generating 3 atmospheric placeholders:")
-    bivio_giungla()
-    corridoio_perduto()
-    cunicolo_nascosto()
+    import sys
+    target = sys.argv[1] if len(sys.argv) > 1 else "all"
+    if target in ("all", "rooms"):
+        print("Generating 3 atmospheric room placeholders:")
+        bivio_giungla()
+        corridoio_perduto()
+        cunicolo_nascosto()
+    if target in ("all", "npcs", "re_automa"):
+        print("Generating NPC portrait placeholder:")
+        re_automa_portrait()
     print("Done.")

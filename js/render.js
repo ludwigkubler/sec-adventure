@@ -168,7 +168,16 @@ const Render = (() => {
     d.style.left = pos.x + "%";
     d.style.top = pos.y + "%";
     d.style.transform = "translate(-50%, -50%)";
-    d.innerHTML = `<div class="icon">${iconContent}</div><div class="label">${escapeHtml(label)}</div>`;
+    d.setAttribute("role", "button");
+    d.setAttribute("tabindex", "0");
+    d.setAttribute("aria-label", label);
+    d.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        d.click();
+      }
+    });
+    d.innerHTML = `<div class="icon" aria-hidden="true">${iconContent}</div><div class="label" aria-hidden="true">${escapeHtml(label)}</div>`;
     return d;
   }
 

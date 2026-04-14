@@ -75,7 +75,8 @@ button{font-family:inherit}
 /* exit: solo freccia, pulse cyan */
 .hotspot.type-exit .icon{border:none;background:rgba(0,30,30,.45);font-size:34px;color:var(--exit);width:64px;height:64px;text-shadow:0 0 18px var(--exit-glow);animation:pulseExit 2.2s ease-in-out infinite;font-weight:bold;line-height:1}
 .hotspot.type-exit:hover .icon{color:#bee5e5;text-shadow:0 0 28px var(--exit), 0 0 50px var(--exit-glow);background:rgba(0,40,40,.7)}
-.hotspot.type-exit.blocked .icon{color:var(--blocked);text-shadow:0 0 12px rgba(140,40,40,.6);animation:none;opacity:.55;background:rgba(40,10,10,.45)}
+.hotspot.type-exit.blocked .icon{color:#c05050;text-shadow:0 0 12px rgba(192,80,80,.7);animation:none;opacity:.75;background:rgba(60,15,15,.55)}
+.hotspot.type-exit.blocked .icon::after{content:"✕";position:absolute;top:-4px;right:-4px;background:#1a0a0a;color:#e0a0a0;font-size:13px;width:18px;height:18px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1.5px solid #c05050;font-weight:bold;line-height:1}
 @keyframes pulseExit{
   0%,100%{transform:scale(1);text-shadow:0 0 14px var(--exit-glow)}
   50%   {transform:scale(1.08);text-shadow:0 0 24px var(--exit-glow), 0 0 8px var(--exit)}
@@ -239,6 +240,17 @@ button{font-family:inherit}
 #title-screen .credits{max-width:520px;font-size:12px;color:#7a6850;line-height:1.7;letter-spacing:.5px;margin:0 auto}
 
 .hidden{display:none!important}
+
+/* ─── Accessibility: focus-visible + contrast fixes ─── */
+:focus-visible{outline:2px solid var(--accent-hot);outline-offset:3px;border-radius:3px}
+button:focus-visible{outline-offset:2px}
+.hotspot:focus-visible{outline:3px solid var(--accent-hot);outline-offset:4px;border-radius:50%}
+.inv-slot:focus-visible{outline:3px solid var(--accent-hot);outline-offset:2px}
+.topbtn:focus-visible{outline-offset:3px}
+/* Contrasto WCAG AA — raise several under-threshold colors */
+.inv-empty{color:#9a8a70}
+.codex-lore{color:#c8b890}
+.journal-quest .obj{color:#b8a070}
 
 /* ─── EFFECTS LAYER (fusion, particles, sparkles) ─── */
 .fx-flash{position:fixed;inset:0;background:radial-gradient(circle at center, #fff 0%, #fff0a0 30%, transparent 70%);opacity:0;animation:fxFlash 0.55s ease-out forwards;z-index:340;pointer-events:none;mix-blend-mode:screen}

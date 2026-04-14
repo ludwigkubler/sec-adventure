@@ -2,12 +2,56 @@
 const UI = (() => {
   const $modal = () => document.getElementById("modal");
   const $content = () => document.getElementById("modal-content");
+  let lastFocus = null;
+  let trapHandler = null;
+
+  function installFocusTrap() {
+    const mc = $content();
+    trapHandler = (e) => {
+      if (e.key !== "Tab") return;
+      const foci = mc.querySelectorAll("button, input, [tabindex]:not([tabindex='-1'])");
+      if (!foci.length) return;
+      const first = foci[0];
+      const last = foci[foci.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        last.focus(); e.preventDefault();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        first.focus(); e.preventDefault();
+      }
+    };
+    mc.addEventListener("keydown", trapHandler);
+  }
+  function removeFocusTrap() {
+    if (trapHandler) {
+      $content().removeEventListener("keydown", trapHandler);
+      trapHandler = null;
+    }
+  }
 
   function show(html) {
+    // Salva focus corrente per ripristinarlo alla chiusura
+    if (!lastFocus && document.activeElement && document.activeElement !== document.body) {
+      lastFocus = document.activeElement;
+    }
     $content().innerHTML = html;
     $modal().classList.remove("hidden");
+    // Focus primo elemento interattivo
+    setTimeout(() => {
+      const first = $content().querySelector("button, input, [tabindex]:not([tabindex='-1'])");
+      if (first) first.focus();
+      else $content().focus();
+      removeFocusTrap();
+      installFocusTrap();
+    }, 50);
   }
-  function close() { $modal().classList.add("hidden"); }
+  function close() {
+    removeFocusTrap();
+    $modal().classList.add("hidden");
+    if (lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus();
+    }
+    lastFocus = null;
+  }
 
   function showText(title, body, onClose) {
     show(`
@@ -202,7 +246,13 @@ const UI = (() => {
     `);
     document.getElementById("ui-rescue").onclick = () => {
       close();
-      setTimeout(() => showEnding(originalFinale), 400);
+      setTimeout(() => {
+        showEnding(originalFinale);
+        // Epilogo segreto anche con questo finale se codex completo
+        if (Engine.getState().flags.codex_completo) {
+          setTimeout(() => showSecretEpilogue(Engine.world().epilogo_segreto || ""), 900);
+        }
+      }, 400);
     };
     document.getElementById("ui-descend").onclick = () => {
       Audio.sfx("door");
@@ -602,7 +652,7 @@ const UI = (() => {
         <div id="pendulum-rod"><div id="pendulum-weight"></div></div>
         <div id="pendulum-hits">${target.map((_,i) => `<span class="hit-mark" data-i="${i}">○</span>`).join("")}</div>
       </div>
-      <p style="text-align:center;color:#a89060;font-size:13px">${I18n.getLang()==="en" ? "Click \"BEAT\" in sync with the pendulum, 4 times in a row." : "Clicca \"BATTI\" a tempo col pendolo, 4 volte di fila."}</p>
+      <p style="text-align:center;color:#a89060;font-size:13px">${I18n.getLang()==="en" ? "Click \"BEAT\" 5 times in sync with the pendulum. The first click sets the reference." : "Clicca \"BATTI\" 5 volte a tempo col pendolo. Il primo clic imposta il riferimento."}</p>
       <div class="modal-actions">
         <button id="pend-beat" style="padding:16px;font-size:16px">${I18n.getLang()==="en" ? "⚙ BEAT" : "⚙ BATTI"}</button>
         <button id="pend-cancel" style="opacity:.6">${esc(I18n.t("step_away"))}</button>

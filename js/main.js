@@ -54,9 +54,9 @@
       Render.logSystem(I18n.t("save_loaded"));
     };
 
-    // Autosave
+    // Autosave: salva SOLO quando il title-screen è nascosto (cioè durante il gioco)
     setInterval(() => {
-      if (!document.getElementById("title-screen").classList.contains("hidden")) {
+      if (document.getElementById("title-screen").classList.contains("hidden")) {
         Engine.save();
       }
     }, 25000);
