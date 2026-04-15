@@ -700,6 +700,130 @@ const UI = (() => {
     document.getElementById("pend-cancel").onclick = close;
   }
 
+  // ─── v2.0: Thought Cabinet ───
+  function showThoughts() {
+    Audio.sfx("click");
+    const T = V2.THOUGHTS;
+    const st = Engine.getState();
+    const ts = st.thoughts || {};
+    let html = `<h3>💭 Pensieri Internalizzati</h3>
+      <p style="font-size:13px;color:#a89060;text-align:center">Le idee si formano nel tempo. Inizia a meditarne una: dopo qualche tempo gioco si svelerà.</p>
+      <div class="thoughts-grid">`;
+    for (const [id, t] of Object.entries(T)) {
+      const status = ts[id];
+      const cls = !status ? "available" : status.finished ? "finished" : "meditating";
+      const wc = WorldClock.getState();
+      const nowMin = wc.day * 1440 + wc.minutes;
+      const remaining = status && !status.finished ? Math.max(0, t.duration - (nowMin - status.started)) : 0;
+      html += `<div class="thought-card ${cls}" data-id="${id}">
+        <div class="thought-icon">${t.icon}</div>
+        <div class="thought-info">
+          <div class="thought-name">${esc(t.nome)}</div>
+          <div class="thought-desc">${esc(t.desc)}</div>
+          ${status?.finished ? '<div class="thought-status">✓ Compreso</div>'
+            : status ? `<div class="thought-status">⌛ ${Math.ceil(remaining)} min gioco rimasti</div>`
+            : `<button class="thought-start" data-id="${id}">Inizia a meditare</button>`}
+        </div>
+      </div>`;
+    }
+    html += `</div><div class="modal-actions"><button id="ui-close">Chiudi</button></div>`;
+    show(html);
+    document.querySelectorAll(".thought-start").forEach(btn => {
+      btn.onclick = () => {
+        if (V2.startThought(btn.dataset.id)) showThoughts();
+      };
+    });
+    document.getElementById("ui-close").onclick = close;
+  }
+
+  // ─── v2.0: Skill panel ───
+  function showSkills() {
+    Audio.sfx("click");
+    const S = V2.SKILLS;
+    const st = Engine.getState();
+    const sk = st.skills || {};
+    let html = `<h3>🎯 Abilità del Naufrago</h3>
+      <p style="font-size:13px;color:#a89060;text-align:center">Le abilità crescono con l'esperienza. Determinano il successo nelle prove difficili.</p>
+      <div class="skills-list">`;
+    for (const [id, info] of Object.entries(S)) {
+      const lvl = sk[id] || 1;
+      const pips = "●".repeat(lvl) + "○".repeat(8 - lvl);
+      html += `<div class="skill-row">
+        <div class="skill-name">${esc(info.nome)}</div>
+        <div class="skill-pips" title="${lvl}/8">${pips}</div>
+        <div class="skill-desc">${esc(info.desc)}</div>
+      </div>`;
+    }
+    html += `</div>
+      <h4 style="color:var(--accent-hot);margin-top:18px;font-size:14px;letter-spacing:2px">REPUTAZIONE</h4>
+      <div class="karma-list">`;
+    const F = V2.FACTIONS;
+    for (const [id, info] of Object.entries(F)) {
+      const k = V2.getKarma(id);
+      const sign = k > 0 ? "+" : "";
+      const cls = k > 5 ? "good" : k < -5 ? "bad" : "neutral";
+      html += `<div class="karma-row ${cls}">
+        <div class="karma-name">${esc(info.nome)}</div>
+        <div class="karma-value">${sign}${k}</div>
+        <div class="karma-desc">${esc(info.desc)}</div>
+      </div>`;
+    }
+    html += `</div><div class="modal-actions"><button id="ui-close">Chiudi</button></div>`;
+    show(html);
+    document.getElementById("ui-close").onclick = close;
+  }
+
+  // ─── v2.0: Crafting Tree ───
+  function showCraftingTree() {
+    Audio.sfx("click");
+    const tree = V2.getCraftingTree();
+    let html = `<h3>⚒ Albero del Crafting</h3>
+      <p style="font-size:13px;color:#a89060;text-align:center">Le ricette che hai scoperto e quelle ancora ignote.</p>
+      <div class="craft-list">`;
+    for (const r of tree) {
+      const cls = r.craftable ? "craftable" : r.unlocked ? "unlocked" : "locked";
+      const w = Engine.world();
+      const resName = w.items[r.result]?.nome_completo || r.result;
+      const ingNames = r.ingredients.map(i => w.items[i]?.nome_completo || i);
+      html += `<div class="craft-card ${cls}">
+        <div class="craft-result">${r.unlocked ? esc(resName) : "??? sconosciuta ???"}</div>
+        ${r.unlocked ? `<div class="craft-ing">${ingNames.map(n => `<span class="craft-pill">${esc(n)}</span>`).join(" + ")}</div>` : ""}
+        ${r.craftable ? '<div class="craft-status">✓ Hai gli ingredienti</div>' : ""}
+      </div>`;
+    }
+    html += `</div><div class="modal-actions"><button id="ui-close">Chiudi</button></div>`;
+    show(html);
+    document.getElementById("ui-close").onclick = close;
+  }
+
+  // ─── v2.0: Skill check modal ───
+  function showSkillCheck(skill, difficulty, onResult) {
+    Audio.sfx("click");
+    const S = V2.SKILLS[skill];
+    show(`
+      <h3>🎯 Prova di ${esc(S?.nome || skill)}</h3>
+      <p style="text-align:center">Difficoltà: <b>${difficulty}</b></p>
+      <p style="text-align:center;font-size:13px;color:#a89060">Tira due dadi a 6 facce e somma il livello.</p>
+      <div style="text-align:center;margin:24px 0">
+        <button id="check-roll" style="font-size:18px;padding:14px 28px">🎲 Tira</button>
+      </div>
+      <div id="check-result" style="text-align:center;min-height:60px"></div>
+      <div class="modal-actions" style="display:none" id="check-actions">
+        <button id="check-close">Continua</button>
+      </div>
+    `);
+    document.getElementById("check-roll").onclick = () => {
+      const r = V2.rollCheck(skill, difficulty);
+      const div = document.getElementById("check-result");
+      div.innerHTML = `<div style="font-size:28px;color:${r.success?'#80c080':'#c08080'};font-weight:bold">${r.dice[0]} + ${r.dice[1]} + ${r.level} = ${r.total}</div>
+        <div style="font-size:18px;font-style:italic;margin-top:8px;color:${r.success?'var(--accent-hot)':'#c08080'}">${r.success?'✓ Successo':'✗ Fallimento'}</div>`;
+      Audio.sfx(r.success ? "puzzle_ok" : "puzzle_fail");
+      document.getElementById("check-roll").style.display = "none";
+      document.getElementById("check-actions").style.display = "flex";
+      document.getElementById("check-close").onclick = () => { close(); if (onResult) onResult(r); };
+    };
+  }
+
   // Prompt scelta lingua (nessun reload): due bottoni IT / EN
   function showLangPrompt(onChoose) {
     Audio.sfx("click");
@@ -720,5 +844,6 @@ const UI = (() => {
   return {show, close, showText, showDialog, showPuzzle, showJournal, showHelp, showMenu,
           showIntro, showEnding, showFaroLit, showLockPuzzle,
           showCodex, showMap, showToast, showSecretEpilogue,
-          showHint, showTutorial, showStarPuzzle, showPendulumPuzzle, showLangPrompt};
+          showHint, showTutorial, showStarPuzzle, showPendulumPuzzle, showLangPrompt,
+          showThoughts, showSkills, showCraftingTree, showSkillCheck};
 })();

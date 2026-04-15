@@ -105,6 +105,35 @@ if EXP_PATH.exists():
     print(f"  + expansion merged: +{len(exp.get('rooms',{}))} rooms, "
           f"+{len(exp.get('items',{}))} items, +{len(exp.get('characters',{}))} npcs")
 
+# ─── Merge Atto III (v2.0) ──────────────────────────────────────────
+A3_PATH = OUT.parent / "atto3.json"
+if A3_PATH.exists():
+    a3 = json.loads(A3_PATH.read_text(encoding="utf-8"))
+    for key in ("rooms", "items", "characters", "dialogues", "room_actions",
+                "blocked_destinations"):
+        world[key] = {**world.get(key, {}), **a3.get(key, {})}
+    # Merge map positions
+    if "map_positions" in a3:
+        world.setdefault("map_positions", {})
+        world["map_positions"].update(a3["map_positions"])
+    # Merge finali v2
+    if "finali_v2" in a3:
+        world["finali_v2"] = a3["finali_v2"]
+    # Patches
+    for rid, patch in a3.get("room_patches", {}).items():
+        if rid not in world["rooms"]: continue
+        room = world["rooms"][rid]
+        for add_key in ("uscite_bloccate_add", "esaminabili_add", "uscite_add"):
+            base_key = add_key.replace("_add", "")
+            if add_key in patch:
+                room.setdefault(base_key, {} if isinstance(patch[add_key], dict) else [])
+                if isinstance(patch[add_key], dict):
+                    room[base_key].update(patch[add_key])
+                else:
+                    room[base_key].extend(patch[add_key])
+    print(f"  + atto3 merged: +{len(a3.get('rooms',{}))} rooms, "
+          f"+{len(a3.get('items',{}))} items, +{len(a3.get('finali_v2',{}))} finali")
+
 OUT.parent.mkdir(parents=True, exist_ok=True)
 OUT.write_text(json.dumps(world, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"Wrote {OUT}  rooms={len(world['rooms'])} items={len(world['items'])} "
