@@ -2,5 +2,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Conchiglia iridescente</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <path d="M32 8 Q52 28 52 46 Q42 56 32 56 Q22 56 12 46 Q12 28 32 8 Z" fill="#e8c0a0" stroke="#1a0e05" stroke-width="2"/><path d="M32 12 L32 54 M20 22 L44 22 M16 34 L48 34 M20 46 L44 46" stroke="#b8866a" stroke-width="1.5" fill="none"/>
+  <g>
+  <!-- Outer shell body -->
+  <path d="M32 6 Q54 26 52 46 Q42 58 32 58 Q22 58 12 46 Q10 26 32 6 Z" fill="#f0c8a0" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Inner shadow rim -->
+  <path d="M32 10 Q50 28 48 44 Q40 54 32 54 Q24 54 16 44 Q14 28 32 10 Z" fill="none" stroke="#b8866a" stroke-width="1" opacity=".7"/>
+  <!-- Spiral ridges -->
+  <path d="M32 10 Q44 22 44 36 Q40 46 32 46 Q24 46 20 36 Q20 22 32 10" fill="none" stroke="#c49878" stroke-width="1.2"/>
+  <path d="M32 18 Q40 26 40 34 Q36 42 32 42 Q28 42 24 34 Q24 26 32 18" fill="none" stroke="#c49878" stroke-width="1"/>
+  <path d="M32 24 Q36 30 36 34 Q34 38 32 38 Q30 38 28 34 Q28 30 32 24" fill="none" stroke="#c49878" stroke-width=".8"/>
+  <!-- Central spiral dot -->
+  <circle cx="32" cy="32" r="2" fill="#8a5838"/>
+  <!-- Radial ribs -->
+  <path d="M32 8 L32 56 M14 28 L50 28 M16 42 L48 42 M20 18 L44 18 M20 52 L44 52" stroke="#b8866a" stroke-width=".6" opacity=".6"/>
+  <!-- Highlight -->
+  <path d="M20 18 Q16 30 18 40" stroke="#fff4e0" stroke-width="2" fill="none" opacity=".5"/>
+  <!-- Pink inner tint -->
+  <ellipse cx="32" cy="34" rx="8" ry="6" fill="#e8a890" opacity=".3"/>
+</g>
 </svg>

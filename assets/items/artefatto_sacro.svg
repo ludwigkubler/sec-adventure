@@ -2,5 +2,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Artefatto sacro del villaggio</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <polygon points="32,6 48,24 48,48 32,58 16,48 16,24" fill="#70a080" stroke="#1a0e05" stroke-width="2"/><circle cx="32" cy="32" r="8" fill="#2a4030" stroke="#a0c090" stroke-width="1.5"/><path d="M32 20 L32 44 M20 32 L44 32" stroke="#2a4030" stroke-width="1.5"/>
+  <g>
+  <!-- Hexagonal jade body -->
+  <polygon points="32,4 50,22 50,48 32,60 14,48 14,22" fill="#70a080" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Left light facet -->
+  <polygon points="32,4 14,22 14,48 32,60" fill="#8ab898" opacity=".6"/>
+  <!-- Right dark facet -->
+  <polygon points="32,4 50,22 50,48 32,60" fill="#4a7058" opacity=".5"/>
+  <!-- Edge highlight -->
+  <polygon points="32,4 50,22 48,24 32,8 16,24 14,22" fill="#b8d8b8" opacity=".5"/>
+  <!-- Veining texture -->
+  <path d="M22 18 Q26 30 22 44 M42 20 Q38 32 44 44 M32 10 Q30 22 34 30" stroke="#4a6848" stroke-width=".6" fill="none" opacity=".5"/>
+  <!-- Inscribed central rune -->
+  <circle cx="32" cy="32" r="10" fill="#2a4030" stroke="#a0c898" stroke-width="1.2"/>
+  <circle cx="32" cy="32" r="10" fill="none" stroke="#1a2a20" stroke-width=".6" stroke-dasharray="1.5 2"/>
+  <path d="M32 22 L32 42 M22 32 L42 32" stroke="#d0e8c8" stroke-width="1.2" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="2.5" fill="#c0e0b8"/>
+  <circle cx="32" cy="32" r="2.5" fill="#ffffff" opacity=".5">
+    <animate attributeName="opacity" values=".2;.7;.2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Corner highlights -->
+  <circle cx="32" cy="6" r="1.2" fill="#e0f0d8"/>
+</g>
 </svg>

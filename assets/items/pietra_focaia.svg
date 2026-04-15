@@ -2,5 +2,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Pietra focaia</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <polygon points="10,40 24,14 44,18 54,36 48,54 20,52" fill="#707068" stroke="#1a0e05" stroke-width="2"/><polygon points="20,30 30,20 40,30 35,42 22,40" fill="#909088"/>
+  <g>
+  <!-- Base stone -->
+  <polygon points="10,40 24,14 44,18 54,36 48,54 20,52" fill="#707068" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Top facet highlight -->
+  <polygon points="24,14 44,18 40,28 22,28" fill="#9a9a92" opacity=".8"/>
+  <polygon points="24,14 36,16 30,24" fill="#b8b8b0" opacity=".6"/>
+  <!-- Inner shadow bottom -->
+  <polygon points="20,52 48,54 50,44 44,48 30,46 18,44" fill="#4a4a44" opacity=".5"/>
+  <!-- Chipped facet -->
+  <polygon points="20,30 30,20 40,30 35,42 22,40" fill="#808078" stroke="#4a4a44" stroke-width=".8"/>
+  <polygon points="20,30 30,20 28,28" fill="#a0a098" opacity=".7"/>
+  <!-- Spark cracks -->
+  <path d="M22 40 L28 36 L32 30 M35 42 L30 34" stroke="#3a3a34" stroke-width=".7" fill="none" opacity=".8"/>
+  <!-- Tiny spark hint -->
+  <circle cx="46" cy="22" r="1.5" fill="#ffe080" opacity=".9">
+    <animate attributeName="opacity" values="0;1;0" dur="2.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="48" cy="20" r=".8" fill="#fff0a0" opacity=".8">
+    <animate attributeName="opacity" values="0;1;0" dur="2.8s" begin=".4s" repeatCount="indefinite"/>
+  </circle>
+</g>
 </svg>

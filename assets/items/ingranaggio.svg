@@ -2,5 +2,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Ingranaggio di rame</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <g transform="translate(32 32)"><g fill="#c08850" stroke="#1a0e05" stroke-width="1.5"><rect x="-4" y="-26" width="8" height="10" transform="rotate(0)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(45)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(90)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(135)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(180)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(225)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(270)"/><rect x="-4" y="-26" width="8" height="10" transform="rotate(315)"/></g><circle r="18" fill="#c08850" stroke="#1a0e05" stroke-width="2"/><circle r="6" fill="#1a0e05"/></g>
+  <g transform="translate(32 32)">
+  <!-- Tooth shadows (behind) -->
+  <g fill="#6a4020" stroke="#1a0e05" stroke-width="1.5">
+    <rect x="-5" y="-27" width="10" height="11" rx="1.5" transform="rotate(0)"/><rect x="-5" y="-27" width="10" height="11" rx="1.5" transform="rotate(45)"/><rect x="-5" y="-27" width="10" height="11" rx="1.5" transform="rotate(90)"/><rect x="-5" y="-27" width="10" height="11" rx="1.5" transform="rotate(135)"/><rect x="-5" y="-27" width="10" height="11" rx="1.5" transform="rotate(180)"/><rect x="-5" y="-27" width="10" height="11" rx="1.5" transform="rotate(225)"/><rect x="-5" y="-27" width="10" height="11" rx="1.5" transform="rotate(270)"/><rect x="-5" y="-27" width="10" height="11" rx="1.5" transform="rotate(315)"/>
+  </g>
+  <!-- Tooth highlights -->
+  <g fill="#c08850" stroke="#1a0e05" stroke-width="1.5">
+    <rect x="-4" y="-26" width="8" height="9" rx="1" transform="rotate(0)"/><rect x="-4" y="-26" width="8" height="9" rx="1" transform="rotate(45)"/><rect x="-4" y="-26" width="8" height="9" rx="1" transform="rotate(90)"/><rect x="-4" y="-26" width="8" height="9" rx="1" transform="rotate(135)"/><rect x="-4" y="-26" width="8" height="9" rx="1" transform="rotate(180)"/><rect x="-4" y="-26" width="8" height="9" rx="1" transform="rotate(225)"/><rect x="-4" y="-26" width="8" height="9" rx="1" transform="rotate(270)"/><rect x="-4" y="-26" width="8" height="9" rx="1" transform="rotate(315)"/>
+  </g>
+  <g fill="#e0b070" opacity=".7">
+    <rect x="-3.5" y="-25.5" width="2" height="7" transform="rotate(0)"/><rect x="-3.5" y="-25.5" width="2" height="7" transform="rotate(45)"/><rect x="-3.5" y="-25.5" width="2" height="7" transform="rotate(90)"/><rect x="-3.5" y="-25.5" width="2" height="7" transform="rotate(135)"/><rect x="-3.5" y="-25.5" width="2" height="7" transform="rotate(180)"/><rect x="-3.5" y="-25.5" width="2" height="7" transform="rotate(225)"/><rect x="-3.5" y="-25.5" width="2" height="7" transform="rotate(270)"/><rect x="-3.5" y="-25.5" width="2" height="7" transform="rotate(315)"/>
+  </g>
+  <!-- Outer ring dark -->
+  <circle r="19" fill="#6a4020" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Main body -->
+  <circle r="17" fill="#c08850" stroke="#1a0e05" stroke-width="1"/>
+  <!-- Radial highlight -->
+  <path d="M0 -17 A17 17 0 0 1 14 -9 L10 -6 A12 12 0 0 0 0 -12 Z" fill="#e0b070" opacity=".6"/>
+  <!-- Rivet holes -->
+  <circle cx="0" cy="-11" r="1.2" fill="#3a2010"/>
+  <circle cx="11" cy="0" r="1.2" fill="#3a2010"/>
+  <circle cx="0" cy="11" r="1.2" fill="#3a2010"/>
+  <circle cx="-11" cy="0" r="1.2" fill="#3a2010"/>
+  <!-- Inner recess -->
+  <circle r="8" fill="#8a5830" stroke="#1a0e05" stroke-width="1"/>
+  <circle r="8" fill="none" stroke="#e0b070" stroke-width=".5" opacity=".5"/>
+  <!-- Central hub -->
+  <circle r="5" fill="#1a0e05" stroke="#6a4020" stroke-width="1"/>
+  <circle r="2.5" fill="#3a2010"/>
+  <!-- Hex bolt pattern -->
+  <polygon points="0,-3 2.5,-1.5 2.5,1.5 0,3 -2.5,1.5 -2.5,-1.5" fill="#6a4020" stroke="#3a2010" stroke-width=".5"/>
+</g>
 </svg>

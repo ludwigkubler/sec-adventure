@@ -2,5 +2,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Pendolo di ottone</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <rect x="30" y="6" width="4" height="22" fill="#c08850" stroke="#1a0e05" stroke-width="1.5"/><circle cx="32" cy="6" r="3" fill="#5a3820"/><path d="M32 28 L48 50 L40 58 L24 58 L16 50 Z" fill="#d4a060" stroke="#1a0e05" stroke-width="2"/><circle cx="32" cy="42" r="6" fill="#c08850" opacity="0.6"/>
+  <g>
+  <!-- Anchor bracket -->
+  <rect x="26" y="4" width="12" height="5" fill="#5a3820" stroke="#1a0e05" stroke-width="1.2" rx="1"/>
+  <rect x="26" y="4" width="12" height="1.5" fill="#8a5830" opacity=".7"/>
+  <circle cx="32" cy="9" r="2" fill="#3a2010" stroke="#1a0e05" stroke-width=".8"/>
+  <!-- Rod with swing animation -->
+  <g>
+    <animateTransform attributeName="transform" type="rotate" values="-8 32 9;8 32 9;-8 32 9" dur="3s" repeatCount="indefinite"/>
+    <!-- Rod body -->
+    <rect x="30.5" y="9" width="3" height="28" fill="#c08850" stroke="#1a0e05" stroke-width="1"/>
+    <rect x="30.5" y="9" width="1" height="28" fill="#e0b070" opacity=".7"/>
+    <!-- Bob (kite/pear shape) -->
+    <path d="M32 36 L48 50 Q48 54 44 57 L20 57 Q16 54 16 50 Z" fill="#d4a060" stroke="#1a0e05" stroke-width="2"/>
+    <!-- Bob left bright -->
+    <path d="M32 36 L16 50 Q16 54 20 57 L32 57 Z" fill="#e8c080" opacity=".5"/>
+    <!-- Bob shadow right -->
+    <path d="M32 36 L48 50 Q48 54 44 57 L32 57 Z" fill="#8a5020" opacity=".55"/>
+    <!-- Bob rim ring -->
+    <ellipse cx="32" cy="48" rx="14" ry="2" fill="none" stroke="#6a3818" stroke-width="1" opacity=".7"/>
+    <!-- Engraved crest -->
+    <circle cx="32" cy="48" r="5" fill="#8a5020" stroke="#3a2010" stroke-width=".8"/>
+    <path d="M32 44 L32 52 M28 48 L36 48" stroke="#e0b070" stroke-width="1" stroke-linecap="round"/>
+    <!-- Bottom tip -->
+    <path d="M28 57 L32 61 L36 57 Z" fill="#8a5020" stroke="#1a0e05" stroke-width="1"/>
+    <!-- Highlight glint -->
+    <ellipse cx="24" cy="44" rx="3" ry="1.5" fill="#ffe0a0" opacity=".6" transform="rotate(-30 24 44)"/>
+  </g>
+</g>
 </svg>

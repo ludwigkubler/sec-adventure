@@ -2,5 +2,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Corona Titanica</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <path d="M8 44 L14 20 L22 36 L32 14 L42 36 L50 20 L56 44 Z" fill="#3a3038" stroke="#1a0e05" stroke-width="2"/><rect x="8" y="44" width="48" height="14" fill="#3a3038" stroke="#1a0e05" stroke-width="2"/><circle cx="14" cy="20" r="3" fill="#1a0e05" stroke="#5a4848"/><circle cx="32" cy="14" r="3" fill="#1a0e05" stroke="#5a4848"/><circle cx="50" cy="20" r="3" fill="#1a0e05" stroke="#5a4848"/>
+  <g>
+  <!-- Base band shadow -->
+  <rect x="8" y="46" width="48" height="14" fill="#1a1018" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Base band main -->
+  <rect x="8" y="44" width="48" height="14" fill="#3a3038" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Base band highlight -->
+  <rect x="8" y="44" width="48" height="3" fill="#5a5058" opacity=".8"/>
+  <!-- Crown spikes body -->
+  <path d="M8 44 L14 20 L22 36 L32 12 L42 36 L50 20 L56 44 Z" fill="#3a3038" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Spike inner shadow (right side of each) -->
+  <path d="M14 20 L16 22 L22 36 L14 44 M32 12 L34 14 L42 36 L32 44 M50 20 L52 22 L56 44 L50 44" fill="#1a1018" opacity=".7"/>
+  <!-- Spike highlights (left side) -->
+  <path d="M14 20 L12 22 L8 44 L10 44 M32 12 L30 14 L22 36 L24 36 M50 20 L48 22 L42 36 L44 36" fill="#5a5058" opacity=".6"/>
+  <!-- Decorative band etching -->
+  <path d="M12 50 L52 50 M12 54 L52 54" stroke="#1a1018" stroke-width=".6"/>
+  <path d="M12 48 L52 48" stroke="#5a5058" stroke-width=".4" opacity=".7"/>
+  <!-- Empty gem sockets (3) -->
+  <circle cx="14" cy="20" r="3.5" fill="#0a0408" stroke="#5a4848" stroke-width="1"/>
+  <circle cx="14" cy="20" r="1.5" fill="#2a1e1e" opacity=".8"/>
+  <circle cx="32" cy="12" r="3.5" fill="#0a0408" stroke="#5a4848" stroke-width="1"/>
+  <circle cx="32" cy="12" r="1.5" fill="#2a1e1e" opacity=".8"/>
+  <circle cx="50" cy="20" r="3.5" fill="#0a0408" stroke="#5a4848" stroke-width="1"/>
+  <circle cx="50" cy="20" r="1.5" fill="#2a1e1e" opacity=".8"/>
+  <!-- Central emblem on band -->
+  <polygon points="32,48 36,54 32,60 28,54" fill="#5a4848" stroke="#1a0e05" stroke-width=".8"/>
+  <polygon points="32,50 34,54 32,58 30,54" fill="#2a1e1e"/>
+  <!-- Rivets -->
+  <circle cx="12" cy="50" r=".9" fill="#1a1018"/>
+  <circle cx="52" cy="50" r=".9" fill="#1a1018"/>
+  <circle cx="12" cy="54" r=".9" fill="#1a1018"/>
+  <circle cx="52" cy="54" r=".9" fill="#1a1018"/>
+</g>
 </svg>

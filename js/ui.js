@@ -428,8 +428,8 @@ const UI = (() => {
 
     // Linee di separazione: superficie / sotterraneo
     const separator = `<line class="map-separator" x1="20" y1="${sy(35)}" x2="${SVG_W-20}" y2="${sy(35)}"/>
-                       <text class="map-section" x="30" y="${sy(38)+18}">▼ ATTO II — Le Profondità</text>
-                       <text class="map-section" x="30" y="${sy(35)-6}">▲ ATTO I — Superficie</text>`;
+                       <text class="map-section" x="30" y="${sy(35)-6}">▲ ATTO II — Le Profondità (sopra)</text>
+                       <text class="map-section" x="30" y="${sy(38)+18}">▼ ATTO I — Superficie (sotto)</text>`;
 
     const visitedCount = Object.keys(visited).length;
     const totalRooms = Object.keys(positions).length;

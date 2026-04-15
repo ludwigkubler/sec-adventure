@@ -2,5 +2,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Cristallo vulcanico</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <polygon points="32,4 48,24 40,56 24,56 16,24" fill="#d84030" stroke="#1a0e05" stroke-width="2"/><polygon points="32,4 40,24 32,42 24,24" fill="#e8806a" stroke="#d84030" stroke-width="1"/>
+  <g>
+  <!-- Outer crystal body -->
+  <polygon points="32,4 50,24 42,58 22,58 14,24" fill="#b03020" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Left light facet -->
+  <polygon points="32,4 14,24 22,58 32,40" fill="#d85038" opacity=".85"/>
+  <!-- Right dark facet -->
+  <polygon points="32,4 50,24 42,58 32,40" fill="#7a1a12" opacity=".7"/>
+  <!-- Inner bright shard -->
+  <polygon points="32,8 42,26 32,44 22,26" fill="#e8806a" stroke="#b03020" stroke-width="1"/>
+  <polygon points="32,8 42,26 32,28" fill="#ffb898" opacity=".8"/>
+  <!-- Vertical crack lines -->
+  <path d="M28 14 L26 40 M36 16 L38 46 M32 20 L32 52" stroke="#4a1008" stroke-width=".6" opacity=".7"/>
+  <!-- Top edge highlight -->
+  <polygon points="32,4 38,10 32,12 26,10" fill="#ffc8a8" opacity=".7"/>
+  <!-- Embers glowing inside -->
+  <circle cx="32" cy="26" r="2" fill="#ffe080" opacity=".9">
+    <animate attributeName="opacity" values=".4;1;.4" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="28" cy="44" r="1.2" fill="#ffa050" opacity=".8">
+    <animate attributeName="opacity" values=".3;.9;.3" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="36" cy="48" r="1" fill="#ff8040" opacity=".7">
+    <animate attributeName="opacity" values=".2;.8;.2" dur="2.6s" repeatCount="indefinite"/>
+  </circle>
+</g>
 </svg>

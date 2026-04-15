@@ -976,6 +976,175 @@ ROOM_ZONES = {
     "radice_mondo":     {"items": [(30,75),(70,75)]},
 }
 
+# ─────────────────────────────────────────────────────────────────────
+# EXAMINABLE ANCHORS — coordinate (x%, y%) per posizionare i marker
+# degli esaminabili in modo coerente col disegno di scena.
+# Chiave: "roomId::key". Fallback a hash random se non specificato.
+# ─────────────────────────────────────────────────────────────────────
+EXAMINABLE_ANCHORS = {
+    # ── Spiaggia ──
+    "spiaggia::relitto":      (28, 62),   # relitto inclinato a sinistra
+    "spiaggia::mare":         (70, 32),   # orizzonte in alto-dx
+    "spiaggia::sabbia":       (55, 85),   # bottom
+    "spiaggia::segno_sabbia": (40, 82),   # spirale sulla sabbia, bottom-centro
+    "spiaggia::tue_mani":     (50, 70),   # mani davanti al personaggio
+    # ── Caletta ──
+    "caletta::pozze":         (45, 80),   # pozze di marea, basso
+    "caletta::rocce":         (82, 50),   # pareti rocciose, laterale
+    # ── Grotte marine ──
+    "grotte::stalattiti":     (50, 22),   # soffitto
+    "grotte::muschio":        (18, 82),   # bordo basso-sx, bioluminescente
+    "grotte::acqua":          (55, 85),   # bottom
+    "grotte::passaggio_profondo": (50, 55),
+    "grotte::incisioni_familiari": (80, 40),  # parete alta-dx
+    # ── Tempio sommerso ──
+    "tempio_sommerso::altare":       (50, 58),
+    "tempio_sommerso::bassorilievi": (15, 45),  # pareti
+    "tempio_sommerso::colonne":      (78, 50),
+    # ── Foresta ──
+    "foresta::alberi":  (30, 42),   # tronco sx
+    "foresta::uccelli": (72, 22),   # top-dx tra le fronde
+    # ── Radura ──
+    "radura::fonte":    (50, 62),
+    "radura::farfalle": (68, 28),   # alto
+    # ── Scogliere sud ──
+    "scogliere_sud::costruzione": (50, 45),
+    "scogliere_sud::mare":        (75, 32),
+    "scogliere_sud::calata_sud":  (50, 85),  # scala scende
+    # ── Villaggio ──
+    "villaggio::capanne": (30, 55),
+    "villaggio::fuoco":   (50, 68),
+    "villaggio::reti":    (75, 72),
+    # ── Molo ──
+    "molo::barca": (65, 70),
+    "molo::baia":  (40, 35),   # vista
+    # ── Giungla ──
+    "giungla::liane":   (70, 25),
+    "giungla::alberi":  (25, 45),
+    "giungla::insetti": (55, 55),
+    # ── Giungla profonda ──
+    "giungla_profonda::funghi":         (25, 80),
+    "giungla_profonda::dirupo":         (75, 60),
+    "giungla_profonda::sentiero_sudest":(82, 75),
+    # ── Capanna Luna ──
+    "capanna_luna::erbe":        (20, 45),
+    "capanna_luna::mortaio":     (55, 62),
+    "capanna_luna::vasetti":     (78, 50),
+    "capanna_luna::sguardo_luna":(50, 42),
+    # ── Sentiero montagna ──
+    "sentiero_montagna::roccia":   (25, 55),
+    "sentiero_montagna::panorama": (65, 28),
+    # ── Cima vulcano ──
+    "cima_vulcano::cratere":   (50, 58),
+    "cima_vulcano::panorama":  (70, 30),
+    "cima_vulcano::cristalli": (25, 70),
+    # ── Scogliere (faro esterno) ──
+    "scogliere::faro": (30, 32),
+    "scogliere::nido": (78, 22),
+    # ── Faro ──
+    "faro::meccanismo":    (50, 48),
+    "faro::scala":         (20, 55),
+    "faro::lente":         (50, 30),
+    "faro::pavimento_faro":(50, 82),
+    "faro::vibrazione":    (80, 55),
+    # ── Rovine ──
+    "rovine::iscrizioni": (18, 40),
+    "rovine::colonne":    (75, 50),
+    "rovine::portale":    (50, 45),
+    # ── Sala guardiano ──
+    "sala_guardiano::altare":  (50, 58),
+    "sala_guardiano::mosaico": (75, 45),
+    "sala_guardiano::simboli": (20, 40),
+    # ── Cripta ──
+    "cripta::sarcofagi":       (30, 62),
+    "cripta::piedistallo":     (50, 55),
+    "cripta::muro_screpolato": (82, 45),
+    "cripta::lucchetto_cassa": (55, 78),
+    "cripta::oscurita":        (15, 30),
+    # ── Laguna ──
+    "laguna::capanno":    (25, 60),
+    "laguna::coralli":    (60, 80),
+    "laguna::mangrovie":  (80, 50),
+    # ── Pozzo del faro ──
+    "pozzo_faro::pavimento":   (50, 82),
+    "pozzo_faro::scala":       (25, 55),
+    "pozzo_faro::luce_verde":  (60, 70),
+    # ── Cripta meccanica ──
+    "cripta_meccanica::piedistallo": (50, 55),
+    "cripta_meccanica::scaffali":    (20, 50),
+    "cripta_meccanica::iscrizione":  (80, 38),
+    "cripta_meccanica::ombra_ovest": (12, 55),
+    # ── Sala ingranaggi ──
+    "sala_ingranaggi::piattaforma":       (50, 58),
+    "sala_ingranaggi::manovella":         (62, 55),
+    "sala_ingranaggi::ingranaggi_grandi": (22, 38),
+    # ── Corridoio vapore ──
+    "corridoio_vapore::tubi":     (25, 40),
+    "corridoio_vapore::condensa": (55, 82),
+    "corridoio_vapore::valvola":  (75, 50),
+    # ── Forgia antica ──
+    "forgia_antica::fornace": (50, 48),
+    "forgia_antica::automi":  (70, 55),
+    "forgia_antica::tavolo":  (25, 68),
+    "forgia_antica::altare":  (82, 70),
+    # ── Archivio ──
+    "archivio::scaffali":      (18, 45),
+    "archivio::scala_spirale": (82, 40),
+    "archivio::lastre_metallo":(30, 75),
+    # ── Osservatorio ──
+    "osservatorio::soffitto":   (50, 22),
+    "osservatorio::astrolabio": (50, 58),
+    "osservatorio::mosaico":    (80, 42),
+    # ── Cuore macchina ──
+    "cuore_macchina::pendolo":        (50, 55),
+    "cuore_macchina::cuore":          (50, 28),
+    "cuore_macchina::mosaico_pareti": (18, 50),
+    # ── Agorà perduta ──
+    "agora_perduta::statue":  (20, 38),
+    "agora_perduta::trono":   (50, 55),
+    "agora_perduta::edifici": (80, 45),
+    "agora_perduta::scrigno": (50, 78),
+    # ── Via dei Titani ──
+    "via_titani::titani":    (20, 40),
+    "via_titani::ossidiana": (55, 82),
+    "via_titani::portale":   (75, 45),
+    "via_titani::incavi":    (75, 30),
+    # ── Abisso ──
+    "abisso::ponte":  (55, 55),
+    "abisso::vuoto":  (45, 82),
+    "abisso::vento":  (80, 30),
+    # ── Grotte profonde ──
+    "grotte_profonde::stalattiti": (45, 20),
+    "grotte_profonde::pozza":      (50, 78),
+    "grotte_profonde::sporgenza":  (60, 62),
+    # ── Cimitero marino ──
+    "cimitero_marino::relitti":          (35, 55),
+    "cimitero_marino::ossa_legno":       (70, 65),
+    "cimitero_marino::metallo_cigolante":(82, 45),
+    "cimitero_marino::sabbia_nera":      (50, 85),
+    # ── Bivio giungla ──
+    "bivio_giungla::totem":              (50, 50),
+    "bivio_giungla::uccello_becco":      (50, 28),
+    "bivio_giungla::pesce_quattro_occhi":(30, 55),
+    "bivio_giungla::uomo_polipo":        (70, 55),
+    "bivio_giungla::sentieri_morti":     (50, 80),
+    # ── Corridoio perduto ──
+    "corridoio_perduto::nomi":              (25, 55),
+    "corridoio_perduto::iscrizione_alta":   (50, 18),
+    "corridoio_perduto::condensa_brillante":(55, 82),
+    "corridoio_perduto::pareti":            (80, 55),
+    # ── Cunicolo nascosto ──
+    "cunicolo_nascosto::altare":      (50, 60),
+    "cunicolo_nascosto::cupola_vetro":(50, 45),
+    "cunicolo_nascosto::lampada":     (50, 40),
+    "cunicolo_nascosto::polvere":     (30, 82),
+    # ── Radice del mondo ──
+    "radice_mondo::albero":          (50, 42),
+    "radice_mondo::piedistallo":     (50, 62),
+    "radice_mondo::corona_vuota":    (50, 55),
+    "radice_mondo::indossa_corona":  (30, 70),
+}
+
 EPILOGO_SEGRETO = (
     "EPILOGO SEGRETO — Tutti i dodici frammenti raccolti.\n\n"
     "Hai trovato tutto. Le conchiglie, le perle, i diari, le tavolette: ogni voce dimenticata "
@@ -1021,6 +1190,8 @@ expansion = {
     "collectibles": COLLECTIBLES,
     "map_positions": MAP_POSITIONS,
     "room_zones": ROOM_ZONES,
+    "examinable_anchors": {f"{k[0]}::{k[1]}" if isinstance(k, tuple) else k: list(v)
+                            for k, v in EXAMINABLE_ANCHORS.items()},
     "epilogo_segreto": EPILOGO_SEGRETO,
 }
 

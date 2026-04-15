@@ -2,5 +2,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Bottiglia di vetro</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <rect x="24" y="8" width="16" height="10" fill="#405848" stroke="#1a0e05" stroke-width="2"/><path d="M20 20 L20 54 Q20 58 24 58 L40 58 Q44 58 44 54 L44 20 Z" fill="#5a8070" stroke="#1a0e05" stroke-width="2"/><rect x="28" y="4" width="8" height="6" fill="#3a2818" stroke="#1a0e05" stroke-width="1"/>
+  <g>
+  <!-- Cork -->
+  <rect x="28" y="4" width="8" height="6" fill="#6a4020" stroke="#1a0e05" stroke-width="1.5"/>
+  <rect x="28" y="4" width="8" height="1.5" fill="#8a5830" opacity=".8"/>
+  <!-- Neck -->
+  <rect x="24" y="8" width="16" height="12" fill="#3a5848" stroke="#1a0e05" stroke-width="2"/>
+  <rect x="24" y="8" width="4" height="12" fill="#5a8070" opacity=".5"/>
+  <!-- Body -->
+  <path d="M20 20 L20 54 Q20 58 24 58 L40 58 Q44 58 44 54 L44 20 Z" fill="#4a7060" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Inner shadow right -->
+  <path d="M40 22 L40 56 Q40 58 38 58 L42 58 Q44 58 44 54 L44 22 Z" fill="#2a4838" opacity=".7"/>
+  <!-- Highlight left -->
+  <rect x="22" y="22" width="3" height="30" fill="#a0c8b0" opacity=".55" rx="1"/>
+  <rect x="22" y="22" width="1.2" height="30" fill="#e0f0d8" opacity=".7"/>
+  <!-- Liquid line -->
+  <path d="M21 36 L43 36" stroke="#2a4838" stroke-width=".8" opacity=".6"/>
+  <!-- Label -->
+  <rect x="24" y="38" width="16" height="10" fill="#d8c090" stroke="#1a0e05" stroke-width=".8" opacity=".85"/>
+  <line x1="26" y1="42" x2="38" y2="42" stroke="#6a4020" stroke-width=".6"/>
+  <line x1="26" y1="45" x2="36" y2="45" stroke="#6a4020" stroke-width=".6"/>
+</g>
 </svg>

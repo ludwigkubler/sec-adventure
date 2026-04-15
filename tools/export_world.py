@@ -99,7 +99,7 @@ if EXP_PATH.exists():
             room["oggetti"] = [o for o in room.get("oggetti", []) if o not in patch["oggetti_remove"]]
     if "finale_atto_ii" in exp:
         world["finale_atto_ii"] = exp["finale_atto_ii"]
-    for k in ("collectibles", "map_positions", "room_zones", "epilogo_segreto"):
+    for k in ("collectibles", "map_positions", "room_zones", "examinable_anchors", "epilogo_segreto"):
         if k in exp:
             world[k] = exp[k]
     print(f"  + expansion merged: +{len(exp.get('rooms',{}))} rooms, "

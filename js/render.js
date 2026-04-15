@@ -60,6 +60,17 @@ const Render = (() => {
   }
 
   function posForExamine(roomId, key, index) {
+    // 1) Anchor esplicito dal mondo (allineato al disegno scena)
+    const W = Engine.world();
+    const anchors = W && W.examinable_anchors;
+    if (anchors) {
+      const a = anchors[roomId + "::" + key];
+      if (a && a.length >= 2) {
+        return {x: Math.max(4, Math.min(96, a[0])),
+                y: Math.max(4, Math.min(96, a[1]))};
+      }
+    }
+    // 2) Fallback hash deterministico (random ma stabile)
     const base = hash32(roomId + "::" + key);
     const x = 20 + ((base & 0x3f) * 0.95);
     const y = 28 + (((base >> 6) & 0x1f) * 0.85);
