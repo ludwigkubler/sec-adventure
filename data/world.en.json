@@ -40,7 +40,8 @@
       },
       "oggetti": [
         "pietra_focaia",
-        "conchiglia"
+        "conchiglia",
+        "conchiglia_offerta"
       ],
       "npcs": [],
       "esaminabili": {
@@ -55,7 +56,8 @@
       "descrizione": "Your torch reveals a cavity that extends further than you thought. The walls are wet and reflect the flame like mirrors of obsidian. In the center, a pool of still water so perfect it looks painted. Ancient carvings cover the walls — spirals, eyes, symbols you don't recognize but that seem to recognize you.\n\nA stalactite dripping water rhythmically, like a heart.",
       "descrizione_breve": "Sea cave lit by your torch. Incisions on the walls, central pool.",
       "uscite": {
-        "ovest": "caletta"
+        "ovest": "caletta",
+        "dentro": "grotte_profonde"
       },
       "uscite_bloccate": {
         "giù": {
@@ -72,7 +74,7 @@
         "stalattiti": "Stone icicles hang from the ceiling, some very long. Water drips with perfect regularity.",
         "muschio": "Phosphorescent moss. Emits a faint bluish light. Useful to see even without a torch — briefly.",
         "acqua": "The water of the pool is unnaturally clear. You see your face — but it looks older, or younger, you can't tell.",
-        "incisioni_familiari": "Le spirali sulla parete. Le guardi e *sai* in che ordine vanno lette — dall'esterno verso l'interno, poi fuori di nuovo. Come hai imparato? Non sapresti dirlo. Lo sai e basta.",
+        "passaggio_profondo": "La sala continua più in profondità. Con la torcia puoi addentrarti: una seconda camera si apre, oltre la prima.",
         "incisioni": "Spirals that turn counterclockwise. Among them, three recurring symbols: an eye, a star, a root. The three again, here too.",
         "pozza": "The water is perfectly still. You see your reflection, but with something different: your face looks older, or younger, or both. Stepping closer, it corrects itself.",
         "stalattite": "Water drips from the tip every second and a half. Exactly. If this is a clock, it has been ticking for thousands of years."
@@ -319,7 +321,8 @@
       },
       "uscite_bloccate": {},
       "oggetti": [
-        "cristallo_vulcanico"
+        "cristallo_vulcanico",
+        "orchidea_lunare"
       ],
       "npcs": [],
       "esaminabili": {
@@ -451,6 +454,8 @@
         "sarcofagi": "Stone sarcophagi, each one sealed. Some carved with names. You don't recognize them.",
         "piedistallo": "A dark basalt pedestal. The top is smooth — for an offering, or a resting place.",
         "muro_screpolato": "An irregular crack runs through the north wall. Loose stones seem to hide a tunnel behind them. You'd need something sturdy to break it.",
+        "lucchetto_cassa": "Nel retro della cripta, una cassetta metallica chiusa da un lucchetto consumato. Servirebbe una lima per aprirlo.",
+        "oscurita": "Nonostante la torcia, alcuni angoli della cripta restano nel buio più profondo. Come se respingessero la luce.",
         "polvere": "Dust thick enough to leave footprints. Your footprints are the only new ones here.",
         "pedestallo": "A pedestal of dark basalt. The top is smooth, and on it rests an ancient tablet."
       }
@@ -724,6 +729,24 @@
         "vento": "The wind rises from the abyss and smells of hot stone. It's not just air: it's the breath of something."
       }
     },
+    "grotte_profonde": {
+      "nome": "Grotte Profonde",
+      "descrizione": "Oltre la prima sala, con la torcia, scopri che le grotte proseguono ben più a fondo. Stalattiti di sale cristallizzato scendono dal soffitto a pochi centimetri dai tuoi capelli. Il rumore dell'acqua che gocciola è costante, metronomo di un tempo senza tempo.\n\nIn fondo alla sala, una pozza d'acqua salmastra ferma come uno specchio. Al centro della pozza, appoggiato su una sporgenza naturale, luccica qualcosa.",
+      "descrizione_breve": "Sala profonda delle grotte, con pozza speculare al centro.",
+      "uscite": {
+        "su": "grotte"
+      },
+      "uscite_bloccate": {},
+      "oggetti": [
+        "bussola_antica"
+      ],
+      "npcs": [],
+      "esaminabili": {
+        "stalattiti": "Sale cristallizzato, formato in migliaia di anni. Alcune punte toccano quasi il pavimento.",
+        "pozza": "L'acqua è perfettamente ferma. Il tuo riflesso ti restituisce uno sguardo che non pensavi di avere: più vecchio, più sereno, più consapevole. Non è il TUO riflesso, o forse lo è davvero.",
+        "sporgenza": "Una piccola sporgenza di pietra al centro della pozza. Su di essa, la Bussola Antica — la prendi senza bagnarti, allungando il braccio."
+      }
+    },
     "cimitero_marino": {
       "nome": "Sea Graveyard",
       "descrizione": "A remote cove where the sea has gathered the remains of a century of wrecks. Dozens of broken hulls rust on the black sand, some with the name still legible on the prow. The waves whisper among the bones of wood, and every now and then a metal creaks, as if something were waking underneath.\n\nThere is nothing to collect here. Only to listen. Only to remember that you are not the first to arrive — only the first still alive.",
@@ -732,7 +755,9 @@
         "nord": "scogliere_sud"
       },
       "uscite_bloccate": {},
-      "oggetti": [],
+      "oggetti": [
+        "legno_stagionato"
+      ],
       "npcs": [],
       "esaminabili": {
         "relitti": "Dozens of broken hulls. On one: 'AURIGA - 1873'. On another: 'PALINURO - 1924'. A modern ship: 'Capricho II - 2019'. All ended up here. None ever left again.",
@@ -1506,6 +1531,66 @@
       "alias": [
         "lampada",
         "fiamma"
+      ]
+    },
+    "conchiglia_offerta": {
+      "nome": "conchiglia_offerta",
+      "nome_completo": "Conchiglia d'offerta",
+      "descrizione": "Una conchiglia grande come il palmo, levigata dalle onde, incisa con tre cerchi concentrici. Gli anziani del villaggio la accettano come segno di rispetto.",
+      "descrizione_terra": "Trovi conchiglia d'offerta qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "conchiglia_offerta",
+        "offerta"
+      ]
+    },
+    "legno_stagionato": {
+      "nome": "legno_stagionato",
+      "nome_completo": "Legno stagionato",
+      "descrizione": "Una trave di quercia ben stagionata, recuperata da un relitto antico. Durissima, perfetta per riparazioni durature.",
+      "descrizione_terra": "Trovi legno stagionato qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "legno_stagionato",
+        "trave"
+      ]
+    },
+    "lima_arrugginita": {
+      "nome": "lima_arrugginita",
+      "nome_completo": "Lima arrugginita",
+      "descrizione": "Una lima da fabbro, consumata dal tempo ma ancora affilata. Lavora il metallo morbido e apre lucchetti.",
+      "descrizione_terra": "Trovi lima arrugginita qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "lima",
+        "lima_arrugginita"
+      ]
+    },
+    "bussola_antica": {
+      "nome": "bussola_antica",
+      "nome_completo": "Bussola antica",
+      "descrizione": "Una bussola di ottone malconcia. L'ago non punta il Nord — punta il faro. Sempre. Anche quando il faro è spento.",
+      "descrizione_terra": "Trovi bussola antica qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "bussola",
+        "bussola_antica"
+      ]
+    },
+    "orchidea_lunare": {
+      "nome": "orchidea_lunare",
+      "nome_completo": "Orchidea lunare",
+      "descrizione": "Un fiore dai petali argentei che si apre solo al chiaro di luna. Cresce solo sulla cima del vulcano. Cercata da Luna.",
+      "descrizione_terra": "Trovi orchidea lunare qui.",
+      "portatile": true,
+      "nascosto": false,
+      "alias": [
+        "orchidea",
+        "fiore_argenteo"
       ]
     },
     "manovella_temp": {
@@ -2339,6 +2424,27 @@
       "flag": "corridoio_illuminato",
       "consuma": false
     },
+    "lima_arrugginita::cripta": {
+      "messaggio": "Lavori la lima sul lucchetto arrugginito. Una, due, tre passate. Il metallo cede — le mascelle del lucchetto si aprono con uno schiocco. Dentro la cassa, posata su un fazzoletto ingiallito, c'è una piccola bussola d'ottone scuro. L'ago punta in modo strano.",
+      "flag": "cassa_aperta",
+      "consuma": false,
+      "ottieni": [
+        "bussola_antica"
+      ]
+    },
+    "piccone::spiaggia": {
+      "messaggio": "Scavi nella sabbia dorata vicino al relitto. Dopo mezz'ora di sudore, il piccone urta qualcosa di metallico. Spingi via la sabbia: una piccola cassetta di latta, sigillata. Dentro — sorprendentemente intatta — una bottiglia di vetro con dentro un foglio. È una lettera: qualcuno prima di te è stato qui.",
+      "flag": "spiaggia_scavata",
+      "consuma": false,
+      "ottieni": [
+        "messaggio_bottiglia"
+      ]
+    },
+    "piccone::caletta": {
+      "messaggio": "Smuovi una pietra consumata dalle pozze di marea. Sotto, nascoste nella sabbia, scopri le iniziali di qualcuno: L.T. + M.S. con una data — 'primavera 1924'. Qualcosa luccica. Prendi una conchiglia particolare, grande come il palmo, incisa con tre cerchi.",
+      "flag": "caletta_scavata",
+      "consuma": false
+    },
     "martello_rame::sala_ingranaggi": {
       "messaggio": "With the copper hammer you loosen the bolt at the base of the crank. The bare shaft detaches: you can now take it with you to mount it elsewhere.",
       "ottieni": [
@@ -2389,6 +2495,23 @@
       ],
       "flag": "quest_luna_completa"
     },
+    "conchiglia_offerta::kaia": {
+      "messaggio": "Posi la conchiglia incisa tra le mani di Kaia. Il suo sguardo si illumina. «È molto tempo che non vedo un'offerta così ben lavorata. Sei stato nella caletta, dunque. Gli antichi la raccoglievano per le nascite.»\n\nTi studia per un lungo momento. «Mi sei simpatico, straniero. Adesso sai dove cercare l'artefatto sacro: nelle grotte, a est della caletta, dietro l'oscurità. Porta una torcia.»",
+      "ottieni": [],
+      "flag": "kaia_onorata"
+    },
+    "legno_stagionato::tiko": {
+      "messaggio": "Tiko accarezza la trave con le dita esperte. «Quercia vera, stagionata cinquant'anni almeno. Dove l'hai trovata?»\n\nNon aspetta la risposta. Apre un vecchio cassetto del molo e te ne porge qualcosa avvolto in un panno.\n\n«Una lima arrugginita ma ancora buona. La usavo per i lucchetti delle casse dei pirati quando ero ragazzo. Adesso è tua — a me serve il legno, non i misteri.»",
+      "ottieni": [
+        "lima_arrugginita"
+      ],
+      "flag": "tiko_ringrazia"
+    },
+    "orchidea_lunare::luna": {
+      "messaggio": "Luna accoglie l'orchidea come se fosse un bambino addormentato. «Dodici anni. Dodici anni che aspettavo di vederla di nuovo. Mia madre me ne parlò sul letto di morte, e da allora la cercavo.»\n\nTi stringe le mani tra le sue — fredde come foglie di stella. «Prendi questo. Un vecchio frammento di mappa che ho trovato nel ventre di un pesce, molti anni fa. Non ho mai capito cosa rappresenti. Forse lo capirai tu.»",
+      "ottieni": [],
+      "flag": "luna_onorata"
+    },
     "tavoletta_runica::archivista": {
       "messaggio": "You offer the runic tablet to the Archivist. She accepts it delicately, and for the first time smiles truly.\n\n\"A lost tablet. I read it. Ah... it is a map. A map of the Heart of the Machine, and of its three weak points. Keep it, now it will be more useful to you than to me.\"\n\nAfter a moment, from her tunic of light she produces a small gift and offers it to you.",
       "rimuovi": [],
@@ -2421,7 +2544,8 @@
     "abisso::est": "radice_mondo",
     "via_titani::dentro": "radice_mondo",
     "osservatorio::dentro": "via_titani",
-    "cripta::nord": "cunicolo_nascosto"
+    "cripta::nord": "cunicolo_nascosto",
+    "grotte::giu": "grotte_profonde"
   },
   "start_room": "spiaggia",
   "finale_atto_ii": "You put on the Titanic Crown.\n\nFor an instant, nothing. Then the eight points light up in cascade, and a soft,\ncold light envelops you — not a fire, but a full moon shaped as a crown. You\nknow everything, all at once. You know who the Builders were, you know why they\nchose to descend, you know what the Tree of Light is: the sleeping consciousness\nof the world itself, and you are its new custodian.\n\nThe Tree opens before you like a flower. You are no longer afraid. You are no\nlonger alone.\n\nFar, far above, on the island, the lighthouse keeps burning in the night. It\ndoes not call for rescue. It calls for the next one. In a hundred years, in a\nthousand, someone will see it, and wonder what it means.\n\nYou will tell them, when they arrive.\n\n~ END ~",

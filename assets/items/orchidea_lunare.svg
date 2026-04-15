@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Orchidea lunare</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <g>
+  <!-- Stem -->
+  <path d="M32 58 Q30 46 32 32 Q34 22 32 12" stroke="#4a6a40" stroke-width="2" fill="none"/>
+  <!-- 5 silver petals -->
+  <ellipse cx="32" cy="18" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1"/>
+  <ellipse cx="22" cy="24" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1" transform="rotate(-60 22 24)"/>
+  <ellipse cx="42" cy="24" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1" transform="rotate(60 42 24)"/>
+  <ellipse cx="26" cy="32" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1" transform="rotate(-30 26 32)"/>
+  <ellipse cx="38" cy="32" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1" transform="rotate(30 38 32)"/>
+  <!-- Center -->
+  <circle cx="32" cy="26" r="4" fill="#a0a0c0" stroke="#6060a0" stroke-width="1"/>
+  <circle cx="32" cy="26" r="1.5" fill="#fff0f0"/>
+  <!-- Leaf -->
+  <path d="M32 44 Q22 48 20 54 Q28 52 32 48" fill="#4a6a40" stroke="#2a3a20" stroke-width="1"/>
+</g>
+</svg>

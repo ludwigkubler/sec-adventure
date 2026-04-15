@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Lima arrugginita</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <g>
+  <!-- Handle -->
+  <rect x="6" y="28" width="16" height="8" fill="#8a5a30" stroke="#1a0e05" stroke-width="2"/>
+  <rect x="6" y="28" width="16" height="2" fill="#5a3010" opacity=".7"/>
+  <!-- File body with rust gradient -->
+  <rect x="22" y="28" width="38" height="8" fill="#a05030" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Teeth pattern -->
+  <g stroke="#3a1810" stroke-width=".6">
+    <line x1="26" y1="28" x2="24" y2="36"/><line x1="28" y1="28" x2="26" y2="36"/><line x1="30" y1="28" x2="28" y2="36"/><line x1="32" y1="28" x2="30" y2="36"/><line x1="34" y1="28" x2="32" y2="36"/><line x1="36" y1="28" x2="34" y2="36"/><line x1="38" y1="28" x2="36" y2="36"/><line x1="40" y1="28" x2="38" y2="36"/><line x1="42" y1="28" x2="40" y2="36"/><line x1="44" y1="28" x2="42" y2="36"/><line x1="46" y1="28" x2="44" y2="36"/><line x1="48" y1="28" x2="46" y2="36"/><line x1="50" y1="28" x2="48" y2="36"/><line x1="52" y1="28" x2="50" y2="36"/><line x1="54" y1="28" x2="52" y2="36"/><line x1="56" y1="28" x2="54" y2="36"/>
+  </g>
+  <!-- Rust specks -->
+  <circle cx="32" cy="30" r="1" fill="#3a1810"/>
+  <circle cx="44" cy="34" r=".8" fill="#3a1810"/>
+  <circle cx="52" cy="31" r=".8" fill="#3a1810"/>
+</g>
+</svg>

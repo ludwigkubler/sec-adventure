@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Bussola antica</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <g>
+  <!-- Outer brass ring -->
+  <circle cx="32" cy="32" r="26" fill="#a07030" stroke="#1a0e05" stroke-width="2"/>
+  <circle cx="32" cy="32" r="22" fill="#d4a040" stroke="#1a0e05" stroke-width="1.5"/>
+  <!-- Dark face -->
+  <circle cx="32" cy="32" r="18" fill="#2a1a0c" stroke="#1a0e05" stroke-width="1"/>
+  <!-- Cardinal marks -->
+  <text x="32" y="18" font-size="6" fill="#d4a040" text-anchor="middle" font-weight="bold">N</text>
+  <text x="50" y="35" font-size="6" fill="#d4a040" text-anchor="middle">E</text>
+  <text x="32" y="51" font-size="6" fill="#d4a040" text-anchor="middle">S</text>
+  <text x="14" y="35" font-size="6" fill="#d4a040" text-anchor="middle">W</text>
+  <!-- Needle (points NE toward lighthouse) -->
+  <polygon points="32,14 34,32 32,50 30,32" fill="#c04030" stroke="#1a0e05" stroke-width="1">
+    <animateTransform attributeName="transform" type="rotate" from="-10 32 32" to="10 32 32" dur="3s" repeatCount="indefinite" additive="sum" values="-10 32 32;10 32 32;-10 32 32"/>
+  </polygon>
+  <!-- Needle north tip -->
+  <polygon points="32,14 34,32 30,32" fill="#e0a040"/>
+  <!-- Pivot -->
+  <circle cx="32" cy="32" r="2" fill="#f0e0a0"/>
+</g>
+</svg>

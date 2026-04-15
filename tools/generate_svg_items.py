@@ -24,8 +24,26 @@ STONE = "#707068"
 VIEWBOX = 'viewBox="0 0 64 64"'
 
 # Ogni entry → callable che ritorna l'SVG interno (senza <svg> wrapper)
-def legna():      return f'<rect x="8" y="26" width="48" height="6" rx="2" fill="{WOOD}" stroke="{OUTLINE}" stroke-width="2"/><rect x="12" y="36" width="40" height="5" rx="2" fill="#6a4020" stroke="{OUTLINE}" stroke-width="2"/>'
-def corda():      return f'<path d="M8 32 Q16 20 24 32 T40 32 T56 32" stroke="{WOOD}" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M8 40 Q16 28 24 40 T40 40 T56 40" stroke="#6a4020" stroke-width="5" fill="none" stroke-linecap="round"/>'
+def legna():      return f'''<g>
+  <rect x="6" y="24" width="52" height="9" rx="3" fill="{WOOD}" stroke="{OUTLINE}" stroke-width="2"/>
+  <line x1="6" y1="28" x2="58" y2="28" stroke="#6a4020" stroke-width="1" opacity=".6"/>
+  <line x1="10" y1="31" x2="54" y2="31" stroke="#6a4020" stroke-width="1" opacity=".4"/>
+  <rect x="10" y="36" width="44" height="8" rx="2" fill="#6a4020" stroke="{OUTLINE}" stroke-width="2"/>
+  <line x1="14" y1="40" x2="50" y2="40" stroke="#4a2812" stroke-width="1" opacity=".6"/>
+  <circle cx="12" cy="28" r="1.5" fill="#3a2010" opacity=".6"/>
+  <circle cx="46" cy="40" r="1.5" fill="#3a2010" opacity=".6"/>
+</g>'''
+def corda():      return f'''<g>
+  <path d="M6 22 Q14 10 22 22 T38 22 T56 22 Q58 24 58 26" stroke="{WOOD}" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M6 22 Q14 10 22 22 T38 22 T56 22 Q58 24 58 26" stroke="#6a4020" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".7"/>
+  <path d="M6 32 Q14 20 22 32 T38 32 T56 32" stroke="{WOOD}" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M6 32 Q14 20 22 32 T38 32 T56 32" stroke="#5a3010" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".7"/>
+  <path d="M6 42 Q14 30 22 42 T38 42 T56 42" stroke="#6a4020" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M6 42 Q14 30 22 42 T38 42 T56 42" stroke="#4a2010" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".7"/>
+  <!-- Frays -->
+  <line x1="6" y1="22" x2="3" y2="20" stroke="{WOOD}" stroke-width="1"/>
+  <line x1="6" y1="22" x2="2" y2="24" stroke="{WOOD}" stroke-width="1"/>
+</g>'''
 def bottiglia():  return f'<rect x="24" y="8" width="16" height="10" fill="#405848" stroke="{OUTLINE}" stroke-width="2"/><path d="M20 20 L20 54 Q20 58 24 58 L40 58 Q44 58 44 54 L44 20 Z" fill="#5a8070" stroke="{OUTLINE}" stroke-width="2"/><rect x="28" y="4" width="8" height="6" fill="#3a2818" stroke="{OUTLINE}" stroke-width="1"/>'
 def pietra_focaia(): return f'<polygon points="10,40 24,14 44,18 54,36 48,54 20,52" fill="{STONE}" stroke="{OUTLINE}" stroke-width="2"/><polygon points="20,30 30,20 40,30 35,42 22,40" fill="#909088"/>'
 def conchiglia(): return f'<path d="M32 8 Q52 28 52 46 Q42 56 32 56 Q22 56 12 46 Q12 28 32 8 Z" fill="#e8c0a0" stroke="{OUTLINE}" stroke-width="2"/><path d="M32 12 L32 54 M20 22 L44 22 M16 34 L48 34 M20 46 L44 46" stroke="#b8866a" stroke-width="1.5" fill="none"/>'
@@ -52,11 +70,90 @@ def perla_nera():  return f'<circle cx="32" cy="32" r="22" fill="#1a1a2a" stroke
 def sigillo_antico(): return f'<circle cx="32" cy="32" r="26" fill="{GOLD}" stroke="{OUTLINE}" stroke-width="2"/><circle cx="32" cy="32" r="18" fill="none" stroke="{OUTLINE}" stroke-width="1.5"/><polygon points="32,14 40,28 56,28 44,38 48,54 32,46 16,54 20,38 8,28 24,28" fill="{OUTLINE}" opacity="0.5"/>'
 def tridente():   return f'<rect x="30" y="28" width="4" height="32" fill="{WOOD}" stroke="{OUTLINE}" stroke-width="1.5"/><polygon points="20,8 22,28 30,28 32,18 34,28 42,28 44,8 38,20 32,10 26,20" fill="#c0c0c8" stroke="{OUTLINE}" stroke-width="2"/>'
 def corona_corallo(): return f'<path d="M8 46 L12 20 L20 38 L28 16 L36 38 L44 18 L52 38 L56 46 L56 58 L8 58 Z" fill="#e08070" stroke="{OUTLINE}" stroke-width="2"/><circle cx="28" cy="16" r="4" fill="#d84030"/><circle cx="44" cy="18" r="3" fill="#d84030"/>'
-def torcia():     return f'<rect x="28" y="32" width="8" height="28" fill="{WOOD}" stroke="{OUTLINE}" stroke-width="2"/><path d="M20 32 L44 32 L38 24 L26 24 Z" fill="#5a3820" stroke="{OUTLINE}" stroke-width="2"/><path d="M22 24 Q32 2 42 24 Q32 14 22 24 Z" fill="#ff8030" stroke="#c04010" stroke-width="1.5"/><path d="M28 18 Q32 8 36 18 Q32 12 28 18 Z" fill="#ffe060"/>'
-def machete():    return f'<path d="M12 8 L56 46 L52 52 L8 14 Z" fill="#c0c0c8" stroke="{OUTLINE}" stroke-width="2"/><rect x="4" y="10" width="14" height="8" fill="{WOOD}" stroke="{OUTLINE}" stroke-width="2" transform="rotate(-35 11 14)"/>'
-def medaglione(): return f'<circle cx="32" cy="36" r="20" fill="{GOLD}" stroke="{OUTLINE}" stroke-width="2"/><circle cx="32" cy="36" r="14" fill="none" stroke="{OUTLINE}" stroke-width="1.5"/><polygon points="32,26 36,34 44,34 38,40 40,48 32,44 24,48 26,40 20,34 28,34" fill="{OUTLINE}"/><path d="M22 16 L32 12 L42 16" stroke="{WOOD}" stroke-width="2" fill="none"/>'
-def chiave_faro(): return f'<circle cx="18" cy="32" r="10" fill="none" stroke="{GOLD}" stroke-width="4"/><rect x="26" y="29" width="30" height="6" fill="{GOLD}" stroke="{OUTLINE}" stroke-width="1.5"/><rect x="46" y="28" width="3" height="10" fill="{GOLD}" stroke="{OUTLINE}" stroke-width="1"/><rect x="52" y="28" width="3" height="14" fill="{GOLD}" stroke="{OUTLINE}" stroke-width="1"/>'
-def chiave_antica(): return f'<circle cx="18" cy="32" r="10" fill="none" stroke="#909088" stroke-width="4"/><rect x="26" y="29" width="30" height="6" fill="#909088" stroke="{OUTLINE}" stroke-width="1.5"/><rect x="46" y="28" width="3" height="10" fill="#909088" stroke="{OUTLINE}" stroke-width="1"/>'
+def torcia():     return f'''<g>
+  <!-- Handle with grain -->
+  <rect x="28" y="32" width="8" height="28" fill="{WOOD}" stroke="{OUTLINE}" stroke-width="2"/>
+  <line x1="28" y1="38" x2="36" y2="38" stroke="#5a3010" stroke-width=".5" opacity=".8"/>
+  <line x1="28" y1="46" x2="36" y2="46" stroke="#5a3010" stroke-width=".5" opacity=".8"/>
+  <line x1="28" y1="54" x2="36" y2="54" stroke="#5a3010" stroke-width=".5" opacity=".8"/>
+  <!-- Wrap -->
+  <path d="M20 32 L44 32 L38 22 L26 22 Z" fill="#5a3820" stroke="{OUTLINE}" stroke-width="2"/>
+  <line x1="24" y1="26" x2="40" y2="26" stroke="#3a2010" stroke-width=".8"/>
+  <line x1="22" y1="30" x2="42" y2="30" stroke="#3a2010" stroke-width=".8"/>
+  <!-- Outer flame -->
+  <path d="M20 22 Q32 -2 44 22 Q32 10 20 22 Z" fill="#ff6020" stroke="#c04010" stroke-width="1.5">
+    <animate attributeName="opacity" values="0.75;1;0.75" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+  <!-- Inner flame -->
+  <path d="M26 20 Q32 4 38 20 Q32 12 26 20 Z" fill="#ffc040">
+    <animate attributeName="opacity" values="1;0.7;1" dur="0.8s" repeatCount="indefinite"/>
+  </path>
+  <!-- Core hot spot -->
+  <ellipse cx="32" cy="14" rx="3" ry="5" fill="#fff0a0">
+    <animate attributeName="rx" values="2;3.5;2" dur="1s" repeatCount="indefinite"/>
+  </ellipse>
+</g>'''
+def machete():    return f'''<g>
+  <!-- Blade with shine -->
+  <path d="M14 10 L58 44 L54 50 L10 16 Z" fill="#d4d4e0" stroke="{OUTLINE}" stroke-width="2"/>
+  <path d="M14 10 L58 44 L56 46 L12 12 Z" fill="#f0f0ff" opacity=".5"/>
+  <path d="M30 24 L54 44 L52 48 L28 28 Z" fill="#a0a0b0" opacity=".4"/>
+  <!-- Handle wood -->
+  <rect x="2" y="8" width="18" height="10" fill="{WOOD}" stroke="{OUTLINE}" stroke-width="2" transform="rotate(-35 11 14)"/>
+  <line x1="7" y1="10" x2="17" y2="20" stroke="#5a3010" stroke-width="1" transform="rotate(-35 11 14)" opacity=".7"/>
+  <!-- Guard -->
+  <rect x="18" y="6" width="4" height="14" fill="#707078" stroke="{OUTLINE}" stroke-width="1.5" transform="rotate(-35 20 13)"/>
+</g>'''
+def medaglione(): return f'''<g>
+  <!-- Cord -->
+  <path d="M20 14 Q32 8 44 14" stroke="{WOOD}" stroke-width="2.5" fill="none"/>
+  <path d="M20 14 Q32 8 44 14" stroke="#5a3010" stroke-width=".5" fill="none" opacity=".7"/>
+  <!-- Gold outer ring -->
+  <circle cx="32" cy="38" r="22" fill="#d4a040" stroke="{OUTLINE}" stroke-width="2"/>
+  <circle cx="32" cy="38" r="20" fill="{GOLD}"/>
+  <!-- Inner recess -->
+  <circle cx="32" cy="38" r="15" fill="#8a5820" stroke="{OUTLINE}" stroke-width="1"/>
+  <circle cx="32" cy="38" r="14" fill="none" stroke="#d4a040" stroke-width=".8"/>
+  <!-- Central star -->
+  <polygon points="32,26 35,34 44,34 37,40 40,50 32,44 24,50 27,40 20,34 29,34" fill="{OUTLINE}"/>
+  <polygon points="32,29 34,34 40,34 35,38 37,46 32,42 27,46 29,38 24,34 30,34" fill="#f0c060" opacity=".7"/>
+  <!-- Shine highlight -->
+  <ellipse cx="26" cy="30" rx="5" ry="3" fill="#ffe080" opacity=".6" transform="rotate(-30 26 30)"/>
+</g>'''
+def chiave_faro(): return f'''<g>
+  <!-- Bow (head ring) decorato -->
+  <circle cx="18" cy="32" r="12" fill="#d4a040" stroke="{OUTLINE}" stroke-width="2"/>
+  <circle cx="18" cy="32" r="8" fill="#2a1a0c" stroke="{OUTLINE}" stroke-width="1"/>
+  <circle cx="18" cy="32" r="5" fill="#d4a040"/>
+  <!-- 4 ornamental points -->
+  <path d="M18 20 L20 23 L18 26 L16 23 Z" fill="#f0c060"/>
+  <path d="M18 38 L20 41 L18 44 L16 41 Z" fill="#f0c060"/>
+  <path d="M6 32 L9 30 L12 32 L9 34 Z" fill="#f0c060"/>
+  <path d="M24 32 L27 30 L30 32 L27 34 Z" fill="#f0c060"/>
+  <!-- Shaft -->
+  <rect x="30" y="29" width="26" height="6" fill="{GOLD}" stroke="{OUTLINE}" stroke-width="1.5"/>
+  <line x1="30" y1="32" x2="56" y2="32" stroke="#a06820" stroke-width=".5"/>
+  <!-- Teeth (bit) -->
+  <rect x="42" y="28" width="3" height="10" fill="{GOLD}" stroke="{OUTLINE}" stroke-width="1"/>
+  <rect x="48" y="28" width="3" height="14" fill="{GOLD}" stroke="{OUTLINE}" stroke-width="1"/>
+  <rect x="53" y="28" width="3" height="8" fill="{GOLD}" stroke="{OUTLINE}" stroke-width="1"/>
+  <!-- Shine -->
+  <circle cx="14" cy="28" r="2" fill="#ffe080" opacity=".6"/>
+</g>'''
+def chiave_antica(): return f'''<g>
+  <circle cx="18" cy="32" r="12" fill="#707078" stroke="{OUTLINE}" stroke-width="2"/>
+  <circle cx="18" cy="32" r="8" fill="#1a1a22" stroke="{OUTLINE}" stroke-width="1"/>
+  <circle cx="18" cy="32" r="5" fill="#909098"/>
+  <!-- Rune etched -->
+  <text x="18" y="35" font-size="8" text-anchor="middle" fill="#3a3a42" font-family="serif">◈</text>
+  <!-- Shaft -->
+  <rect x="30" y="29" width="26" height="6" fill="#909098" stroke="{OUTLINE}" stroke-width="1.5"/>
+  <line x1="30" y1="32" x2="56" y2="32" stroke="#5a5a62" stroke-width=".5"/>
+  <!-- Teeth -->
+  <rect x="44" y="28" width="3" height="10" fill="#909098" stroke="{OUTLINE}" stroke-width="1"/>
+  <rect x="50" y="28" width="3" height="12" fill="#909098" stroke="{OUTLINE}" stroke-width="1"/>
+  <circle cx="14" cy="28" r="2" fill="#c0c0c8" opacity=".5"/>
+</g>'''
 def antidoto():   return f'<rect x="22" y="8" width="20" height="8" fill="#5a3820" stroke="{OUTLINE}" stroke-width="1.5"/><path d="M22 16 L22 50 L26 58 L38 58 L42 50 L42 16 Z" fill="#70c080" stroke="{OUTLINE}" stroke-width="2"/><rect x="26" y="22" width="12" height="20" fill="#3a8050" opacity="0.6"/>'
 
 # ─── Atto II: oggetti delle profondità ───
@@ -87,6 +184,78 @@ def lente_smeraldo(): return f'<circle cx="32" cy="32" r="22" fill="none" stroke
 def corona_titanica_step1(): return f'<path d="M8 44 L14 20 L22 36 L32 14 L42 36 L50 20 L56 44 Z" fill="#3a3038" stroke="{OUTLINE}" stroke-width="2"/><rect x="8" y="44" width="48" height="14" fill="#3a3038" stroke="{OUTLINE}" stroke-width="2"/><circle cx="14" cy="20" r="4" fill="#fff0a0" stroke="#d0a040" stroke-width="1"/>'
 def corona_titanica_step2(): return f'<path d="M8 44 L14 20 L22 36 L32 14 L42 36 L50 20 L56 44 Z" fill="#3a3038" stroke="{OUTLINE}" stroke-width="2"/><rect x="8" y="44" width="48" height="14" fill="#3a3038" stroke="{OUTLINE}" stroke-width="2"/><circle cx="14" cy="20" r="4" fill="#fff0a0" stroke="#d0a040"/><circle cx="32" cy="14" r="4" fill="#3050a0" stroke="#3050a0"/>'
 def lampada_eterna(): return f'<rect x="22" y="48" width="20" height="8" fill="#8a5030" stroke="{OUTLINE}" stroke-width="1.5"/><path d="M18 48 L46 48 L42 30 Q42 24 32 24 Q22 24 22 30 Z" fill="#c08850" stroke="{OUTLINE}" stroke-width="2"/><path d="M28 24 Q24 18 24 12 Q24 6 32 6 Q40 6 40 12 Q40 18 36 24 Z" fill="#fff0a0" stroke="#d0a040" stroke-width="1.5"><animate attributeName="opacity" values="0.7;1;0.7" dur="2.4s" repeatCount="indefinite"/></path><circle cx="32" cy="14" r="3" fill="#ffffff"/>'
+# v1.4 new items
+def conchiglia_offerta(): return f'''<g>
+  <path d="M32 6 Q52 24 50 44 Q40 56 32 56 Q24 56 14 44 Q12 24 32 6 Z" fill="#f0d4b8" stroke="{OUTLINE}" stroke-width="2"/>
+  <!-- Three concentric circles (the offering mark) -->
+  <circle cx="32" cy="36" r="12" fill="none" stroke="#a06040" stroke-width="1.5"/>
+  <circle cx="32" cy="36" r="8" fill="none" stroke="#a06040" stroke-width="1.2"/>
+  <circle cx="32" cy="36" r="4" fill="#a06040"/>
+  <!-- Ridges -->
+  <path d="M28 12 Q32 30 36 12" stroke="#d0a080" stroke-width="1" fill="none"/>
+  <path d="M22 18 Q32 32 42 18" stroke="#d0a080" stroke-width="1" fill="none"/>
+</g>'''
+def legno_stagionato(): return f'''<g>
+  <rect x="4" y="24" width="56" height="16" fill="#5a3818" stroke="{OUTLINE}" stroke-width="2"/>
+  <rect x="4" y="24" width="56" height="3" fill="#7a4820" opacity=".7"/>
+  <line x1="4" y1="32" x2="60" y2="32" stroke="#3a2010" stroke-width="1"/>
+  <!-- Wood grain -->
+  <path d="M8 28 Q20 26 32 28 T60 28" stroke="#3a2010" stroke-width=".8" fill="none"/>
+  <path d="M8 36 Q20 34 32 36 T60 36" stroke="#3a2010" stroke-width=".8" fill="none"/>
+  <!-- Knot -->
+  <ellipse cx="24" cy="32" rx="3" ry="5" fill="#2a1408" stroke="#3a2010" stroke-width="1"/>
+  <circle cx="46" cy="30" r="2" fill="#2a1408"/>
+</g>'''
+def lima_arrugginita(): return f'''<g>
+  <!-- Handle -->
+  <rect x="6" y="28" width="16" height="8" fill="{WOOD}" stroke="{OUTLINE}" stroke-width="2"/>
+  <rect x="6" y="28" width="16" height="2" fill="#5a3010" opacity=".7"/>
+  <!-- File body with rust gradient -->
+  <rect x="22" y="28" width="38" height="8" fill="#a05030" stroke="{OUTLINE}" stroke-width="2"/>
+  <!-- Teeth pattern -->
+  <g stroke="#3a1810" stroke-width=".6">
+    {''.join(f'<line x1="{26+i*2}" y1="28" x2="{24+i*2}" y2="36"/>' for i in range(16))}
+  </g>
+  <!-- Rust specks -->
+  <circle cx="32" cy="30" r="1" fill="#3a1810"/>
+  <circle cx="44" cy="34" r=".8" fill="#3a1810"/>
+  <circle cx="52" cy="31" r=".8" fill="#3a1810"/>
+</g>'''
+def bussola_antica(): return f'''<g>
+  <!-- Outer brass ring -->
+  <circle cx="32" cy="32" r="26" fill="#a07030" stroke="{OUTLINE}" stroke-width="2"/>
+  <circle cx="32" cy="32" r="22" fill="#d4a040" stroke="{OUTLINE}" stroke-width="1.5"/>
+  <!-- Dark face -->
+  <circle cx="32" cy="32" r="18" fill="#2a1a0c" stroke="{OUTLINE}" stroke-width="1"/>
+  <!-- Cardinal marks -->
+  <text x="32" y="18" font-size="6" fill="#d4a040" text-anchor="middle" font-weight="bold">N</text>
+  <text x="50" y="35" font-size="6" fill="#d4a040" text-anchor="middle">E</text>
+  <text x="32" y="51" font-size="6" fill="#d4a040" text-anchor="middle">S</text>
+  <text x="14" y="35" font-size="6" fill="#d4a040" text-anchor="middle">W</text>
+  <!-- Needle (points NE toward lighthouse) -->
+  <polygon points="32,14 34,32 32,50 30,32" fill="#c04030" stroke="{OUTLINE}" stroke-width="1">
+    <animateTransform attributeName="transform" type="rotate" from="-10 32 32" to="10 32 32" dur="3s" repeatCount="indefinite" additive="sum" values="-10 32 32;10 32 32;-10 32 32"/>
+  </polygon>
+  <!-- Needle north tip -->
+  <polygon points="32,14 34,32 30,32" fill="#e0a040"/>
+  <!-- Pivot -->
+  <circle cx="32" cy="32" r="2" fill="#f0e0a0"/>
+</g>'''
+def orchidea_lunare(): return f'''<g>
+  <!-- Stem -->
+  <path d="M32 58 Q30 46 32 32 Q34 22 32 12" stroke="#4a6a40" stroke-width="2" fill="none"/>
+  <!-- 5 silver petals -->
+  <ellipse cx="32" cy="18" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1"/>
+  <ellipse cx="22" cy="24" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1" transform="rotate(-60 22 24)"/>
+  <ellipse cx="42" cy="24" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1" transform="rotate(60 42 24)"/>
+  <ellipse cx="26" cy="32" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1" transform="rotate(-30 26 32)"/>
+  <ellipse cx="38" cy="32" rx="6" ry="10" fill="#e0e0f0" stroke="#8080a0" stroke-width="1" transform="rotate(30 38 32)"/>
+  <!-- Center -->
+  <circle cx="32" cy="26" r="4" fill="#a0a0c0" stroke="#6060a0" stroke-width="1"/>
+  <circle cx="32" cy="26" r="1.5" fill="#fff0f0"/>
+  <!-- Leaf -->
+  <path d="M32 44 Q22 48 20 54 Q28 52 32 48" fill="#4a6a40" stroke="#2a3a20" stroke-width="1"/>
+</g>'''
 
 RENDERERS = {
     "legna": legna, "corda": corda, "bottiglia": bottiglia,
@@ -124,6 +293,11 @@ RENDERERS = {
     "corona_titanica_step1": corona_titanica_step1,
     "corona_titanica_step2": corona_titanica_step2,
     "lampada_eterna": lampada_eterna,
+    "conchiglia_offerta": conchiglia_offerta,
+    "legno_stagionato": legno_stagionato,
+    "lima_arrugginita": lima_arrugginita,
+    "bussola_antica": bussola_antica,
+    "orchidea_lunare": orchidea_lunare,
 }
 
 

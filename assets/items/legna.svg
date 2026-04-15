@@ -2,5 +2,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Legna spiaggiata</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <rect x="8" y="26" width="48" height="6" rx="2" fill="#8a5a30" stroke="#1a0e05" stroke-width="2"/><rect x="12" y="36" width="40" height="5" rx="2" fill="#6a4020" stroke="#1a0e05" stroke-width="2"/>
+  <g>
+  <rect x="6" y="24" width="52" height="9" rx="3" fill="#8a5a30" stroke="#1a0e05" stroke-width="2"/>
+  <line x1="6" y1="28" x2="58" y2="28" stroke="#6a4020" stroke-width="1" opacity=".6"/>
+  <line x1="10" y1="31" x2="54" y2="31" stroke="#6a4020" stroke-width="1" opacity=".4"/>
+  <rect x="10" y="36" width="44" height="8" rx="2" fill="#6a4020" stroke="#1a0e05" stroke-width="2"/>
+  <line x1="14" y1="40" x2="50" y2="40" stroke="#4a2812" stroke-width="1" opacity=".6"/>
+  <circle cx="12" cy="28" r="1.5" fill="#3a2010" opacity=".6"/>
+  <circle cx="46" cy="40" r="1.5" fill="#3a2010" opacity=".6"/>
+</g>
 </svg>

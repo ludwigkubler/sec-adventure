@@ -2,5 +2,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Chiave del faro</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <circle cx="18" cy="32" r="10" fill="none" stroke="#c08a3c" stroke-width="4"/><rect x="26" y="29" width="30" height="6" fill="#c08a3c" stroke="#1a0e05" stroke-width="1.5"/><rect x="46" y="28" width="3" height="10" fill="#c08a3c" stroke="#1a0e05" stroke-width="1"/><rect x="52" y="28" width="3" height="14" fill="#c08a3c" stroke="#1a0e05" stroke-width="1"/>
+  <g>
+  <!-- Bow (head ring) decorato -->
+  <circle cx="18" cy="32" r="12" fill="#d4a040" stroke="#1a0e05" stroke-width="2"/>
+  <circle cx="18" cy="32" r="8" fill="#2a1a0c" stroke="#1a0e05" stroke-width="1"/>
+  <circle cx="18" cy="32" r="5" fill="#d4a040"/>
+  <!-- 4 ornamental points -->
+  <path d="M18 20 L20 23 L18 26 L16 23 Z" fill="#f0c060"/>
+  <path d="M18 38 L20 41 L18 44 L16 41 Z" fill="#f0c060"/>
+  <path d="M6 32 L9 30 L12 32 L9 34 Z" fill="#f0c060"/>
+  <path d="M24 32 L27 30 L30 32 L27 34 Z" fill="#f0c060"/>
+  <!-- Shaft -->
+  <rect x="30" y="29" width="26" height="6" fill="#c08a3c" stroke="#1a0e05" stroke-width="1.5"/>
+  <line x1="30" y1="32" x2="56" y2="32" stroke="#a06820" stroke-width=".5"/>
+  <!-- Teeth (bit) -->
+  <rect x="42" y="28" width="3" height="10" fill="#c08a3c" stroke="#1a0e05" stroke-width="1"/>
+  <rect x="48" y="28" width="3" height="14" fill="#c08a3c" stroke="#1a0e05" stroke-width="1"/>
+  <rect x="53" y="28" width="3" height="8" fill="#c08a3c" stroke="#1a0e05" stroke-width="1"/>
+  <!-- Shine -->
+  <circle cx="14" cy="28" r="2" fill="#ffe080" opacity=".6"/>
+</g>
 </svg>

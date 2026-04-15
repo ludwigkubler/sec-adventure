@@ -77,6 +77,28 @@ const Render = (() => {
 
   let currentRoom = null;
 
+  // Foreground parallax: produce un gradient SVG dinamico in base al biome
+  function foregroundSVGFor(roomId) {
+    // Edge-fade gradient dark: profondità senza coprire centro
+    // Diverso alpha/tone per atto I vs II
+    const atto2 = new Set(["pozzo_faro","cripta_meccanica","sala_ingranaggi","corridoio_vapore",
+      "forgia_antica","archivio","osservatorio","cuore_macchina","agora_perduta",
+      "via_titani","abisso","radice_mondo","corridoio_perduto"]);
+    const isAtto2 = atto2.has(roomId);
+    const color = isAtto2 ? "rgba(10, 20, 30, 0.75)" : "rgba(30, 18, 8, 0.65)";
+    const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 576' preserveAspectRatio='none'>
+      <defs>
+        <radialGradient id='fg' cx='50%' cy='55%' r='70%'>
+          <stop offset='0%' stop-color='rgba(0,0,0,0)'/>
+          <stop offset='55%' stop-color='rgba(0,0,0,0)'/>
+          <stop offset='100%' stop-color='${color}'/>
+        </radialGradient>
+      </defs>
+      <rect width='960' height='576' fill='url(%23fg)'/>
+    </svg>`.replace(/\s+/g, " ").replace(/#/g, "%23");
+    return `url("data:image/svg+xml;utf8,${svg}")`;
+  }
+
   function drawScene(opts = {}) {
     const st = Engine.getState();
     const room = Engine.room();
@@ -85,18 +107,49 @@ const Render = (() => {
     const bg = $bg();
     const newBgUrl = `assets/rooms/${st.room}.png`;
 
-    // Crossfade scena
+    // Crossfade scena + iris reveal cinematic + typewriter title
     if (currentRoom !== st.room) {
       document.body.classList.add("transitioning");
       bg.classList.add("fading");
+      // Iris effect
+      const iris = document.getElementById("iris-reveal");
+      if (iris) {
+        iris.classList.remove("active");
+        // reflow
+        void iris.offsetWidth;
+        iris.classList.add("active");
+      }
       setTimeout(() => {
         bg.style.backgroundImage = `url("${newBgUrl}"), linear-gradient(135deg, #3a2818, #1a1008)`;
         bg.classList.remove("fading");
         document.body.classList.remove("transitioning");
+        // Typewriter scene title
+        const t = document.getElementById("scene-title");
+        if (t && room.nome) {
+          t.textContent = "";
+          t.classList.remove("show");
+          void t.offsetWidth;
+          t.classList.add("show");
+          const name = room.nome;
+          let i = 0;
+          const tw = setInterval(() => {
+            t.textContent = name.slice(0, ++i);
+            if (i >= name.length) {
+              clearInterval(tw);
+              setTimeout(() => t.classList.remove("show"), 2600);
+            }
+          }, 55);
+        }
       }, 320);
       currentRoom = st.room;
-      // Ambient FX: popola il layer in base al preset della stanza
+      // Ambient FX
       if (typeof FX !== "undefined") FX.setRoom(st.room);
+      // Parallax bg-near (se esiste asset foreground)
+      const bgNear = document.getElementById("bg-near");
+      if (bgNear) {
+        // Foreground proceduralmente generato con SVG gradient per profondità
+        bgNear.style.backgroundImage = foregroundSVGFor(st.room);
+      }
     }
 
     const container = $hot();

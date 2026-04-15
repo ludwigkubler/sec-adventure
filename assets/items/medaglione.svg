@@ -2,5 +2,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Medaglione degli Antichi</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <circle cx="32" cy="36" r="20" fill="#c08a3c" stroke="#1a0e05" stroke-width="2"/><circle cx="32" cy="36" r="14" fill="none" stroke="#1a0e05" stroke-width="1.5"/><polygon points="32,26 36,34 44,34 38,40 40,48 32,44 24,48 26,40 20,34 28,34" fill="#1a0e05"/><path d="M22 16 L32 12 L42 16" stroke="#8a5a30" stroke-width="2" fill="none"/>
+  <g>
+  <!-- Cord -->
+  <path d="M20 14 Q32 8 44 14" stroke="#8a5a30" stroke-width="2.5" fill="none"/>
+  <path d="M20 14 Q32 8 44 14" stroke="#5a3010" stroke-width=".5" fill="none" opacity=".7"/>
+  <!-- Gold outer ring -->
+  <circle cx="32" cy="38" r="22" fill="#d4a040" stroke="#1a0e05" stroke-width="2"/>
+  <circle cx="32" cy="38" r="20" fill="#c08a3c"/>
+  <!-- Inner recess -->
+  <circle cx="32" cy="38" r="15" fill="#8a5820" stroke="#1a0e05" stroke-width="1"/>
+  <circle cx="32" cy="38" r="14" fill="none" stroke="#d4a040" stroke-width=".8"/>
+  <!-- Central star -->
+  <polygon points="32,26 35,34 44,34 37,40 40,50 32,44 24,50 27,40 20,34 29,34" fill="#1a0e05"/>
+  <polygon points="32,29 34,34 40,34 35,38 37,46 32,42 27,46 29,38 24,34 30,34" fill="#f0c060" opacity=".7"/>
+  <!-- Shine highlight -->
+  <ellipse cx="26" cy="30" rx="5" ry="3" fill="#ffe080" opacity=".6" transform="rotate(-30 26 30)"/>
+</g>
 </svg>

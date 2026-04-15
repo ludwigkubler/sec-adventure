@@ -90,6 +90,7 @@ ROOM_PROMPTS_EXTRA = {
     "bivio_giungla": "deep jungle crossroads with a tall ancient stone totem covered in carvings of strange animals (bird with hooked beak, four-eyed fish, octopus-man), dense foliage, three overgrown paths, mystical",
     "corridoio_perduto": "dark low forgotten metal corridor underground, walls covered in thousands of carved names from different eras, dripping luminescent condensation, claustrophobic and reverent atmosphere",
     "cunicolo_nascosto": "small hidden shrine room behind a broken wall, ancient stone altar with a small copper lamp burning under intact glass dome, fine ancient dust, warm sacred light",
+    "grotte_profonde": "deep sea cave chamber, dark volcanic walls, phosphorescent moss patches, pool of still water reflecting, ancient carved spirals on walls, mysterious blue-green glow, rocky outcrops, torchlight from off-frame, atmospheric cavern",
 }
 
 API = "http://127.0.0.1:7860/sdapi/v1/txt2img"
@@ -167,8 +168,8 @@ if __name__ == "__main__":
     if target in ("atto2", "all", "npcs2"):
         do_npcs(prompts=NPC_PROMPTS_ATTO2, style=STYLE_ATTO2)
     if target in ("extra", "all"):
-        # Stanze atmosferiche: due "atto1" sepia, due "atto2" verdigris
-        atto1_extra = {k: v for k, v in ROOM_PROMPTS_EXTRA.items() if k in ("cimitero_marino","bivio_giungla","cunicolo_nascosto")}
+        # Stanze atmosferiche: atto I sepia, atto II verdigris
+        atto1_extra = {k: v for k, v in ROOM_PROMPTS_EXTRA.items() if k in ("cimitero_marino","bivio_giungla","cunicolo_nascosto","grotte_profonde")}
         atto2_extra = {k: v for k, v in ROOM_PROMPTS_EXTRA.items() if k in ("corridoio_perduto",)}
         do_rooms(prompts=atto1_extra, style=STYLE, label="extra1")
         do_rooms(prompts=atto2_extra, style=STYLE_ATTO2, label="extra2")

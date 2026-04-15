@@ -266,6 +266,28 @@ ROOMS = {
             "vento": "Il vento sale dall'abisso e profuma di pietra calda. Non è solo aria: è il respiro di qualcosa.",
         },
     },
+    # ─── Stanza Atto I: grotte_profonde (sub-room di grotte, richiede torcia) ───
+    "grotte_profonde": {
+        "nome": "Grotte Profonde",
+        "descrizione": (
+            "Oltre la prima sala, con la torcia, scopri che le grotte proseguono ben più "
+            "a fondo. Stalattiti di sale cristallizzato scendono dal soffitto a pochi "
+            "centimetri dai tuoi capelli. Il rumore dell'acqua che gocciola è costante, "
+            "metronomo di un tempo senza tempo.\n\n"
+            "In fondo alla sala, una pozza d'acqua salmastra ferma come uno specchio. "
+            "Al centro della pozza, appoggiato su una sporgenza naturale, luccica qualcosa."
+        ),
+        "descrizione_breve": "Sala profonda delle grotte, con pozza speculare al centro.",
+        "uscite": {"su": "grotte"},
+        "uscite_bloccate": {},
+        "oggetti": ["bussola_antica"],
+        "npcs": [],
+        "esaminabili": {
+            "stalattiti": "Sale cristallizzato, formato in migliaia di anni. Alcune punte toccano quasi il pavimento.",
+            "pozza": "L'acqua è perfettamente ferma. Il tuo riflesso ti restituisce uno sguardo che non pensavi di avere: più vecchio, più sereno, più consapevole. Non è il TUO riflesso, o forse lo è davvero.",
+            "sporgenza": "Una piccola sporgenza di pietra al centro della pozza. Su di essa, la Bussola Antica — la prendi senza bagnarti, allungando il braccio.",
+        },
+    },
     # ─── STANZE ATMOSFERICHE (no item, solo mood + lore) ───
     "cimitero_marino": {
         "nome": "Cimitero Marino",
@@ -442,6 +464,17 @@ ITEMS = {
         "La corona riempita dei tre simboli: stella, radice, occhio. Pulsa di luce dolce e fredda. Pronta a essere indossata.", ["corona_completa"]),
     "lampada_eterna": make_item("lampada_eterna", "Lampada Eterna",
         "Una lampada di rame con una fiamma piccola e perfettamente ferma. Brilla da prima che tu nascessi e brillerà dopo che sarai morto. Custodita per millenni in un cunicolo dimenticato.", ["lampada", "fiamma"]),
+    # v1.4 — narrative extensions
+    "conchiglia_offerta": make_item("conchiglia_offerta", "Conchiglia d'offerta",
+        "Una conchiglia grande come il palmo, levigata dalle onde, incisa con tre cerchi concentrici. Gli anziani del villaggio la accettano come segno di rispetto.", ["conchiglia_offerta", "offerta"]),
+    "legno_stagionato": make_item("legno_stagionato", "Legno stagionato",
+        "Una trave di quercia ben stagionata, recuperata da un relitto antico. Durissima, perfetta per riparazioni durature.", ["legno_stagionato", "trave"]),
+    "lima_arrugginita": make_item("lima_arrugginita", "Lima arrugginita",
+        "Una lima da fabbro, consumata dal tempo ma ancora affilata. Lavora il metallo morbido e apre lucchetti.", ["lima", "lima_arrugginita"]),
+    "bussola_antica": make_item("bussola_antica", "Bussola antica",
+        "Una bussola di ottone malconcia. L'ago non punta il Nord — punta il faro. Sempre. Anche quando il faro è spento.", ["bussola", "bussola_antica"]),
+    "orchidea_lunare": make_item("orchidea_lunare", "Orchidea lunare",
+        "Un fiore dai petali argentei che si apre solo al chiaro di luna. Cresce solo sulla cima del vulcano. Cercata da Luna.", ["orchidea", "fiore_argenteo"]),
 }
 
 # ─────────────────────────────────────────────────────────────────────
@@ -602,6 +635,21 @@ ROOM_ACTIONS = {
         "messaggio": "La torcia rivela i nomi sulla parete uno dopo l'altro. Migliaia. Alcuni li riesci a leggere — lingue antiche e moderne, bambini e vecchi, donne e uomini. Il corridoio si illumina di una luce calda.",
         "flag": "corridoio_illuminato", "consuma": False,
     },
+    # v1.4: lima sulla cassa nella cripta
+    ("lima_arrugginita", "cripta"): {
+        "messaggio": "Lavori la lima sul lucchetto arrugginito. Una, due, tre passate. Il metallo cede — le mascelle del lucchetto si aprono con uno schiocco. Dentro la cassa, posata su un fazzoletto ingiallito, c'è una piccola bussola d'ottone scuro. L'ago punta in modo strano.",
+        "flag": "cassa_aperta", "consuma": False, "ottieni": ["bussola_antica"],
+    },
+    # v1.4: piccone nella spiaggia (scavi nascosti)
+    ("piccone", "spiaggia"): {
+        "messaggio": "Scavi nella sabbia dorata vicino al relitto. Dopo mezz'ora di sudore, il piccone urta qualcosa di metallico. Spingi via la sabbia: una piccola cassetta di latta, sigillata. Dentro — sorprendentemente intatta — una bottiglia di vetro con dentro un foglio. È una lettera: qualcuno prima di te è stato qui.",
+        "flag": "spiaggia_scavata", "consuma": False, "ottieni": ["messaggio_bottiglia"],
+    },
+    # v1.4: piccone nella caletta (scavi tra le pozze)
+    ("piccone", "caletta"): {
+        "messaggio": "Smuovi una pietra consumata dalle pozze di marea. Sotto, nascoste nella sabbia, scopri le iniziali di qualcuno: L.T. + M.S. con una data — 'primavera 1924'. Qualcosa luccica. Prendi una conchiglia particolare, grande come il palmo, incisa con tre cerchi.",
+        "flag": "caletta_scavata", "consuma": False,
+    },
     # Manovella temporanea: prendi l'asta dalla manovella della sala_ingranaggi usando il martello
     ("martello_rame", "sala_ingranaggi"): {
         "messaggio": "Con il martello di rame allenti il bullone alla base della manovella. L'asta nuda si stacca: ora puoi prenderla con te per montarla altrove.",
@@ -613,6 +661,19 @@ ROOM_ACTIONS = {
 # CONSEGNE
 # ─────────────────────────────────────────────────────────────────────
 DELIVERIES = {
+    # v1.4 quest-chain Kaia / Tiko / Luna
+    ("conchiglia_offerta", "kaia"): {
+        "messaggio": "Posi la conchiglia incisa tra le mani di Kaia. Il suo sguardo si illumina. «È molto tempo che non vedo un'offerta così ben lavorata. Sei stato nella caletta, dunque. Gli antichi la raccoglievano per le nascite.»\n\nTi studia per un lungo momento. «Mi sei simpatico, straniero. Adesso sai dove cercare l'artefatto sacro: nelle grotte, a est della caletta, dietro l'oscurità. Porta una torcia.»",
+        "ottieni": [], "flag": "kaia_onorata",
+    },
+    ("legno_stagionato", "tiko"): {
+        "messaggio": "Tiko accarezza la trave con le dita esperte. «Quercia vera, stagionata cinquant'anni almeno. Dove l'hai trovata?»\n\nNon aspetta la risposta. Apre un vecchio cassetto del molo e te ne porge qualcosa avvolto in un panno.\n\n«Una lima arrugginita ma ancora buona. La usavo per i lucchetti delle casse dei pirati quando ero ragazzo. Adesso è tua — a me serve il legno, non i misteri.»",
+        "ottieni": ["lima_arrugginita"], "flag": "tiko_ringrazia",
+    },
+    ("orchidea_lunare", "luna"): {
+        "messaggio": "Luna accoglie l'orchidea come se fosse un bambino addormentato. «Dodici anni. Dodici anni che aspettavo di vederla di nuovo. Mia madre me ne parlò sul letto di morte, e da allora la cercavo.»\n\nTi stringe le mani tra le sue — fredde come foglie di stella. «Prendi questo. Un vecchio frammento di mappa che ho trovato nel ventre di un pesce, molti anni fa. Non ho mai capito cosa rappresenti. Forse lo capirai tu.»",
+        "ottieni": [], "flag": "luna_onorata",
+    },
     ("tavoletta_runica", "archivista"): {
         "messaggio": "Porgi la tavoletta runica all'Archivista. Lei la accetta delicatamente, e per la prima volta sorride davvero.\n\n\"Una tavoletta perduta. La leggo. Ah... è una mappa. Una mappa del Cuore della Macchina, e dei suoi tre punti deboli. Tienila, ora ti sarà più utile a te che a me.\"\n\nDopo un momento, dalla tunica di luce estrae un piccolo dono e te lo porge.",
         "rimuovi": [], "ottieni": ["lente_smeraldo"], "flag": "archivista_dono",
@@ -705,16 +766,6 @@ ROOM_PATCHES = {
             "incisioni_familiari": "Le spirali sulla parete. Le guardi e *sai* in che ordine vanno lette — dall'esterno verso l'interno, poi fuori di nuovo. Come hai imparato? Non sapresti dirlo. Lo sai e basta.",
         },
     },
-    # Cripta: aggiungi muro esaminabile + uscita bloccata verso cunicolo_nascosto
-    "cripta": {
-        "esaminabili_add": {
-            "muro_screpolato": "Una crepa irregolare attraversa la parete nord. Pietre allentate sembrano nascondere un cunicolo dietro di sé. Servirebbe qualcosa di robusto per romperla.",
-        },
-        "uscite_bloccate_add": {
-            "nord": {"condizione": "flag:cunicolo_aperto",
-                     "messaggio": "Una parete di pietra blocca il passaggio verso nord. La superficie è screpolata."}
-        },
-    },
     # Pulizia: rimuovi catena_oro dal corridoio_vapore (Atto II)
     "corridoio_vapore": {"oggetti_remove": ["catena_oro"]},
     # Connessioni alle nuove stanze atmosferiche
@@ -722,6 +773,33 @@ ROOM_PATCHES = {
         "uscite_add": {"sud": "cimitero_marino"},
         "esaminabili_add": {
             "calata_sud": "Una scala stretta, scolpita nella roccia, scende verso una cala remota. Da quassù non si vede il fondo, ma puoi sentire il vento che porta su un odore di legno fradicio e ruggine.",
+        },
+    },
+    # v1.4: spawn nuovi oggetti + connessione grotte_profonde
+    "caletta": {
+        "oggetti_add": ["conchiglia_offerta"],
+    },
+    "cimitero_marino": {
+        "oggetti_add": ["legno_stagionato"],
+    },
+    "cima_vulcano": {
+        "oggetti_add": ["orchidea_lunare"],
+    },
+    "grotte": {
+        "uscite_add": {"dentro": "grotte_profonde"},
+        "esaminabili_add": {
+            "passaggio_profondo": "La sala continua più in profondità. Con la torcia puoi addentrarti: una seconda camera si apre, oltre la prima.",
+        },
+    },
+    "cripta": {
+        "esaminabili_add": {
+            "muro_screpolato": "Una crepa irregolare attraversa la parete nord. Pietre allentate sembrano nascondere un cunicolo dietro di sé. Servirebbe qualcosa di robusto per romperla.",
+            "lucchetto_cassa": "Nel retro della cripta, una cassetta metallica chiusa da un lucchetto consumato. Servirebbe una lima per aprirlo.",
+            "oscurita": "Nonostante la torcia, alcuni angoli della cripta restano nel buio più profondo. Come se respingessero la luce.",
+        },
+        "uscite_bloccate_add": {
+            "nord": {"condizione": "flag:cunicolo_aperto",
+                     "messaggio": "Una parete di pietra blocca il passaggio verso nord. La superficie è screpolata."}
         },
     },
     "giungla_profonda": {
@@ -749,6 +827,7 @@ BLOCKED_DESTS = {
     "via_titani::dentro": "radice_mondo",
     "osservatorio::dentro": "via_titani",
     "cripta::nord": "cunicolo_nascosto",
+    "grotte::giu": "grotte_profonde",
 }
 
 # ─────────────────────────────────────────────────────────────────────

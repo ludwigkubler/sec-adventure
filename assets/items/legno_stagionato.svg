@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Legno stagionato</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <g>
+  <rect x="4" y="24" width="56" height="16" fill="#5a3818" stroke="#1a0e05" stroke-width="2"/>
+  <rect x="4" y="24" width="56" height="3" fill="#7a4820" opacity=".7"/>
+  <line x1="4" y1="32" x2="60" y2="32" stroke="#3a2010" stroke-width="1"/>
+  <!-- Wood grain -->
+  <path d="M8 28 Q20 26 32 28 T60 28" stroke="#3a2010" stroke-width=".8" fill="none"/>
+  <path d="M8 36 Q20 34 32 36 T60 36" stroke="#3a2010" stroke-width=".8" fill="none"/>
+  <!-- Knot -->
+  <ellipse cx="24" cy="32" rx="3" ry="5" fill="#2a1408" stroke="#3a2010" stroke-width="1"/>
+  <circle cx="46" cy="30" r="2" fill="#2a1408"/>
+</g>
+</svg>

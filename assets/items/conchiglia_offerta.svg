@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Conchiglia d'offerta</title>
+  <rect width="64" height="64" fill="#1a1208" rx="4"/>
+  <g>
+  <path d="M32 6 Q52 24 50 44 Q40 56 32 56 Q24 56 14 44 Q12 24 32 6 Z" fill="#f0d4b8" stroke="#1a0e05" stroke-width="2"/>
+  <!-- Three concentric circles (the offering mark) -->
+  <circle cx="32" cy="36" r="12" fill="none" stroke="#a06040" stroke-width="1.5"/>
+  <circle cx="32" cy="36" r="8" fill="none" stroke="#a06040" stroke-width="1.2"/>
+  <circle cx="32" cy="36" r="4" fill="#a06040"/>
+  <!-- Ridges -->
+  <path d="M28 12 Q32 30 36 12" stroke="#d0a080" stroke-width="1" fill="none"/>
+  <path d="M22 18 Q32 32 42 18" stroke="#d0a080" stroke-width="1" fill="none"/>
+</g>
+</svg>

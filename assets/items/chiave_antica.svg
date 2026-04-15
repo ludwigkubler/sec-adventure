@@ -2,5 +2,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <title>Chiave della cripta</title>
   <rect width="64" height="64" fill="#1a1208" rx="4"/>
-  <circle cx="18" cy="32" r="10" fill="none" stroke="#909088" stroke-width="4"/><rect x="26" y="29" width="30" height="6" fill="#909088" stroke="#1a0e05" stroke-width="1.5"/><rect x="46" y="28" width="3" height="10" fill="#909088" stroke="#1a0e05" stroke-width="1"/>
+  <g>
+  <circle cx="18" cy="32" r="12" fill="#707078" stroke="#1a0e05" stroke-width="2"/>
+  <circle cx="18" cy="32" r="8" fill="#1a1a22" stroke="#1a0e05" stroke-width="1"/>
+  <circle cx="18" cy="32" r="5" fill="#909098"/>
+  <!-- Rune etched -->
+  <text x="18" y="35" font-size="8" text-anchor="middle" fill="#3a3a42" font-family="serif">◈</text>
+  <!-- Shaft -->
+  <rect x="30" y="29" width="26" height="6" fill="#909098" stroke="#1a0e05" stroke-width="1.5"/>
+  <line x1="30" y1="32" x2="56" y2="32" stroke="#5a5a62" stroke-width=".5"/>
+  <!-- Teeth -->
+  <rect x="44" y="28" width="3" height="10" fill="#909098" stroke="#1a0e05" stroke-width="1"/>
+  <rect x="50" y="28" width="3" height="12" fill="#909098" stroke="#1a0e05" stroke-width="1"/>
+  <circle cx="14" cy="28" r="2" fill="#c0c0c8" opacity=".5"/>
+</g>
 </svg>

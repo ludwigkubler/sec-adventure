@@ -186,6 +186,20 @@ const Engine = (() => {
 
   function addItem(id) {
     if (!state.inv.includes(id)) state.inv.push(id);
+    state.taken[id] = true;
+    // Codex tracking anche per item ottenuti via action/dialogue/recipe
+    if ((W.collectibles || {})[id] && !state.codex[id]) {
+      state.codex[id] = true;
+      const total = Object.keys(W.collectibles).length;
+      const found = Object.keys(state.codex).length;
+      emit({type: "codex_found", id, found, total, lore: W.collectibles[id]});
+      if (found === total && !state.flags.codex_completo) {
+        state.flags.codex_completo = true;
+        emit({type: "achievement", id: "codex_completo",
+              title: "Codex Completo",
+              desc: `Hai trovato tutti i ${total} frammenti di lore. Un epilogo segreto ti attende.`});
+      }
+    }
     emit({type: "take", id});
   }
   function removeItem(id) {
