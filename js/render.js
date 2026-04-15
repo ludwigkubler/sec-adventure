@@ -95,6 +95,8 @@ const Render = (() => {
         document.body.classList.remove("transitioning");
       }, 320);
       currentRoom = st.room;
+      // Ambient FX: popola il layer in base al preset della stanza
+      if (typeof FX !== "undefined") FX.setRoom(st.room);
     }
 
     const container = $hot();
@@ -183,13 +185,20 @@ const Render = (() => {
 
   function renderInventory() {
     const st = Engine.getState();
+    const W = Engine.world();
+    const collectibleIds = new Set(Object.keys(W.collectibles || {}));
     const inv = $inv();
+    // Filtra: i collezionabili finiscono SOLO nel codex, non nell'inventario usabile
+    const visible = st.inv.filter(iid => !collectibleIds.has(iid));
     inv.innerHTML = "";
-    if (st.inv.length === 0) {
-      inv.innerHTML = '<div class="inv-empty">inventario vuoto</div>';
+    // Aggiorna badge count sulla maniglia laterale
+    const countBadge = document.querySelector("#inv-toggle .inv-count");
+    if (countBadge) countBadge.textContent = String(visible.length);
+    if (visible.length === 0) {
+      inv.innerHTML = '<div class="inv-empty">' + (window.I18n ? I18n.t("inv_empty") : "inventario vuoto") + '</div>';
       return;
     }
-    for (const iid of st.inv) {
+    for (const iid of visible) {
       const it = Engine.item(iid);
       if (!it) continue;
       const slot = document.createElement("div");
@@ -388,18 +397,31 @@ const Render = (() => {
   function getCapture(itemId) { return captureItemPos(itemId); }
 
   function logLine(text, cls = "narrative") {
-    const log = $log();
-    const d = document.createElement("div");
-    d.className = "line " + cls + " enter";
-    d.innerHTML = formatText(text);
-    log.appendChild(d);
-    log.scrollTop = log.scrollHeight;
-    while (log.children.length > 60) log.removeChild(log.firstChild);
-    requestAnimationFrame(() => d.classList.remove("enter"));
+    // Narrative/title non finiscono più nel log visivo: appaiono solo come toast effimero nel hud-log
+    if (cls === "narrative") return;
+    logSystem(text);
   }
 
-  function logTitle(text) { logLine(text, "title"); }
-  function logSystem(text) { logLine(text, "system"); }
+  function logTitle(text) {
+    // Titoli scena: usa #scene-title flash (già implementato altrove)
+    const t = document.getElementById("scene-title");
+    if (t) { t.textContent = text; t.classList.add("show");
+      setTimeout(() => t.classList.remove("show"), 2800); }
+  }
+
+  function logSystem(text) {
+    // Messaggio di sistema effimero nel mini-log in basso
+    const mini = document.getElementById("hud-log");
+    if (!mini) return;
+    const d = document.createElement("div");
+    d.className = "hud-line enter";
+    d.textContent = String(text).replace(/\n/g, " ").slice(0, 180);
+    mini.appendChild(d);
+    requestAnimationFrame(() => d.classList.remove("enter"));
+    // Auto-fade dopo 3.5s
+    setTimeout(() => { d.classList.add("fade"); setTimeout(() => d.remove(), 600); }, 3500);
+    while (mini.children.length > 4) mini.removeChild(mini.firstChild);
+  }
 
   function formatText(t) {
     return escapeHtml(t).replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>");

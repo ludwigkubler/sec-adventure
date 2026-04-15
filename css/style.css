@@ -17,6 +17,9 @@ html,body{height:100%;background:#000;color:var(--fg);font-family:Georgia,serif;
 button{font-family:inherit}
 
 #game{position:relative;width:100vw;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at center, #1a0e05 0%, #000 80%)}
+/* Fullscreen mode: scene occupa tutto lo schermo */
+#game:fullscreen, #game:-webkit-full-screen{width:100vw;height:100vh}
+#scene{max-height:100vh}
 #game.cur-use{cursor:crosshair}
 
 /* ─── SCENE ─── */
@@ -38,10 +41,31 @@ button{font-family:inherit}
 #hud-overlay span{background:var(--panel);color:var(--accent);padding:4px 10px;font-size:12px;border:1px solid var(--border);border-radius:3px;font-family:'Courier New',monospace;letter-spacing:.5px;backdrop-filter:blur(3px)}
 #hud-overlay span#hud-pct{color:var(--accent-hot)}
 
-/* ─── TOPBAR ─── */
-#topbar{position:absolute;top:8px;right:8px;display:flex;gap:6px;z-index:20}
-.topbtn{width:32px;height:32px;background:var(--panel);color:var(--fg);border:1px solid var(--border);border-radius:3px;cursor:pointer;font-size:14px;transition:all .2s}
-.topbtn:hover{background:#2a1a0c;border-color:var(--accent-hot);color:var(--accent-hot);transform:scale(1.08)}
+/* ─── TOPBAR ─── (bottoni più grandi per leggibilità) */
+#topbar{position:absolute;top:10px;right:10px;display:flex;gap:8px;z-index:20}
+.topbtn{width:44px;height:44px;background:var(--panel);color:var(--fg);border:1px solid var(--border);border-radius:4px;cursor:pointer;font-size:19px;transition:all .18s;display:flex;align-items:center;justify-content:center;padding:0;line-height:1}
+.topbtn:hover{background:#2a1a0c;border-color:var(--accent-hot);color:var(--accent-hot);transform:scale(1.08);box-shadow:0 0 14px rgba(192,138,60,.3)}
+
+/* ─── Inventario laterale collassabile ─── */
+#inv-side{position:fixed;top:50%;right:0;transform:translateY(-50%);z-index:22;display:flex;align-items:stretch;transition:transform .3s ease;pointer-events:none}
+#inv-side.collapsed #inv-side-body{transform:translateX(100%);pointer-events:none;opacity:0}
+#inv-side.open #inv-side-body{transform:translateX(0);pointer-events:auto;opacity:1}
+#inv-toggle{pointer-events:auto;background:linear-gradient(180deg,#3a2818,#1a0e05);color:var(--accent-hot);border:1px solid var(--border);border-right:none;border-radius:6px 0 0 6px;width:36px;min-height:78px;cursor:pointer;font-size:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:8px 0;box-shadow:-4px 0 14px rgba(0,0,0,.4)}
+#inv-toggle:hover{background:#3a2818;color:#fff0a0}
+#inv-toggle .inv-chev{transition:transform .3s}
+#inv-side.open #inv-toggle .inv-chev{transform:rotate(180deg)}
+#inv-toggle .inv-count{font-size:12px;background:var(--accent-hot);color:#1a0e05;padding:1px 7px;border-radius:10px;min-width:20px;text-align:center;font-weight:bold;font-family:'Courier New',monospace}
+#inv-side-body{pointer-events:auto;background:linear-gradient(180deg,#1f140a 0%,#14090a 100%);border:1px solid var(--border);border-right:none;border-radius:6px 0 0 6px;padding:14px 10px;min-width:230px;max-height:70vh;overflow-y:auto;transition:transform .3s ease, opacity .2s;box-shadow:-6px 0 22px rgba(0,0,0,.6)}
+
+/* Inventario interno ora a colonna, non flex-wrap orizzontale */
+#inventory-bar{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;padding:0;min-height:auto}
+
+/* ─── Mini-log sistema (effimero, bottom-left) ─── */
+#hud-log{position:absolute;bottom:14px;left:14px;z-index:19;pointer-events:none;display:flex;flex-direction:column;gap:4px;max-width:380px}
+#hud-log .hud-line{background:rgba(20,14,8,.82);color:var(--accent-hot);padding:6px 12px;font-size:13px;font-style:italic;border-left:2px solid var(--accent-hot);border-radius:0 3px 3px 0;opacity:0;transform:translateX(-8px);transition:opacity .4s, transform .4s}
+#hud-log .hud-line.enter{opacity:0;transform:translateX(-20px)}
+#hud-log .hud-line:not(.enter){opacity:.95;transform:translateX(0)}
+#hud-log .hud-line.fade{opacity:0;transform:translateY(-6px)}
 
 /* ─── HOTSPOTS ─── */
 .hotspot{position:absolute;display:flex;flex-direction:column;align-items:center;cursor:pointer;user-select:none;transition:transform .2s ease-out}
@@ -91,9 +115,9 @@ button{font-family:inherit}
 .hotspot:hover .label{opacity:.9}
 .hotspot.type-exit .label{font-style:italic;color:#bee5e5}
 
-/* ─── HUD ─── */
-#hud{width:min(100vw,1280px);background:#0a0703;border:1px solid var(--border);border-top:none;display:flex;flex-direction:column;border-radius:0 0 3px 3px}
-#text-log{padding:10px 16px;min-height:80px;max-height:140px;overflow-y:auto;border-bottom:1px solid var(--border);font-size:14.5px;line-height:1.5;scrollbar-width:thin;scrollbar-color:var(--border) #000}
+/* ─── HUD legacy (nascosto per default) ─── */
+#hud{display:none}
+#text-log{display:none;padding:10px 16px;min-height:80px;max-height:140px;overflow-y:auto;border-bottom:1px solid var(--border);font-size:14.5px;line-height:1.5;scrollbar-width:thin;scrollbar-color:var(--border) #000}
 #text-log::-webkit-scrollbar{width:8px}
 #text-log::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
 #text-log .line{margin-bottom:6px;animation:lineIn .5s ease-out}
@@ -262,6 +286,66 @@ button:focus-visible{outline-offset:2px}
 #game.cur-use .hotspot:hover .icon{box-shadow:0 0 26px var(--accent-hot), 0 2px 12px #000;border-color:var(--accent-hot) !important}
 #game.cur-use .hotspot.type-exit:hover .icon{color:var(--accent-hot);text-shadow:0 0 28px var(--accent-hot)}
 
+/* ─── AMBIENT FX LAYER (dynamic atmosphere per-room) ─── */
+#ambient-fx{position:absolute;inset:0;pointer-events:none;z-index:4;overflow:hidden;mix-blend-mode:screen}
+#ambient-fx > *{position:absolute;pointer-events:none;will-change:transform,opacity}
+
+/* BEACH: onde + gabbiani + sunglint */
+.fx-wave{left:-10%;right:-10%;height:2px;background:linear-gradient(90deg,transparent,rgba(220,230,240,.0) 8%,rgba(220,230,240,.35) 50%,rgba(220,230,240,.0) 92%,transparent);filter:blur(1px);animation:fxWaveSlide linear infinite}
+.fx-wave-0{bottom:18%;animation-duration:18s;opacity:.55}
+.fx-wave-1{bottom:12%;animation-duration:26s;opacity:.45;height:1px}
+.fx-wave-2{bottom:6%;animation-duration:34s;opacity:.35;height:3px;filter:blur(2px)}
+@keyframes fxWaveSlide{0%{transform:translateX(-12%)}100%{transform:translateX(12%)}}
+.fx-gull{left:-8%;font-size:14px;color:rgba(30,22,18,.55);text-shadow:0 0 2px rgba(0,0,0,.2);animation:fxGullCross linear infinite;letter-spacing:-2px;font-weight:700}
+@keyframes fxGullCross{0%{transform:translateX(0) translateY(0) scale(.6);opacity:0}8%{opacity:.6}50%{transform:translateX(55vw) translateY(-8px) scale(.55)}92%{opacity:.6}100%{transform:translateX(110vw) translateY(4px) scale(.5);opacity:0}}
+.fx-sunglint{inset:auto 0 10% 0;height:30%;background:radial-gradient(ellipse at 62% 100%, rgba(255,230,160,.16), transparent 55%);animation:fxSunGlint 9s ease-in-out infinite;opacity:.7}
+@keyframes fxSunGlint{0%,100%{transform:translateX(-3%);opacity:.45}50%{transform:translateX(3%);opacity:.85}}
+
+/* FOREST: foglie + shaft di luce volumetrica */
+.fx-leaf{top:-4%;font-size:13px;text-shadow:0 1px 2px rgba(0,0,0,.35);animation-name:fxLeafFall;animation-timing-function:linear;animation-iteration-count:infinite;opacity:.75}
+@keyframes fxLeafFall{0%{transform:translate(0,-10%) rotate(0deg);opacity:0}10%{opacity:.8}90%{opacity:.8}100%{transform:translate(-40px,110vh) rotate(540deg);opacity:0}}
+.fx-lightshaft{top:-20%;width:28%;height:140%;background:linear-gradient(180deg, rgba(255,230,170,.14), rgba(255,230,170,.04) 60%, transparent 100%);transform-origin:top center;filter:blur(14px);opacity:.7;animation:fxShaftSway ease-in-out infinite alternate}
+.fx-lightshaft-0{left:12%;transform:rotate(-8deg);animation-duration:17s}
+.fx-lightshaft-1{left:42%;transform:rotate(4deg);animation-duration:21s;opacity:.55}
+.fx-lightshaft-2{left:68%;transform:rotate(-2deg);animation-duration:25s;opacity:.6}
+@keyframes fxShaftSway{0%{transform:rotate(-8deg) translateX(-8px);opacity:.45}100%{transform:rotate(2deg) translateX(8px);opacity:.75}}
+
+/* VILLAGE: fumo + luccioline */
+.fx-smoke{bottom:30%;width:24px;height:24px;border-radius:50%;background:radial-gradient(circle,rgba(220,210,195,.5),rgba(220,210,195,0) 70%);filter:blur(4px);animation:fxSmokeRise 8s linear infinite}
+@keyframes fxSmokeRise{0%{transform:translate(0,0) scale(.5);opacity:0}15%{opacity:.6}100%{transform:translate(-20px,-240px) scale(2.2);opacity:0}}
+.fx-firefly{width:4px;height:4px;border-radius:50%;background:#f6e390;box-shadow:0 0 8px #f6e390,0 0 16px rgba(246,227,144,.6);animation:fxFireflyBlink ease-in-out infinite}
+@keyframes fxFireflyBlink{0%,100%{opacity:0;transform:translate(0,0)}30%{opacity:1}70%{opacity:.8;transform:translate(14px,-10px)}}
+
+/* MOUNTAIN: polvere orizzontale + bande di nebbia */
+.fx-dust{left:-4%;width:30px;height:1px;background:linear-gradient(90deg,transparent,rgba(230,220,200,.55),transparent);filter:blur(1px);animation:fxDustBlow linear infinite}
+@keyframes fxDustBlow{0%{transform:translateX(-40px);opacity:0}20%{opacity:.7}80%{opacity:.7}100%{transform:translateX(110vw);opacity:0}}
+.fx-fogband{left:-10%;right:-10%;height:22%;background:linear-gradient(180deg, rgba(210,210,220,.0), rgba(210,210,220,.18) 50%, rgba(210,210,220,.0));filter:blur(10px);animation:fxFogDrift linear infinite}
+.fx-fogband-1{bottom:8%;animation-duration:40s;opacity:.6}
+.fx-fogband-2{bottom:24%;animation-duration:60s;opacity:.4;height:14%}
+@keyframes fxFogDrift{0%{transform:translateX(-6%)}100%{transform:translateX(6%)}}
+
+/* CRYPT: gocce verticali + nebbia fluttuante */
+.fx-drop{top:-4%;width:1px;height:14px;background:linear-gradient(180deg,transparent,rgba(180,200,220,.7));filter:blur(.3px);animation:fxDropFall linear infinite}
+@keyframes fxDropFall{0%{transform:translateY(-20px);opacity:0}10%{opacity:.8}85%{opacity:.8}92%{transform:translateY(88vh) scaleY(1);opacity:.8}100%{transform:translateY(90vh) scaleY(.2);opacity:0}}
+.fx-mist, .fx-mist-2{left:-20%;right:-20%;height:60%;bottom:-10%;background:radial-gradient(ellipse at center, rgba(180,200,220,.18), transparent 65%);filter:blur(14px);animation:fxMistFloat ease-in-out infinite alternate}
+.fx-mist-1{animation-duration:18s;opacity:.55}
+.fx-mist-2{animation-duration:26s;opacity:.35;bottom:20%;height:45%}
+@keyframes fxMistFloat{0%{transform:translate(-3%,0) scale(1)}100%{transform:translate(3%,-4%) scale(1.08)}}
+
+/* ATTO II: polvere luminosa + underglow + scintille */
+.fx-mote{top:-4%;width:3px;height:3px;border-radius:50%;background:#f0d088;box-shadow:0 0 6px rgba(240,208,136,.8);animation-name:fxMoteDrift;animation-timing-function:linear;animation-iteration-count:infinite;opacity:.7}
+@keyframes fxMoteDrift{0%{transform:translate(0,-10px);opacity:0}15%{opacity:.9}85%{opacity:.8}100%{transform:translate(-30px,105vh);opacity:0}}
+.fx-underglow{inset:auto 0 -8% 0;height:45%;background:radial-gradient(ellipse at center bottom, rgba(240,178,90,.22), rgba(240,178,90,.06) 45%, transparent 80%);animation:fxUnderglowPulse 6s ease-in-out infinite;opacity:.8}
+@keyframes fxUnderglowPulse{0%,100%{opacity:.45;transform:scaleY(.95)}50%{opacity:.85;transform:scaleY(1.05)}}
+.fx-spark{width:3px;height:3px;border-radius:50%;background:#ffd060;box-shadow:0 0 8px #ffb040, 0 0 16px rgba(255,160,60,.6);animation-name:fxSparkFly;animation-timing-function:ease-out;animation-iteration-count:infinite}
+@keyframes fxSparkFly{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(calc(var(--sx,20px)),-60px) scale(.2);opacity:0}}
+
+/* ROOTS: pulsazione verde-azzurra + spore */
+.fx-rootpulse{inset:0;background:radial-gradient(ellipse at 50% 55%, rgba(120,230,200,.14), rgba(80,180,220,.06) 50%, transparent 85%);animation:fxRootPulse 7s ease-in-out infinite;mix-blend-mode:screen}
+@keyframes fxRootPulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:.8;transform:scale(1.04)}}
+.fx-spore{bottom:-4%;width:4px;height:4px;border-radius:50%;background:#a6f0d0;box-shadow:0 0 8px #80e0c0, 0 0 16px rgba(128,224,192,.5);animation-name:fxSporeFloat;animation-timing-function:linear;animation-iteration-count:infinite}
+@keyframes fxSporeFloat{0%{transform:translate(0,10px);opacity:0}10%{opacity:.9}50%{transform:translate(20px,-50vh);opacity:.9}90%{opacity:.9}100%{transform:translate(-10px,-105vh);opacity:0}}
+
 /* prefers-reduced-motion: disabilita le animazioni di ambiente */
 @media (prefers-reduced-motion: reduce){
   #bg, .hotspot, .hotspot .icon, .inv-slot, .map-svg .node.current,
@@ -271,6 +355,7 @@ button:focus-visible{outline-offset:2px}
     transition: none !important;
   }
   .fx-particle, .fx-flash, .fx-result{display:none !important}
+  #ambient-fx{display:none !important}
 }
 
 /* responsive */

@@ -700,8 +700,25 @@ const UI = (() => {
     document.getElementById("pend-cancel").onclick = close;
   }
 
+  // Prompt scelta lingua (nessun reload): due bottoni IT / EN
+  function showLangPrompt(onChoose) {
+    Audio.sfx("click");
+    show(`
+      <h3>🌐 Language / Lingua</h3>
+      <p>Choose your language. / Scegli la lingua.</p>
+      <div class="modal-actions">
+        <button id="lang-it">🇮🇹 Italiano</button>
+        <button id="lang-en">🇬🇧 English</button>
+        <button id="lang-cancel" style="opacity:.6">Annulla / Cancel</button>
+      </div>
+    `);
+    document.getElementById("lang-it").onclick = () => { close(); onChoose("it"); };
+    document.getElementById("lang-en").onclick = () => { close(); onChoose("en"); };
+    document.getElementById("lang-cancel").onclick = () => { close(); onChoose(null); };
+  }
+
   return {show, close, showText, showDialog, showPuzzle, showJournal, showHelp, showMenu,
           showIntro, showEnding, showFaroLit, showLockPuzzle,
           showCodex, showMap, showToast, showSecretEpilogue,
-          showHint, showTutorial, showStarPuzzle, showPendulumPuzzle};
+          showHint, showTutorial, showStarPuzzle, showPendulumPuzzle, showLangPrompt};
 })();

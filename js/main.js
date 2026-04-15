@@ -135,11 +135,32 @@
     document.getElementById("hud-pct").textContent = `✦ ${pct}%`;
   }
 
-  // Language toggle global
+  // Language toggle: prompt → swap world live (no reload)
   window.toggleLang = async () => {
-    const cur = I18n.getLang();
-    const next = cur === "it" ? "en" : "it";
-    await I18n.setLang(next);
-    location.reload();
+    Audio.resume();
+    // Chiediamo prompt con due bottoni
+    UI.showLangPrompt(async (choice) => {
+      if (!choice) return;
+      if (choice === I18n.getLang()) return;
+      await I18n.setLang(choice);
+      // Ricarica world nella nuova lingua preservando lo stato
+      const file = choice === "en" ? "data/world.en.json" : "data/world.json";
+      try {
+        const r = await fetch(file);
+        if (!r.ok) throw new Error("world not found");
+        const newWorld = await r.json();
+        const savedState = Engine.getState();
+        Engine.init(newWorld);
+        Engine.setState(savedState); // Preserva inv/flags/visited/codex/achievements
+        applyUIStrings();
+        Render.drawScene();
+        Render.logSystem(choice === "en" ? "Language switched to English." : "Lingua cambiata in italiano.");
+      } catch (e) {
+        Render.logSystem("Language switch failed: " + e.message);
+      }
+    });
   };
+
+  // Espongo applyUIStrings globalmente per re-chiamata al switch lingua
+  window.applyUIStrings = applyUIStrings;
 })();

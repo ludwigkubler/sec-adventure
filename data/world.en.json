@@ -813,6 +813,7 @@
         "albero": "A tree made of pure light. Emits no heat, but you feel it singing in your bones. It is alive. It has been alive from before the island, from before everything.",
         "piedistallo": "Rough stone with a hollow to receive the crown. Beneath, an inscription: 'WHOEVER WEARS, DOES NOT RETURN THE SAME AS THEY WERE.'",
         "corona_vuota": "A black metal crown. Eight empty points. Each point seems made to receive a crystal or a star.",
+        "indossa_corona": "► UI: per indossare la Corona Titanica attivata, selezionala nell'inventario (si illumina) e poi clicca qui o sul piedistallo.",
         "piedestallo": "Raw stone with a hollow to receive the crown. Below, an inscription: 'WHOEVER WEARS, DOES NOT RETURN THE SAME AS THEY WERE.'"
       }
     }
@@ -2327,6 +2328,16 @@
       "flag": "cunicolo_aperto",
       "consuma": false,
       "audio": "wall_break"
+    },
+    "torcia::bivio_giungla": {
+      "messaggio": "Sollevi la torcia. La luce ambra scivola sui tronchi e sul totem, rivelando dettagli che nel buio non avevi notato: tre uccelli scolpiti sopra la figura del polipo, un solco che scende alla base del totem. La stanza si illumina.",
+      "flag": "bivio_illuminato",
+      "consuma": false
+    },
+    "torcia::corridoio_perduto": {
+      "messaggio": "La torcia rivela i nomi sulla parete uno dopo l'altro. Migliaia. Alcuni li riesci a leggere — lingue antiche e moderne, bambini e vecchi, donne e uomini. Il corridoio si illumina di una luce calda.",
+      "flag": "corridoio_illuminato",
+      "consuma": false
     },
     "martello_rame::sala_ingranaggi": {
       "messaggio": "With the copper hammer you loosen the bolt at the base of the crank. The bare shaft detaches: you can now take it with you to mount it elsewhere.",

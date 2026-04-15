@@ -377,8 +377,9 @@ ROOMS = {
         "npcs": [],
         "esaminabili": {
             "albero": "Un albero fatto di pura luce. Non emette calore, ma sentirla cantare nelle ossa. È vivo. È stato vivo da prima dell'isola, da prima di tutto.",
-            "piedistallo": "Pietra grezza con un avvallamento per ricevere la corona. Sotto, un'iscrizione: 'CHI INDOSSA, NON RITORNA QUALE ERA.'",
-            "corona_vuota": "Una corona di metallo nero. Otto punte vuote. Ogni punta sembra fatta per ricevere un cristallo o una stella.",
+            "piedistallo": "Pietra grezza con un avvallamento per ricevere la corona. Sotto, un'iscrizione: 'CHI INDOSSA, NON RITORNA QUALE ERA.'\n\n► Seleziona la Corona Titanica ATTIVATA dall'inventario, poi clicca su questo dettaglio: la corona si poserà sulla tua fronte e il finale comincerà.",
+            "corona_vuota": "Una corona di metallo nero. Otto punte vuote. Ogni punta sembra fatta per ricevere un cristallo o una stella. Manca di forza: è ancora addormentata.",
+            "indossa_corona": "► UI: per indossare la Corona Titanica attivata, selezionala nell'inventario (si illumina) e poi clicca qui o sul piedistallo.",
         },
     },
 }
@@ -590,6 +591,16 @@ ROOM_ACTIONS = {
     ("piccone", "cripta"): {
         "messaggio": "Sferri un colpo, due, tre. Le pietre allentate cedono una dopo l'altra. Polvere antichissima si solleva. Quando il muro crolla del tutto, ti trovi davanti a un piccolo cunicolo asciutto che si apre verso nord. La luce di una fiamma calda brilla in fondo.",
         "flag": "cunicolo_aperto", "consuma": False, "audio": "wall_break",
+    },
+    # Torcia riutilizzabile: illumina il bivio della giungla
+    ("torcia", "bivio_giungla"): {
+        "messaggio": "Sollevi la torcia. La luce ambra scivola sui tronchi e sul totem, rivelando dettagli che nel buio non avevi notato: tre uccelli scolpiti sopra la figura del polipo, un solco che scende alla base del totem. La stanza si illumina.",
+        "flag": "bivio_illuminato", "consuma": False,
+    },
+    # Torcia riutilizzabile: illumina il corridoio perduto
+    ("torcia", "corridoio_perduto"): {
+        "messaggio": "La torcia rivela i nomi sulla parete uno dopo l'altro. Migliaia. Alcuni li riesci a leggere — lingue antiche e moderne, bambini e vecchi, donne e uomini. Il corridoio si illumina di una luce calda.",
+        "flag": "corridoio_illuminato", "consuma": False,
     },
     # Manovella temporanea: prendi l'asta dalla manovella della sala_ingranaggi usando il martello
     ("martello_rame", "sala_ingranaggi"): {

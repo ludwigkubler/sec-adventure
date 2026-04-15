@@ -10,6 +10,7 @@
 <div id="game">
   <div id="scene" role="application" aria-label="Adventure scene">
     <div id="bg" aria-hidden="true"></div>
+    <div id="ambient-fx" aria-hidden="true"></div>
     <div id="vignette" aria-hidden="true"></div>
     <div id="hotspots" role="group" aria-label="Interactive elements"></div>
     <div id="cursor-hint" aria-hidden="true"></div>
@@ -21,6 +22,7 @@
       <button class="topbtn" id="btn-hint" title="Hint (H)" aria-label="Contextual hint"><span aria-hidden="true">💡</span></button>
       <button class="topbtn" id="btn-mute" title="Audio (M)" aria-label="Toggle audio"><span aria-hidden="true">🔊</span></button>
       <button class="topbtn" id="btn-lang" title="Language (L)" aria-label="Toggle language Italian / English"><span aria-hidden="true">🌐</span></button>
+      <button class="topbtn" id="btn-fullscreen" title="Fullscreen (F)" aria-label="Toggle fullscreen"><span aria-hidden="true">⛶</span></button>
       <button class="topbtn" id="btn-help" title="Help (?)" aria-label="Help">?</button>
       <button class="topbtn" id="btn-menu" title="Menu (ESC)" aria-label="Menu"><span aria-hidden="true">≡</span></button>
     </nav>
@@ -30,10 +32,20 @@
       <span id="hud-pct" title="Completion" aria-label="Completion">✦ 0%</span>
     </div>
   </div>
-  <div id="hud">
-    <div id="text-log" aria-live="polite" aria-atomic="false" aria-label="Game log"></div>
-    <div id="inventory-bar" role="toolbar" aria-label="Inventory"></div>
-  </div>
+  <!-- Inventario laterale a destra, collassabile -->
+  <aside id="inv-side" class="collapsed" aria-label="Inventory">
+    <button id="inv-toggle" aria-expanded="false" title="Toggle inventory (I)">
+      <span class="inv-chev" aria-hidden="true">◀</span>
+      <span class="inv-count">0</span>
+    </button>
+    <div id="inv-side-body" role="toolbar">
+      <div id="inventory-bar" role="toolbar" aria-label="Inventory slots"></div>
+    </div>
+  </aside>
+  <!-- Log di sistema minimalista, appare solo per messaggi system brevi -->
+  <div id="hud-log" role="status" aria-live="polite" aria-atomic="false"></div>
+  <!-- Mantieni text-log nascosto (usato come fallback da librerie) -->
+  <div id="text-log" aria-hidden="true" style="display:none"></div>
   <div id="modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="modal-content">
     <div id="modal-content" tabindex="-1"></div>
   </div>
@@ -53,6 +65,7 @@
 <script src="js/i18n.js"></script>
 <script src="js/engine.js"></script>
 <script src="js/audio.js"></script>
+<script src="js/fx.js"></script>
 <script src="js/render.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/input.js"></script>

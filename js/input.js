@@ -42,6 +42,8 @@ const Input = (() => {
       if (e.key === "t" || e.key === "T") UI.showMap();
       if (e.key === "h" || e.key === "H") UI.showHint();
       if (e.key === "l" || e.key === "L") window.toggleLang && window.toggleLang();
+      if (e.key === "f" || e.key === "F") toggleFullscreen();
+      if (e.key === "i" || e.key === "I") toggleInv();
       if (e.key === "?") UI.showHelp();
       if (e.key === "m" || e.key === "M") {
         const muted = Audio.toggleMute();
@@ -63,10 +65,32 @@ const Input = (() => {
     if (hintBtn) hintBtn.onclick = () => UI.showHint();
     const langBtn = document.getElementById("btn-lang");
     if (langBtn) langBtn.onclick = () => window.toggleLang && window.toggleLang();
+    const fsBtn = document.getElementById("btn-fullscreen");
+    if (fsBtn) fsBtn.onclick = () => toggleFullscreen();
+    const invToggleBtn = document.getElementById("inv-toggle");
+    if (invToggleBtn) invToggleBtn.onclick = () => toggleInv();
     document.getElementById("btn-mute").onclick = () => {
       const muted = Audio.toggleMute();
-      document.getElementById("btn-mute").textContent = muted ? "🔇" : "🔊";
+      document.getElementById("btn-mute").querySelector("span").textContent = muted ? "🔇" : "🔊";
     };
+  }
+
+  function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      (document.documentElement.requestFullscreen || function(){}).call(document.documentElement);
+    } else if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
+  function toggleInv() {
+    const side = document.getElementById("inv-side");
+    if (!side) return;
+    const now = !side.classList.contains("open");
+    side.classList.toggle("open", now);
+    side.classList.toggle("collapsed", !now);
+    const t = document.getElementById("inv-toggle");
+    if (t) t.setAttribute("aria-expanded", String(now));
+    Audio.sfx("click");
   }
 
   let lastHoverSfxAt = 0;
@@ -153,8 +177,22 @@ const Input = (() => {
       }
       Render.flyToInventory(hs, id);
       const res = Engine.takeItem(id);
-      if (res.ok) Audio.sfxItem("pickup", id); else Audio.sfx("fail");
-      Render.logLine(res.msg, res.ok ? "narrative" : "system");
+      if (res.ok) {
+        Audio.sfxItem("pickup", id);
+        const it = Engine.item(id);
+        const isCollectible = !!(Engine.world().collectibles || {})[id];
+        // Collezionabili: piccolo toast "+1 Codex" già emesso da engine codex_found listener
+        // Oggetti normali: modale descrittiva
+        if (!isCollectible) {
+          setTimeout(() => {
+            UI.showText(it.nome_completo,
+              (it.descrizione || "") + (it.descrizione_terra ? "\n\n" + it.descrizione_terra : ""));
+          }, 350);
+        }
+      } else {
+        Audio.sfx("fail");
+        Render.logSystem(res.msg);
+      }
       setTimeout(() => Render.drawScene(), 200);
       return;
     }

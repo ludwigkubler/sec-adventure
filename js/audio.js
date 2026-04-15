@@ -40,6 +40,40 @@ const Audio = (() => {
     if (ctx.state === "suspended") ctx.resume();
   }
 
+  // ─── Scale pentatoniche minori (root→Hz, 5 gradi in ottava + ottava sopra) ───
+  // Costruite da MIDI: pentaMinor = [0,3,5,7,10] semitoni. Tonalità scelte per mood.
+  const mtof = (m) => 440 * Math.pow(2, (m - 69) / 12);
+  const pentaMinor = (rootMidi) => [0, 3, 5, 7, 10, 12].map(s => mtof(rootMidi + s));
+  const SCALES = {
+    Am: pentaMinor(57), Dm: pentaMinor(50), Em: pentaMinor(52),
+    Gm: pentaMinor(43), Bm: pentaMinor(47), Fm: pentaMinor(41), Cm: pentaMinor(48),
+  };
+  // Motivo = indici nella scala (0-5), ripetuti lentamente. Null = pausa.
+  // chatter: se true, aggiunge cinguettii procedurali (foresta/giungla/villaggio)
+  const MELODIES = {
+    spiaggia:[0,2,3,4,2], caletta:[0,2,4,2,0], grotte:[0,1,3,1], tempio_sommerso:[0,2,3,5,3,2],
+    foresta:[0,3,2,4,2,0], radura:[0,2,4,3,2], scogliere_sud:[0,4,3,2], villaggio:[0,2,3,2,4,2],
+    molo:[0,2,3,2], giungla:[0,3,4,2,0], giungla_profonda:[0,1,3,2], capanna_luna:[0,4,3,5,4,2],
+    sentiero_montagna:[0,2,4,5,4,2], cima_vulcano:[0,1,3,2,0], scogliere:[0,3,2,4,2],
+    faro:[0,2,4,3,2,0], rovine:[0,1,3,2,0], sala_guardiano:[0,2,3,2], cripta:[0,1,3,1,0],
+    laguna:[0,2,4,3,5,4,2], pozzo_faro:[0,1,3,2], cripta_meccanica:[0,2,3,5,3],
+    sala_ingranaggi:[0,2,4,2,3,1], corridoio_vapore:[0,3,4,2], forgia_antica:[0,1,3,2,4],
+    archivio:[0,2,3,2,4], osservatorio:[0,2,4,5,4,3,2], cuore_macchina:[0,1,3,2],
+    agora_perduta:[0,2,3,5,3,2], via_titani:[0,2,3,2,1], abisso:[0,1,2,1],
+    radice_mondo:[0,2,3,4,5,4,3,2],
+  };
+  const BIOME_KEYS = {
+    spiaggia:"Am", caletta:"Am", grotte:"Dm", tempio_sommerso:"Em", foresta:"Em", radura:"Am",
+    scogliere_sud:"Am", villaggio:"Gm", molo:"Bm", giungla:"Em", giungla_profonda:"Dm",
+    capanna_luna:"Fm", sentiero_montagna:"Am", cima_vulcano:"Dm", scogliere:"Am", faro:"Em",
+    rovine:"Dm", sala_guardiano:"Am", cripta:"Fm", laguna:"Am", pozzo_faro:"Dm",
+    cripta_meccanica:"Em", sala_ingranaggi:"Am", corridoio_vapore:"Am", forgia_antica:"Em",
+    archivio:"Cm", osservatorio:"Am", cuore_macchina:"Dm", agora_perduta:"Am",
+    via_titani:"Dm", abisso:"Fm", radice_mondo:"Am",
+  };
+  const CHATTER_BIOMES = new Set(["foresta","radura","villaggio","giungla","giungla_profonda","capanna_luna"]);
+  const PLUCK_BIOMES   = new Set(["tempio_sommerso","laguna","archivio","osservatorio","radice_mondo","capanna_luna","faro"]);
+
   // Mappa bioma → preset musicale
   // Ogni preset: array di frequenze base + parametri di filtro/movimento
   const BIOMI = {
@@ -80,7 +114,7 @@ const Audio = (() => {
     radice_mondo:     {freqs:[110, 165, 220, 330, 440, 660], cutoff:2200, lfoRate:0.05, type:"sine", noise:0.02, name:"radice"},
   };
 
-  function buildAmbient(preset) {
+  function buildAmbient(preset, roomId) {
     const out = ctx.createGain();
     out.gain.value = 0;
 
@@ -92,7 +126,7 @@ const Audio = (() => {
     filter.connect(out);
 
     const oscs = [];
-    const lfos = [];
+    const timers = [];
 
     preset.freqs.forEach((f, i) => {
       const osc = ctx.createOscillator();
@@ -100,7 +134,8 @@ const Audio = (() => {
       osc.frequency.value = f;
 
       const oscGain = ctx.createGain();
-      oscGain.gain.value = 0.18 / (i + 1);
+      // Bass drone -6dB (≈ ×0.5): da 0.18 a 0.09 sul primo indice, poi decadimento più marcato
+      oscGain.gain.value = 0.09 / (i + 1);
       osc.connect(oscGain).connect(filter);
 
       // LFO sulla detune per dare movimento
@@ -122,8 +157,7 @@ const Audio = (() => {
       osc.start();
       lfo.start();
       ampLfo.start();
-      oscs.push(osc);
-      lfos.push(lfo, ampLfo);
+      oscs.push(osc, lfo, ampLfo);
     });
 
     // Strato di noise filtrato — usa il buffer condiviso (unica allocazione per sessione)
@@ -143,12 +177,15 @@ const Audio = (() => {
     }
 
     out.connect(musicGain);
+    // Schedula i layer melodici vivi (melody + harmonic pad + pluck + chatter)
+    if (roomId) scheduleMelody(roomId, preset, out, oscs, timers);
     return {out, stop: () => {
       try {
         const t = ctx.currentTime;
         out.gain.cancelScheduledValues(t);
         out.gain.setValueAtTime(out.gain.value, t);
         out.gain.linearRampToValueAtTime(0, t + 1.2);
+        timers.forEach(id => clearTimeout(id));
         setTimeout(() => {
           oscs.forEach(o => { try { o.stop(); } catch(e){} });
           out.disconnect();
@@ -157,12 +194,78 @@ const Audio = (() => {
     }};
   }
 
+  // Voice melodica procedurale: nota triangolo con ADSR soft → filtro → bus ambient
+  function playNote(freq, dur, gain, type, outBus, osList) {
+    const o = ctx.createOscillator();
+    o.type = type || "triangle";
+    o.frequency.value = freq;
+    const g = ctx.createGain();
+    g.gain.value = 0;
+    const t = ctx.currentTime;
+    g.gain.linearRampToValueAtTime(gain, t + dur * 0.25);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g).connect(outBus);
+    o.start(t); o.stop(t + dur + 0.05);
+    o.onended = () => { try { o.disconnect(); g.disconnect(); } catch(e){} };
+    osList.push(o);
+  }
+
+  function scheduleMelody(roomId, preset, outBus, oscs, timers) {
+    const scale = SCALES[BIOME_KEYS[roomId] || "Am"];
+    const motif = MELODIES[roomId] || [0, 2, 4, 2];
+    // 1) MOTIVO MELODICO lento: 3-5 note ogni ~2.5s, loop completo in 20-40s
+    let step = 0;
+    const playStep = () => {
+      const idx = motif[step % motif.length];
+      if (idx != null) playNote(scale[idx] * 2, 2.2, 0.10, "triangle", outBus, oscs);
+      step++;
+      timers.push(setTimeout(playStep, 2500 + Math.random() * 800));
+    };
+    timers.push(setTimeout(playStep, 1500));
+    // 2) VOICE ARMONICA: pad in cascata lenta (4 note, 6-8s ciascuna)
+    let hStep = 0;
+    const harmonic = () => {
+      const idx = [0, 2, 4, 3][hStep % 4];
+      playNote(scale[idx], 6.5, 0.06, "triangle", outBus, oscs);
+      hStep++;
+      timers.push(setTimeout(harmonic, 6000 + Math.random() * 2000));
+    };
+    timers.push(setTimeout(harmonic, 3000));
+    // 3) BELL/PLUCK sporadico su biomi "mistici"
+    if (PLUCK_BIOMES.has(roomId)) {
+      const pluck = () => {
+        const idx = motif[Math.floor(Math.random() * motif.length)] ?? 0;
+        playNote(scale[idx] * 4, 0.9, 0.08, "sine", outBus, oscs);
+        timers.push(setTimeout(pluck, 10000 + Math.random() * 20000));
+      };
+      timers.push(setTimeout(pluck, 8000 + Math.random() * 6000));
+    }
+    // 4) CHATTER procedurale birdlike per atmosfere vive
+    if (CHATTER_BIOMES.has(roomId)) {
+      const chirp = () => {
+        const base = 1800 + Math.random() * 1400;
+        const o = ctx.createOscillator(); o.type = "sine";
+        o.frequency.setValueAtTime(base, ctx.currentTime);
+        o.frequency.exponentialRampToValueAtTime(base * (1.2 + Math.random() * 0.6), ctx.currentTime + 0.08);
+        const g = ctx.createGain(); g.gain.value = 0;
+        g.gain.linearRampToValueAtTime(0.05, ctx.currentTime + 0.01);
+        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.14);
+        o.connect(g).connect(outBus);
+        o.start(); o.stop(ctx.currentTime + 0.18);
+        o.onended = () => { try { o.disconnect(); g.disconnect(); } catch(e){} };
+        oscs.push(o);
+        timers.push(setTimeout(chirp, 3000 + Math.random() * 7000));
+      };
+      timers.push(setTimeout(chirp, 2000 + Math.random() * 4000));
+    }
+  }
+
   function setRoom(roomId) {
     if (muted) return;
     ensure();
     const preset = BIOMI[roomId] || BIOMI.spiaggia;
     if (currentAmbient) currentAmbient.stop();
-    const a = buildAmbient(preset);
+    const a = buildAmbient(preset, roomId);
     currentAmbient = a;
     const t = ctx.currentTime;
     a.out.gain.setValueAtTime(0, t);
