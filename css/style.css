@@ -92,10 +92,125 @@ h1, h2, h3, .title-hdr{font-family:'Cinzel','Georgia',serif;letter-spacing:1.5px
 #inv-toggle .inv-chev{transition:transform .3s}
 #inv-side.open #inv-toggle .inv-chev{transform:rotate(180deg)}
 #inv-toggle .inv-count{font-size:12px;background:var(--accent-hot);color:#1a0e05;padding:1px 7px;border-radius:10px;min-width:20px;text-align:center;font-weight:bold;font-family:'Courier New',monospace}
-#inv-side-body{pointer-events:auto;background:linear-gradient(180deg,#1f140a 0%,#14090a 100%);border:1px solid var(--border);border-right:none;border-radius:6px 0 0 6px;padding:14px 10px;min-width:230px;max-height:70vh;overflow-y:auto;transition:transform .3s ease, opacity .2s;box-shadow:-6px 0 22px rgba(0,0,0,.6)}
+#inv-side-body{pointer-events:auto;padding:0;min-width:280px;max-width:300px;max-height:78vh;overflow:visible;transition:transform .3s ease, opacity .2s;background:transparent;border:none;box-shadow:none}
 
-/* Inventario interno ora a colonna, non flex-wrap orizzontale */
-#inventory-bar{display:flex;flex-direction:row;flex-wrap:wrap;gap:8px;padding:0;min-height:auto}
+/* ─── ZAINO: cornice in stile gioco ─── */
+.inv-frame{
+  position:relative;
+  background:
+    linear-gradient(180deg, rgba(38, 26, 14, .96), rgba(20, 12, 6, .96)),
+    repeating-linear-gradient(45deg, transparent 0, transparent 6px, rgba(192,138,60,.04) 6px, rgba(192,138,60,.04) 7px);
+  border:2px solid var(--accent);
+  border-radius:4px;
+  padding:18px 14px 16px;
+  box-shadow:
+    -8px 0 28px rgba(0,0,0,.7),
+    inset 0 0 24px rgba(192,138,60,.12),
+    inset 0 0 80px rgba(0,0,0,.5);
+  max-height:78vh;
+  overflow-y:auto;
+  scrollbar-width:thin;
+  scrollbar-color:var(--accent) #0a0703;
+}
+.inv-frame::-webkit-scrollbar{width:6px}
+.inv-frame::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+.inv-frame::-webkit-scrollbar-track{background:#0a0703}
+
+/* Cornici angolari ornamentali */
+.inv-corner{position:absolute;width:18px;height:18px;border:2px solid var(--accent-hot);pointer-events:none}
+.inv-corner-tl{top:-2px;left:-2px;border-right:none;border-bottom:none;border-top-left-radius:4px}
+.inv-corner-tr{top:-2px;right:-2px;border-left:none;border-bottom:none;border-top-right-radius:4px}
+.inv-corner-bl{bottom:-2px;left:-2px;border-right:none;border-top:none;border-bottom-left-radius:4px}
+.inv-corner-br{bottom:-2px;right:-2px;border-left:none;border-top:none;border-bottom-right-radius:4px}
+
+/* Titolo ZAINO */
+.inv-title{
+  font-family:'Cinzel','Georgia',serif;
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:6px;
+  color:var(--accent-hot);
+  text-align:center;
+  margin:0 0 14px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(192,138,60,.4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-shadow:0 0 14px rgba(240,178,90,.45), 0 2px 3px #000;
+}
+.inv-title-flourish{
+  color:var(--accent);
+  font-size:14px;
+  opacity:.7;
+  transition:transform .6s ease;
+}
+#inv-side.open .inv-title-flourish{animation:flourishSpin 8s linear infinite}
+@keyframes flourishSpin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.inv-title-text{
+  background:linear-gradient(180deg, var(--accent-hot), var(--accent));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 1px 2px #000);
+}
+
+/* Inventario interno: GRIGLIA verticale a 3 colonne */
+#inventory-bar{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  padding:0;
+  min-height:auto;
+}
+.inv-empty{
+  grid-column:1 / -1;
+  text-align:center;
+  padding:20px 8px;
+  font-style:italic;
+  color:#7a6850;
+  font-size:13px;
+  letter-spacing:.5px;
+}
+
+/* Slot ridisegnati: pelle sfumata + bordo dorato */
+.inv-slot{
+  width:auto;
+  height:64px;
+  border:1.5px solid var(--border);
+  border-radius:5px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(192,138,60,.08), transparent 60%),
+    linear-gradient(180deg, #2a1a0c, #14090a);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.04),
+    inset 0 0 8px rgba(0,0,0,.6),
+    0 1px 2px rgba(0,0,0,.4);
+}
+.inv-slot:hover{
+  border-color:var(--accent-hot);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(240,178,90,.18), transparent 60%),
+    linear-gradient(180deg, #3a2a14, #1a0e05);
+  transform:translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 4px 14px rgba(192,138,60,.35),
+    0 1px 2px rgba(0,0,0,.4);
+}
+.inv-slot.selected{
+  border-color:var(--accent-hot);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(240,178,90,.30), transparent 65%),
+    linear-gradient(180deg, #4a3010, #2a1a0c);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 0 22px var(--accent-hot),
+    0 0 50px rgba(240,178,90,.3);
+  animation:selectedPulse 1.6s ease-in-out infinite;
+}
+.inv-slot img{width:44px;height:44px}
 
 /* ─── Mini-log sistema (effimero, bottom-left) ─── */
 #hud-log{position:absolute;bottom:14px;left:14px;z-index:19;pointer-events:none;display:flex;flex-direction:column;gap:4px;max-width:380px}

@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=1.4.1">
 </head>
 <body>
 <div id="game">
@@ -45,7 +45,18 @@
       <span class="inv-count">0</span>
     </button>
     <div id="inv-side-body" role="toolbar">
-      <div id="inventory-bar" role="toolbar" aria-label="Inventory slots"></div>
+      <div class="inv-frame">
+        <div class="inv-corner inv-corner-tl" aria-hidden="true"></div>
+        <div class="inv-corner inv-corner-tr" aria-hidden="true"></div>
+        <div class="inv-corner inv-corner-bl" aria-hidden="true"></div>
+        <div class="inv-corner inv-corner-br" aria-hidden="true"></div>
+        <h3 class="inv-title">
+          <span class="inv-title-flourish" aria-hidden="true">❦</span>
+          <span class="inv-title-text">ZAINO</span>
+          <span class="inv-title-flourish" aria-hidden="true">❦</span>
+        </h3>
+        <div id="inventory-bar" role="toolbar" aria-label="Inventory slots"></div>
+      </div>
     </div>
   </aside>
   <!-- Log di sistema minimalista, appare solo per messaggi system brevi -->
@@ -68,13 +79,13 @@
     </div>
   </div>
 </div>
-<script src="js/i18n.js"></script>
-<script src="js/engine.js"></script>
-<script src="js/audio.js"></script>
-<script src="js/fx.js"></script>
-<script src="js/render.js"></script>
-<script src="js/ui.js"></script>
-<script src="js/input.js"></script>
-<script src="js/main.js"></script>
+<script src="js/i18n.js?v=1.4.1"></script>
+<script src="js/engine.js?v=1.4.1"></script>
+<script src="js/audio.js?v=1.4.1"></script>
+<script src="js/fx.js?v=1.4.1"></script>
+<script src="js/render.js?v=1.4.1"></script>
+<script src="js/ui.js?v=1.4.1"></script>
+<script src="js/input.js?v=1.4.1"></script>
+<script src="js/main.js?v=1.4.1"></script>
 </body>
 </html>
