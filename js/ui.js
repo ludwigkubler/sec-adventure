@@ -192,6 +192,10 @@ const UI = (() => {
         <button id="m-load">${esc(I18n.t("load"))}</button>
         <button id="m-help">${esc(I18n.t("help_menu"))}</button>
         <button id="m-journal">${esc(I18n.t("journal_menu"))}</button>
+        <button id="m-thoughts">💭 ${L("Pensieri","Thoughts")}</button>
+        <button id="m-skills">🎯 ${L("Abilità e reputazione","Skills & reputation")}</button>
+        <button id="m-craft">⚒ ${L("Albero del crafting","Crafting tree")}</button>
+        <button id="m-photo">📷 ${L("Modalità fotografia","Photo mode")}</button>
         <button id="m-captions">💬 ${L("Sottotitoli SFX", "SFX captions")}: ${capOn ? L("ON","ON") : L("OFF","OFF")}</button>
         <button id="m-restart" style="opacity:.7">${esc(I18n.t("restart_menu"))}</button>
         <button id="ui-close">${esc(I18n.t("close"))}</button>
@@ -204,6 +208,10 @@ const UI = (() => {
     };
     document.getElementById("m-help").onclick = showHelp;
     document.getElementById("m-journal").onclick = showJournal;
+    const mt = document.getElementById("m-thoughts");   if (mt) mt.onclick = () => showThoughts();
+    const ms = document.getElementById("m-skills");     if (ms) ms.onclick = () => showSkills();
+    const mc = document.getElementById("m-craft");      if (mc) mc.onclick = () => showCraftingTree();
+    const mp = document.getElementById("m-photo");      if (mp) mp.onclick = () => V2 && V2.showPhotoMode && V2.showPhotoMode();
     document.getElementById("m-captions").onclick = () => {
       const now = Audio.toggleCaptions();
       Audio.sfx("click");

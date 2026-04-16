@@ -18,11 +18,6 @@
     Engine.init(world);
     Input.wire();
     applyUIStrings();
-    // ─── v2.0 systems init ───
-    if (window.WorldClock) WorldClock.init();
-    if (window.Sky) Sky.start();
-    if (window.Lighting) Lighting.init();
-    if (window.V2) V2.init();
 
     const title = document.getElementById("title-screen");
     const btnNew = document.getElementById("btn-new");

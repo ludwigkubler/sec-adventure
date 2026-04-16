@@ -44,10 +44,6 @@ const Input = (() => {
       if (e.key === "l" || e.key === "L") window.toggleLang && window.toggleLang();
       if (e.key === "f" || e.key === "F") toggleFullscreen();
       if (e.key === "i" || e.key === "I") toggleInv();
-      if (e.key === "b" || e.key === "B") UI.showThoughts && UI.showThoughts();
-      if (e.key === "k" || e.key === "K") UI.showSkills && UI.showSkills();
-      if (e.key === "r" || e.key === "R") UI.showCraftingTree && UI.showCraftingTree();
-      if (e.key === "p" || e.key === "P") V2 && V2.showPhotoMode && V2.showPhotoMode();
       if (e.key === "?") UI.showHelp();
       if (e.key === "m" || e.key === "M") {
         const muted = Audio.toggleMute();
@@ -73,15 +69,6 @@ const Input = (() => {
     if (fsBtn) fsBtn.onclick = () => toggleFullscreen();
     const invToggleBtn = document.getElementById("inv-toggle");
     if (invToggleBtn) invToggleBtn.onclick = () => toggleInv();
-    // v2.0 buttons
-    const tBtn = document.getElementById("btn-thoughts");
-    if (tBtn) tBtn.onclick = () => UI.showThoughts && UI.showThoughts();
-    const skBtn = document.getElementById("btn-skills");
-    if (skBtn) skBtn.onclick = () => UI.showSkills && UI.showSkills();
-    const crBtn = document.getElementById("btn-craft");
-    if (crBtn) crBtn.onclick = () => UI.showCraftingTree && UI.showCraftingTree();
-    const phBtn = document.getElementById("btn-photo");
-    if (phBtn) phBtn.onclick = () => V2 && V2.showPhotoMode && V2.showPhotoMode();
     document.getElementById("btn-mute").onclick = () => {
       const muted = Audio.toggleMute();
       document.getElementById("btn-mute").querySelector("span").textContent = muted ? "🔇" : "🔊";

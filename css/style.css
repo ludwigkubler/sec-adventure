@@ -35,7 +35,7 @@ h1, h2, h3, .title-hdr{font-family:'Cinzel','Georgia',serif;letter-spacing:1.5px
 
 /* ─── SCENE ─── */
 #scene{position:relative;width:min(100vw,1280px);aspect-ratio:16/10;max-height:80vh;background:#0b0705;box-shadow:0 0 80px #000 inset, 0 4px 30px #000;overflow:hidden;border:1px solid var(--border);border-radius:3px}
-#bg{position:absolute;inset:-3%;background-size:cover;background-position:center;background-color:#2a1a0c;transition:opacity .4s, filter .4s;image-rendering:auto;animation:kenBurns 32s ease-in-out infinite alternate;filter:saturate(.88) contrast(1.06) brightness(.96)}
+#bg{position:absolute;inset:-3%;background-size:cover;background-position:center;background-color:#2a1a0c;transition:opacity .4s;image-rendering:auto;animation:kenBurns 32s ease-in-out infinite alternate}
 #bg.fading{opacity:.0;filter:blur(8px);animation-play-state:paused}
 @keyframes kenBurns{
   0%   {transform:scale(1.04) translate(-1%, -1%)}

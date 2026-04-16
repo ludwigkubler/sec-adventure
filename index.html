@@ -7,12 +7,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2.0">
+<link rel="stylesheet" href="css/style.css?v=2.0.2">
 </head>
 <body>
 <div id="game">
   <div id="scene" role="application" aria-label="Adventure scene">
-    <canvas id="sky-canvas" aria-hidden="true"></canvas>
     <div id="bg" aria-hidden="true"></div>
     <div id="bg-near" aria-hidden="true"></div>
     <div id="ambient-fx" aria-hidden="true"></div>
@@ -26,10 +25,6 @@
       <button class="topbtn" id="btn-map" title="Map (T)" aria-label="Map"><span aria-hidden="true">🗺</span></button>
       <button class="topbtn" id="btn-codex" title="Codex (C)" aria-label="Codex"><span aria-hidden="true">📜</span></button>
       <button class="topbtn" id="btn-journal" title="Journal (J)" aria-label="Journal"><span aria-hidden="true">📖</span></button>
-      <button class="topbtn" id="btn-thoughts" title="Thoughts (B)" aria-label="Thought Cabinet"><span aria-hidden="true">💭</span></button>
-      <button class="topbtn" id="btn-skills" title="Skills (K)" aria-label="Skills"><span aria-hidden="true">🎯</span></button>
-      <button class="topbtn" id="btn-craft" title="Crafting (R)" aria-label="Crafting"><span aria-hidden="true">⚒</span></button>
-      <button class="topbtn" id="btn-photo" title="Photo (P)" aria-label="Photo Mode"><span aria-hidden="true">📷</span></button>
       <button class="topbtn" id="btn-hint" title="Hint (H)" aria-label="Contextual hint"><span aria-hidden="true">💡</span></button>
       <button class="topbtn" id="btn-mute" title="Audio (M)" aria-label="Toggle audio"><span aria-hidden="true">🔊</span></button>
       <button class="topbtn" id="btn-lang" title="Language (L)" aria-label="Toggle language"><span aria-hidden="true">🌐</span></button>
@@ -39,24 +34,8 @@
     </nav>
     <div id="hud-overlay" aria-label="Game status" role="status">
       <span id="hud-time" title="Tempo gioco" aria-label="Tempo gioco">⏱ 00:00</span>
-      <span id="hud-clock" title="Ora del giorno" aria-label="Ora del giorno">🕐 06:00</span>
-      <span id="hud-weather" title="Meteo" aria-label="Meteo">☀</span>
-      <span id="hud-rooms" title="Stanze visitate" aria-label="Stanze visitate">🏠 0/37</span>
+      <span id="hud-rooms" title="Stanze visitate" aria-label="Stanze visitate">🏠 0/46</span>
       <span id="hud-pct" title="Completamento" aria-label="Completamento">✦ 0%</span>
-    </div>
-    <div id="hud-stats" aria-label="Player stats">
-      <div class="stat-bar" title="Resistenza">
-        <span class="stat-icon">❤</span>
-        <div class="stat-fill"><div id="stat-resistenza" class="stat-fill-inner" style="width:100%"></div></div>
-      </div>
-      <div class="stat-bar" title="Fame">
-        <span class="stat-icon">🍞</span>
-        <div class="stat-fill"><div id="stat-hunger" class="stat-fill-inner" style="width:100%"></div></div>
-      </div>
-      <div class="stat-bar" title="Fatica">
-        <span class="stat-icon">⚡</span>
-        <div class="stat-fill"><div id="stat-fatigue" class="stat-fill-inner" style="width:100%"></div></div>
-      </div>
     </div>
   </div>
   <!-- Inventario laterale a destra, collassabile (Zaino) -->
@@ -98,18 +77,15 @@
     </div>
   </div>
 </div>
-<script src="js/state-machine.js?v=2.0"></script>
-<script src="js/world-clock.js?v=2.0"></script>
-<script src="js/sky.js?v=2.0"></script>
-<script src="js/lighting.js?v=2.0"></script>
-<script src="js/i18n.js?v=2.0"></script>
-<script src="js/engine.js?v=2.0"></script>
-<script src="js/audio.js?v=2.0"></script>
-<script src="js/fx.js?v=2.0"></script>
-<script src="js/render.js?v=2.0"></script>
-<script src="js/v2-systems.js?v=2.0"></script>
-<script src="js/ui.js?v=2.0"></script>
-<script src="js/input.js?v=2.0"></script>
-<script src="js/main.js?v=2.0"></script>
+<script src="js/state-machine.js?v=2.0.2"></script>
+<script src="js/i18n.js?v=2.0.2"></script>
+<script src="js/engine.js?v=2.0.2"></script>
+<script src="js/audio.js?v=2.0.2"></script>
+<script src="js/fx.js?v=2.0.2"></script>
+<script src="js/render.js?v=2.0.2"></script>
+<script src="js/v2-systems.js?v=2.0.2"></script>
+<script src="js/ui.js?v=2.0.2"></script>
+<script src="js/input.js?v=2.0.2"></script>
+<script src="js/main.js?v=2.0.2"></script>
 </body>
 </html>
